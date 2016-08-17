@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Módulo commonsdialog &mdash; documentación de gvsig - 0</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="documentación de gvsig - 0" href="../index.html" />
+    <link rel="next" title="Cargando capas" href="cargando_capas.html" />
+    <link rel="prev" title="Modelo de objetos simplificado" href="modelo_de_objetos_simplificado.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="cargando_capas.html" title="Cargando capas"
+             accesskey="N">siguiente</a> |</li>
+        <li class="right" >
+          <a href="modelo_de_objetos_simplificado.html" title="Modelo de objetos simplificado"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de gvsig - 0</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="modulo-commonsdialog">
+<h1>Módulo commonsdialog<a class="headerlink" href="#modulo-commonsdialog" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="funciones-principales">
+<h2>Funciones principales<a class="headerlink" href="#funciones-principales" title="Enlazar permanentemente con este título">¶</a></h2>
+<dl class="function">
+<dt id="msgbox">
+<code class="descname">msgbox</code><span class="sig-paren">(</span><em>message</em><span class="optional">[</span>, <em>title=&quot;&quot;</em>, <em>meesageType=IDEA</em>, <em>root=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#msgbox" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Shows a message dialog with ok button only.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> (<em>str</em>) &#8211; text to present in the dialog</li>
+<li><strong>title</strong> (<em>str</em>) &#8211; title of the dialog</li>
+<li><strong>messageType</strong> (<em>int</em>) &#8211; type of icon to use.</li>
+<li><strong>root</strong> (<em>DefaultFrame or None</em>) &#8211; Frame reference</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="inputbox">
+<code class="descname">inputbox</code><span class="sig-paren">(</span><em>message</em><span class="optional">[</span>, <em>title=&quot;&quot;</em>, <em>messageType=IDEA</em>, <em>initialValue=&quot;&quot;</em>, <em>root=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#inputbox" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Shows a input dialog.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>message</strong> (<em>str</em>) &#8211; text to present in the dialog</li>
+<li><strong>title</strong> (<em>str</em>) &#8211; title of the dialog</li>
+<li><strong>messageType</strong> (<em>int</em>) &#8211; type of icon to use.</li>
+<li><strong>initialValue</strong> (<em>str</em>) &#8211; Initial value of the inputbox</li>
+<li><strong>root</strong> (<em>DefaultFrame or None</em>) &#8211; Frame reference</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body"><p class="first">Return text in the input box</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><p class="first last">str</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="confirmDialog">
+<code class="descname">confirmDialog</code><span class="sig-paren">(</span><em>message</em><span class="optional">[</span>, <em>title=&quot;&quot;</em>, <em>optionType=YES_NO</em>, <em>messageType=IDEA</em>, <em>root=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#confirmDialog" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Create a message dialog with options button</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first last simple">
+<li><strong>message</strong> (<em>str</em>) &#8211; text to present in the dialog</li>
+<li><strong>title</strong> (<em>str</em>) &#8211; title of the dialog</li>
+<li><strong>optionType</strong> (<em>int</em>) &#8211; bottons to show</li>
+<li><strong>messageType</strong> (<em>int</em>) &#8211; type of icon to use.</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="filechooser">
+<code class="descname">filechooser</code><span class="sig-paren">(</span><em>option</em><span class="optional">[</span>, <em>title=&quot;&quot;</em>, <em>initialPath=None</em>, <em>multiselection=False</em>, <em>filter = None</em>, <em>fileHidingEnabled=True</em>, <em>root=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#filechooser" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><blockquote>
+<div>Allows configuration parameters to filechooser dialogs</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>option</strong> (<em>int</em>) &#8211; file chooser selection mode. Allowed values: OPEN_FILE, OPEN_DIRECTORY, SAVE_FILE</li>
+<li><strong>title</strong> (<em>str</em>) &#8211; Window title</li>
+<li><strong>initialPath</strong> (<em>str</em>) &#8211; Initial path to the directory to open in the dialog</li>
+<li><strong>multiselection</strong> (<em>boolean</em>) &#8211; Allow select more than one object.</li>
+<li><strong>filter</strong> (<em>List of Strings</em>) &#8211; list of acepted extension files (&#8220;jpg&#8221;, &#8220;png&#8221;, &#8220;gif&#8221;)</li>
+<li><strong>fileHidingEnabled</strong> (<em>boolean</em>) &#8211; True if hidden files are not displayed</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body"><p class="first last">Selected path or list of paths</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="openFileDialog">
+<code class="descname">openFileDialog</code><span class="sig-paren">(</span><span class="optional">[</span><em>title=''</em>, <em>initialPath=None</em>, <em>root=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#openFileDialog" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><blockquote>
+<div>Shows a window dialog to choose one file.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title</strong> (<em>str</em>) &#8211; Window title. Default &#8216;&#8217;</li>
+<li><strong>initialPath</strong> (<em>str</em>) &#8211; Initial path to open in window dialog</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="openFolderDialog">
+<code class="descname">openFolderDialog</code><span class="sig-paren">(</span><span class="optional">[</span><em>title=''</em>, <em>initialPath=None</em>, <em>root=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#openFolderDialog" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Shows a window dialog to choose one folder.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title</strong> (<em>str</em>) &#8211; Window title. Default &#8216;&#8217;</li>
+<li><strong>initialPath</strong> (<em>str</em>) &#8211; Initial path to open in window dialog</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="saveFileDialog">
+<code class="descname">saveFileDialog</code><span class="sig-paren">(</span><span class="optional">[</span><em>title=''</em>, <em>initialPath=None</em>, <em>root=None</em><span class="optional">]</span><span class="sig-paren">)</span><a class="headerlink" href="#saveFileDialog" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><p>Shows a window dialog to choose one file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first last simple">
+<li><strong>title</strong> (<em>str</em>) &#8211; Window title. Default &#8216;&#8217;</li>
+<li><strong>initialPath</strong> (<em>str</em>) &#8211; Initial path to open in window dialog</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="getJavaFile">
+<code class="descname">getJavaFile</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#getJavaFile" title="Enlazar permanentemente con esta definición">¶</a></dt>
+<dd><blockquote>
+<div>Returns a java File using parameter path. If path doesn&#8217;t exists looks for user home folder and if can not find it, returns path will be gvSIG instance directory.</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Devuelve:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">java.io.File</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</div>
+<div class="section" id="constantes-en-la-libreria">
+<h2>Constantes en la librería<a class="headerlink" href="#constantes-en-la-libreria" title="Enlazar permanentemente con este título">¶</a></h2>
+<p><em>messageType options</em>
+FORBIDEN = 0
+IDEA= 1
+WARNING= 2
+QUESTION= 3</p>
+<p><em>Confirmdialog optionType Options</em>
+YES_NO = 0
+YES_NO_CANCEL = 1
+ACEPT_CANCEL = 2</p>
+<p>YES = 0
+NO = 1
+CANCEL = 2</p>
+<p><em>filechooser options</em>
+OPEN_FILE = 0
+OPEN_DIRECTORY = 1
+SAVE_FILE = 2</p>
+<p><em>filechooser selectionMode</em>
+FILES_ONLY = JFileChooser.FILES_ONLY
+DIRECTORIES_ONLY = JFileChooser.DIRECTORIES_ONLY</p>
+</div>
+<div class="section" id="uso">
+<h2>Uso<a class="headerlink" href="#uso" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En el módulo de commonsdialog  gestiona las ventanas emergentes que aparecen en gvSIG. Por ejemplo, si queremos mostrar un avisa al usuario usaremos <a class="reference internal" href="#msgbox" title="msgbox"><code class="xref py py-func docutils literal"><span class="pre">msgbox()</span></code></a>: o si queremos preguntar por algún valor al usuario que ejecute el script, podemos usar la función <a class="reference internal" href="#inputbox" title="inputbox"><code class="xref py py-func docutils literal"><span class="pre">inputbox()</span></code></a> la cual devolverá el texto que escriba el usuario en la caja de texto que aparecerá en pantalla.</p>
+<p>Para importar la librería lo haremos mediante:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">gvsig.commonsdialog</span>
+</pre></div>
+</div>
+<p>o:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="n">commonsdialog</span>
+</pre></div>
+</div>
+<p>o:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig.commonsdialog</span> <span class="k">import</span> <span class="o">*</span>
+</pre></div>
+</div>
+<p>Por ejemplo:</p>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kn">from</span> <span class="nn">gvsig</span> <span class="kn">import</span> <span class="n">commonsdialog</span>
+</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+<span class="hll">        <span class="n">commonsdialog</span><span class="o">.</span><span class="n">msgbox</span><span class="p">(</span><span class="s2">&quot;Bienvenido a gvSig&quot;</span><span class="p">,</span><span class="s2">&quot;Welcome&quot;</span><span class="p">,</span> <span class="n">commonsdialog</span><span class="o">.</span><span class="n">IDEA</span><span class="p">)</span>
+</span></pre></div>
+</td></tr></table></div>
+<p>El tipo de mensaje lo establecemos en el parámetro meesageType como podemos ver en <a class="reference internal" href="#msgbox" title="msgbox"><code class="xref py py-func docutils literal"><span class="pre">msgbox()</span></code></a> y estos tipos se encuentras almacenados en constantes dentro del módulo commonsdialog.</p>
+<p>O depende de cómo lo importemos.</p>
+<div class="literal-block-wrapper container" id="msgbox-commonsdialog">
+<div class="code-block-caption"><span class="caption-text">msgbox.py</span><a class="headerlink" href="#msgbox-commonsdialog" title="Enlace permanente a este código fuente">¶</a></div>
+<div class="highlight-python"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="hll"><span class="kn">from</span> <span class="nn">gvsig.commonsdialog</span> <span class="kn">import</span> <span class="o">*</span>
+</span>
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+<span class="hll">        <span class="n">msgbox</span><span class="p">(</span><span class="s2">&quot;Bienvenido a gvSIG&quot;</span><span class="p">,</span> <span class="s2">&quot;Welcome&quot;</span><span class="p">,</span> <span class="n">IDEA</span><span class="p">)</span>
+</span></pre></div>
+</td></tr></table></div>
+</div>
+<p>Dando como resultado una ventana:</p>
+<div class="figure align-center">
+<img alt="../_images/commonsdialog-msgbox_1.png" src="../_images/commonsdialog-msgbox_1.png" />
+</div>
+<p>Depende del tipo de aviso que seleccionemos mostrará diferentes iconos en la ventana:</p>
+<p>WARNING:</p>
+<div class="figure align-center">
+<img alt="../_images/commonsdialog-msgbox_2.png" src="../_images/commonsdialog-msgbox_2.png" />
+</div>
+<p>FORBIDEN:</p>
+<div class="figure align-center">
+<img alt="../_images/commonsdialog-msgbox_3.png" src="../_images/commonsdialog-msgbox_3.png" />
+</div>
+<p>QUESTION:</p>
+<div class="figure align-center">
+<img alt="../_images/commonsdialog-msgbox_4.png" src="../_images/commonsdialog-msgbox_4.png" />
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Tabla de Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Módulo commonsdialog</a><ul>
+<li><a class="reference internal" href="#funciones-principales">Funciones principales</a></li>
+<li><a class="reference internal" href="#constantes-en-la-libreria">Constantes en la librería</a></li>
+<li><a class="reference internal" href="#uso">Uso</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="modelo_de_objetos_simplificado.html"
+                        title="capítulo anterior">Modelo de objetos simplificado</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="cargando_capas.html"
+                        title="próximo capítulo">Cargando capas</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/docs/modulo_commonsdialog.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="cargando_capas.html" title="Cargando capas"
+             >siguiente</a> |</li>
+        <li class="right" >
+          <a href="modelo_de_objetos_simplificado.html" title="Modelo de objetos simplificado"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de gvsig - 0</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Oscar.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

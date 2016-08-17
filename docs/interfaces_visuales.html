@@ -1,0 +1,200 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Interfaces visuales &mdash; documentación de gvsig - 0</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="documentación de gvsig - 0" href="../index.html" />
+    <link rel="next" title="Geoprocesos" href="geoprocesos.html" />
+    <link rel="prev" title="Módulo de geometrías: geom" href="modulo_geom.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="geoprocesos.html" title="Geoprocesos"
+             accesskey="N">siguiente</a> |</li>
+        <li class="right" >
+          <a href="modulo_geom.html" title="Módulo de geometrías: geom"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de gvsig - 0</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="interfaces-visuales">
+<h1>Interfaces visuales<a class="headerlink" href="#interfaces-visuales" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="abeille">
+<h2>Abeille<a class="headerlink" href="#abeille" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>El programa Abeille lo usaremos para la creación de las interfaces visuales. En este programa podremos establecer el aspecto de las ventanas, nombres, etc. Haciendo uso de la librería FormPanel podremos cargarlo fácilmente en un script, y sacarle el máximo partido.</p>
+</div>
+<div class="section" id="uso-de-formpanel">
+<h2>Uso de FormPanel<a class="headerlink" href="#uso-de-formpanel" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para la creación de script visuales nos apoyaremos en la clase FormPanel contenida en <code class="docutils literal"><span class="pre">gvsig.libs.formpanel</span></code>. Crearemos una clase nueva que contendrá la funcionalidad de nuestro script y extenderemos desde FormPanel.</p>
+<p>Ejemplo básico de la carga de una interfaz en un script:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gvsig.libs.formpanel</span> <span class="k">import</span> <span class="n">FormPanel</span>
+
+<span class="k">class</span> <span class="nc">Panel</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;ui_basic.xml&quot;</span><span class="p">))</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">()</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Visual&quot;</span><span class="p">)</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Por defecto, en FormPanel viene establecido un método <code class="docutils literal"><span class="pre">btnClose_click</span></code>, que servirá para cerrar este script. De esta forma solo tenemos que establecer en Abeille un botón denominado <code class="docutils literal"><span class="pre">btnClose</span></code> y ya tendremos un botón programado para el cierre de la aplicación.</p>
+<p>Seguimos desarrollando las funcionalidades de FormPanel. Una de ellas es el auto enlace con eventos que se podrucen en los elementos de la interfaz visual. Por ejemplo, si creamos un botón denominado <code class="docutils literal"><span class="pre">btnAccept</span></code> en nuestra interfaz y queremos que muestre un mensaje por consola cada vez que lo presionemos, tan solo deberemos de crear un método en nuestra clase que contenga el nombre del elemento &#8220;btnAccept&#8221; terminado con la acción que queremos coger &#8220;_click&#8221;.</p>
+<p>De esta forma no tenemos que preocuparnos de eventos, ya que la propia librería FormPanel nos lo gestionará:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gvsig.libs.formpanel</span> <span class="k">import</span> <span class="n">FormPanel</span>
+
+<span class="k">class</span> <span class="nc">Panel</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;ui_basic.xml&quot;</span><span class="p">))</span>
+
+        <span class="k">def</span> <span class="nf">btnCalcular_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">txtField</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Clicked!&quot;</span><span class="p">)</span>
+                <span class="nb">print</span> <span class="s2">&quot;Clicked!&quot;</span>
+
+        <span class="k">def</span> <span class="nf">btnClose_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+  <span class="n">l</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">()</span>
+  <span class="n">l</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Visual&quot;</span><span class="p">)</span>
+  <span class="k">pass</span>
+</pre></div>
+</div>
+<p>No todos los eventos posibles de cada elemento del interfaz están implementados dentro de FormPanel (pero si necesitas alguno de ellos se podrían añadir o implementar en tu propia clase). Aquí mostramos algunos de estos eventos:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gvsig.libs.formpanel</span> <span class="k">import</span> <span class="n">FormPanel</span>
+
+<span class="k">class</span> <span class="nc">Panel</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;ui_actions_change.xml&quot;</span><span class="p">))</span>
+
+        <span class="k">def</span> <span class="nf">btnCalcular_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">txtField</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Clicked!&quot;</span><span class="p">)</span>
+                <span class="nb">print</span> <span class="s2">&quot;Clicked!&quot;</span>
+
+        <span class="k">def</span> <span class="nf">chb1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="nb">print</span> <span class="s2">&quot;Check box!&quot;</span>
+
+        <span class="k">def</span> <span class="nf">rb1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="nb">print</span> <span class="s2">&quot;Radio button!&quot;</span>
+
+        <span class="k">def</span> <span class="nf">cmb1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="nb">print</span> <span class="s2">&quot;Combobox!&quot;</span>
+
+        <span class="k">def</span> <span class="nf">sld1_focusGained</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="nb">print</span> <span class="s2">&quot;Slider!&quot;</span><span class="p">,</span> <span class="n">sld1</span><span class="o">.</span><span class="n">getValue</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">spn1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="nb">print</span> <span class="s2">&quot;Spinner!&quot;</span>
+
+        <span class="k">def</span> <span class="nf">btnClose_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">l</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">()</span>
+        <span class="n">l</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Visual&quot;</span><span class="p">)</span>
+        <span class="k">pass</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Tabla de Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Interfaces visuales</a><ul>
+<li><a class="reference internal" href="#abeille">Abeille</a></li>
+<li><a class="reference internal" href="#uso-de-formpanel">Uso de FormPanel</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="modulo_geom.html"
+                        title="capítulo anterior">Módulo de geometrías: geom</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="geoprocesos.html"
+                        title="próximo capítulo">Geoprocesos</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/docs/interfaces_visuales.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="geoprocesos.html" title="Geoprocesos"
+             >siguiente</a> |</li>
+        <li class="right" >
+          <a href="modulo_geom.html" title="Módulo de geometrías: geom"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de gvsig - 0</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Oscar.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

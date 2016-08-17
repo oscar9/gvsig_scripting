@@ -1,0 +1,131 @@
+
+Geoprocesos
+===========
+
+Insertar geoproceso en la Toolbox
+---------------------------------
+
+Creación de un geoproceso desde Scripting::
+
+	# encoding: utf-8
+
+
+	from gvsig import *
+	from gvsig.commonsdialog import *
+
+	from gvsig.libs.toolbox import *
+	from es.unex.sextante.gui import core
+	from es.unex.sextante.gui.core import NameAndIcon
+
+	class XYShift(ToolboxProcess):
+	  
+	  def defineCharacteristics(self):
+		"""
+	En esta operacion debemos definir los parametros de netrada y salida que va a precisar nuetro proceso.
+		"""
+		# Fijamos el nombre con el que se va a mostrar nuestro proceso
+		self.setName("Prueba desplazamiento en X e Y")
+		
+		# Indicamos el grupo en el que aparecera
+		self.setGroup("Vectorial")
+			
+		params = self.getParameters()
+		# Indicamos que precisamos un parametro LAYER, del tipo punto y que es obligatorio
+		params.addInputVectorLayer("LAYER","Caoa de entrada", SHAPE_TYPE_POINT,True)
+		# Indicamos que precisamos un par de valores numericos, X e Y 
+		params.addNumericalValue("X", "X_traslation",0, NUMERICAL_VALUE_DOUBLE)
+		params.addNumericalValue("Y", "Y_traslation", 0, NUMERICAL_VALUE_DOUBLE)
+		
+		# Y por ultimo indicamos que precisaremos una capa de salida de puntos.
+		self.addOutputVectorLayer("RESULT_POINT", "XYShift_point", SHAPE_TYPE_POINT)
+
+	  def processAlgorithm(self):
+		"""
+	Esta operacion es la encargada de realizar nuetro proceso.
+		"""
+		features=None
+	   
+		try:
+
+		  """
+		  Recogemos los parametros y creamos el conjunto de entidades asociadas a la capa
+		  de entrada.
+		  """
+		  params = self.getParameters()
+		  layer = params.getParameterValueAsVectorLayer("LAYER")
+		  x = params.getParameterValueAsDouble("X")
+		  y = params.getParameterValueAsDouble("Y")
+
+		  input_store = layer.getFeatureStore()
+
+		  features = input_store.getFeatureSet()
+		  """
+		  Generamos la capa de salida con la misma estructura que la capa de entrada
+		  """
+		  output_store = self.buildOutPutStore(
+			features.getDefaultFeatureType(), 
+			SHAPE_TYPE_POINT,
+			"XYShift_points",
+			"RESULT_POINT"
+		  )
+
+		  """
+		  Nos recorremos todas las entidades de entrada, y creamos las de salida desplazando la geometria
+		  en los valores indicados por la X e Y de los parametros.
+		  """
+		  self.setRangeOfValues(0,features.getSize())
+		  n = 0
+		  for feature in features.iterator():
+			if self.isCanceled():
+			  # Si el usuario indico que quiere cancelar el proceso abortamos.
+			  print "Proceso cancelado"
+			  break
+			
+			# Incrementamos el progreso de nuestro proceso.
+			self.next()
+
+			# Creamos una nueva entidad para nuestro almacen de salida.
+			newfeature = self.createNewFeature(output_store,feature)
+
+			# Desplazamos la geometria de la nueva entidad
+			geom = newfeature.getDefaultGeometry()
+			geom.move(x,y)
+			
+			# Guardamos la nueva entidad
+			output_store.insert(newfeature)
+			n+=1
+			self.setCurValue(n)
+
+		  # Cuando hemos terminado de recorrernos las entidades terminamos la edicion.
+		  output_store.finishEditing()   
+		  
+		finally:
+		  DisposeUtils.disposeQuietly(features)
+		  print "Proceso terminado %s" % self.getCommandLineName() 
+		  return True
+		
+
+	def main(*args):
+		# Creamos nuesto geoproceso
+		process = XYShift()
+		# Lo registramos entre los procesos disponibles en el grupo de "Scripting"
+		process.selfregister("Scripting")
+		from es.unex.sextante.gui.core import SextanteGUI
+		#SextanteGUI.addAlgorithmProvider(process.__class__)
+		from org.gvsig.geoprocess.lib.api import GeoProcessLocator
+		gm = GeoProcessLocator.getGeoProcessManager()
+
+		alg = gm.getAlgorithms()
+		for a in alg:
+			print a
+		#gm.registerGeoProcess(process)
+		
+		# Actualizamos el interface de usuario de la Toolbox
+		process.updateToolbox()
+
+		msgbox("Incorporado el script '%s/%s/%s' a la paleta de geoprocesos." % (
+			"Scripting",
+			process.getGroup(),
+			process.getName()
+		  )
+		)

@@ -1,0 +1,245 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Cargando capas &mdash; documentación de gvsig - 0</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="top" title="documentación de gvsig - 0" href="../index.html" />
+    <link rel="next" title="Acceso a objectos en gvSIG" href="acceso_a_objetos.html" />
+    <link rel="prev" title="Módulo commonsdialog" href="modulo_commonsdialog.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="acceso_a_objetos.html" title="Acceso a objectos en gvSIG"
+             accesskey="N">siguiente</a> |</li>
+        <li class="right" >
+          <a href="modulo_commonsdialog.html" title="Módulo commonsdialog"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de gvsig - 0</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="cargando-capas">
+<h1>Cargando capas<a class="headerlink" href="#cargando-capas" title="Enlazar permanentemente con este título">¶</a></h1>
+<dl class="function">
+<dt>
+<code class="descname">loadShapeFile(shpFile, **parameters):</code></dt>
+<dd><p>Add an existing shape file to the view. Returns Layer shape file</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>shpFile</strong> &#8211; absolute file path to the shape</li>
+<li><strong>CRS</strong> (<em>string</em>) &#8211; projection code</li>
+<li><strong>gvViewName</strong> (<em>string</em>) &#8211; name of the view where to be loaded</li>
+<li><strong>gvLayerName</strong> (<em>string</em>) &#8211; name of the layer inside gvsig</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Type:</th><td class="field-body"><p class="first">shpFile: string</p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Devuelve:</th><td class="field-body"><p class="first last">shape</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt>
+<code class="descname">loadRasterFile(filename, **parameters):</code></dt>
+<dd><blockquote>
+<div><p>Add an existing raster file to the view. Returns Layer Raster file.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">param str filename:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">absolute file path to the raster</td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>CRS</strong> (<em>string</em>) &#8211; projection code</li>
+<li><strong>gvViewName</strong> (<em>string</em>) &#8211; name of the view where to be loaded</li>
+<li><strong>gvLayerName</strong> (<em>string</em>) &#8211; name of the layer inside gvsig</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body"><p class="first last">raster layer</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<div class="section" id="recursos-en-rutas-relativas">
+<h2>Recursos en rutas relativas<a class="headerlink" href="#recursos-en-rutas-relativas" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>En nuestros scripts siempre tenemos acceso al un objeto denominada <code class="docutils literal"><span class="pre">script</span></code> de tipo <code class="docutils literal"><span class="pre">DefaultScriptingScript</span></code>. Esta clase hace referencia a la ejecución del propio script y no tiene que ser importada.</p>
+<p>Una de las funciones que contiene nos será muy útil cuando tengamos extensiones con datos a los que tener acceso. Nos va a permitir acceder a datos contenidos en la carpeta de ejecución del script de forma relativa.</p>
+<p>Siendo que si tenemos una carpeta denominada <code class="docutils literal"><span class="pre">/datos/</span></code> al mismo nivel que nuestro script, podremos acceder a los datos de ella mediante <code class="docutils literal"><span class="pre">script.getResource(&quot;datos/capa.shp&quot;)</span></code> por ejemplo. Tener en cuenta que esta función devuelve un objeto Java del tipo <code class="docutils literal"><span class="pre">java.io.File</span></code>. Para sacar su ruta en formato string usaremos <code class="docutils literal"><span class="pre">getPath()</span></code> o para sacar su uri usaremos <code class="docutils literal"><span class="pre">.toURI()</span></code></p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+        <span class="n">file_raster</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;/data/mdt_jaen.tif&quot;</span><span class="p">)</span> <span class="c1">#return java.io.File</span>
+        <span class="n">path_raster</span> <span class="o">=</span> <span class="n">file_raster</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capas-vectoriales">
+<h2>Capas Vectoriales<a class="headerlink" href="#capas-vectoriales" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para cargar capas vectoriales usaremos la función :py:func:<code class="docutils literal"><span class="pre">loadShapeFile()</span></code>. Esta es una función de apoyo que llama a la función <code class="docutils literal"><span class="pre">createLayer()</span></code> más genérica.</p>
+<p>Ejemplo:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">java.io</span> <span class="k">import</span> <span class="n">File</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+        <span class="c1"># Get resource path</span>
+        <span class="n">xfile</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;/data/jaen.shp&quot;</span><span class="p">)</span>
+        <span class="n">shape_path</span> <span class="o">=</span> <span class="n">xfile</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span>
+
+        <span class="c1"># loadShapeFile function</span>
+        <span class="n">s1</span> <span class="o">=</span> <span class="n">loadShapeFile</span><span class="p">(</span><span class="n">shape_path</span><span class="p">)</span>
+
+        <span class="c1"># LoadLayer function</span>
+        <span class="n">s2</span> <span class="o">=</span> <span class="n">loadLayer</span><span class="p">(</span><span class="s2">&quot;Shape&quot;</span><span class="p">,</span> <span class="n">shpFile</span><span class="o">=</span><span class="n">xfile</span><span class="p">,</span> <span class="n">CRS</span><span class="o">=</span><span class="s2">&quot;EPSG:25830&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="capas-raster">
+<h2>Capas Raster<a class="headerlink" href="#capas-raster" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para cargar capas raster usaremos la función :py:func:<code class="docutils literal"><span class="pre">loadRasterFile()</span></code>. Esta es una función de apoyo que llama a la función <code class="docutils literal"><span class="pre">createLayer()</span></code> más genérica.</p>
+<p>Ejemplo:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+        <span class="c1"># Load Raster File</span>
+        <span class="n">raster_path</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;/data/mdt_jaen.tif&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span>
+        <span class="n">r1</span> <span class="o">=</span> <span class="n">loadRasterFile</span><span class="p">(</span><span class="n">raster_path</span><span class="p">)</span>
+
+        <span class="n">raster_uri</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;/data/mdt_jaen.tif&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">toURI</span><span class="p">()</span>
+        <span class="n">r2</span> <span class="o">=</span> <span class="n">loadLayer</span><span class="p">(</span><span class="s2">&quot;Gdal Store&quot;</span><span class="p">,</span> <span class="n">uri</span><span class="o">=</span><span class="n">raster_uri</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Si necesitamos transformar una ruta a formato <code class="docutils literal"><span class="pre">uri</span></code> podemos hacerlo apoyándonos en la clase de Java: <code class="docutils literal"><span class="pre">java.io.File</span></code>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">java.io</span> <span class="k">import</span> <span class="n">File</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+        <span class="c1"># Load Raster File</span>
+        <span class="n">raster_path</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;/data/mdt_jaen.tif&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span>
+
+        <span class="c1"># Path to URI</span>
+        <span class="n">uri</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">raster_path</span><span class="p">)</span><span class="o">.</span><span class="n">toURI</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Tabla de Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Cargando capas</a><ul>
+<li><a class="reference internal" href="#recursos-en-rutas-relativas">Recursos en rutas relativas</a></li>
+<li><a class="reference internal" href="#capas-vectoriales">Capas Vectoriales</a></li>
+<li><a class="reference internal" href="#capas-raster">Capas Raster</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="modulo_commonsdialog.html"
+                        title="capítulo anterior">Módulo commonsdialog</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="acceso_a_objetos.html"
+                        title="próximo capítulo">Acceso a objectos en gvSIG</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/docs/cargando_capas.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="acceso_a_objetos.html" title="Acceso a objectos en gvSIG"
+             >siguiente</a> |</li>
+        <li class="right" >
+          <a href="modulo_commonsdialog.html" title="Módulo commonsdialog"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">documentación de gvsig - 0</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Oscar.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

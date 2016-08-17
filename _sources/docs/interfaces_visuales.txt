@@ -1,0 +1,88 @@
+Interfaces visuales
+===============
+
+Abeille
+-------
+El programa Abeille lo usaremos para la creación de las interfaces visuales. En este programa podremos establecer el aspecto de las ventanas, nombres, etc. Haciendo uso de la librería FormPanel podremos cargarlo fácilmente en un script, y sacarle el máximo partido.
+
+
+Uso de FormPanel
+----------------
+
+Para la creación de script visuales nos apoyaremos en la clase FormPanel contenida en ``gvsig.libs.formpanel``. Crearemos una clase nueva que contendrá la funcionalidad de nuestro script y extenderemos desde FormPanel.
+
+Ejemplo básico de la carga de una interfaz en un script::
+
+	from gvsig import *
+	from gvsig.libs.formpanel import FormPanel
+
+	class Panel(FormPanel):
+		def __init__(self):
+			FormPanel.__init__(self, script.getResource("ui_basic.xml"))
+			
+	def main(*args):
+		l = Panel()
+		l.showTool("Visual")
+		pass
+		
+Por defecto, en FormPanel viene establecido un método ``btnClose_click``, que servirá para cerrar este script. De esta forma solo tenemos que establecer en Abeille un botón denominado ``btnClose`` y ya tendremos un botón programado para el cierre de la aplicación.
+
+Seguimos desarrollando las funcionalidades de FormPanel. Una de ellas es el auto enlace con eventos que se podrucen en los elementos de la interfaz visual. Por ejemplo, si creamos un botón denominado ``btnAccept`` en nuestra interfaz y queremos que muestre un mensaje por consola cada vez que lo presionemos, tan solo deberemos de crear un método en nuestra clase que contenga el nombre del elemento "btnAccept" terminado con la acción que queremos coger "_click".
+
+De esta forma no tenemos que preocuparnos de eventos, ya que la propia librería FormPanel nos lo gestionará::
+
+
+	from gvsig import *
+	from gvsig.libs.formpanel import FormPanel
+
+	class Panel(FormPanel):
+		def __init__(self):
+			FormPanel.__init__(self, script.getResource("ui_basic.xml"))
+
+		def btnCalcular_click(self, *args):
+			self.txtField.setText("Clicked!")
+			print "Clicked!"
+			
+		def btnClose_click(self,*args):
+			self.hide()
+			
+	def main(*args):
+	  l = Panel()
+	  l.showTool("Visual")
+	  pass
+  
+No todos los eventos posibles de cada elemento del interfaz están implementados dentro de FormPanel (pero si necesitas alguno de ellos se podrían añadir o implementar en tu propia clase). Aquí mostramos algunos de estos eventos::
+
+	from gvsig import *
+	from gvsig.libs.formpanel import FormPanel
+
+	class Panel(FormPanel):
+		def __init__(self):
+			FormPanel.__init__(self, script.getResource("ui_actions_change.xml"))
+
+		def btnCalcular_click(self, *args):
+			self.txtField.setText("Clicked!")
+			print "Clicked!"
+
+		def chb1_change(self, *args):
+			print "Check box!"
+
+		def rb1_change(self, *args):
+			print "Radio button!"
+
+		def cmb1_change(self, *args):
+			print "Combobox!"
+
+		def sld1_focusGained(self, *args):
+			print "Slider!", sld1.getValue()
+
+		def spn1_change(self, *args):
+			print "Spinner!"
+			
+		def btnClose_click(self,*args):
+			self.hide()
+			
+	def main(*args):
+		l = Panel()
+		l.showTool("Visual")
+		pass
