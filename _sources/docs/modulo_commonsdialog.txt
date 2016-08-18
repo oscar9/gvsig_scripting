@@ -1,25 +1,6 @@
 Módulo commonsdialog
 ====================
 
-:ref:`Modelo de objetos simplificado`
-
-:javadoc:`Geometry <Geometry.DIMENSIONS>`
-
-Para la creación de un punto :javadoc:`Point2D <Point2D>` debemos de usacar la función ``createPoint(x, y)``.
-
-.. note::
-	
-	Esta es una nota
-	
-.. warning::
-
-	Esto es un aviso
-	
-.. versionadded:: 2.3 RC2
-	Scripting module
-	
-.. centered:: LICENSE AGREEMENT
-
 Funciones principales
 ---------------------
 
