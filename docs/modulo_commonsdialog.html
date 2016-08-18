@@ -24,6 +24,7 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/gvSIG.ico"/>
     <link rel="top" title="documentación de gvsig - 0" href="../index.html" />
     <link rel="next" title="Cargando capas" href="cargando_capas.html" />
     <link rel="prev" title="Modelo de objetos simplificado" href="modelo_de_objetos_simplificado.html" /> 
@@ -41,7 +42,7 @@
         <li class="right" >
           <a href="modelo_de_objetos_simplificado.html" title="Modelo de objetos simplificado"
              accesskey="P">anterior</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">documentación de gvsig - 0</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
       </ul>
     </div>  
 
@@ -52,7 +53,23 @@
             
   <div class="section" id="modulo-commonsdialog">
 <h1>Módulo commonsdialog<a class="headerlink" href="#modulo-commonsdialog" title="Enlazar permanentemente con este título">¶</a></h1>
-<div class="section" id="funciones-principales">
+<p><a class="reference internal" href="modelo_de_objetos_simplificado.html#modelo-de-objetos-simplificado"><span class="std std-ref">Modelo de objetos simplificado</span></a></p>
+<p><a class="reference external" href="html\org\gvsig\fmap\geom\Geometry.DIMENSIONS.html">Geometry</a></p>
+<p>Para la creación de un punto <a class="reference external" href="html\org\gvsig\fmap\geom\jts\primitive\point\Point2D.html">Point2D</a> debemos de usacar la función <code class="docutils literal"><span class="pre">createPoint(x,</span> <span class="pre">y)</span></code>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Esta es una nota</p>
+</div>
+<div class="admonition warning">
+<p class="first admonition-title">Advertencia</p>
+<p class="last">Esto es un aviso</p>
+</div>
+<div class="versionadded">
+<p><span class="versionmodified">Nuevo en la versión 2.3: </span>RC2
+Scripting module</p>
+</div>
+<p class="centered">
+<strong>LICENSE AGREEMENT</strong></p><div class="section" id="funciones-principales">
 <h2>Funciones principales<a class="headerlink" href="#funciones-principales" title="Enlazar permanentemente con este título">¶</a></h2>
 <dl class="function">
 <dt id="msgbox">
@@ -206,16 +223,14 @@
 <dl class="function">
 <dt id="getJavaFile">
 <code class="descname">getJavaFile</code><span class="sig-paren">(</span><em>path</em><span class="sig-paren">)</span><a class="headerlink" href="#getJavaFile" title="Enlazar permanentemente con esta definición">¶</a></dt>
-<dd><blockquote>
-<div>Returns a java File using parameter path. If path doesn&#8217;t exists looks for user home folder and if can not find it, returns path will be gvSIG instance directory.</div></blockquote>
+<dd><p>Returns a java File using parameter path. If path doesn&#8217;t exists looks for user home folder and if can not find it, returns path will be gvSIG instance directory.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Devuelve:</th><td class="field-body"></td>
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>path</strong> (<em>str</em>) &#8211; String-path.</td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Tipo del valor devuelto:</th></tr>
-<tr class="field-even field"><td>&nbsp;</td><td class="field-body">java.io.File</td>
+<tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body">Return java.io.File</td>
 </tr>
 </tbody>
 </table>
@@ -224,25 +239,32 @@
 </div>
 <div class="section" id="constantes-en-la-libreria">
 <h2>Constantes en la librería<a class="headerlink" href="#constantes-en-la-libreria" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><em>messageType options</em>
-FORBIDEN = 0
-IDEA= 1
-WARNING= 2
-QUESTION= 3</p>
-<p><em>Confirmdialog optionType Options</em>
-YES_NO = 0
-YES_NO_CANCEL = 1
-ACEPT_CANCEL = 2</p>
-<p>YES = 0
-NO = 1
-CANCEL = 2</p>
-<p><em>filechooser options</em>
-OPEN_FILE = 0
-OPEN_DIRECTORY = 1
-SAVE_FILE = 2</p>
-<p><em>filechooser selectionMode</em>
-FILES_ONLY = JFileChooser.FILES_ONLY
-DIRECTORIES_ONLY = JFileChooser.DIRECTORIES_ONLY</p>
+<p>Constantes que aparecen en la librería y usaremos en diferentes funciones:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">*</span><span class="n">messageType</span> <span class="n">options</span><span class="o">*</span>
+<span class="n">FORBIDEN</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">IDEA</span><span class="o">=</span> <span class="mi">1</span>
+<span class="n">WARNING</span><span class="o">=</span> <span class="mi">2</span>
+<span class="n">QUESTION</span><span class="o">=</span> <span class="mi">3</span>
+
+<span class="o">*</span><span class="n">Confirmdialog</span> <span class="n">optionType</span> <span class="n">Options</span><span class="o">*</span>
+<span class="n">YES_NO</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">YES_NO_CANCEL</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">ACEPT_CANCEL</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="n">YES</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">NO</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">CANCEL</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="o">*</span><span class="n">filechooser</span> <span class="n">options</span><span class="o">*</span>
+<span class="n">OPEN_FILE</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">OPEN_DIRECTORY</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">SAVE_FILE</span> <span class="o">=</span> <span class="mi">2</span>
+
+<span class="o">*</span><span class="n">filechooser</span> <span class="n">selectionMode</span><span class="o">*</span>
+<span class="n">FILES_ONLY</span> <span class="o">=</span> <span class="n">JFileChooser</span><span class="o">.</span><span class="n">FILES_ONLY</span>
+<span class="n">DIRECTORIES_ONLY</span> <span class="o">=</span> <span class="n">JFileChooser</span><span class="o">.</span><span class="n">DIRECTORIES_ONLY</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="uso">
 <h2>Uso<a class="headerlink" href="#uso" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -271,7 +293,7 @@ DIRECTORIES_ONLY = JFileChooser.DIRECTORIES_ONLY</p>
 <span class="hll">        <span class="n">commonsdialog</span><span class="o">.</span><span class="n">msgbox</span><span class="p">(</span><span class="s2">&quot;Bienvenido a gvSig&quot;</span><span class="p">,</span><span class="s2">&quot;Welcome&quot;</span><span class="p">,</span> <span class="n">commonsdialog</span><span class="o">.</span><span class="n">IDEA</span><span class="p">)</span>
 </span></pre></div>
 </td></tr></table></div>
-<p>El tipo de mensaje lo establecemos en el parámetro meesageType como podemos ver en <a class="reference internal" href="#msgbox" title="msgbox"><code class="xref py py-func docutils literal"><span class="pre">msgbox()</span></code></a> y estos tipos se encuentras almacenados en constantes dentro del módulo commonsdialog.</p>
+<p>El tipo de mensaje lo establecemos en el parámetro meesageType como podemos ver en <a class="reference internal" href="#msgbox" title="msgbox"><code class="xref py py-func docutils literal"><span class="pre">msgbox()</span></code></a> y estos tipos se encuentran almacenados en constantes dentro del módulo commonsdialog.</p>
 <p>O depende de cómo lo importemos.</p>
 <div class="literal-block-wrapper container" id="msgbox-commonsdialog">
 <div class="code-block-caption"><span class="caption-text">msgbox.py</span><a class="headerlink" href="#msgbox-commonsdialog" title="Enlace permanente a este código fuente">¶</a></div>
@@ -305,6 +327,90 @@ DIRECTORIES_ONLY = JFileChooser.DIRECTORIES_ONLY</p>
 <img alt="../_images/commonsdialog-msgbox_4.png" src="../_images/commonsdialog-msgbox_4.png" />
 </div>
 </div>
+<div class="section" id="tipos-de-dialogos">
+<h2>Tipos de dialogos<a class="headerlink" href="#tipos-de-dialogos" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Diferentes tipos de dialogos es uno:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="n">commonsdialog</span>
+<span class="kn">from</span> <span class="nn">gvsig.commonsdialog</span> <span class="k">import</span> <span class="o">*</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+        <span class="n">message</span> <span class="o">=</span> <span class="s2">&quot;Prueba&quot;</span>
+
+        <span class="n">mb</span> <span class="o">=</span> <span class="n">commonsdialog</span><span class="o">.</span><span class="n">msgbox</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">messageType</span><span class="o">=</span><span class="n">IDEA</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;msgbox:&quot;</span><span class="p">,</span> <span class="n">mb</span>
+
+        <span class="n">ib</span> <span class="o">=</span> <span class="n">commonsdialog</span><span class="o">.</span><span class="n">inputbox</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">messageType</span><span class="o">=</span><span class="n">IDEA</span><span class="p">,</span> <span class="n">initialValue</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;inputbox:&quot;</span><span class="p">,</span> <span class="n">ib</span>
+
+        <span class="n">cd</span> <span class="o">=</span> <span class="n">commonsdialog</span><span class="o">.</span><span class="n">confirmDialog</span><span class="p">(</span><span class="n">message</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">optionType</span><span class="o">=</span><span class="n">YES_NO</span><span class="p">,</span> <span class="n">messageType</span><span class="o">=</span><span class="n">IDEA</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;confirmDialog:&quot;</span><span class="p">,</span> <span class="n">cd</span>
+
+        <span class="n">option</span> <span class="o">=</span> <span class="s2">&quot;OPEN_FILE&quot;</span>
+        <span class="n">fc</span> <span class="o">=</span> <span class="n">commonsdialog</span><span class="o">.</span><span class="n">filechooser</span><span class="p">(</span><span class="n">option</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">initialPath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="n">multiselection</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">fileHidingEnabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;filechooser:&quot;</span><span class="p">,</span> <span class="n">fc</span>
+
+        <span class="n">fc</span> <span class="o">=</span> <span class="n">commonsdialog</span><span class="o">.</span><span class="n">filechooser</span><span class="p">(</span><span class="n">option</span><span class="p">,</span> <span class="n">title</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span> <span class="n">initialPath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>  <span class="n">multiselection</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="nb">filter</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">fileHidingEnabled</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;filechooser:&quot;</span><span class="p">,</span> <span class="n">fc</span>
+
+        <span class="n">ofiled</span> <span class="o">=</span> <span class="n">commonsdialog</span><span class="o">.</span><span class="n">openFileDialog</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">initialPath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;openFileDialog:&quot;</span><span class="p">,</span> <span class="n">ofiled</span>
+
+        <span class="n">ofolderd</span> <span class="o">=</span> <span class="n">commonsdialog</span><span class="o">.</span><span class="n">openFolderDialog</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">initialPath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;openFolderDialog:&quot;</span><span class="p">,</span> <span class="n">ofolderd</span>
+
+        <span class="n">sfd</span> <span class="o">=</span> <span class="n">commonsdialog</span><span class="o">.</span><span class="n">saveFileDialog</span><span class="p">(</span><span class="n">title</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">initialPath</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;saveFileDialog:&quot;</span><span class="p">,</span><span class="n">sfd</span>
+</pre></div>
+</div>
+<p>Msgbox:</p>
+<div class="figure align-center">
+<img alt="../_images/c_msgbox.png" src="../_images/c_msgbox.png" />
+</div>
+<p>Inputbox:</p>
+<div class="figure align-center">
+<img alt="../_images/c_inputbox.png" src="../_images/c_inputbox.png" />
+</div>
+<p>Confirm Dialog:</p>
+<div class="figure align-center">
+<img alt="../_images/c_confirmDialog.png" src="../_images/c_confirmDialog.png" />
+</div>
+<p>File chooser:</p>
+<div class="figure align-center">
+<img alt="../_images/c_1.png" src="../_images/c_1.png" />
+</div>
+<p>File chooser with multiselection:</p>
+<div class="figure align-center">
+<img alt="../_images/c_2.png" src="../_images/c_2.png" />
+</div>
+<p>Open file dialog:</p>
+<div class="figure align-center">
+<img alt="../_images/c_3.png" src="../_images/c_3.png" />
+</div>
+<p>Open folder dialog:</p>
+<div class="figure align-center">
+<img alt="../_images/c_4.png" src="../_images/c_4.png" />
+</div>
+<p>Save file dialog:</p>
+<div class="figure align-center">
+<img alt="../_images/c_5.png" src="../_images/c_5.png" />
+</div>
+<p>Salida por consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">msgbox</span><span class="p">:</span> <span class="kc">None</span>
+<span class="n">inputbox</span><span class="p">:</span>
+<span class="n">confirmDialog</span><span class="p">:</span> <span class="mi">0</span>
+<span class="n">filechooser</span><span class="p">:</span> <span class="n">D</span><span class="p">:</span>\<span class="n">gvdata</span>\<span class="n">countries027</span><span class="o">.</span><span class="n">geojson</span>
+<span class="n">filechooser</span><span class="p">:</span> <span class="p">[</span><span class="s1">u&#39;D:</span><span class="se">\\</span><span class="s1">gvdata</span><span class="se">\\</span><span class="s1">countries024.geojson&#39;</span><span class="p">,</span> <span class="s1">u&#39;D:</span><span class="se">\\</span><span class="s1">gvdata</span><span class="se">\\</span><span class="s1">countries025.geojson&#39;</span><span class="p">,</span> <span class="s1">u&#39;D:</span><span class="se">\\</span><span class="s1">gvdata</span><span class="se">\\</span><span class="s1">countries026.geojson&#39;</span><span class="p">,</span>
+                        <span class="s1">u&#39;D:</span><span class="se">\\</span><span class="s1">gvdata</span><span class="se">\\</span><span class="s1">countries027.geojson&#39;</span><span class="p">,</span> <span class="s1">u&#39;D:</span><span class="se">\\</span><span class="s1">gvdata</span><span class="se">\\</span><span class="s1">countries028.geojson&#39;</span><span class="p">,</span> <span class="s1">u&#39;D:</span><span class="se">\\</span><span class="s1">gvdata</span><span class="se">\\</span><span class="s1">countries029.geojson&#39;</span><span class="p">,</span>
+                        <span class="s1">u&#39;D:</span><span class="se">\\</span><span class="s1">gvdata</span><span class="se">\\</span><span class="s1">countries030.geojson&#39;</span><span class="p">]</span>
+<span class="n">openFileDialog</span><span class="p">:</span> <span class="p">[</span><span class="s1">u&#39;D:</span><span class="se">\\</span><span class="s1">gvdata</span><span class="se">\\</span><span class="s1">countries028.geojson&#39;</span><span class="p">]</span>
+<span class="n">openFolderDialog</span><span class="p">:</span> <span class="p">[</span><span class="s1">u&#39;D:</span><span class="se">\\</span><span class="s1">gvdata</span><span class="se">\\</span><span class="s1">GISofThrones</span><span class="se">\\</span><span class="s1">GoTRelease&#39;</span><span class="p">]</span>
+<span class="n">saveFileDialog</span><span class="p">:</span> <span class="p">[</span><span class="s1">u&#39;D:</span><span class="se">\\</span><span class="s1">gvdata</span><span class="se">\\</span><span class="s1">newfile.shp&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -313,12 +419,16 @@ DIRECTORIES_ONLY = JFileChooser.DIRECTORIES_ONLY</p>
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/gvsig_asoc.jpg" alt="Logo"/>
+            </a></p>
   <h3><a href="../index.html">Tabla de Contenidos</a></h3>
   <ul>
 <li><a class="reference internal" href="#">Módulo commonsdialog</a><ul>
 <li><a class="reference internal" href="#funciones-principales">Funciones principales</a></li>
 <li><a class="reference internal" href="#constantes-en-la-libreria">Constantes en la librería</a></li>
 <li><a class="reference internal" href="#uso">Uso</a></li>
+<li><a class="reference internal" href="#tipos-de-dialogos">Tipos de dialogos</a></li>
 </ul>
 </li>
 </ul>
@@ -362,7 +472,7 @@ DIRECTORIES_ONLY = JFileChooser.DIRECTORIES_ONLY</p>
         <li class="right" >
           <a href="modelo_de_objetos_simplificado.html" title="Modelo de objetos simplificado"
              >anterior</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">documentación de gvsig - 0</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

@@ -3,10 +3,8 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Guía para desarrolladores de Scripting en gvSIG 2.3
+Documentación de Scripting en gvSIG 2.3
 ===================================================
-
-Contenidos:
 
 .. toctree::
    :maxdepth: 3
@@ -22,47 +20,7 @@ Contenidos:
    docs/interfaces_visuales.rst
    docs/geoprocesos.rst
 
-
-Introducción
-==================
-
-
-
-This is a Title
-===============
-
-.. py:function:: enumerate(sequence[, start=0])
-
-   Return an iterator that yields tuples of an index and an item of the
-   *sequence*. (And so on.)
-
-
-That has a paragraph about a main subject and is set when the '='
-is at least the same length of the title itself.
-
-Subject Subtitle
-----------------
-Subtitles are set with '-' and are required to have the same length
-of the subtitle itself, just like titles.
-
-Lists can be unnumbered like:
-
- * Item Foo
- * Item Bar
-
-Or automatically numbered:
-
- #. Item 1
- #. Item 2
-
-Inline Markup
--------------
-Words can have *emphasis in italics* or be **bold** and you can define
-code samples with back quotes, like when you talk about a command: ``sudo``
-gives you super user powers!
-
-
-Indices and tables
+Índices
 ==================
 
 * :ref:`genindex`

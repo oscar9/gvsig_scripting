@@ -7,24 +7,19 @@ Según sea su uso tendrán que cumplir ciertos requisitos. Por ejemplo, si cream
 
 Creando esquemas
 ----------------
-DefaultEditableFeatureType
-file:///D:/javadocs/html/org/gvsig/fmap/dal/feature/impl/DefaultEditableFeatureType.html
 
-.. py:function:: createFeatureType([schema=None])
+:javadoc:`DefaultEditableFeatureType <DefaultEditableFeatureType>`
 
-    Create an empty schema. If parameter schema is a DefaultEditableFeatureType, creates a copy of this schema (DefaultFeatureType).
-
-    :param schema: Schema from other layer
-	:type schema: DefaultEditableFeatureType
-	:return: empty schema or a copy of a schema
-	:rtype: DefaultEditableFeatureType
+.. py:function:: createFeatureType([schema=None]):
+    
+    Create an empty schema. If parameter schema is a DefaultEditableFeatureType, creates a copy of this schema :javadoc:`DefaultFeatureType <DefaultFeatureType>`.
 	
-
-**TODO**
-org.gvsig.fmap.dal
-Interface DataTypes
-DataTypes: This interface defines a set of constants for all data types supported by the DAL.
-file:///D:/javadocs/html/org/gvsig/fmap/dal/DataTypes.html
+    :param schema: Schema from other layer
+    :type schema: :javadoc:`DefaultEditableFeatureType <DefaultEditableFeatureType>`
+    :return: empty schema or a copy of a schema
+    :type return: DefaultEditableFeatureType
+	
+La interfaz :javadoc:`DataTypes <DataTypes>` especifica un conjunto de constantes indicando los tipos de datos soportados por DAL.
 
 Vamos a ver como crear un esquema con dos campos y asignale este esquema a una nueva tabla::
 

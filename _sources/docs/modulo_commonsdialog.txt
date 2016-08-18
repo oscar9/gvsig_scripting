@@ -1,6 +1,25 @@
 Módulo commonsdialog
 ====================
 
+:ref:`Modelo de objetos simplificado`
+
+:javadoc:`Geometry <Geometry.DIMENSIONS>`
+
+Para la creación de un punto :javadoc:`Point2D <Point2D>` debemos de usacar la función ``createPoint(x, y)``.
+
+.. note::
+	
+	Esta es una nota
+	
+.. warning::
+
+	Esto es un aviso
+	
+.. versionadded:: 2.3 RC2
+	Scripting module
+	
+.. centered:: LICENSE AGREEMENT
+
 Funciones principales
 ---------------------
 
@@ -72,36 +91,38 @@ Funciones principales
 
 .. py:function:: getJavaFile(path)
 
-	Returns a java File using parameter path. If path doesn't exists looks for user home folder and if can not find it, returns path will be gvSIG instance directory.
-    :return:
-    :rtype: java.io.File
+    Returns a java File using parameter path. If path doesn't exists looks for user home folder and if can not find it, returns path will be gvSIG instance directory.
+
+    :param str path: String-path.
+    :return: Return java.io.File
 
 Constantes en la librería
 -------------------------
+Constantes que aparecen en la librería y usaremos en diferentes funciones::
 
-*messageType options*
-FORBIDEN = 0
-IDEA= 1
-WARNING= 2
-QUESTION= 3
+	*messageType options*
+	FORBIDEN = 0
+	IDEA= 1
+	WARNING= 2
+	QUESTION= 3
 
-*Confirmdialog optionType Options*
-YES_NO = 0
-YES_NO_CANCEL = 1
-ACEPT_CANCEL = 2
+	*Confirmdialog optionType Options*
+	YES_NO = 0
+	YES_NO_CANCEL = 1
+	ACEPT_CANCEL = 2
 
-YES = 0
-NO = 1
-CANCEL = 2
+	YES = 0
+	NO = 1
+	CANCEL = 2
 
-*filechooser options*
-OPEN_FILE = 0
-OPEN_DIRECTORY = 1
-SAVE_FILE = 2
+	*filechooser options*
+	OPEN_FILE = 0
+	OPEN_DIRECTORY = 1
+	SAVE_FILE = 2
 
-*filechooser selectionMode*
-FILES_ONLY = JFileChooser.FILES_ONLY
-DIRECTORIES_ONLY = JFileChooser.DIRECTORIES_ONLY
+	*filechooser selectionMode*
+	FILES_ONLY = JFileChooser.FILES_ONLY
+	DIRECTORIES_ONLY = JFileChooser.DIRECTORIES_ONLY
 
 Uso
 ---
@@ -134,7 +155,7 @@ Por ejemplo:
 
 		commonsdialog.msgbox("Bienvenido a gvSig","Welcome", commonsdialog.IDEA)
 
-El tipo de mensaje lo establecemos en el parámetro meesageType como podemos ver en :py:func:`msgbox` y estos tipos se encuentras almacenados en constantes dentro del módulo commonsdialog.
+El tipo de mensaje lo establecemos en el parámetro meesageType como podemos ver en :py:func:`msgbox` y estos tipos se encuentran almacenados en constantes dentro del módulo commonsdialog.
 
 O depende de cómo lo importemos.
 
@@ -172,3 +193,95 @@ QUESTION:
 .. figure::  images/commonsdialog-msgbox_4.png
    :align:   center
    
+   
+Tipos de dialogos
+-----------------
+
+Diferentes tipos de dialogos es uno::
+
+	from gvsig import *
+	from gvsig import commonsdialog
+	from gvsig.commonsdialog import *
+
+
+	def main(*args):
+		
+		message = "Prueba"
+		
+		mb = commonsdialog.msgbox(message, title="", messageType=IDEA, root=None)
+		print "msgbox:", mb
+
+		ib = commonsdialog.inputbox(message, title="", messageType=IDEA, initialValue="", root=None)
+		print "inputbox:", ib
+
+		cd = commonsdialog.confirmDialog(message, title="", optionType=YES_NO, messageType=IDEA, root=None)
+		print "confirmDialog:", cd
+
+		option = "OPEN_FILE"
+		fc = commonsdialog.filechooser(option, title="", initialPath=None,  multiselection=False, filter = None, fileHidingEnabled=True, root=None)
+		print "filechooser:", fc
+
+		fc = commonsdialog.filechooser(option, title="", initialPath=None,  multiselection=True, filter = None, fileHidingEnabled=True, root=None)
+		print "filechooser:", fc
+
+		ofiled = commonsdialog.openFileDialog(title='', initialPath=None, root=None)
+		print "openFileDialog:", ofiled
+
+		ofolderd = commonsdialog.openFolderDialog(title='', initialPath=None, root=None)
+		print "openFolderDialog:", ofolderd
+		
+		sfd = commonsdialog.saveFileDialog(title='', initialPath=None, root=None)
+		print "saveFileDialog:",sfd
+
+Msgbox:
+
+.. figure::  images/c_msgbox.png
+   :align:   center
+
+Inputbox:
+
+.. figure::  images/c_inputbox.png
+   :align:   center
+   
+Confirm Dialog:
+
+.. figure::  images/c_confirmDialog.png
+   :align:   center
+		
+File chooser:
+
+.. figure::  images/c_1.png
+   :align:   center
+		
+File chooser with multiselection:
+
+.. figure::  images/c_2.png
+   :align:   center
+   
+Open file dialog:
+
+.. figure::  images/c_3.png
+   :align:   center
+   
+Open folder dialog:
+
+.. figure::  images/c_4.png
+   :align:   center
+   
+Save file dialog:
+
+.. figure::  images/c_5.png
+   :align:   center
+
+Salida por consola::
+
+	msgbox: None
+	inputbox: 
+	confirmDialog: 0
+	filechooser: D:\gvdata\countries027.geojson
+	filechooser: [u'D:\\gvdata\\countries024.geojson', u'D:\\gvdata\\countries025.geojson', u'D:\\gvdata\\countries026.geojson',
+				u'D:\\gvdata\\countries027.geojson', u'D:\\gvdata\\countries028.geojson', u'D:\\gvdata\\countries029.geojson',
+				u'D:\\gvdata\\countries030.geojson']
+	openFileDialog: [u'D:\\gvdata\\countries028.geojson']
+	openFolderDialog: [u'D:\\gvdata\\GISofThrones\\GoTRelease']
+	saveFileDialog: [u'D:\\gvdata\\newfile.shp']
