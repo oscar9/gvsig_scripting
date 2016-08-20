@@ -57,11 +57,10 @@
 <p>Según sea su uso tendrán que cumplir ciertos requisitos. Por ejemplo, si creamos una capa vectorial, su esquema tiene que tener obligatoriamente un campo <strong>GEOMETRY</strong> establecido.</p>
 <div class="section" id="creando-esquemas">
 <h2>Creando esquemas<a class="headerlink" href="#creando-esquemas" title="Enlazar permanentemente con este título">¶</a></h2>
-<p><a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultEditableFeatureType.html">DefaultEditableFeatureType</a></p>
 <dl class="function">
 <dt>
 <code class="descname">createFeatureType([schema=None]):</code></dt>
-<dd><p>Create an empty schema. If parameter schema is a DefaultEditableFeatureType, creates a copy of this schema <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultFeatureType.html">DefaultFeatureType</a>.</p>
+<dd><p>Create an empty schema. If parameter schema is a <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultEditableFeatureType.html">DefaultEditableFeatureType</a>, creates a copy of this schema <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultFeatureType.html">DefaultFeatureType</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -91,7 +90,7 @@
         <span class="n">d</span> <span class="o">=</span> <span class="n">loadDBF</span><span class="p">(</span> <span class="n">dbf</span><span class="o">.</span><span class="n">getFullName</span><span class="p">())</span> <span class="c1"># Carga tabla en el proyecto</span>
 </pre></div>
 </div>
-<p>También podemos crear un esquema nuevo basado en otro ya existente, muy útil para cuando queramos hacer copias de capas. Para pasar un esquema para la creación de capas debe ser de tipo <strong>DefaultFeatureType</strong>, la función :py:func:<code class="docutils literal"><span class="pre">createFeatureType()</span></code> convierte el esquema de tipo <strong>DefaultEditableFeatureType</strong> en el necesario:</p>
+<p>También podemos crear un esquema nuevo basado en otro ya existente, muy útil para cuando queramos hacer copias de capas. Para pasar un esquema para la creación de capas debe ser de tipo <strong>DefaultFeatureType</strong>, la función :py:func:<code class="docutils literal"><span class="pre">createFeatureType()</span></code> convierte el esquema de tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultEditableFeatureType.html">DefaultEditableFeatureType</a> en el necesario:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 

@@ -18,7 +18,10 @@ Documentación de Scripting en gvSIG 2.3
    docs/trabajando_con_capas.rst
    docs/modulo_geom.rst
    docs/interfaces_visuales.rst
+   docs/leyendas.rst
    docs/geoprocesos.rst
+   docs/capturando_eventos.rst
+   docs/usando_librerias_externas.rst
 
 Índices
 ==================

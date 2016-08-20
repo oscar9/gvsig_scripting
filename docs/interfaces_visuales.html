@@ -56,6 +56,11 @@
 <div class="section" id="abeille">
 <h2>Abeille<a class="headerlink" href="#abeille" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El programa Abeille lo usaremos para la creación de las interfaces visuales. En este programa podremos establecer el aspecto de las ventanas, nombres, etc. Haciendo uso de la librería FormPanel podremos cargarlo fácilmente en un script, y sacarle el máximo partido.</p>
+<p>Abriremos el Abeille desde el botón <img alt="abeille" src="../_images/icon-abeille.png" /> situado en la barra de Herramientas del Scripting Composer.</p>
+<p>Aparece en la imagen el programa Abeille con el ejemplo de coordenadas.xml abierto:</p>
+<div class="figure align-center">
+<img alt="../_images/abeille.png" src="../_images/abeille.png" />
+</div>
 </div>
 <div class="section" id="uso-de-formpanel">
 <h2>Uso de FormPanel<a class="headerlink" href="#uso-de-formpanel" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -66,7 +71,7 @@
 
 <span class="k">class</span> <span class="nc">Panel</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;ui_basic.xml&quot;</span><span class="p">))</span>
+                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s2">&quot;ui_basic.xml&quot;</span><span class="p">))</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="n">l</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">()</span>
@@ -79,10 +84,11 @@
 <p>De esta forma no tenemos que preocuparnos de eventos, ya que la propia librería FormPanel nos lo gestionará:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.libs.formpanel</span> <span class="k">import</span> <span class="n">FormPanel</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="k">class</span> <span class="nc">Panel</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;ui_basic.xml&quot;</span><span class="p">))</span>
+                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s2">&quot;ui_basic.xml&quot;</span><span class="p">))</span>
 
         <span class="k">def</span> <span class="nf">btnCalcular_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">txtField</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Clicked!&quot;</span><span class="p">)</span>
@@ -100,10 +106,11 @@
 <p>No todos los eventos posibles de cada elemento del interfaz están implementados dentro de FormPanel (pero si necesitas alguno de ellos se podrían añadir o implementar en tu propia clase). Aquí mostramos algunos de estos eventos:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.libs.formpanel</span> <span class="k">import</span> <span class="n">FormPanel</span>
+<span class="kn">import</span> <span class="nn">os</span>
 
 <span class="k">class</span> <span class="nc">Panel</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">):</span>
         <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;ui_actions_change.xml&quot;</span><span class="p">))</span>
+                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s2">&quot;ui_basic.xml&quot;</span><span class="p">))</span>
 
         <span class="k">def</span> <span class="nf">btnCalcular_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
                 <span class="bp">self</span><span class="o">.</span><span class="n">txtField</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Clicked!&quot;</span><span class="p">)</span>

@@ -83,22 +83,13 @@
 <dt>
 <code class="descname">loadRasterFile(filename, **parameters):</code></dt>
 <dd><blockquote>
-<div><p>Add an existing raster file to the view. Returns Layer Raster file.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">param str filename:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body">absolute file path to the raster</td>
-</tr>
-</tbody>
-</table>
-</div></blockquote>
+<div>Add an existing raster file to the view. Returns Layer Raster file.</div></blockquote>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><ul class="first simple">
+<li><strong>filename</strong> (<em>str</em>) &#8211; absolute file path to the raster</li>
 <li><strong>CRS</strong> (<em>string</em>) &#8211; projection code</li>
 <li><strong>gvViewName</strong> (<em>string</em>) &#8211; name of the view where to be loaded</li>
 <li><strong>gvLayerName</strong> (<em>string</em>) &#8211; name of the layer inside gvsig</li>
@@ -114,22 +105,32 @@
 
 <div class="section" id="recursos-en-rutas-relativas">
 <h2>Recursos en rutas relativas<a class="headerlink" href="#recursos-en-rutas-relativas" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>En nuestros scripts siempre tenemos acceso al un objeto denominada <code class="docutils literal"><span class="pre">script</span></code> de tipo <code class="docutils literal"><span class="pre">DefaultScriptingScript</span></code>. Esta clase hace referencia a la ejecución del propio script y no tiene que ser importada.</p>
-<p>Una de las funciones que contiene nos será muy útil cuando tengamos extensiones con datos a los que tener acceso. Nos va a permitir acceder a datos contenidos en la carpeta de ejecución del script de forma relativa.</p>
-<p>Siendo que si tenemos una carpeta denominada <code class="docutils literal"><span class="pre">/datos/</span></code> al mismo nivel que nuestro script, podremos acceder a los datos de ella mediante <code class="docutils literal"><span class="pre">script.getResource(&quot;datos/capa.shp&quot;)</span></code> por ejemplo. Tener en cuenta que esta función devuelve un objeto Java del tipo <code class="docutils literal"><span class="pre">java.io.File</span></code>. Para sacar su ruta en formato string usaremos <code class="docutils literal"><span class="pre">getPath()</span></code> o para sacar su uri usaremos <code class="docutils literal"><span class="pre">.toURI()</span></code></p>
+<p>Un recurso para acceder a datos que tengamos en la carpeta de nuestro módulo, independientemente de donde lo tengamos instalado o del pc, es hacer uso de una función de Python para sacar la ruta absoluta de recursos necesarios para su ejecución. Esta ruta se calcula a partir de la ruta en la que se ejecuta el script.</p>
 <p>Ejemplo de uso:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># encoding: utf-8</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">gvsig</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Obtener ruta absoluta de ficheros en la carpeta de ejecucion del script&quot;&quot;&quot;</span>
 
-        <span class="n">file_raster</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;/data/mdt_jaen.tif&quot;</span><span class="p">)</span> <span class="c1">#return java.io.File</span>
-        <span class="n">path_raster</span> <span class="o">=</span> <span class="n">file_raster</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span>
+        <span class="n">path_script</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;Path script: &quot;</span><span class="p">,</span> <span class="n">path_script</span>
+        <span class="nb">print</span> <span class="s2">&quot;Ruta relativa: data/fichero.xx&quot;</span>
+        <span class="nb">print</span> <span class="s2">&quot;Ruta absoluta: &quot;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">path_script</span><span class="p">,</span> <span class="s2">&quot;data&quot;</span><span class="p">,</span> <span class="s2">&quot;fichero.xx&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Salida por consola será:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Path</span> <span class="n">script</span><span class="p">:</span>  <span class="n">c</span><span class="p">:</span>\<span class="n">gvdevel</span>\<span class="n">gvsig</span>\<span class="n">gvSIG</span><span class="o">-</span><span class="n">desktop</span><span class="o">-</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">2441</span><span class="o">-</span><span class="n">RC2</span><span class="o">-</span><span class="n">win</span><span class="o">-</span><span class="n">x86_64</span>\<span class="n">home</span>\<span class="n">gvSIG</span>\<span class="n">plugins</span>\<span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">scripting</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">mainplugin</span>\<span class="n">scripts</span>
+<span class="n">Ruta</span> <span class="n">relativa</span><span class="p">:</span> <span class="n">data</span><span class="o">/</span><span class="n">fichero</span><span class="o">.</span><span class="n">xx</span>
+<span class="n">Ruta</span> <span class="n">absoluta</span><span class="p">:</span>  <span class="n">c</span><span class="p">:</span>\<span class="n">gvdevel</span>\<span class="n">gvsig</span>\<span class="n">gvSIG</span><span class="o">-</span><span class="n">desktop</span><span class="o">-</span><span class="mf">2.3</span><span class="o">.</span><span class="mi">0</span><span class="o">-</span><span class="mi">2441</span><span class="o">-</span><span class="n">RC2</span><span class="o">-</span><span class="n">win</span><span class="o">-</span><span class="n">x86_64</span>\<span class="n">home</span>\<span class="n">gvSIG</span>\<span class="n">plugins</span>\<span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">scripting</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">mainplugin</span>\<span class="n">scripts</span>\<span class="n">data</span>\<span class="n">fichero</span><span class="o">.</span><span class="n">xx</span>
+</pre></div>
+</div>
+<p>De esta forma estaríamos accediendo a la carpeta <code class="docutils literal"><span class="pre">/datos/</span></code> dentro de nuestro módulo.</p>
 </div>
 <div class="section" id="capas-vectoriales">
 <h2>Capas Vectoriales<a class="headerlink" href="#capas-vectoriales" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Para cargar capas vectoriales usaremos la función :py:func:<code class="docutils literal"><span class="pre">loadShapeFile()</span></code>. Esta es una función de apoyo que llama a la función <code class="docutils literal"><span class="pre">createLayer()</span></code> más genérica.</p>
+<p>Para cargar capas vectoriales usaremos la función <code class="xref py py-func docutils literal"><span class="pre">loadShapeFile()</span></code>. Esta es una función de apoyo que llama a la función <code class="docutils literal"><span class="pre">createLayer()</span></code> más genérica.</p>
 <p>Ejemplo:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">java.io</span> <span class="k">import</span> <span class="n">File</span>
@@ -137,8 +138,7 @@
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
 
         <span class="c1"># Get resource path</span>
-        <span class="n">xfile</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;/data/jaen.shp&quot;</span><span class="p">)</span>
-        <span class="n">shape_path</span> <span class="o">=</span> <span class="n">xfile</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span>
+        <span class="n">shape_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="s2">&quot;jaen.shp&quot;</span><span class="p">)</span>
 
         <span class="c1"># loadShapeFile function</span>
         <span class="n">s1</span> <span class="o">=</span> <span class="n">loadShapeFile</span><span class="p">(</span><span class="n">shape_path</span><span class="p">)</span>
@@ -150,31 +150,20 @@
 </div>
 <div class="section" id="capas-raster">
 <h2>Capas Raster<a class="headerlink" href="#capas-raster" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Para cargar capas raster usaremos la función :py:func:<code class="docutils literal"><span class="pre">loadRasterFile()</span></code>. Esta es una función de apoyo que llama a la función <code class="docutils literal"><span class="pre">createLayer()</span></code> más genérica.</p>
-<p>Ejemplo:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-
-        <span class="c1"># Load Raster File</span>
-        <span class="n">raster_path</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;/data/mdt_jaen.tif&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span>
-        <span class="n">r1</span> <span class="o">=</span> <span class="n">loadRasterFile</span><span class="p">(</span><span class="n">raster_path</span><span class="p">)</span>
-
-        <span class="n">raster_uri</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;/data/mdt_jaen.tif&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">toURI</span><span class="p">()</span>
-        <span class="n">r2</span> <span class="o">=</span> <span class="n">loadLayer</span><span class="p">(</span><span class="s2">&quot;Gdal Store&quot;</span><span class="p">,</span> <span class="n">uri</span><span class="o">=</span><span class="n">raster_uri</span><span class="p">)</span>
-</pre></div>
-</div>
+<p>Para cargar capas raster usaremos la función <code class="xref py py-func docutils literal"><span class="pre">loadRasterFile()</span></code>. Esta es una función de apoyo que llama a la función <code class="docutils literal"><span class="pre">createLayer()</span></code> más genérica.</p>
 <p>Si necesitamos transformar una ruta a formato <code class="docutils literal"><span class="pre">uri</span></code> podemos hacerlo apoyándonos en la clase de Java: <code class="docutils literal"><span class="pre">java.io.File</span></code>:</p>
+<p>Ejemplo:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">java.io</span> <span class="k">import</span> <span class="n">File</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
 
         <span class="c1"># Load Raster File</span>
-        <span class="n">raster_path</span> <span class="o">=</span> <span class="n">script</span><span class="o">.</span><span class="n">getResource</span><span class="p">(</span><span class="s2">&quot;/data/mdt_jaen.tif&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getPath</span><span class="p">()</span>
+        <span class="n">raster_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="s2">&quot;mdt_jaen.tif&quot;</span><span class="p">)</span>
+        <span class="n">r1</span> <span class="o">=</span> <span class="n">loadRasterFile</span><span class="p">(</span><span class="n">raster_path</span><span class="p">)</span>
 
-        <span class="c1"># Path to URI</span>
-        <span class="n">uri</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">raster_path</span><span class="p">)</span><span class="o">.</span><span class="n">toURI</span><span class="p">()</span>
+        <span class="n">raster_uri</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span><span class="s2">&quot;data&quot;</span><span class="p">,</span><span class="s2">&quot;fichero.xx&quot;</span><span class="p">))</span><span class="o">.</span><span class="n">toURI</span><span class="p">()</span>
+        <span class="n">r2</span> <span class="o">=</span> <span class="n">loadLayer</span><span class="p">(</span><span class="s2">&quot;Gdal Store&quot;</span><span class="p">,</span> <span class="n">uri</span><span class="o">=</span><span class="n">raster_uri</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

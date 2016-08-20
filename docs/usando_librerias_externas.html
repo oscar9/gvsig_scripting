@@ -1,0 +1,233 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Usando librerías externas &mdash; documentación de gvsig - 0</title>
+    
+    <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/translations.js"></script>
+    <link rel="shortcut icon" href="../_static/gvSIG.ico"/>
+    <link rel="top" title="documentación de gvsig - 0" href="../index.html" />
+    <link rel="prev" title="Capturando eventos: Listeners" href="capturando_eventos.html" /> 
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="capturando_eventos.html" title="Capturando eventos: Listeners"
+             accesskey="P">anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="usando-librerias-externas">
+<h1>Usando librerías externas<a class="headerlink" href="#usando-librerias-externas" title="Enlazar permanentemente con este título">¶</a></h1>
+<div class="section" id="gdal">
+<h2>GDAL<a class="headerlink" href="#gdal" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hemos incluido una de las aplicaciones más comúnes de uso en GDAL que se denomina ogr2ogr. Para usarla desde un script podemos usar las siguientes líneas, modificando las rutas por las de nuestros datos. El resultado es una transformación de un fichero geojson a un shape:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="n">uselib</span>
+<span class="n">uselib</span><span class="o">.</span><span class="n">use_plugin</span><span class="p">(</span><span class="s2">&quot;org.gvsig.gdal.app.mainplugin&quot;</span><span class="p">)</span>
+<span class="kn">from</span> <span class="nn">org.gvsig.gdal.app.mainplugin.common</span> <span class="k">import</span> <span class="n">ogr2ogr</span>
+
+
+<span class="k">def</span> <span class="nf">gdalapp</span><span class="p">(</span><span class="n">argsAsString</span><span class="p">):</span>
+        <span class="kn">import</span> <span class="nn">shlex</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">shlex</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">argsAsString</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;Function: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;Args: &quot;</span><span class="p">,</span> <span class="n">x</span>
+        <span class="n">ogr2ogr</span><span class="o">.</span><span class="n">main</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+        <span class="sd">&quot;&quot;&quot;ogr2ogr from gdal&quot;&quot;&quot;</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        ogr2ogr.main([&quot;-t_srs&quot;, &quot;CRS:84&quot;,</span>
+<span class="sd">                                  &quot;-f&quot;,</span>
+<span class="sd">                                  &quot;ESRI Shapefile&quot;,</span>
+<span class="sd">                                  &quot;C:/temp/j1&quot;,</span>
+<span class="sd">                                  &quot;C:/temp/countries.geojson&quot;,</span>
+<span class="sd">                                  &quot;-overwrite&quot;,</span>
+<span class="sd">                                  &quot;-skipfailures&quot;</span>
+<span class="sd">                                  ])</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+
+        <span class="n">gdalapp</span><span class="p">(</span><span class="s2">&quot;ogr2ogr -t_srs &#39;EPSG:4326&#39; -f &#39;ESRI Shapefile&#39; C://temp//j1.shp D://gvdata//countries023.geojson -overwrite -skipfailures&quot;</span><span class="p">)</span>
+        <span class="n">loadShapeFile</span><span class="p">(</span><span class="s2">&quot;C:/temp/j1.shp&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="jfreechart">
+<h2>jfreechart<a class="headerlink" href="#jfreechart" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una librería que viene con gvSIG es jfreechart y la podemos usar para generar gráficas.</p>
+<p>Generar gráfica y guardarla en formato <code class="docutils literal"><span class="pre">.jpeg</span></code> en disco.</p>
+<div class="figure align-center">
+<img alt="../_images/pieChart.jpeg" src="../_images/pieChart.jpeg" />
+</div>
+<p>Código:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">java.io</span> <span class="k">import</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">org.jfree.chart</span> <span class="k">import</span> <span class="n">ChartUtilities</span>
+<span class="kn">from</span> <span class="nn">org.jfree.chart</span> <span class="k">import</span> <span class="n">ChartFactory</span>
+<span class="kn">from</span> <span class="nn">org.jfree.chart</span> <span class="k">import</span> <span class="n">JFreeChart</span>
+<span class="kn">from</span> <span class="nn">org.jfree.data.general</span> <span class="k">import</span> <span class="n">DefaultPieDataset</span>
+
+<span class="c1">#Save chart into png file</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+          <span class="n">dataset</span> <span class="o">=</span> <span class="n">DefaultPieDataset</span><span class="p">(</span> <span class="p">)</span>
+          <span class="n">dataset</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s2">&quot;IPhone 5s&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span> <span class="mi">20</span> <span class="p">)</span> <span class="p">)</span>
+          <span class="n">dataset</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s2">&quot;SamSung Grand&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span> <span class="mi">20</span> <span class="p">)</span> <span class="p">)</span>
+          <span class="n">dataset</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s2">&quot;MotoG&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span> <span class="mi">40</span> <span class="p">)</span> <span class="p">)</span>
+          <span class="n">dataset</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s2">&quot;Nokia Lumia&quot;</span><span class="p">,</span> <span class="nb">float</span><span class="p">(</span> <span class="mi">10</span> <span class="p">)</span> <span class="p">)</span>
+
+          <span class="n">chart</span> <span class="o">=</span> <span class="n">ChartFactory</span><span class="o">.</span><span class="n">createPieChart</span><span class="p">(</span>
+                 <span class="s2">&quot;Mobile Sales&quot;</span><span class="p">,</span> <span class="c1"># chart title</span>
+                 <span class="n">dataset</span><span class="p">,</span> <span class="c1"># data</span>
+                 <span class="kc">True</span><span class="p">,</span> <span class="c1"># include legend</span>
+                 <span class="kc">True</span><span class="p">,</span>
+                 <span class="kc">False</span><span class="p">)</span>
+
+          <span class="n">width</span> <span class="o">=</span> <span class="mi">640</span>
+          <span class="n">height</span> <span class="o">=</span> <span class="mi">480</span>
+          <span class="n">pieChart</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span> <span class="s2">&quot;D:/pieChart.jpeg&quot;</span> <span class="p">)</span>
+          <span class="n">ChartUtilities</span><span class="o">.</span><span class="n">saveChartAsJPEG</span><span class="p">(</span> <span class="n">pieChart</span> <span class="p">,</span> <span class="n">chart</span> <span class="p">,</span> <span class="n">width</span> <span class="p">,</span> <span class="n">height</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Otro ejemplo que genera una pantalla con el resultado.</p>
+<div class="figure align-center">
+<img alt="../_images/simple_pie_chart.png" src="../_images/simple_pie_chart.png" />
+</div>
+<p>Código:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">org.jfree.chart</span> <span class="k">import</span> <span class="n">ChartFactory</span>
+<span class="kn">from</span> <span class="nn">org.jfree.chart</span> <span class="k">import</span> <span class="n">ChartFrame</span>
+<span class="kn">from</span> <span class="nn">org.jfree.chart</span> <span class="k">import</span> <span class="n">JFreeChart</span>
+<span class="kn">from</span> <span class="nn">org.jfree.data.general</span> <span class="k">import</span> <span class="n">DefaultPieDataset</span>
+<span class="kn">from</span> <span class="nn">org.jfree.ui</span> <span class="k">import</span> <span class="n">RefineryUtilities</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">* A simple introduction to using JFreeChart. This demo is described in the</span>
+<span class="sd">* JFreeChart Developer Guide.</span>
+<span class="sd">* Translated from Java to Jython by Alfonso Reyes</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="k">class</span> <span class="nc">First</span><span class="p">:</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        * The starting point for the demo.</span>
+<span class="sd">        *</span>
+<span class="sd">        * @param args ignored.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># create a dataset...</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">DefaultPieDataset</span><span class="p">()</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s2">&quot;Category 1&quot;</span><span class="p">,</span> <span class="mf">43.2</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s2">&quot;Category 2&quot;</span><span class="p">,</span> <span class="mf">27.9</span><span class="p">)</span>
+        <span class="n">data</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s2">&quot;Category 3&quot;</span><span class="p">,</span> <span class="mf">79.5</span><span class="p">)</span>
+        <span class="c1"># create a chart...</span>
+        <span class="n">chart</span> <span class="o">=</span> <span class="n">ChartFactory</span><span class="o">.</span><span class="n">createPieChart</span><span class="p">(</span>
+                <span class="s2">&quot;Sample Pie Chart&quot;</span><span class="p">,</span>
+                <span class="n">data</span><span class="p">,</span>
+                <span class="kc">True</span><span class="p">,</span> <span class="c1"># legend?</span>
+                <span class="kc">True</span><span class="p">,</span> <span class="c1">#tooltips?</span>
+                <span class="kc">False</span> <span class="c1"># URLs?</span>
+        <span class="p">)</span>
+        <span class="c1"># create and display a frame...</span>
+
+        <span class="n">frame</span> <span class="o">=</span> <span class="n">ChartFrame</span><span class="p">(</span><span class="s2">&quot;First&quot;</span><span class="p">,</span> <span class="n">chart</span><span class="p">)</span>
+        <span class="c1">#frame.setSize(100 , 100) #Position</span>
+        <span class="c1">#RefineryUtilities.centerFrameOnScreen( frame )</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">pack</span><span class="p">()</span>
+        <span class="n">frame</span><span class="o">.</span><span class="n">setVisible</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+        <span class="n">app</span> <span class="o">=</span> <span class="n">First</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../index.html">
+              <img class="logo" src="../_static/gvsig_asoc.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../index.html">Tabla de Contenidos</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Usando librerías externas</a><ul>
+<li><a class="reference internal" href="#gdal">GDAL</a></li>
+<li><a class="reference internal" href="#jfreechart">jfreechart</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Tema anterior</h4>
+  <p class="topless"><a href="capturando_eventos.html"
+                        title="capítulo anterior">Capturando eventos: Listeners</a></p>
+  <div role="note" aria-label="source link">
+    <h3>Esta página</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/docs/usando_librerias_externas.txt"
+            rel="nofollow">Mostrar el código</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Búsqueda rápida</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Ir a" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navegación</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="Índice General"
+             >índice</a></li>
+        <li class="right" >
+          <a href="capturando_eventos.html" title="Capturando eventos: Listeners"
+             >anterior</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &copy; Copyright 2016, Oscar.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+    </div>
+  </body>
+</html>

@@ -1,22 +1,11 @@
 Modelo de objetos simplificado
 ==============================
 
-.. raw:: html
+Aquí podemos ver un esquema con los componentes de uso más común desde scripting, la relación entre ellos y cómo podemos acceder a ellos desde nuestro script. Además podemos navegar a la información de la clase Java pulsando sobre el componente.
+	  
+.. note::
 
-    Aquí podemos ver un esquema con los componentes de uso mas comun
-    desde scripting, la relación entre ellos y como podemos acceder a
-    ellos desde nuestro script.<br>
-    Ademas podemos navegar a la información de la clase Java pulsando
-    sobre el componente.<br>
-    <br>
-    <p style="margin: 10px auto; padding: 10px 5px 5px 45px; width:
-      400px; background-repeat: no-repeat; background-position: 5px 5px;
-      background-image: url('../../images/icon-note.png');
-      background-color: #ffffce;" align="center"> <small><b>Desarrolladores
-       java y usuarios con conocimientos sobre UML </b><br>
-        El diagrama y comentarios esta pensado para que sea lo mas
-        entendible posible por un usuario sin conocimientos de java ni
-        UML, no para ser estricto con la nomenclatura UML. </small></p>
+	Desarrolladores Java y usuarios con conocimientos sobre UML. El diagrama y comentarios está pensado para que sea lo más entendible posible por un usuario sin conocimientos de java ni UML, no para ser estricto con la nomenclatura UML.
 
 .. raw:: html
 
@@ -26,7 +15,8 @@ Modelo de objetos simplificado
       <!-- #$-:GIMP Image Map plug-in by Maurits Rijk -->
       <!-- #$-:Please do not edit lines starting with "#$" -->
       <!-- #$VERSION:2.3 -->
-      <!-- #$AUTHOR:Joaquin del Cerro Murciano --> <area shape="rect" coords="328,96,411,136" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/app/project/Project.html">
+      <!-- #$AUTHOR:Joaquin del Cerro Murciano --> 
+	  <area shape="rect" coords="328,96,411,136" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/app/project/Project.html">
       <area shape="rect" coords="326,169,406,216" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/app/project/documents/Document.html">
       <area shape="rect" coords="315,303,427,346" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/app/project/documents/view/ViewDocument.html">
       <area shape="rect" coords="324,433,416,474" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/MapContext.html">
@@ -51,42 +41,33 @@ Modelo de objetos simplificado
 	
 .. raw:: html
 
-    <h2>Como interpretar el diagrama</h2>
-    En el diagrama anterior podemos ver:<br>
-    <ul>
-      <li><b>Cajas en amarillo</b>, que representan a objetos que
-        podemos encontrarnos y con los que podemos trabajar. </li>
-      <li><b>Cajas en verde</b>, nos indican acciones que podemos
-        realizar desde nuestro script. Por ejemplo, podemo ver:<br>
-        <p align="center"><img src="images/interpretar-funcion.png"></p>
-        Lo interpretaremos como que disponemos de una <i>funcion</i>, <i>currentProject()</i>,
-        que podemos ejecutar desde nuestro script para obtener el
-        objerto con el que esta relacionada, en este caso el <i>project</i>.
-        Para los elementos etiquetados como <i>"&lt;&lt;funcion&gt;&gt;"</i>,
-        precisaremos haber importado el modulo <i>gvsig</i>.<br>
-        <pre>  from gvsig import *</pre>
-      </li>
-      <li><b>Cajas en azul</b>, nos indica que se trata de una entidad
-        abstracta. Nunca encontraremos objetos de este tipo. Hacen
-        referencia de forma generica a un grupo de objetos con
-        caracteristicas comunes; por ejemplo, tendremos un <i>Document</i>
-        que agrupa las caracteristicas comunes de <i>ViewDocument</i>,
-        <i>TableDocument</i> o <i>LayoutDocument</i>. En el diagrama
-        podemos encontrarnos, por ejemplo:<br>
-        <p align="center"><img src="images/interpretar-herencia.png"></p>
-        Aqui tendriamos una entidad <i>FFrame</i> abstracta, no nos
-        encontraremos nunca objetos de este tipo, lo que nos
-        encontraremos sera objetos de tipo <i>FFrameView</i>, <i>FFramePicture</i>
-        o <i>FFrameText</i>, y nos indica que todos los objetos
-        concretos relacionados con <i>FFrame</i> tendran un conjunto de
-        atributos y operaciones comunes. </li>
-      <li><b>Asociaciones entre objetos</b>, que nos indican que a
-        partir de un objeto podemos obtener otro o un conjunto de otros.
-        Por ejemplo:<br>
-        <p align="center"><img src="images/interpretar-asociacion.png"></p>
-        Nos indica que si disponemos de un objeto <i>LayoutDocument</i>,
-        podemos obtener el objeto <i>LayoutContext</i> invocando a la
-        operación o metodo <i>getLaypoutContext</i>.<br>
-        <pre>  laypoutContext = layoutDocument.getLaypoutContext()</pre>
-      </li>
-    </ul>
+Cómo interpretar el diagrama
+++++++++++++++++++++++++++++
+
+En el diagrama anterior podemos ver:
+
+- **Cajas en amarillo**, que representan a objetos que podemos encontrarnos y con los que podemos trabajar.
+- **Cajas en verde**, nos indican acciones que podemos realizar desde nuestro script. Por ejemplo, podemos ver:
+
+.. figure::  images/interpretar-funcion.png
+   :align:   center
+   
+Lo interpretaremos como que disponemos de una *funcion*, ``currentProject()``, que podemos ejecutar desde nuestro script para obtener el objerto con el que está relacionada, en este caso el *project*. Para los elementos etiquetados como *función* precisaremos haber importado el modulo ``gvsig``::
+
+    from gvsig import *
+
+- **Cajas en azul**, nos indica que se trata de una entidad abstracta. Nunca encontraremos objetos de este tipo. Hacen referencia de forma generica a un grupo de objetos con caracteristicas comunes; por ejemplo, tendremos un :javadoc:`Document <Document>` que agrupa las caracteristicas comunes de :javadoc:`ViewDocument <ViewDocument>`, :javadoc:`TableDocument <TableDocument>` o :javadoc:`LayoutDocument <LayoutDocument>`. En el diagrama podemos encontrarnos, por ejemplo:
+
+.. figure::  images/interpretar-herencia.png
+   :align:   center
+   
+Aquí tendríamos una entidad :javadoc:`FFrame <FFrame>` abstracta, no nos encontraremos nunca objetos de este tipo, lo que nos encontraremos será objetos de tipo :javadoc:`FFrameView <FFrameView>`, :javadoc:`FFramePicture <FFramePicture>` o :javadoc:`FFrameText <FFrameText>`, y nos indica que todos los objetos concretos relacionados con :javadoc:`FFrame <FFrame>` tendrán un conjunto de atributos y operaciones comunes.
+
+- **Asociaciones entre objetos**, que nos indican qué a partir de un objeto podemos obtener otro o un conjunto de otros. Por ejemplo:
+
+.. figure::  images/interpretar-asociacion.png
+   :align:   center
+
+Nos indica que si disponemos de un objeto :javadoc:`LayoutDocument <LayoutDocument>`, podemos obtener el objeto :javadoc:`LayoutContext <LayoutContext>` invocando a la operación o método ``getLaypoutContext``::
+
+	laypoutContext = layoutDocument.getLaypoutContext()

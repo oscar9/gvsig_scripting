@@ -8,11 +8,9 @@ Según sea su uso tendrán que cumplir ciertos requisitos. Por ejemplo, si cream
 Creando esquemas
 ----------------
 
-:javadoc:`DefaultEditableFeatureType <DefaultEditableFeatureType>`
-
 .. py:function:: createFeatureType([schema=None]):
     
-    Create an empty schema. If parameter schema is a DefaultEditableFeatureType, creates a copy of this schema :javadoc:`DefaultFeatureType <DefaultFeatureType>`.
+    Create an empty schema. If parameter schema is a :javadoc:`DefaultEditableFeatureType <DefaultEditableFeatureType>`, creates a copy of this schema :javadoc:`DefaultFeatureType <DefaultFeatureType>`.
 	
     :param schema: Schema from other layer
     :type schema: :javadoc:`DefaultEditableFeatureType <DefaultEditableFeatureType>`
@@ -37,7 +35,7 @@ Vamos a ver como crear un esquema con dos campos y asignale este esquema a una n
 		
 		d = loadDBF( dbf.getFullName()) # Carga tabla en el proyecto
 		
-También podemos crear un esquema nuevo basado en otro ya existente, muy útil para cuando queramos hacer copias de capas. Para pasar un esquema para la creación de capas debe ser de tipo **DefaultFeatureType**, la función :py:func:``createFeatureType()`` convierte el esquema de tipo **DefaultEditableFeatureType** en el necesario::
+También podemos crear un esquema nuevo basado en otro ya existente, muy útil para cuando queramos hacer copias de capas. Para pasar un esquema para la creación de capas debe ser de tipo **DefaultFeatureType**, la función :py:func:``createFeatureType()`` convierte el esquema de tipo :javadoc:`DefaultEditableFeatureType <DefaultEditableFeatureType>` en el necesario::
 
 	from gvsig import *
 	from gvsig.geom import *

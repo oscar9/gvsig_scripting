@@ -1,11 +1,7 @@
 Trabajando con capas: FLayer
 ============================
 
-org.gvsig.fmap.mapcontext.layers
-Interface FLayer
-
-
-file:///D:/javadocs/html/org/gvsig/fmap/mapcontext/layers/FLayer.html
+Trabajando con capas :javadoc:`FLayer <FLayer>`
 
 
 .. py:function:: createShape(definition, [filename=None, geometryType=None, CRS=None, prefixname="tmpshp"])
@@ -25,9 +21,7 @@ La interfaz FLayer viene implementada en varias capas de uso común como son las
 Capas vectoriales: FLyrVect
 ---------------------------
 
-org.gvsig.fmap.mapcontext.layers.vectorial.FLyrVect
-
-Unas de las operaciones más importantes es el trabajo con capas vectoriales. Hemos querido simplificar al máximo posible el trabajo con ellas, sobretodo si eres un nuevo desarrollador.
+Unas de las operaciones más importantes es el trabajo con capas vectoriales :javadoc:`FLyrVect <FLyrVect>`. Hemos querido simplificar al máximo posible el trabajo con ellas, sobretodo si eres un nuevo desarrollador.
 
 Ya hemos visto anteriormente la generación de esquemas que pueden ser usados en capas vectoriales. La única condición de estos esquemas es que contengan un campo ``GEOMETRY`` con un tipo de geometría establecido.
 

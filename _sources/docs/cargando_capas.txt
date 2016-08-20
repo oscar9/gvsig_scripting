@@ -21,7 +21,7 @@ Cargando capas
 
 	Add an existing raster file to the view. Returns Layer Raster file.
 	
-	:param str filename: absolute file path to the raster
+    :param str filename: absolute file path to the raster
     :param CRS: projection code
     :type CRS: string
     :param gvViewName: name of the view where to be loaded
@@ -34,25 +34,34 @@ Cargando capas
 Recursos en rutas relativas
 ---------------------------
 
-En nuestros scripts siempre tenemos acceso al un objeto denominada ``script`` de tipo ``DefaultScriptingScript``. Esta clase hace referencia a la ejecución del propio script y no tiene que ser importada.
-
-Una de las funciones que contiene nos será muy útil cuando tengamos extensiones con datos a los que tener acceso. Nos va a permitir acceder a datos contenidos en la carpeta de ejecución del script de forma relativa.
-
-Siendo que si tenemos una carpeta denominada ``/datos/`` al mismo nivel que nuestro script, podremos acceder a los datos de ella mediante ``script.getResource("datos/capa.shp")`` por ejemplo. Tener en cuenta que esta función devuelve un objeto Java del tipo ``java.io.File``. Para sacar su ruta en formato string usaremos ``getPath()`` o para sacar su uri usaremos ``.toURI()``
+Un recurso para acceder a datos que tengamos en la carpeta de nuestro módulo, independientemente de donde lo tengamos instalado o del pc, es hacer uso de una función de Python para sacar la ruta absoluta de recursos necesarios para su ejecución. Esta ruta se calcula a partir de la ruta en la que se ejecuta el script.
 
 Ejemplo de uso::
 
-	from gvsig import *
+	# encoding: utf-8
+	import os
+	import gvsig
 
 	def main(*args):
+		"""Obtener ruta absoluta de ficheros en la carpeta de ejecucion del script"""
+		
+		path_script = os.path.dirname(__file__)
+		print "Path script: ", path_script
+		print "Ruta relativa: data/fichero.xx"
+		print "Ruta absoluta: ", os.path.join(path_script, "data", "fichero.xx")
 
-		file_raster = script.getResource("/data/mdt_jaen.tif") #return java.io.File
-		path_raster = file_raster.getPath()
+Salida por consola será::
+
+	Path script:  c:\gvdevel\gvsig\gvSIG-desktop-2.3.0-2441-RC2-win-x86_64\home\gvSIG\plugins\org.gvsig.scripting.app.mainplugin\scripts
+	Ruta relativa: data/fichero.xx
+	Ruta absoluta:  c:\gvdevel\gvsig\gvSIG-desktop-2.3.0-2441-RC2-win-x86_64\home\gvSIG\plugins\org.gvsig.scripting.app.mainplugin\scripts\data\fichero.xx
+
+De esta forma estaríamos accediendo a la carpeta ``/datos/`` dentro de nuestro módulo.
 
 Capas Vectoriales
 -----------------
 
-Para cargar capas vectoriales usaremos la función :py:func:``loadShapeFile()``. Esta es una función de apoyo que llama a la función ``createLayer()`` más genérica.
+Para cargar capas vectoriales usaremos la función :py:func:`loadShapeFile`. Esta es una función de apoyo que llama a la función ``createLayer()`` más genérica.
 
 Ejemplo::
 
@@ -62,8 +71,7 @@ Ejemplo::
 	def main(*args):
 
 		# Get resource path
-		xfile = script.getResource("/data/jaen.shp")
-		shape_path = xfile.getPath()
+		shape_path = os.path.join(os.path.dirname(__file__),"data","jaen.shp")
 
 		# loadShapeFile function
 		s1 = loadShapeFile(shape_path)
@@ -75,30 +83,21 @@ Ejemplo::
 Capas Raster
 ------------
 
-Para cargar capas raster usaremos la función :py:func:``loadRasterFile()``. Esta es una función de apoyo que llama a la función ``createLayer()`` más genérica.
+Para cargar capas raster usaremos la función :py:func:`loadRasterFile`. Esta es una función de apoyo que llama a la función ``createLayer()`` más genérica.
+
+Si necesitamos transformar una ruta a formato ``uri`` podemos hacerlo apoyándonos en la clase de Java: ``java.io.File``:
 
 Ejemplo::
 
 	from gvsig import *
-
+	from java.io import File
+	
 	def main(*args):
 
 		# Load Raster File
-		raster_path = script.getResource("/data/mdt_jaen.tif").getPath()
+		raster_path = os.path.join(os.path.dirname(__file__),"data","mdt_jaen.tif")
 		r1 = loadRasterFile(raster_path)
 		
-		raster_uri = script.getResource("/data/mdt_jaen.tif").toURI()
+		raster_uri = File(os.path.join(os.path.dirname(__file__),"data","fichero.xx")).toURI()
 		r2 = loadLayer("Gdal Store", uri=raster_uri)
 		
-Si necesitamos transformar una ruta a formato ``uri`` podemos hacerlo apoyándonos en la clase de Java: ``java.io.File``::
-
-	from gvsig import *
-	from java.io import File
-
-	def main(*args):
-
-		# Load Raster File
-		raster_path = script.getResource("/data/mdt_jaen.tif").getPath()
-
-		# Path to URI
-		uri = File(raster_path).toURI()

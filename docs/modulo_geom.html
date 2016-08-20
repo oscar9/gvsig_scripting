@@ -53,7 +53,7 @@
             
   <div class="section" id="modulo-de-geometrias-geom">
 <h1>Módulo de geometrías: geom<a class="headerlink" href="#modulo-de-geometrias-geom" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Una geometría es un objeto que contiene información geométrica. Estas geometrías tienen un tipo principal: Punto, Linea, Polygono.. y un subtipo o dimensión: D2, D3, D2M..</p>
+<p>Una geometría es un objeto que contiene información geométrica. Estas geometrías tienen un tipo principal: Point, Line, Polygon.. y un subtipo o dimensión: D2, D3, D2M..</p>
 <p>Para el Módulo de Scripting hemos creado la librería gvsig.geom que nos ayudará para crear rápidamente las geometrías que necesitemos. Para algunas operaciones más complicadas tendremos que usar la API de gvSIG.</p>
 <p>Para establecer estos tipos y subtipos lo haremos utilizando las constantes que se incluyen en la libreria.</p>
 <p>Constantes que aparecen en la librería <code class="docutils literal"><span class="pre">gvsig.geom</span></code> para la creación de geometrías:</p>
@@ -425,7 +425,7 @@
 </div>
 </div>
 <div class="section" id="multilinea">
-<h2>Multilinea<a class="headerlink" href="#multilinea" title="Enlazar permanentemente con este título">¶</a></h2>
+<h2>Multilínea<a class="headerlink" href="#multilinea" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Creando multilíneas:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 
@@ -523,6 +523,7 @@
 </div>
 <div class="section" id="operaciones-espaciales">
 <h2>Operaciones espaciales<a class="headerlink" href="#operaciones-espaciales" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Puedes consultar todas las operaciones espaciales en el interfaz de geometrías <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\geom\Geometry.html">Geometry</a></p>
 <p>Distancia entre puntos:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 
@@ -591,7 +592,7 @@
         <span class="nb">print</span> <span class="s2">&quot;Buffer12 Difference Area: &quot;</span><span class="p">,</span> <span class="n">buffer12_diff</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Creando un polígono con un hueco interno y añadirlo en una capa nueva:</p>
+<p>Creando un polígono, aplicarle un área de influencia, añadirle un anillo interno y agregarlo en una capa nueva:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 
@@ -618,6 +619,9 @@
         <span class="n">currentView</span><span class="p">()</span><span class="o">.</span><span class="n">addLayer</span><span class="p">(</span><span class="n">shape</span><span class="p">)</span>
 </pre></div>
 </div>
+<div class="figure align-center">
+<img alt="../_images/geom_poligono_hueco.png" src="../_images/geom_poligono_hueco.png" />
+</div>
 </div>
 </div>
 
@@ -637,7 +641,7 @@
 <li><a class="reference internal" href="#linea">Línea</a></li>
 <li><a class="reference internal" href="#poligono">Polígono</a></li>
 <li><a class="reference internal" href="#multipunto">Multipunto</a></li>
-<li><a class="reference internal" href="#multilinea">Multilinea</a></li>
+<li><a class="reference internal" href="#multilinea">Multilínea</a></li>
 <li><a class="reference internal" href="#multipoligono">Multipolígono</a></li>
 <li><a class="reference internal" href="#envelope">Envelope</a></li>
 <li><a class="reference internal" href="#wkt">WKT</a></li>
