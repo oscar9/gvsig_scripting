@@ -1,3 +1,4 @@
+.. _label-cargando_capas:
 
 Cargando capas
 ===============
@@ -58,6 +59,14 @@ Salida por consola será::
 
 De esta forma estaríamos accediendo a la carpeta ``/datos/`` dentro de nuestro módulo.
 
+loadLayer
+---------
+Las funciones posteriores se apoyan todas en una función principal denominada ``loadLayer``.
+
+Ejemplo de uso::
+
+    layer = loadLayer('Gdal Store', crs=getCRS("EPSG:3042"),uri=File(r"C:\temp\mdt20_3_etrs89.tif").toURI(),gvViewName=currentView())
+	
 Capas Vectoriales
 -----------------
 
@@ -101,3 +110,20 @@ Ejemplo::
 		raster_uri = File(os.path.join(os.path.dirname(__file__),"data","fichero.xx")).toURI()
 		r2 = loadLayer("Gdal Store", uri=raster_uri)
 		
+Ficheros DBF
+------------
+
+Para trabajar con la creación y carga de ficheros DBF existen las funciones ``createDBF``  y ``loadDBF``. Siendo un objecto :javadoc:`DefaultFeatureStore <DefaultFeatureStore>`
+
+Ejemplo de uso::
+
+	from gvsig import *
+
+	def main(*args):
+
+		schema = createSchema()
+		schema.append("ID", "INTEGER")
+		dbf = createDBF(schema, prefixname="summary")
+		print dbf, type(dbf)
+		path = dbf.getFullName()
+		loadDBF(path)

@@ -313,6 +313,14 @@
         <span class="nb">print</span> <span class="s2">&quot;Point4: &quot;</span><span class="p">,</span> <span class="n">point4</span>
 </pre></div>
 </div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Create</span> <span class="n">Point</span>
+<span class="n">Point1</span><span class="p">:</span>  <span class="n">POINT</span> <span class="n">Z</span> <span class="p">(</span><span class="mf">10.0</span> <span class="mf">10.0</span> <span class="mf">5.0</span><span class="p">)</span>
+<span class="n">Point2</span><span class="p">:</span>  <span class="n">POINT</span> <span class="p">(</span><span class="mf">15.0</span> <span class="mf">7.0</span><span class="p">)</span>
+<span class="n">Point3</span><span class="p">:</span>  <span class="n">POINT</span> <span class="p">(</span><span class="mf">15.0</span> <span class="mf">15.0</span><span class="p">)</span>
+<span class="n">Point4</span><span class="p">:</span>  <span class="n">POINT</span> <span class="n">ZM</span> <span class="p">(</span><span class="mf">5.0</span> <span class="mf">18.0</span> <span class="mf">3.0</span> <span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Creando punto con 3 dimensiones:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 
@@ -327,6 +335,10 @@
         <span class="nb">print</span> <span class="n">p3d</span><span class="o">.</span><span class="n">convertToWKT</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POINT</span> <span class="n">Z</span> <span class="p">(</span><span class="mi">10</span> <span class="mi">10</span> <span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="linea">
 <h2>Línea<a class="headerlink" href="#linea" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -339,6 +351,10 @@
         <span class="n">line1</span><span class="o">.</span><span class="n">addVertex</span><span class="p">(</span><span class="n">createPoint</span><span class="p">(</span><span class="n">D2</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
         <span class="n">line1</span><span class="o">.</span><span class="n">addVertex</span><span class="p">(</span><span class="n">createPoint</span><span class="p">(</span><span class="n">D2</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">))</span>
         <span class="nb">print</span> <span class="s2">&quot;Line1: &quot;</span><span class="p">,</span> <span class="n">line1</span><span class="o">.</span><span class="n">convertToWKT</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Line1</span><span class="p">:</span>  <span class="n">LINESTRING</span> <span class="p">(</span><span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Accediendo a los vértices de la línea:</p>
@@ -366,6 +382,17 @@
         <span class="nb">print</span> <span class="s2">&quot;4&quot;</span><span class="p">,</span> <span class="n">line2</span><span class="o">.</span><span class="n">getVertex</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Line1</span><span class="p">:</span>  <span class="n">LINESTRING</span> <span class="p">(</span><span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="mi">10</span><span class="p">)</span>
+
+<span class="n">Line2</span> <span class="nb">object</span><span class="p">:</span>  <span class="n">Line</span><span class="p">:</span><span class="mi">2</span><span class="n">D</span>
+<span class="n">Line2</span><span class="p">:</span>  <span class="n">LINESTRING</span> <span class="p">(</span><span class="mi">10</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">5</span> <span class="mi">2</span><span class="p">)</span>
+<span class="mi">1</span> <span class="n">POINT</span> <span class="p">(</span><span class="mf">10.0</span> <span class="mf">19.0</span><span class="p">)</span>
+<span class="mi">2</span> <span class="n">POINT</span> <span class="p">(</span><span class="mf">3.0</span> <span class="mf">1.0</span><span class="p">)</span>
+<span class="mi">3</span> <span class="n">POINT</span> <span class="p">(</span><span class="mf">1.0</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="mi">4</span> <span class="n">POINT</span> <span class="p">(</span><span class="mf">5.0</span> <span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="poligono">
 <h2>Polígono<a class="headerlink" href="#poligono" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -389,6 +416,12 @@
         <span class="nb">print</span> <span class="s2">&quot;Poli_2&quot;</span><span class="p">,</span> <span class="n">poli_2</span><span class="o">.</span><span class="n">convertToWKT</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">WKT</span> <span class="n">Polygon</span><span class="p">:</span>  <span class="n">POLYGON</span> <span class="p">((</span><span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">Poli_1</span> <span class="n">POLYGON</span> <span class="p">((</span><span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">))</span>
+<span class="n">Poli_2</span> <span class="n">POLYGON</span> <span class="n">Z</span> <span class="p">((</span><span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span> <span class="mi">1</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">2</span> <span class="mi">1</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">))</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="multipunto">
 <h2>Multipunto<a class="headerlink" href="#multipunto" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -409,6 +442,12 @@
         <span class="nb">print</span> <span class="s2">&quot;multipoint3: &quot;</span><span class="p">,</span> <span class="n">multipoint3</span><span class="o">.</span><span class="n">convertToWKT</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">multipoint1</span><span class="p">:</span>  <span class="n">MULTIPOINT</span> <span class="p">(</span><span class="mi">10</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">multipoint2</span><span class="p">:</span>  <span class="n">MULTIPOINT</span> <span class="n">EMPTY</span>
+<span class="n">multipoint3</span><span class="p">:</span>  <span class="n">MULTIPOINT</span> <span class="n">Z</span> <span class="p">(</span><span class="mi">19</span> <span class="mi">10</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">5</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">35</span> <span class="mi">5</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Añadiendo punto a una geometría de tipo multipunto:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 
@@ -421,6 +460,11 @@
 
         <span class="n">multipoint1</span><span class="o">.</span><span class="n">addPrimitive</span><span class="p">(</span><span class="n">createPoint</span><span class="p">(</span><span class="n">D2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
         <span class="nb">print</span> <span class="s2">&quot;multipoint1 modified: &quot;</span><span class="p">,</span> <span class="n">multipoint1</span><span class="o">.</span><span class="n">convertToWKT</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">multipoint1</span><span class="p">:</span>  <span class="n">MULTIPOINT</span> <span class="p">(</span><span class="mi">10</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">multipoint1</span> <span class="n">modified</span><span class="p">:</span>  <span class="n">MULTIPOINT</span> <span class="p">(</span><span class="mi">10</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">5</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">8</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -453,6 +497,13 @@
         <span class="n">multiline3</span><span class="o">.</span><span class="n">addCurve</span><span class="p">(</span><span class="n">line1</span><span class="p">)</span>
         <span class="n">multiline3</span><span class="o">.</span><span class="n">addCurve</span><span class="p">(</span><span class="n">line3</span><span class="p">)</span>
         <span class="nb">print</span> <span class="s2">&quot;multiline3: &quot;</span><span class="p">,</span> <span class="n">multiline3</span><span class="o">.</span><span class="n">convertToWKT</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Create</span> <span class="n">Line</span>
+<span class="n">multiline1</span><span class="p">:</span>  <span class="n">MULTILINESTRING</span> <span class="p">((</span><span class="mi">1</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">multiline2</span><span class="p">:</span>  <span class="n">MULTILINESTRING</span> <span class="p">((</span><span class="mi">1</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="mi">10</span><span class="p">))</span>
+<span class="n">multiline3</span><span class="p">:</span>  <span class="n">MULTILINESTRING</span> <span class="p">((</span><span class="mi">1</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">0</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">5</span> <span class="mi">3</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -490,10 +541,17 @@
         <span class="nb">print</span> <span class="s2">&quot;multipolygon4: &quot;</span><span class="p">,</span> <span class="n">multipolygon4</span><span class="o">.</span><span class="n">convertToWKT</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">multipolygon1</span><span class="p">:</span>  <span class="n">MULTIPOLYGON</span> <span class="p">(((</span><span class="mi">4</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)),</span> <span class="p">((</span><span class="mi">4</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)),</span> <span class="p">((</span><span class="mi">4</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="n">multipolygon2</span><span class="p">:</span>  <span class="n">MULTIPOLYGON</span> <span class="p">(((</span><span class="mi">4</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)),</span> <span class="p">((</span><span class="mi">4</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)),</span> <span class="p">((</span><span class="mi">4</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
+<span class="n">multipolygon3</span><span class="p">:</span>  <span class="n">MULTIPOLYGON</span> <span class="p">(((</span><span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)),</span> <span class="p">((</span><span class="mi">2</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">1</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span> <span class="mi">5</span><span class="p">)),</span> <span class="p">((</span><span class="mi">0</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span> <span class="mi">0</span><span class="p">)))</span>
+<span class="n">multipolygon4</span><span class="p">:</span>  <span class="n">MULTIPOLYGON</span> <span class="n">EMPTY</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="envelope">
 <h2>Envelope<a class="headerlink" href="#envelope" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Crear Envelope:</p>
+<p>Crear Envelope del tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\geom\jts\primitive\Envelope2D.html">Envelope2D</a></p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
@@ -507,6 +565,12 @@
         <span class="nb">print</span> <span class="s2">&quot;env1 type: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">env1</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">envelope</span><span class="p">:</span>  <span class="n">POLYGON</span> <span class="p">((</span><span class="mf">10.0</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">10.0</span> <span class="mf">20.0</span><span class="p">,</span> <span class="mf">10.0</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="n">env1</span><span class="p">:</span>  <span class="n">POLYGON</span> <span class="p">((</span><span class="mf">0.0</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="mf">29.0</span><span class="p">,</span> <span class="mf">38.0</span> <span class="mf">29.0</span><span class="p">,</span> <span class="mf">38.0</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="mf">0.0</span><span class="p">))</span>
+<span class="n">env1</span> <span class="nb">type</span><span class="p">:</span>  <span class="o">&lt;</span><span class="nb">type</span> <span class="s1">&#39;org.gvsig.fmap.geom.jts.primitive.Envelope2D&#39;</span><span class="o">&gt;</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="wkt">
 <h2>WKT<a class="headerlink" href="#wkt" title="Enlazar permanentemente con este título">¶</a></h2>
@@ -518,6 +582,10 @@
         <span class="c1"># Create from WKT</span>
         <span class="n">wkt</span> <span class="o">=</span> <span class="n">createGeometryFromWKT</span><span class="p">(</span><span class="s2">&quot;MULTIPOLYGON (((4 5, 3 3, 3 2, 4 5)), ((4 5, 3 3, 3 2, 4 5)), ((4 5, 3 3, 3 2, 4 5)))&quot;</span><span class="p">)</span>
         <span class="nb">print</span> <span class="s2">&quot;wkt: &quot;</span><span class="p">,</span> <span class="n">wkt</span><span class="o">.</span><span class="n">convertToWKT</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">wkt</span><span class="p">:</span>  <span class="n">MULTIPOLYGON</span> <span class="p">(((</span><span class="mi">4</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)),</span> <span class="p">((</span><span class="mi">4</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)),</span> <span class="p">((</span><span class="mi">4</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">3</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">4</span> <span class="mi">5</span><span class="p">)))</span>
 </pre></div>
 </div>
 </div>
@@ -538,6 +606,11 @@
         <span class="nb">print</span> <span class="s2">&quot;Distance 2D: &quot;</span><span class="p">,</span> <span class="n">point3</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">point4</span><span class="p">)</span>
 </pre></div>
 </div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Distance</span> <span class="mi">2</span><span class="n">D</span><span class="p">:</span>  <span class="mf">14.1421356237</span>
+<span class="n">Distance</span> <span class="mi">2</span><span class="n">D</span><span class="p">:</span>  <span class="mf">14.1421356237</span>
+</pre></div>
+</div>
 <p>Moviendo un punto:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 
@@ -553,6 +626,11 @@
         <span class="nb">print</span> <span class="s2">&quot;Moved point by 5, -3: &quot;</span><span class="p">,</span> <span class="n">point1</span><span class="o">.</span><span class="n">convertToWKT</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Point</span> <span class="mi">1</span><span class="p">:</span>  <span class="n">POINT</span> <span class="p">(</span><span class="mi">10</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">Moved</span> <span class="n">point</span> <span class="n">by</span> <span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">:</span>  <span class="n">POINT</span> <span class="p">(</span><span class="mi">15</span> <span class="mi">7</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Operaciones entre polígonos y líneas:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 
@@ -565,6 +643,11 @@
 
         <span class="nb">print</span> <span class="s2">&quot;Intersects?: &quot;</span><span class="p">,</span> <span class="n">buffer1</span><span class="o">.</span><span class="n">intersects</span><span class="p">(</span><span class="n">line1</span><span class="p">)</span>
         <span class="nb">print</span> <span class="s2">&quot;Intersection: &quot;</span><span class="p">,</span> <span class="n">buffer1</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">line1</span><span class="p">)</span><span class="o">.</span><span class="n">convertToWKT</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Intersects?:  True
+Intersection:  LINESTRING (-5 -5, 7.071067811865473 7.071067811865473)
 </pre></div>
 </div>
 <p>Operaciones espaciales entre polígonos:</p>
@@ -590,6 +673,13 @@
         <span class="c1"># Differencia</span>
         <span class="n">buffer12_diff</span> <span class="o">=</span> <span class="n">buffer1</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">buffer2</span><span class="p">)</span>
         <span class="nb">print</span> <span class="s2">&quot;Buffer12 Difference Area: &quot;</span><span class="p">,</span> <span class="n">buffer12_diff</span><span class="o">.</span><span class="n">area</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Consola:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Buffer1</span> <span class="n">Area</span><span class="p">:</span>  <span class="mf">312.144515226</span>
+<span class="n">Buffer2</span> <span class="n">Area</span><span class="p">:</span>  <span class="mf">78.0361288065</span>
+<span class="n">Buffer12</span> <span class="n">Union</span> <span class="n">Area</span><span class="p">:</span>  <span class="mf">335.886462528</span>
+<span class="n">Buffer12</span> <span class="n">Difference</span> <span class="n">Area</span><span class="p">:</span>  <span class="mf">257.850333721</span>
 </pre></div>
 </div>
 <p>Creando un polígono, aplicarle un área de influencia, añadirle un anillo interno y agregarlo en una capa nueva:</p>

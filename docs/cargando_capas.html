@@ -52,7 +52,7 @@
           <div class="body" role="main">
             
   <div class="section" id="cargando-capas">
-<h1>Cargando capas<a class="headerlink" href="#cargando-capas" title="Enlazar permanentemente con este título">¶</a></h1>
+<span id="label-cargando-capas"></span><h1>Cargando capas<a class="headerlink" href="#cargando-capas" title="Enlazar permanentemente con este título">¶</a></h1>
 <dl class="function">
 <dt>
 <code class="descname">loadShapeFile(shpFile, **parameters):</code></dt>
@@ -128,6 +128,14 @@
 </div>
 <p>De esta forma estaríamos accediendo a la carpeta <code class="docutils literal"><span class="pre">/datos/</span></code> dentro de nuestro módulo.</p>
 </div>
+<div class="section" id="loadlayer">
+<h2>loadLayer<a class="headerlink" href="#loadlayer" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Las funciones posteriores se apoyan todas en una función principal denominada <code class="docutils literal"><span class="pre">loadLayer</span></code>.</p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">layer</span> <span class="o">=</span> <span class="n">loadLayer</span><span class="p">(</span><span class="s1">&#39;Gdal Store&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">getCRS</span><span class="p">(</span><span class="s2">&quot;EPSG:3042&quot;</span><span class="p">),</span><span class="n">uri</span><span class="o">=</span><span class="n">File</span><span class="p">(</span><span class="s2">r&quot;C:\temp\mdt20_3_etrs89.tif&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">toURI</span><span class="p">(),</span><span class="n">gvViewName</span><span class="o">=</span><span class="n">currentView</span><span class="p">())</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="capas-vectoriales">
 <h2>Capas Vectoriales<a class="headerlink" href="#capas-vectoriales" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Para cargar capas vectoriales usaremos la función <code class="xref py py-func docutils literal"><span class="pre">loadShapeFile()</span></code>. Esta es una función de apoyo que llama a la función <code class="docutils literal"><span class="pre">createLayer()</span></code> más genérica.</p>
@@ -167,6 +175,23 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="ficheros-dbf">
+<h2>Ficheros DBF<a class="headerlink" href="#ficheros-dbf" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Para trabajar con la creación y carga de ficheros DBF existen las funciones <code class="docutils literal"><span class="pre">createDBF</span></code>  y <code class="docutils literal"><span class="pre">loadDBF</span></code>. Siendo un objecto <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultFeatureStore.html">DefaultFeatureStore</a></p>
+<p>Ejemplo de uso:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+        <span class="n">schema</span> <span class="o">=</span> <span class="n">createSchema</span><span class="p">()</span>
+        <span class="n">schema</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">&quot;ID&quot;</span><span class="p">,</span> <span class="s2">&quot;INTEGER&quot;</span><span class="p">)</span>
+        <span class="n">dbf</span> <span class="o">=</span> <span class="n">createDBF</span><span class="p">(</span><span class="n">schema</span><span class="p">,</span> <span class="n">prefixname</span><span class="o">=</span><span class="s2">&quot;summary&quot;</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="n">dbf</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">dbf</span><span class="p">)</span>
+        <span class="n">path</span> <span class="o">=</span> <span class="n">dbf</span><span class="o">.</span><span class="n">getFullName</span><span class="p">()</span>
+        <span class="n">loadDBF</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 </div>
 
 
@@ -182,8 +207,10 @@
   <ul>
 <li><a class="reference internal" href="#">Cargando capas</a><ul>
 <li><a class="reference internal" href="#recursos-en-rutas-relativas">Recursos en rutas relativas</a></li>
+<li><a class="reference internal" href="#loadlayer">loadLayer</a></li>
 <li><a class="reference internal" href="#capas-vectoriales">Capas Vectoriales</a></li>
 <li><a class="reference internal" href="#capas-raster">Capas Raster</a></li>
+<li><a class="reference internal" href="#ficheros-dbf">Ficheros DBF</a></li>
 </ul>
 </li>
 </ul>

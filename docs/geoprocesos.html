@@ -26,7 +26,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <link rel="shortcut icon" href="../_static/gvSIG.ico"/>
     <link rel="top" title="documentación de gvsig - 0" href="../index.html" />
-    <link rel="prev" title="Interfaces visuales" href="interfaces_visuales.html" /> 
+    <link rel="next" title="gvpy: Guía de uso" href="docs_gvpy.html" />
+    <link rel="prev" title="Leyendas" href="leyendas.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -36,7 +37,10 @@
           <a href="../genindex.html" title="Índice General"
              accesskey="I">índice</a></li>
         <li class="right" >
-          <a href="interfaces_visuales.html" title="Interfaces visuales"
+          <a href="docs_gvpy.html" title="gvpy: Guía de uso"
+             accesskey="N">siguiente</a> |</li>
+        <li class="right" >
+          <a href="leyendas.html" title="Leyendas"
              accesskey="P">anterior</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
       </ul>
@@ -48,7 +52,7 @@
           <div class="body" role="main">
             
   <div class="section" id="geoprocesos">
-<h1>Geoprocesos<a class="headerlink" href="#geoprocesos" title="Enlazar permanentemente con este título">¶</a></h1>
+<span id="label-geoprocesos"></span><h1>Geoprocesos<a class="headerlink" href="#geoprocesos" title="Enlazar permanentemente con este título">¶</a></h1>
 <div class="section" id="insertar-geoproceso-en-la-toolbox">
 <h2>Insertar geoproceso en la Toolbox<a class="headerlink" href="#insertar-geoproceso-en-la-toolbox" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Creación de un geoproceso desde Scripting:</p>
@@ -177,6 +181,29 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="lanzador-de-geoprocesos-usando-gvpy">
+<h2>Lanzador de geoprocesos usando gvpy<a class="headerlink" href="#lanzador-de-geoprocesos-usando-gvpy" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Una vez registrado en la Toolbox el geoproceso anterior, podemos lanzanlo desde Scripting con la librería gvpy:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gvsig.libs</span> <span class="k">import</span> <span class="n">gvpy</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">gvpy</span><span class="o">.</span><span class="n">runalg</span><span class="p">(</span><span class="s2">&quot;XYShift&quot;</span><span class="p">,</span> <span class="s2">&quot;Locations&quot;</span><span class="p">,</span> <span class="s2">&quot;0.0&quot;</span><span class="p">,</span> <span class="s2">&quot;10.0&quot;</span><span class="p">,</span><span class="n">ADDLAYER</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">NAME</span><span class="o">=</span><span class="s2">&quot;Capa desplazada&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>También puedes lanzar otros geoprocesos, por ejemplo, podemos crear dos capas aleatorias de vectores y raster:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gvsig.libs</span> <span class="k">import</span> <span class="n">gvpy</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+        <span class="n">v</span> <span class="o">=</span> <span class="n">gvpy</span><span class="o">.</span><span class="n">runalg</span><span class="p">(</span><span class="s2">&quot;randomvector&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">gvpy</span><span class="o">.</span><span class="n">runalg</span><span class="p">(</span><span class="s2">&quot;generaterandomnormal&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">CELLSIZE</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">EXTENT</span><span class="o">=</span><span class="p">[</span><span class="mi">250</span><span class="p">,</span><span class="mi">250</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">0</span><span class="p">])</span>
+</pre></div>
+</div>
+<p>Puedes encontrar más información en la <a class="reference internal" href="docs_gvpy.html#label-gvpy"><span class="std std-ref">documentación de gvpy</span></a></p>
+</div>
 </div>
 
 
@@ -192,13 +219,17 @@
   <ul>
 <li><a class="reference internal" href="#">Geoprocesos</a><ul>
 <li><a class="reference internal" href="#insertar-geoproceso-en-la-toolbox">Insertar geoproceso en la Toolbox</a></li>
+<li><a class="reference internal" href="#lanzador-de-geoprocesos-usando-gvpy">Lanzador de geoprocesos usando gvpy</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Tema anterior</h4>
-  <p class="topless"><a href="interfaces_visuales.html"
-                        title="capítulo anterior">Interfaces visuales</a></p>
+  <p class="topless"><a href="leyendas.html"
+                        title="capítulo anterior">Leyendas</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="docs_gvpy.html"
+                        title="próximo capítulo">gvpy: Guía de uso</a></p>
   <div role="note" aria-label="source link">
     <h3>Esta página</h3>
     <ul class="this-page-menu">
@@ -227,7 +258,10 @@
           <a href="../genindex.html" title="Índice General"
              >índice</a></li>
         <li class="right" >
-          <a href="interfaces_visuales.html" title="Interfaces visuales"
+          <a href="docs_gvpy.html" title="gvpy: Guía de uso"
+             >siguiente</a> |</li>
+        <li class="right" >
+          <a href="leyendas.html" title="Leyendas"
              >anterior</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
       </ul>

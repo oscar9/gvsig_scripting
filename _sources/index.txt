@@ -7,7 +7,8 @@ Documentación de Scripting en gvSIG 2.3
 ===================================================
 
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 2
+   :caption: Tabla de contenidos
 
    docs/introduccion.rst
    docs/modelo_de_objetos_simplificado.rst
@@ -20,6 +21,7 @@ Documentación de Scripting en gvSIG 2.3
    docs/interfaces_visuales.rst
    docs/leyendas.rst
    docs/geoprocesos.rst
+   docs/docs_gvpy.rst
    docs/capturando_eventos.rst
    docs/usando_librerias_externas.rst
 
@@ -27,5 +29,4 @@ Documentación de Scripting en gvSIG 2.3
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`

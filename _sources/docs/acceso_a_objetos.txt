@@ -57,10 +57,7 @@ Dando como resultado en la consola algo similar a::
 Proyecto
 --------
 
-file:///D:/javadocs/html/org/gvsig/app/project/DefaultProject.html
-org.gvsig.app.project.DefaultProject
-
-La clase Project se encarga de la gestión de los documentos que tengamos en gvSIG. Este se encarga de las Vistas, Tablas, Mapas, Gráficas y otros que pueden venir desde otras extensiones como el de Series de mapas.
+La clase Project ( :javadoc:`DefaultProject <DefaultProject>` ) se encarga de la gestión de los documentos que tengamos en gvSIG. Este se encarga de las Vistas, Tablas, Mapas, Gráficas y otros que pueden venir desde otras extensiones como el de Series de mapas.
 
 Para acceder a esta clase podemos usar :py:func:`currentProject()`, nos devolverá la instancia del proyecto que se encuentra actualmente abierto en gvSIG.
 
@@ -92,8 +89,7 @@ En este caso, `getProjection()` es un método implementado en la API de gvSIG, y
 Documento Vista
 ---------------
 
-file:///D:/javadocs/html/org/gvsig/app/project/documents/view/DefaultViewDocument.html
-org.gvsig.app.project.documents.view.DefaultViewDocument
+El documento Vista ( :javadoc:`DefaultViewDocument <DefaultViewDocument>` ) contendrá las capas de nuestro proyecto, en el podremos visualizarlas y editarlas.
 
 Para acceder a las Vistas creadas en un Proyecto, podremos usar dos funciones: :py:func:`currentView()` o :py:func:`currentDocument()` para acceder a la Vista activa, o  currentProject().getView("Nombre") para acceder a una determinada Vista.
 
@@ -157,7 +153,7 @@ Podemos centrar la vista en el punto que queramos::
 	
 Documento Tabla
 ----------------
-Otro tipo de documentos que tenemos en nuestro proyecto son las Tablas. Estas tablas pueden hacer referencia tanto a tablas añadidas a gvSIG como a tablas de atributos de las capas u otras que aparezcan en este gestor.
+Otro tipo de documentos que tenemos en nuestro proyecto son las Tablas ( :javadoc:`DefaultFeatureStore <DefaultFeatureStore>` ). Estas tablas pueden hacer referencia tanto a tablas añadidas a gvSIG como a tablas de atributos de las capas u otras que aparezcan en este gestor.
 
 De la misma forma que los documentos vista, podemos utilizar la función :py:func:`currentTable()` o :py:func:`currentDocument()` o `project.getTable("Name")`.
 
@@ -233,7 +229,7 @@ Otros métodos que podemos usar sobre una capa añadida son los de ``.setVisible
 Grupo de entidades: FeatureSet
 ------------------------------
 
-Para obtener las entidades de una capa o tabla, podemos hacer una petición mediante ``layer.features()``, la cual hace una petición al store de la capa, y nos devuelve un featureSet con el filtrado o orden que le asignemos. Este featureSet nos permite iterrar sobre las entidades de la capa.
+Para obtener las entidades de una capa o tabla, podemos hacer una petición mediante ``layer.features()``, la cual hace una petición al store de la capa, y nos devuelve un featureSet ( :javadoc:`DefaultFeatureSet <DefaultFeatureSet>` ) con el filtrado o orden que le asignemos. Este featureSet nos permite iterrar sobre las entidades de la capa.
 
 Después, por ejemplo, podemos acceder a estas entidades y a sus valores mediante el método ``getValues()`` sobre cada ``feature``, el cual devuelve un diccionario que podemos imprimir::
 
@@ -321,7 +317,7 @@ Otras opciones más avanzadas usando la API de gvSIG::
 Entidad
 -------
 
-Antes hemos visto que podemos acceder a los valores de cada entidad con ``getValues()``, pero también podemos acceder directamente mediante ``feature.FIELD`` o feature.get("Field"). Por ejemplo::
+Antes hemos visto que podemos acceder a los valores de cada entidad ( :javadoc:`DefaultFeature <DefaultFeature>` ) con ``getValues()``, pero también podemos acceder directamente mediante ``feature.FIELD`` o feature.get("Field"). Por ejemplo::
 
 	from gvsig import *
 	from gvsig.geom import *
@@ -346,9 +342,7 @@ La salida por consola será::
 Selección
 +++++++++
 
-file:///D:/javadocs/html/org/gvsig/fmap/dal/feature/impl/DefaultFeatureSelection.html
-
-Otro tipo de featureSet es el FeatureSelection. Hace referencia a los objetos que tengamos seleccionados en la capa.
+Otro tipo de featureSet es el :javadoc:`DefaultFeatureSelection <DefaultFeatureSelection>`. Hace referencia a los objetos que tengamos seleccionados en la capa.
 
 Un ejemplo de su uso, teniendo 3 entidades seleccionadas::
 
@@ -394,3 +388,19 @@ Por ejemplo, añadiremos a la selección ciertas entidades que cumplan un criter
 
 Si quisieramos eleminar entidades de la selección, podríamos usar el método ``.deselect(feature)``
 
+Por otra parte, también podríamos crear una selección o varias desde Scripting::
+
+	from gvsig import *
+
+	def main(*args):
+
+		# Create a new selection
+		layer = currentLayer()
+		features = layer.features()
+		newselection = layer.getDataStore().createSelection()
+		
+		for f in features:
+			if f.ID!=10:
+				newselection.select(f)
+
+		layer.getDataStore().setSelection(newselection)
