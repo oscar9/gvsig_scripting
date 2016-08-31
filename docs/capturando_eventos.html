@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Capturando eventos: Listeners &mdash; documentación de gvsig - 0</title>
+    <title>Capturando eventos: Listeners &#8212; documentación de gvsig - 0</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -26,7 +26,8 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <link rel="shortcut icon" href="../_static/gvSIG.ico"/>
     <link rel="top" title="documentación de gvsig - 0" href="../index.html" />
-    <link rel="prev" title="Geoprocesos" href="geoprocesos.html" /> 
+    <link rel="next" title="Usando librerías externas" href="usando_librerias_externas.html" />
+    <link rel="prev" title="gvpy: Guía de uso" href="docs_gvpy.html" /> 
   </head>
   <body role="document">
     <div class="related" role="navigation" aria-label="related navigation">
@@ -36,9 +37,12 @@
           <a href="../genindex.html" title="Índice General"
              accesskey="I">índice</a></li>
         <li class="right" >
-          <a href="geoprocesos.html" title="Geoprocesos"
+          <a href="usando_librerias_externas.html" title="Usando librerías externas"
+             accesskey="N">siguiente</a> |</li>
+        <li class="right" >
+          <a href="docs_gvpy.html" title="gvpy: Guía de uso"
              accesskey="P">anterior</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -49,7 +53,7 @@
             
   <div class="section" id="capturando-eventos-listeners">
 <h1>Capturando eventos: Listeners<a class="headerlink" href="#capturando-eventos-listeners" title="Enlazar permanentemente con este título">¶</a></h1>
-<p>Los <em>listeners</em> nos permiten responder a eventos que ocurren en el programa. Por ejemplo, tenemos el listener <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\mapcontext\events\listeners\ViewPortListener.html">ViewPortListener</a> que lanza un evento cada vez que modificamos la pantalla de nuestra Vista, por ejemplo, lanzará un evento cada vez que hagamos <code class="docutils literal"><span class="pre">Zoom</span> <span class="pre">In</span></code> o <code class="docutils literal"><span class="pre">Zoom</span> <span class="pre">out</span></code>.</p>
+<p>Los <em>listeners</em> nos permiten responder a eventos que ocurren en el programa. Por ejemplo, tenemos el listener <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/events/listeners/ViewPortListener.html">ViewPortListener</a> que lanza un evento cada vez que modificamos la pantalla de nuestra Vista, por ejemplo, lanzará un evento cada vez que hagamos <code class="docutils literal"><span class="pre">Zoom</span> <span class="pre">In</span></code> o <code class="docutils literal"><span class="pre">Zoom</span> <span class="pre">out</span></code>.</p>
 <p>Una forma de usar estos listeners es utilizando la herencia, creando una clase derivada de una o de varias anteriores.</p>
 <div class="admonition note">
 <p class="first admonition-title">Nota</p>
@@ -57,7 +61,7 @@
 </div>
 <div class="section" id="viewportlistener">
 <h2>ViewPortListener<a class="headerlink" href="#viewportlistener" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>En el siguiente ejemplo vemos como creamos una clase nueva <code class="docutils literal"><span class="pre">MonitorSuma</span></code> que herada de <code class="docutils literal"><span class="pre">FormPanel</span></code> y <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\mapcontext\events\listeners\ViewPortListener.html">ViewPortListener</a>. Lanzamos la aplicación en las líneas:</p>
+<p>En el siguiente ejemplo vemos como creamos una clase nueva <code class="docutils literal"><span class="pre">MonitorSuma</span></code> que herada de <code class="docutils literal"><span class="pre">FormPanel</span></code> y <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/events/listeners/ViewPortListener.html">ViewPortListener</a>. Lanzamos la aplicación en las líneas:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mapContext</span> <span class="o">=</span> <span class="n">currentView</span><span class="p">()</span><span class="o">.</span><span class="n">getMapContext</span><span class="p">()</span>
 <span class="n">monitor</span> <span class="o">=</span> <span class="n">MonitorSuma</span><span class="p">(</span><span class="n">mapContext</span><span class="p">)</span>
 <span class="n">monitor</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Monitor de Escala&quot;</span><span class="p">)</span>
@@ -424,7 +428,7 @@
 </div>
 <div class="section" id="pointlistener">
 <h2>PointListener<a class="headerlink" href="#pointlistener" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Otro ejemplo similar al anterior es este en el que capturamos los eventos lanzados desde el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\mapcontrol\tools\Listeners\PointListener.html">PointListener</a>, que hace referencia  a clicks que hacemos sobre la Vista activa. También tendremos que apoyarnos en <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\mapcontrol\tools\Behavior\PointBehavior.html">PointBehavior</a> para poder añadir este comportamiento al <em>mapControl</em>.</p>
+<p>Otro ejemplo similar al anterior es este en el que capturamos los eventos lanzados desde el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontrol/tools/Listeners/PointListener.html">PointListener</a>, que hace referencia  a clicks que hacemos sobre la Vista activa. También tendremos que apoyarnos en <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontrol/tools/Behavior/PointBehavior.html">PointBehavior</a> para poder añadir este comportamiento al <em>mapControl</em>.</p>
 <p>En el siguiente ejemplo, capturaremos las coordenadas del mapa en el punto que hacemos click o doble click con el ratón:</p>
 <div class="figure align-center">
 <img alt="../_images/coordenadas.png" src="../_images/coordenadas.png" />
@@ -914,8 +918,11 @@
 </ul>
 
   <h4>Tema anterior</h4>
-  <p class="topless"><a href="geoprocesos.html"
-                        title="capítulo anterior">Geoprocesos</a></p>
+  <p class="topless"><a href="docs_gvpy.html"
+                        title="capítulo anterior">gvpy: Guía de uso</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="usando_librerias_externas.html"
+                        title="próximo capítulo">Usando librerías externas</a></p>
   <div role="note" aria-label="source link">
     <h3>Esta página</h3>
     <ul class="this-page-menu">
@@ -944,14 +951,17 @@
           <a href="../genindex.html" title="Índice General"
              >índice</a></li>
         <li class="right" >
-          <a href="geoprocesos.html" title="Geoprocesos"
+          <a href="usando_librerias_externas.html" title="Usando librerías externas"
+             >siguiente</a> |</li>
+        <li class="right" >
+          <a href="docs_gvpy.html" title="gvpy: Guía de uso"
              >anterior</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Oscar.
-      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+        &#169; Copyright 2016, Oscar.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
     </div>
   </body>
 </html>

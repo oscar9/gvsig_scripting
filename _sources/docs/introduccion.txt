@@ -120,7 +120,7 @@ Si nuestro script contiene otras librerías propias que también hemos programad
 Creación de un script
 ---------------------
 
-.. |new| image:: images\icon-new.png
+.. |new| image:: images/icon-new.png
 
 Para crear un script nuevo, trajaremos en el **Scripting Composer** presiona el botón de Nuevo |new| situado arriba a la izquierda, o en :menuselection:`Archivo --> Nuevo` se nos abrirá una pantalla sobre el tipo de script a crear.
 
@@ -171,7 +171,7 @@ Ahora nos disponemos a escribir nuestro primer script. El ejemplo que nos viene 
 	   
 En primer lugar, realiza una importación de la librería que vamos a utilizar, la librería de scripting ``gvsig``, y luego define dentro de la función principal main(), el comando print que hará salir nuestro valor por consola.
 
-.. figure::  images\scripting_composer_2.png
+.. figure::  images/scripting_composer_2.png
    :align:   center
 
 En Scripting en gvSIG, la función que se va a ejecutar por defecto **será siempre la función main()**, así que debemos de introducir todo nuestro código en esta función.
@@ -180,9 +180,9 @@ En Scripting en gvSIG, la función que se va a ejecutar por defecto **será siem
 
 	Todos nuestros scripts deben de contener la función main() para su correcta ejecución. No será obligatorio si van a ser usados como librerías.
 
-.. |saveandexecute| image:: images\icon-saveandexecute.png
-.. |save| image:: images\icon-save.png
-.. |execute| image:: images\icon-execute.png
+.. |saveandexecute| image:: images/icon-saveandexecute.png
+.. |save| image:: images/icon-save.png
+.. |execute| image:: images/icon-execute.png
 
 Para ejecutar un script guardando |save| y ejecutando |execute| o directamente presionaremos el botón |saveandexecute| y veremos su ejecución por consola.
 
@@ -214,22 +214,22 @@ La herramienta se encuentra en el Scripting Componser, en el menú :menuselectio
 
 Seleccionamos la carpeta que contiene nuestra extensión:
 
-.. figure::  images\empaquetador_1.png
+.. figure::  images/empaquetador_1.png
    :align:   center
 
 Establecemos las propiedades del paquete:
 
-.. figure::  images\empaquetador_2.png
+.. figure::  images/empaquetador_2.png
    :align:   center
 
 Las opciones de salida:
 
 La ruta será similar a esta: ``gvSIG-desktop-2.3.0-2441-RC2-win-x86_64\install\gvSIG-desktop-2.3.0-ExportadorCapas-1.0.0-0-testing-all-all-j1_7.gvspkg``. 
 
-.. figure::  images\empaquetador_3.png
+.. figure::  images/empaquetador_3.png
    :align:   center
    
 Y terminado, ya aprecerá nuestro extensión en formato ``.gvspkg`` para poderse instalar desde el Administrador de Complementos
 
-.. figure::  images\empaquetador_4.png
+.. figure::  images/empaquetador_4.png
    :align:   center

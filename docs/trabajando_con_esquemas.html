@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Trabajando con esquemas: FeatureType &mdash; documentación de gvsig - 0</title>
+    <title>Trabajando con esquemas: FeatureType &#8212; documentación de gvsig - 0</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -42,7 +42,7 @@
         <li class="right" >
           <a href="acceso_a_objetos.html" title="Acceso a objectos en gvSIG"
              accesskey="P">anterior</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -60,12 +60,12 @@
 <dl class="function">
 <dt>
 <code class="descname">createFeatureType([schema=None]):</code></dt>
-<dd><p>Create an empty schema. If parameter schema is a <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultEditableFeatureType.html">DefaultEditableFeatureType</a>, creates a copy of this schema <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultFeatureType.html">DefaultFeatureType</a>.</p>
+<dd><p>Create an empty schema. If parameter schema is a <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/impl/DefaultEditableFeatureType.html">DefaultEditableFeatureType</a>, creates a copy of this schema <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/impl/DefaultFeatureType.html">DefaultFeatureType</a>.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>schema</strong> (<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultEditableFeatureType.html">DefaultEditableFeatureType</a>) &#8211; Schema from other layer</td>
+<tr class="field-odd field"><th class="field-name">Parámetros:</th><td class="field-body"><strong>schema</strong> (<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/impl/DefaultEditableFeatureType.html">DefaultEditableFeatureType</a>) &#8211; Schema from other layer</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Devuelve:</th><td class="field-body">empty schema or a copy of a schema</td>
 </tr>
@@ -73,7 +73,7 @@
 </table>
 </dd></dl>
 
-<p>La interfaz <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\tools\dataTypes\DataTypes.html">DataTypes</a> especifica un conjunto de constantes indicando los tipos de datos soportados por DAL.</p>
+<p>La interfaz <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/cresques/DataTypes.html">DataTypes</a> especifica un conjunto de constantes indicando los tipos de datos soportados por DAL.</p>
 <p>Vamos a ver como crear un esquema con dos campos y asignale este esquema a una nueva tabla:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
@@ -90,7 +90,7 @@
         <span class="n">d</span> <span class="o">=</span> <span class="n">loadDBF</span><span class="p">(</span> <span class="n">dbf</span><span class="o">.</span><span class="n">getFullName</span><span class="p">())</span> <span class="c1"># Carga tabla en el proyecto</span>
 </pre></div>
 </div>
-<p>También podemos crear un esquema nuevo basado en otro ya existente, muy útil para cuando queramos hacer copias de capas. Para pasar un esquema para la creación de capas debe ser de tipo <strong>DefaultFeatureType</strong>, la función :py:func:<code class="docutils literal"><span class="pre">createFeatureType()</span></code> convierte el esquema de tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultEditableFeatureType.html">DefaultEditableFeatureType</a> en el necesario:</p>
+<p>También podemos crear un esquema nuevo basado en otro ya existente, muy útil para cuando queramos hacer copias de capas. Para pasar un esquema para la creación de capas debe ser de tipo <strong>DefaultFeatureType</strong>, la función :py:func:<code class="docutils literal"><span class="pre">createFeatureType()</span></code> convierte el esquema de tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/impl/DefaultEditableFeatureType.html">DefaultEditableFeatureType</a> en el necesario:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 
@@ -296,12 +296,12 @@
         <li class="right" >
           <a href="acceso_a_objetos.html" title="Acceso a objectos en gvSIG"
              >anterior</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Oscar.
-      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+        &#169; Copyright 2016, Oscar.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
     </div>
   </body>
 </html>

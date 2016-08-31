@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>gvpy: Guía de uso &mdash; documentación de gvsig - 0</title>
+    <title>gvpy: Guía de uso &#8212; documentación de gvsig - 0</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -42,7 +42,7 @@
         <li class="right" >
           <a href="geoprocesos.html" title="Geoprocesos"
              accesskey="P">anterior</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -205,8 +205,8 @@ Ej. <code class="docutils literal"><span class="pre">LUT=&quot;1,1,1,0,0,0&quot;
 <p>Podemos declararla de diversas formas:</p>
 <ul class="simple">
 <li><strong>Nombre de la Vista</strong> (string): Buscará la Vista con ese nombre en nuestro proyecto. El comando en el que está basado es en: <code class="docutils literal"><span class="pre">currentProject().getView(name)`.</span> <span class="pre">Ejemplo</span> <span class="pre">`EXTENT=&quot;Vista1&quot;</span></code></li>
-<li><strong>Vista</strong> ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\app\project\documents\view\DefaultViewDocument.html">DefaultViewDocument</a> ): Le pasamos directamente la Vista y cogerá la región en la que las capas de esta se expanden. Ejemplo: <code class="docutils literal"><span class="pre">EXTENT=currentView()</span></code></li>
-<li><strong>Layer</strong> ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\mapcontext\layers\FLyrDefault.html">FLyrDefault</a> ): Extensión de la capa ya sea vectorial o raster. Ejemplo: <code class="docutils literal"><span class="pre">EXTENT=capa</span></code>, basado en nuestro ejemplo anterior cogería la extensión de la capa generada por nuestro algoritmo.</li>
+<li><strong>Vista</strong> ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/app/project/documents/view/DefaultViewDocument.html">DefaultViewDocument</a> ): Le pasamos directamente la Vista y cogerá la región en la que las capas de esta se expanden. Ejemplo: <code class="docutils literal"><span class="pre">EXTENT=currentView()</span></code></li>
+<li><strong>Layer</strong> ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/layers/FLyrDefault.html">FLyrDefault</a> ): Extensión de la capa ya sea vectorial o raster. Ejemplo: <code class="docutils literal"><span class="pre">EXTENT=capa</span></code>, basado en nuestro ejemplo anterior cogería la extensión de la capa generada por nuestro algoritmo.</li>
 <li><strong>Lista</strong> (Python list): Pasando las coordenadas de la región. Las esquinas inferior izquierda y superior derecha, incluyendo la coordenada Z. Ejemplo: <code class="docutils literal"><span class="pre">EXTENT=[100,100,0,500,500,0]</span></code></li>
 <li><strong>Por defualt</strong>: Si no se le indica, intentará coger el <code class="docutils literal"><span class="pre">currentView()</span></code>, Vista del proyecto actual. En caso de que este no contenga ninguna capa, cogerá las coordenadas predeterminadas de: <code class="docutils literal"><span class="pre">EXTENT=[0,0,0,100,100,0]</span></code></li>
 </ul>
@@ -378,12 +378,12 @@ o copiar y pegar en un nuevo script.</p>
         <li class="right" >
           <a href="geoprocesos.html" title="Geoprocesos"
              >anterior</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Oscar.
-      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+        &#169; Copyright 2016, Oscar.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
     </div>
   </body>
 </html>

@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>Acceso a objectos en gvSIG &mdash; documentación de gvsig - 0</title>
+    <title>Acceso a objectos en gvSIG &#8212; documentación de gvsig - 0</title>
     
     <link rel="stylesheet" href="../_static/classic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -42,7 +42,7 @@
         <li class="right" >
           <a href="cargando_capas.html" title="Cargando capas"
              accesskey="P">anterior</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &#187;</li> 
       </ul>
     </div>  
 
@@ -113,7 +113,7 @@
 </div>
 <div class="section" id="proyecto">
 <h2>Proyecto<a class="headerlink" href="#proyecto" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>La clase Project ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\app\project\DefaultProject.html">DefaultProject</a> ) se encarga de la gestión de los documentos que tengamos en gvSIG. Este se encarga de las Vistas, Tablas, Mapas, Gráficas y otros que pueden venir desde otras extensiones como el de Series de mapas.</p>
+<p>La clase Project ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/app/project/DefaultProject.html">DefaultProject</a> ) se encarga de la gestión de los documentos que tengamos en gvSIG. Este se encarga de las Vistas, Tablas, Mapas, Gráficas y otros que pueden venir desde otras extensiones como el de Series de mapas.</p>
 <p>Para acceder a esta clase podemos usar <a class="reference internal" href="#currentProject" title="currentProject"><code class="xref py py-func docutils literal"><span class="pre">currentProject()</span></code></a>, nos devolverá la instancia del proyecto que se encuentra actualmente abierto en gvSIG.</p>
 <p>Por ejemplo, podemos obtener su nombre y la proyección establecida en el proyecto:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
@@ -140,7 +140,7 @@
 </div>
 <div class="section" id="documento-vista">
 <h2>Documento Vista<a class="headerlink" href="#documento-vista" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>El documento Vista ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\app\project\documents\view\DefaultViewDocument.html">DefaultViewDocument</a> ) contendrá las capas de nuestro proyecto, en el podremos visualizarlas y editarlas.</p>
+<p>El documento Vista ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/app/project/documents/view/DefaultViewDocument.html">DefaultViewDocument</a> ) contendrá las capas de nuestro proyecto, en el podremos visualizarlas y editarlas.</p>
 <p>Para acceder a las Vistas creadas en un Proyecto, podremos usar dos funciones: <a class="reference internal" href="#currentView" title="currentView"><code class="xref py py-func docutils literal"><span class="pre">currentView()</span></code></a> o <a class="reference internal" href="#currentDocument" title="currentDocument"><code class="xref py py-func docutils literal"><span class="pre">currentDocument()</span></code></a> para acceder a la Vista activa, o  currentProject().getView(&#8220;Nombre&#8221;) para acceder a una determinada Vista.</p>
 <p>Una Vista pueden contener diferentes capas o servicios cargados. Un Proyecto puede contener varias vistas. Por ejemplo, con el siguiente script listaremos todas las Vistas que se encuentren en nuestro proyecto:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
@@ -199,7 +199,7 @@
 </div>
 <div class="section" id="documento-tabla">
 <h2>Documento Tabla<a class="headerlink" href="#documento-tabla" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Otro tipo de documentos que tenemos en nuestro proyecto son las Tablas ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultFeatureStore.html">DefaultFeatureStore</a> ). Estas tablas pueden hacer referencia tanto a tablas añadidas a gvSIG como a tablas de atributos de las capas u otras que aparezcan en este gestor.</p>
+<p>Otro tipo de documentos que tenemos en nuestro proyecto son las Tablas ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/impl/DefaultFeatureStore.html">DefaultFeatureStore</a> ). Estas tablas pueden hacer referencia tanto a tablas añadidas a gvSIG como a tablas de atributos de las capas u otras que aparezcan en este gestor.</p>
 <p>De la misma forma que los documentos vista, podemos utilizar la función <code class="xref py py-func docutils literal"><span class="pre">currentTable()</span></code> o <a class="reference internal" href="#currentDocument" title="currentDocument"><code class="xref py py-func docutils literal"><span class="pre">currentDocument()</span></code></a> o <cite>project.getTable(&#8220;Name&#8221;)</cite>.</p>
 </div>
 <div class="section" id="capas">
@@ -268,7 +268,7 @@
 </div>
 <div class="section" id="grupo-de-entidades-featureset">
 <h2>Grupo de entidades: FeatureSet<a class="headerlink" href="#grupo-de-entidades-featureset" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Para obtener las entidades de una capa o tabla, podemos hacer una petición mediante <code class="docutils literal"><span class="pre">layer.features()</span></code>, la cual hace una petición al store de la capa, y nos devuelve un featureSet ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\featureset\DefaultFeatureSet.html">DefaultFeatureSet</a> ) con el filtrado o orden que le asignemos. Este featureSet nos permite iterrar sobre las entidades de la capa.</p>
+<p>Para obtener las entidades de una capa o tabla, podemos hacer una petición mediante <code class="docutils literal"><span class="pre">layer.features()</span></code>, la cual hace una petición al store de la capa, y nos devuelve un featureSet ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/impl/featureset/DefaultFeatureSet.html">DefaultFeatureSet</a> ) con el filtrado o orden que le asignemos. Este featureSet nos permite iterrar sobre las entidades de la capa.</p>
 <p>Después, por ejemplo, podemos acceder a estas entidades y a sus valores mediante el método <code class="docutils literal"><span class="pre">getValues()</span></code> sobre cada <code class="docutils literal"><span class="pre">feature</span></code>, el cual devuelve un diccionario que podemos imprimir:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
@@ -352,7 +352,7 @@
 </div>
 <div class="section" id="entidad">
 <h2>Entidad<a class="headerlink" href="#entidad" title="Enlazar permanentemente con este título">¶</a></h2>
-<p>Antes hemos visto que podemos acceder a los valores de cada entidad ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultFeature.html">DefaultFeature</a> ) con <code class="docutils literal"><span class="pre">getValues()</span></code>, pero también podemos acceder directamente mediante <code class="docutils literal"><span class="pre">feature.FIELD</span></code> o feature.get(&#8220;Field&#8221;). Por ejemplo:</p>
+<p>Antes hemos visto que podemos acceder a los valores de cada entidad ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/impl/DefaultFeature.html">DefaultFeature</a> ) con <code class="docutils literal"><span class="pre">getValues()</span></code>, pero también podemos acceder directamente mediante <code class="docutils literal"><span class="pre">feature.FIELD</span></code> o feature.get(&#8220;Field&#8221;). Por ejemplo:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
 
@@ -375,7 +375,7 @@
 </div>
 <div class="section" id="seleccion">
 <h3>Selección<a class="headerlink" href="#seleccion" title="Enlazar permanentemente con este título">¶</a></h3>
-<p>Otro tipo de featureSet es el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html\org\gvsig\fmap\dal\feature\impl\DefaultFeatureSelection.html">DefaultFeatureSelection</a>. Hace referencia a los objetos que tengamos seleccionados en la capa.</p>
+<p>Otro tipo de featureSet es el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/impl/DefaultFeatureSelection.html">DefaultFeatureSelection</a>. Hace referencia a los objetos que tengamos seleccionados en la capa.</p>
 <p>Un ejemplo de su uso, teniendo 3 entidades seleccionadas:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
@@ -504,12 +504,12 @@
         <li class="right" >
           <a href="cargando_capas.html" title="Cargando capas"
              >anterior</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &raquo;</li> 
+        <li class="nav-item nav-item-0"><a href="../index.html">Documentacion de Scripting en gvSIG 2.3</a> &#187;</li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
-        &copy; Copyright 2016, Oscar.
-      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.5.
+        &#169; Copyright 2016, Oscar.
+      Creado con <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
     </div>
   </body>
 </html>

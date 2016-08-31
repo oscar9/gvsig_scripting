@@ -6,7 +6,7 @@ Abeille
 
 El programa Abeille lo usaremos para la creación de las interfaces visuales. En este programa podremos establecer el aspecto de las ventanas, nombres, etc. Haciendo uso de la librería FormPanel podremos cargarlo fácilmente en un script, y sacarle el máximo partido.
 
-.. |abeille| image:: images\icon-abeille.png
+.. |abeille| image:: images/icon-abeille.png
 
 Abriremos el Abeille desde el botón |abeille| situado en la barra de Herramientas del Scripting Composer.
 
