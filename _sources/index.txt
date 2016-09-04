@@ -23,6 +23,7 @@ Documentación de Scripting en gvSIG 2.3
    docs/docs_gvpy.rst
    docs/capturando_eventos.rst
    docs/usando_librerias_externas.rst
+   docs/rscript.rst
 
 Índices
 ==================

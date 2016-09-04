@@ -80,3 +80,33 @@ Generando símbolos para capas vectoriales::
 
 		uu = gvsig.simplePolygonSymbol()
 		print "simplePolygonSymbol: ", uu
+		
+		
+Capa de Graphics Layer
+----------------------
+
+Ejemplo para crear una capa de graphicslayer, esta capa se situa por encima del resto en nuestra Vista::
+
+    # encoding: utf-8
+
+
+    from gvsig import *
+    from gvsig.geom import *
+    import random
+
+    def main(*args):
+        vista=currentView()
+        gp = vista.getGraphicsLayer()
+        gp.removeGraphics("ejemplo")
+
+        features = currentLayer().features()
+        for feature in features:
+            pol = feature.geometry()
+            r = lambda: random.randint(0, 255)
+            color = getColorFromRGB(r(), r(), r() ,r())
+            polSymbol = simplePolygonSymbol(color)
+            idPolSymbol = gp.addSymbol(polSymbol)
+            gp.addGraphic("ejemplo", pol,  idPolSymbol, "Label")
+            
+.. figure::  images/graphicslayer_1.png
+   :align:   center

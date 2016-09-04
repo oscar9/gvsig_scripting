@@ -622,6 +622,8 @@ Consola::
 
 	wkt:  MULTIPOLYGON (((4 5, 3 3, 3 2, 4 5)), ((4 5, 3 3, 3 2, 4 5)), ((4 5, 3 3, 3 2, 4 5)))
 		
+
+		
 Operaciones espaciales
 ----------------------
 
@@ -746,3 +748,120 @@ Creando un polígono, aplicarle un área de influencia, añadirle un anillo inte
 		
 .. figure::  images/geom_poligono_hueco.png
    :align:   center
+   
+Ejemplo para extraer todos los vertices de una capa de polígonos en forma de multipuntos::
+
+    # encoding: utf-8
+
+    from gvsig import *
+    from gvsig import geom
+
+    def main(*args):
+        """ Extraer vertices de poligonos como multipuntos """
+        
+        layer = currentLayer()
+        features = layer.features()
+
+        sch = createFeatureType()
+        sch.append("GEOMETRY", "GEOMETRY")
+        sch.get("GEOMETRY").setGeometryType(geom.MULTIPOINT, geom.D2)
+        shp = createShape(sch)
+        
+        for feature in features:
+            gf = feature.geometry()
+            shp.append(GEOMETRY=gf.toPoints())
+
+        shp.commit()
+        currentView().addLayer(shp)
+        
+Resultado:
+
+.. figure::  images/geom_vertices.png
+   :align:   center
+   
+Con una pequeña modificación, podemos hacer que añada un punto por cada vertice, recorriendo las geometrías de multipunto y extrayendo uno a uno sus puntos::
+
+    # encoding: utf-8
+
+    from gvsig import *
+    from gvsig import geom
+
+    def main(*args):
+        """ Extraer vertices de poligonos como multipuntos """
+        
+        layer = currentLayer()
+        features = layer.features()
+
+        sch = createFeatureType()
+        sch.append("GEOMETRY", "GEOMETRY")
+        sch.get("GEOMETRY").setGeometryType(geom.POINT, geom.D2)
+        shp = createShape(sch)
+        
+        for feature in features:
+            gf = feature.geometry()
+
+            for p in gf:
+                shp.append(GEOMETRY=p)
+
+        shp.commit()
+        currentView().addLayer(shp)
+        
+Otra forma de recorrer los vertices podría ser haciendo uso del método ``getVertex`` y ``getNumVertices``::
+
+    # encoding: utf-8
+
+    from gvsig import *
+    from gvsig import geom
+
+    def main(*args):
+        """ Extraer vertices de poligonos como multipuntos """
+        
+        layer = currentLayer()
+        features = layer.features()
+        
+        for feature in features:
+            gf = feature.geometry()
+            numvertices = gf.getNumVertices()
+            print "Vertices: ", numvertices
+            for i in range(0, numvertices):
+                print gf.getVertex(i) #geometria de tipo punto
+                
+Dando por consola una salida similar a::
+
+    Vertices:  7
+    POINT (274.17769116287 194.9280163662371)
+    POINT (275.81171697787 166.3325646037371)
+    POINT (248.03327812287003 105.05659654123708)
+    POINT (145.90666468537003 40.5125768487371)
+    POINT (162.24692283537004 128.74997085873707)
+    POINT (207.99964565537007 140.1881515637371)
+    POINT (274.17769116287 194.9280163662371)
+    ...
+
+Transformación entre proyecciones
+---------------------------------
+
+En el siguiente ejemplo vemos como transformar una geometría entre dos proyecciones::
+
+    # encoding: utf-8
+
+    from gvsig import *
+    from gvsig.geom import *
+
+    def main(*args):
+        """ Convertir geometria entre proyecciones """
+        
+        crs1 = getCRS('EPSG:4326')
+        crs2 = getCRS('EPSG:32630')
+        
+        #Get IProjection
+        #view1 = currentProject().getViews()[0].getProjection()
+        #view2 = currentProject().getViews()[1].getProjection()
+
+        #Get ICoordTrans
+        ICoordTrans1 = crs1.getCT(crs2)
+        
+        point = createPoint2D(-0.375,39.466) #Valencia
+        print "point: ", point
+        point.reProject(ICoordTrans1)
+        print "reprojected: ", point

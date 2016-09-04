@@ -129,6 +129,35 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="capa-de-graphics-layer">
+<h2>Capa de Graphics Layer<a class="headerlink" href="#capa-de-graphics-layer" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Ejemplo para crear una capa de graphicslayer, esta capa se situa por encima del resto en nuestra Vista:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># encoding: utf-8</span>
+
+
+<span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gvsig.geom</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">random</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">vista</span><span class="o">=</span><span class="n">currentView</span><span class="p">()</span>
+    <span class="n">gp</span> <span class="o">=</span> <span class="n">vista</span><span class="o">.</span><span class="n">getGraphicsLayer</span><span class="p">()</span>
+    <span class="n">gp</span><span class="o">.</span><span class="n">removeGraphics</span><span class="p">(</span><span class="s2">&quot;ejemplo&quot;</span><span class="p">)</span>
+
+    <span class="n">features</span> <span class="o">=</span> <span class="n">currentLayer</span><span class="p">()</span><span class="o">.</span><span class="n">features</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">feature</span> <span class="ow">in</span> <span class="n">features</span><span class="p">:</span>
+        <span class="n">pol</span> <span class="o">=</span> <span class="n">feature</span><span class="o">.</span><span class="n">geometry</span><span class="p">()</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="k">lambda</span><span class="p">:</span> <span class="n">random</span><span class="o">.</span><span class="n">randint</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">255</span><span class="p">)</span>
+        <span class="n">color</span> <span class="o">=</span> <span class="n">getColorFromRGB</span><span class="p">(</span><span class="n">r</span><span class="p">(),</span> <span class="n">r</span><span class="p">(),</span> <span class="n">r</span><span class="p">()</span> <span class="p">,</span><span class="n">r</span><span class="p">())</span>
+        <span class="n">polSymbol</span> <span class="o">=</span> <span class="n">simplePolygonSymbol</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+        <span class="n">idPolSymbol</span> <span class="o">=</span> <span class="n">gp</span><span class="o">.</span><span class="n">addSymbol</span><span class="p">(</span><span class="n">polSymbol</span><span class="p">)</span>
+        <span class="n">gp</span><span class="o">.</span><span class="n">addGraphic</span><span class="p">(</span><span class="s2">&quot;ejemplo&quot;</span><span class="p">,</span> <span class="n">pol</span><span class="p">,</span>  <span class="n">idPolSymbol</span><span class="p">,</span> <span class="s2">&quot;Label&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center">
+<img alt="../_images/graphicslayer_1.png" src="../_images/graphicslayer_1.png" />
+</div>
+</div>
 </div>
 
 
@@ -144,6 +173,7 @@
   <ul>
 <li><a class="reference internal" href="#">Leyendas</a><ul>
 <li><a class="reference internal" href="#en-capas-vectoriales">En capas vectoriales</a></li>
+<li><a class="reference internal" href="#capa-de-graphics-layer">Capa de Graphics Layer</a></li>
 </ul>
 </li>
 </ul>

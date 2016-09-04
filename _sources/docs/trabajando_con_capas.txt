@@ -89,7 +89,6 @@ El siguiente script modifcará el esquema de una capa. Para ello tenemos que cre
 
 	from gvsig import *
 	from gvsig import geom
-	import layer_append_features
 
 	def main(*args):
 		"""Updating schema of existent layer"""
@@ -206,7 +205,7 @@ Si al final del script anterior añadimos las siguientes líneas, veremos un eje
 	
 Para modificar los valores de lsa entidades que contiene nuestra capa::
 
-		layer.edit()#1)
+		layer.edit()
 
 		for i in features:
 			print i
@@ -216,3 +215,30 @@ Para modificar los valores de lsa entidades que contiene nuestra capa::
 			
 		layer.commit()
 		
+
+Se puede realizar copias de features y poder modificarlos después en su capa original.
+
+Ejemplo: Extraemos ciertas entidades de una capa que contiene un Campo1 de tipo Long. Estas entidades las copiamos a una lista. Después, modificamos estas entidades y las volvemos a modificar sobre la capa inicial::
+
+    from gvsig import *
+
+    def main(*args):
+        layer = currentLayer()
+        features = layer.features('Campo1>2',sortBy="Campo1",asc=True)
+        lista = []
+        for f in features:
+            print f
+            copia = f.getCopy()
+            print type(copia)
+            lista.append(copia)
+
+        print len(lista)
+        layer.edit()
+        for i in lista:
+            value = i.get('Campo1')+0.01
+            i = i.getEditable()
+            i.set('Campo1', value)
+            print "new value", i.get('Campo1'), type(i)
+            featureSet = layer.features()
+            layer.features().update(i)
+        layer.commit()

@@ -26,6 +26,7 @@
     <script type="text/javascript" src="../_static/translations.js"></script>
     <link rel="shortcut icon" href="../_static/gvSIG.ico"/>
     <link rel="top" title="documentación de gvsig - 0" href="../index.html" />
+    <link rel="next" title="Lenguaje R" href="rscript.html" />
     <link rel="prev" title="Capturando eventos: Listeners" href="capturando_eventos.html" /> 
   </head>
   <body role="document">
@@ -35,6 +36,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="Índice General"
              accesskey="I">índice</a></li>
+        <li class="right" >
+          <a href="rscript.html" title="Lenguaje R"
+             accesskey="N">siguiente</a> |</li>
         <li class="right" >
           <a href="capturando_eventos.html" title="Capturando eventos: Listeners"
              accesskey="P">anterior</a> |</li>
@@ -169,6 +173,122 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="jopendocument">
+<h2>jOpenDocument<a class="headerlink" href="#jopendocument" title="Enlazar permanentemente con este título">¶</a></h2>
+<div class="section" id="editando-odt">
+<h3>Editando ODT<a class="headerlink" href="#editando-odt" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Abrir nuevo documento de LibreOffice</p>
+<p>jOpenDocument - Insert Field - fieldName</p>
+<p>Insertar una imagen
+Click derecho sobre la Imagen: Imagen - Opciones - Nombre: Imagen1</p>
+</div>
+<div class="section" id="editando-ods">
+<h3>Editando ODS<a class="headerlink" href="#editando-ods" title="Enlazar permanentemente con este título">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Nota</p>
+<p class="last">Después de modificarlo hay que abrirlo y presionas control+mayusculas+f9 para recalcular las celdas</p>
+</div>
+</div>
+<div class="section" id="ejemplos">
+<h3>Ejemplos<a class="headerlink" href="#ejemplos" title="Enlazar permanentemente con este título">¶</a></h3>
+<p>Editar Spreadsheet ODS:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">java.io</span> <span class="k">import</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">java.util</span> <span class="k">import</span> <span class="n">Date</span>
+
+<span class="kn">from</span> <span class="nn">org.jopendocument.model</span> <span class="k">import</span> <span class="n">OpenDocument</span>
+<span class="kn">from</span> <span class="nn">org.jopendocument.dom.spreadsheet</span> <span class="k">import</span> <span class="n">SpreadSheet</span>
+<span class="kn">from</span> <span class="nn">org.jopendocument.dom</span> <span class="k">import</span> <span class="n">OOUtils</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="c1">#Ejemplo de Edicion de ficheros ODS con jOpenDocument</span>
+
+    <span class="c1">#basado en http://www.jopendocument.org/start_spreadsheet_2.html</span>
+    <span class="c1">#ficheros plantilla http://www.jopendocument.org/downloads.html</span>
+
+    <span class="n">pathTemplate</span> <span class="o">=</span> <span class="s2">r&quot;C:/joo/invoice.ods&quot;</span>
+    <span class="n">pathOutput</span> <span class="o">=</span> <span class="s2">r&quot;C:/joo/fillingTest1.ods&quot;</span>
+
+    <span class="c1">#Acceso al spreadsheet y numero de hoja</span>
+    <span class="n">file</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">pathTemplate</span><span class="p">)</span>
+    <span class="n">sheet</span> <span class="o">=</span> <span class="n">SpreadSheet</span><span class="o">.</span><span class="n">createFromFile</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">getSheet</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+    <span class="c1">#Establecer fecha actual a la castilla I10</span>
+    <span class="n">sheet</span><span class="o">.</span><span class="n">getCellAt</span><span class="p">(</span><span class="s2">&quot;I10&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="n">Date</span><span class="p">())</span>
+
+    <span class="c1">#Modifica el valor a la celda 1,1. Seria B2</span>
+    <span class="n">sheet</span><span class="o">.</span><span class="n">setValueAt</span><span class="p">(</span><span class="s2">&quot;Template - 1&quot;</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+    <span class="c1">#Varias modificaciones</span>
+    <span class="n">sheet</span><span class="o">.</span><span class="n">getCellAt</span><span class="p">(</span><span class="s2">&quot;B27&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="s2">&quot;On site support&quot;</span><span class="p">)</span>
+    <span class="n">sheet</span><span class="o">.</span><span class="n">getCellAt</span><span class="p">(</span><span class="s2">&quot;F24&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">301</span><span class="p">)</span>
+    <span class="n">sheet</span><span class="o">.</span><span class="n">getCellAt</span><span class="p">(</span><span class="s2">&quot;H27&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setValue</span><span class="p">(</span><span class="mi">350</span><span class="p">)</span>
+    <span class="n">sheet</span><span class="o">.</span><span class="n">getSpreadSheet</span><span class="p">()</span><span class="o">.</span><span class="n">getTableModel</span><span class="p">(</span><span class="s2">&quot;Products&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">setValueAt</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="c1">#F27</span>
+
+    <span class="c1">#Guardamos fichero</span>
+    <span class="n">outputFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">pathOutput</span><span class="p">)</span>
+    <span class="n">OOUtils</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">sheet</span><span class="o">.</span><span class="n">getSpreadSheet</span><span class="p">()</span><span class="o">.</span><span class="n">saveAs</span><span class="p">(</span><span class="n">outputFile</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Editar Spreadsheet ODT:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">from</span> <span class="nn">geom</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">java.io</span> <span class="k">import</span> <span class="n">File</span>
+<span class="c1">#from org.jdom import Namespace</span>
+<span class="kn">from</span> <span class="nn">java.util.Map</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">java.util.ArrayList</span> <span class="k">as</span> <span class="nn">ArrayList</span>
+
+<span class="kn">from</span> <span class="nn">org.jopendocument.dom.template</span> <span class="k">import</span> <span class="n">JavaScriptFileTemplate</span>
+<span class="kn">from</span> <span class="nn">org.jopendocument.util.CollectionUtils</span> <span class="k">import</span> <span class="n">createMap</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="c1">#Ejemplo de Edicion de ficheros ODT con jOpenDocument</span>
+
+    <span class="c1">#basado en http://www.jopendocument.org/start_text_2.html</span>
+    <span class="c1">#ficheros plantilla http://www.jopendocument.org/downloads.html</span>
+
+    <span class="n">pathTemplate</span> <span class="o">=</span> <span class="s2">r&quot;C:\joo\test.odt&quot;</span>
+    <span class="n">pathOutput</span> <span class="o">=</span> <span class="s2">r&quot;C:\joo\test4&quot;</span>
+
+    <span class="c1">#Creamos template</span>
+    <span class="n">templateFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">pathTemplate</span><span class="p">)</span>
+    <span class="n">outFile</span> <span class="o">=</span> <span class="n">File</span><span class="p">(</span><span class="n">pathOutput</span><span class="p">)</span>
+    <span class="n">template</span> <span class="o">=</span> <span class="n">JavaScriptFileTemplate</span><span class="p">(</span><span class="n">templateFile</span><span class="p">)</span>
+
+    <span class="c1"># Principal: Establacer valores de un campo</span>
+    <span class="n">template</span><span class="o">.</span><span class="n">setField</span><span class="p">(</span><span class="s2">&quot;toto&quot;</span><span class="p">,</span> <span class="s2">&quot;value set using setField()&quot;</span><span class="p">)</span>
+    <span class="n">template</span><span class="o">.</span><span class="n">setField</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="s2">&quot;14&quot;</span><span class="p">)</span>
+    <span class="c1">#Haciendo doble click sobre la linea verde aparece el nombre</span>
+    <span class="c1">#al que hay que hacer referencia</span>
+    <span class="n">template</span><span class="o">.</span><span class="n">hideParagraph</span><span class="p">(</span><span class="s2">&quot;p1&quot;</span><span class="p">)</span> <span class="c1">#showParagraph</span>
+    <span class="n">template</span><span class="o">.</span><span class="n">showSection</span><span class="p">(</span><span class="s2">&quot;section1&quot;</span><span class="p">)</span> <span class="c1">#hideSection</span>
+
+
+    <span class="c1">#Values de la tabla</span>
+    <span class="n">months</span> <span class="o">=</span> <span class="n">ArrayList</span><span class="p">()</span>
+    <span class="n">months</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">createMap</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span><span class="s2">&quot;January&quot;</span><span class="p">,</span>   <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;-12&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">))</span>
+    <span class="n">months</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">createMap</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;February&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;-8&quot;</span><span class="p">,</span>  <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;5&quot;</span><span class="p">))</span>
+    <span class="n">months</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">createMap</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;March&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;-5&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;12&quot;</span><span class="p">))</span>
+    <span class="n">months</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">createMap</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;April&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;-1&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;15&quot;</span><span class="p">))</span>
+    <span class="n">months</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">createMap</span><span class="p">(</span><span class="s2">&quot;name&quot;</span><span class="p">,</span> <span class="s2">&quot;May&quot;</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">,</span> <span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">,</span> <span class="s2">&quot;21&quot;</span><span class="p">))</span>
+    <span class="n">template</span><span class="o">.</span><span class="n">setField</span><span class="p">(</span><span class="s2">&quot;months&quot;</span><span class="p">,</span> <span class="n">months</span><span class="p">)</span>
+
+    <span class="n">ddoc</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">createDocument</span><span class="p">()</span>
+    <span class="n">ddoc</span><span class="o">.</span><span class="n">saveAs</span><span class="p">(</span><span class="n">outFile</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Reemplazar imagen:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">pathImg</span> <span class="o">=</span> <span class="s2">r&quot;C:/joo/img02.png&quot;</span>
+<span class="n">ddoc</span> <span class="o">=</span> <span class="n">template</span><span class="o">.</span><span class="n">createDocument</span><span class="p">()</span>
+<span class="c1">#ddoc.getDescendantByName(&quot;draw:frame&quot;,&quot;Imagen1&quot;).setAttribute(&quot;href&quot;, &quot;file:///&quot; + pathImg,Namespace.getNamespace(&quot;xlink&quot;, &quot;http://www.w3.org/1999/xlink&quot;))</span>
+<span class="n">ddoc</span><span class="o">.</span><span class="n">saveAs</span><span class="p">(</span><span class="n">outFile</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -185,6 +305,12 @@
 <li><a class="reference internal" href="#">Usando librerías externas</a><ul>
 <li><a class="reference internal" href="#gdal">GDAL</a></li>
 <li><a class="reference internal" href="#jfreechart">jfreechart</a></li>
+<li><a class="reference internal" href="#jopendocument">jOpenDocument</a><ul>
+<li><a class="reference internal" href="#editando-odt">Editando ODT</a></li>
+<li><a class="reference internal" href="#editando-ods">Editando ODS</a></li>
+<li><a class="reference internal" href="#ejemplos">Ejemplos</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -192,6 +318,9 @@
   <h4>Tema anterior</h4>
   <p class="topless"><a href="capturando_eventos.html"
                         title="capítulo anterior">Capturando eventos: Listeners</a></p>
+  <h4>Próximo tema</h4>
+  <p class="topless"><a href="rscript.html"
+                        title="próximo capítulo">Lenguaje R</a></p>
   <div role="note" aria-label="source link">
     <h3>Esta página</h3>
     <ul class="this-page-menu">
@@ -219,6 +348,9 @@
         <li class="right" style="margin-right: 10px">
           <a href="../genindex.html" title="Índice General"
              >índice</a></li>
+        <li class="right" >
+          <a href="rscript.html" title="Lenguaje R"
+             >siguiente</a> |</li>
         <li class="right" >
           <a href="capturando_eventos.html" title="Capturando eventos: Listeners"
              >anterior</a> |</li>

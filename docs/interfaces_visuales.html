@@ -62,9 +62,91 @@
 <img alt="../_images/abeille.png" src="../_images/abeille.png" />
 </div>
 </div>
+<div class="section" id="ejemplo-de-uso">
+<h2>Ejemplo de uso<a class="headerlink" href="#ejemplo-de-uso" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Descargar el ejemplo explicado a continuación: <a class="reference download internal" href="../_downloads/gvSIG-desktop-2.3.0-centrar_coordenadas-1.0.0-0-testing-all-all-j1_7.gvspkg" download=""><code class="xref download docutils literal"><span class="pre">CentrarCoordenadas</span></code></a></p>
+<div class="figure align-center">
+<img alt="../_images/abeille_1.png" src="../_images/abeille_1.png" />
+</div>
+<p>Para crear una interfaz visual crearemos un nuevo formulario en Abeille.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_2.png" src="../_images/abeille_2.png" />
+</div>
+<p>Crearemos una nueva etiqueta <code class="docutils literal"><span class="pre">label</span></code>.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_3.png" src="../_images/abeille_3.png" />
+</div>
+<p>Presionamos el lugar en el que queremos situarlo en la cuadrícula.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_4.png" src="../_images/abeille_4.png" />
+</div>
+<p>Ahora podemos dotarle de nombre a la etiqueta. Este nombre es con el que accederemos al componente desde nuestro script. En este caso, le daremos de nombre <code class="docutils literal"><span class="pre">lblName</span></code>.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_5.png" src="../_images/abeille_5.png" />
+</div>
+<p>Cambiamos el texto que contendrá esta etiqueta a: <em>Coordenadas</em></p>
+<div class="figure align-center">
+<img alt="../_images/abeille_6.png" src="../_images/abeille_6.png" />
+</div>
+<p>Se puede ampliar el rango de ocupación de esta casilla en el formulario para ajustarlo mejor al interfaz que queramos.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_7.png" src="../_images/abeille_7.png" />
+</div>
+<p>Repetimos el proceso para crear dos etiquetas más <code class="docutils literal"><span class="pre">lblX</span></code> y <code class="docutils literal"><span class="pre">lblY</span></code>.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_8.png" src="../_images/abeille_8.png" />
+</div>
+<p>Ahora crearemos un <code class="docutils literal"><span class="pre">text</span> <span class="pre">field</span></code> o campo de texto. Este campo permitirá tanto mostrar valores, como permitir al usuario introducir unos valores.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_9.png" src="../_images/abeille_9.png" />
+</div>
+<p>Repetimos el mismo proceso anterior para la creación de dos <em>text fields</em> denominados <code class="docutils literal"><span class="pre">txtX</span></code> y <code class="docutils literal"><span class="pre">txtY</span></code>. Además también hemos utilizando la herramienta explicada anterior <em>Increase column span</em>, ampliamos el rango de ocupación de estas cajas de texto.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_10.png" src="../_images/abeille_10.png" />
+</div>
+<p>También añadiremos un botón que nos permitirá cerrar la aplicación.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_11.png" src="../_images/abeille_11.png" />
+</div>
+<p>Le otorgaremos de nombre de componente <code class="docutils literal"><span class="pre">btnClose</span></code> y de texto en el componente <code class="docutils literal"><span class="pre">Cerrar</span></code>.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_12.png" src="../_images/abeille_12.png" />
+</div>
+<p>Una de las ventajas de dotarle a este componente el nombre de <code class="docutils literal"><span class="pre">btnClose</span></code>, es que la clase <code class="docutils literal"><span class="pre">FormPanel</span></code> que explicamos después, ya dotará automáticamente a este botón la capacidad de cerrar la aplicación.</p>
+<p>Una vez acabada la interfaz podemos eliminar las columnas restantes de la cuadrícula.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_13.png" src="../_images/abeille_13.png" />
+</div>
+<p>Y filas restantes.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_14.png" src="../_images/abeille_14.png" />
+</div>
+<p>Una vez tenemos la interfaz preparada, la guardamos.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_15.png" src="../_images/abeille_15.png" />
+</div>
+<p>Guardamos el formulario en formato .xml donde esté o vayamos a crear nuestro script.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_guardado.png" src="../_images/abeille_guardado.png" />
+</div>
+<p>Ya estaría listo la creación de nuestra interfaz para ser usada desde scripting.</p>
+<p>En cualquier momento podremos realizar cambios en este interfaz. Por ejemplo, hemos decidido ampliar la funcionalidad de nuestro script, y en este caso necesitamos añadir un botón nuevo de <em>Centrar</em>, de nombre <code class="docutils literal"><span class="pre">btnCenter</span></code>. Solo tendremos que abrir la interfaz con Abeille, modificarla, y guardarla.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_17.png" src="../_images/abeille_17.png" />
+</div>
+</div>
 <div class="section" id="uso-de-formpanel">
 <h2>Uso de FormPanel<a class="headerlink" href="#uso-de-formpanel" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>Para la creación de script visuales nos apoyaremos en la clase FormPanel contenida en <code class="docutils literal"><span class="pre">gvsig.libs.formpanel</span></code>. Crearemos una clase nueva que contendrá la funcionalidad de nuestro script y extenderemos desde FormPanel.</p>
+<p>Primero vamos a crear una carpeta nueva en la que meter nuestro ejemplo.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_script_1.png" src="../_images/abeille_script_1.png" />
+</div>
+<p>Después, un script en esta carpeta denominado <em>centrar_coordenadas.py</em>.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_script_2.png" src="../_images/abeille_script_2.png" />
+</div>
+<p>Guardaremos el formulario explicado en el apartado anterior en esta carpeta.</p>
 <p>Ejemplo básico de la carga de una interfaz en un script:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.libs.formpanel</span> <span class="k">import</span> <span class="n">FormPanel</span>
@@ -79,65 +161,128 @@
         <span class="k">pass</span>
 </pre></div>
 </div>
+<p>Nos vamos a basar en esta plantilla para la creación de nuestro script de <em>centrar_coordenadas.py</em>.</p>
 <p>Por defecto, en FormPanel viene establecido un método <code class="docutils literal"><span class="pre">btnClose_click</span></code>, que servirá para cerrar este script. De esta forma solo tenemos que establecer en Abeille un botón denominado <code class="docutils literal"><span class="pre">btnClose</span></code> y ya tendremos un botón programado para el cierre de la aplicación.</p>
-<p>Seguimos desarrollando las funcionalidades de FormPanel. Una de ellas es el auto enlace con eventos que se podrucen en los elementos de la interfaz visual. Por ejemplo, si creamos un botón denominado <code class="docutils literal"><span class="pre">btnAccept</span></code> en nuestra interfaz y queremos que muestre un mensaje por consola cada vez que lo presionemos, tan solo deberemos de crear un método en nuestra clase que contenga el nombre del elemento &#8220;btnAccept&#8221; terminado con la acción que queremos coger &#8220;_click&#8221;.</p>
+<p>Tenemos nuestro módulo listo para ser programado. Tenemos una carpeta que contiene el script y la interfaz que utilizará.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_script_3.png" src="../_images/abeille_script_3.png" />
+</div>
+<p>Seguimos desarrollando las funcionalidades de FormPanel. Una de ellas es el auto enlace con eventos que se podrucen en los elementos de la interfaz visual. Por ejemplo, si tenemos (en nuestro ejemplo) un botón denominado <code class="docutils literal"><span class="pre">btnCenter</span></code> y queremos que ciera acción cuando lo presionemos, tan solo deberemos de crear un método en nuestra clase que contenga el nombre del elemento &#8220;btnCenter&#8221; terminado con la acción que queremos coger &#8220;_click&#8221;.</p>
 <p>De esta forma no tenemos que preocuparnos de eventos, ya que la propia librería FormPanel nos lo gestionará:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># encoding: utf-8</span>
+
+<span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 <span class="kn">from</span> <span class="nn">gvsig.libs.formpanel</span> <span class="k">import</span> <span class="n">FormPanel</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
-<span class="k">class</span> <span class="nc">Panel</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s2">&quot;ui_basic.xml&quot;</span><span class="p">))</span>
+<span class="k">class</span> <span class="nc">CenterCoordinates</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span>
+                                        <span class="s2">&quot;centrar_coordenadas.xml&quot;</span><span class="p">)</span>
+                            <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">btnCalcular_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">txtField</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Clicked!&quot;</span><span class="p">)</span>
-                <span class="nb">print</span> <span class="s2">&quot;Clicked!&quot;</span>
+    <span class="k">def</span> <span class="nf">btnCenter_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s2">&quot;Clicked!&quot;</span>
 
-        <span class="k">def</span> <span class="nf">btnClose_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">btnClose_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-  <span class="n">l</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">()</span>
-  <span class="n">l</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Visual&quot;</span><span class="p">)</span>
-  <span class="k">pass</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">CenterCoordinates</span><span class="p">()</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Centrar Coordenadas&quot;</span><span class="p">)</span>
+    <span class="k">pass</span>
 </pre></div>
 </div>
-<p>No todos los eventos posibles de cada elemento del interfaz están implementados dentro de FormPanel (pero si necesitas alguno de ellos se podrían añadir o implementar en tu propia clase). Aquí mostramos algunos de estos eventos:</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<p>Al ejecutar el script nos aparecerá una interfaz similar a esta:</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_script_4.png" src="../_images/abeille_script_4.png" />
+</div>
+<p>Y lo que ocurre al presionar el botón <em>Centrar</em>, tal y como hemos programado en el método <em>btnCenter_click</em>, mostará por consola la palabra <em>Clicked!</em>.</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_script_5.png" src="../_images/abeille_script_5.png" />
+</div>
+<p>Si presionamos el botón de <em>Cerrar</em> se cerrará la aplicación, haciendo uso de un método ya implementado en la clase <em>FormPanel</em>, sin necesidad de programarlo nosotros mismos. En el caso de que quisieramos encargarnos nosotros de esta función, solo tendríamos que sobreescribir el método en nuestra clase, o darle otro nombre al componente de cerrar la aplicación.</p>
+<p>Por ejemplo, también podríamos modificar el texto de etiquetas u otros valores de una forma similar a:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">txtX</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Clicked!&quot;</span><span class="p">)</span>
+<span class="bp">self</span><span class="o">.</span><span class="n">txtY</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Clicked!&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="figure align-center">
+<img alt="../_images/abeille_script_7.png" src="../_images/abeille_script_7.png" />
+</div>
+<p>Como hemos visto, para acceder a nuestros componentes en el interfaz, lo haremos mediante <em>self. + nombre del componente.</em> Por ejemplo, vamos a implementar en el botón <em>Centrar</em>, que muestre por consola las coordenadas que el usuario escriba en las cajas de texto.</p>
+<p>Para ello haremos referencia a los componentes de cajas de texto <code class="docutils literal"><span class="pre">txtX</span></code> y <code class="docutils literal"><span class="pre">txtY</span></code> que hemos programado en la interfaz:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">btnCenter_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">txtX</span><span class="o">.</span><span class="n">getText</span><span class="p">()</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">txtY</span><span class="o">.</span><span class="n">getText</span><span class="p">()</span>
+    <span class="nb">print</span> <span class="s2">&quot;X: &quot;</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="s2">&quot; Y: &quot;</span><span class="p">,</span> <span class="n">y</span>
+</pre></div>
+</div>
+<p>Aquí vemos como quedaría:</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_script_6.png" src="../_images/abeille_script_6.png" />
+</div>
+<p>Ahora, para cumplir el propósito del script, centrar la vista en unas coordenadas que le establezcamos, solo tenemos que modificar el método <em>btnCenter_click</em> por algo similar a lo siguiente:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># encoding: utf-8</span>
+
+<span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="n">geom</span>
 <span class="kn">from</span> <span class="nn">gvsig.libs.formpanel</span> <span class="k">import</span> <span class="n">FormPanel</span>
 <span class="kn">import</span> <span class="nn">os</span>
 
-<span class="k">class</span> <span class="nc">Panel</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">):</span>
-        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span> <span class="s2">&quot;ui_basic.xml&quot;</span><span class="p">))</span>
+<span class="k">class</span> <span class="nc">CenterCoordinates</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span>
+                                        <span class="s2">&quot;centrar_coordenadas.xml&quot;</span><span class="p">)</span>
+                            <span class="p">)</span>
 
-        <span class="k">def</span> <span class="nf">btnCalcular_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">txtField</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Clicked!&quot;</span><span class="p">)</span>
-                <span class="nb">print</span> <span class="s2">&quot;Clicked!&quot;</span>
+    <span class="k">def</span> <span class="nf">btnCenter_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">txtX</span><span class="o">.</span><span class="n">getText</span><span class="p">())</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">txtY</span><span class="o">.</span><span class="n">getText</span><span class="p">())</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="n">geom</span><span class="o">.</span><span class="n">createPoint2D</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">currentView</span><span class="p">()</span><span class="o">.</span><span class="n">centerView</span><span class="p">(</span><span class="n">point</span><span class="o">.</span><span class="n">getEnvelope</span><span class="p">())</span>
 
-        <span class="k">def</span> <span class="nf">chb1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-                <span class="nb">print</span> <span class="s2">&quot;Check box!&quot;</span>
-
-        <span class="k">def</span> <span class="nf">rb1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-                <span class="nb">print</span> <span class="s2">&quot;Radio button!&quot;</span>
-
-        <span class="k">def</span> <span class="nf">cmb1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-                <span class="nb">print</span> <span class="s2">&quot;Combobox!&quot;</span>
-
-        <span class="k">def</span> <span class="nf">sld1_focusGained</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-                <span class="nb">print</span> <span class="s2">&quot;Slider!&quot;</span><span class="p">,</span> <span class="n">sld1</span><span class="o">.</span><span class="n">getValue</span><span class="p">()</span>
-
-        <span class="k">def</span> <span class="nf">spn1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
-                <span class="nb">print</span> <span class="s2">&quot;Spinner!&quot;</span>
-
-        <span class="k">def</span> <span class="nf">btnClose_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-                <span class="bp">self</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+    <span class="k">def</span> <span class="nf">btnClose_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
 
 <span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
-        <span class="n">l</span> <span class="o">=</span> <span class="n">Panel</span><span class="p">()</span>
-        <span class="n">l</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Visual&quot;</span><span class="p">)</span>
-        <span class="k">pass</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="n">CenterCoordinates</span><span class="p">()</span>
+    <span class="n">l</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Centrar Coordenadas&quot;</span><span class="p">)</span>
+    <span class="k">pass</span>
+</pre></div>
+</div>
+<p>Dando como resultado algo así:</p>
+<div class="figure align-center">
+<img alt="../_images/abeille_script_8.png" src="../_images/abeille_script_8.png" />
+</div>
+<p>Vemos como ha centrado la Vista en las coordenadas que hemos indicado en las cajas de texto.</p>
+</div>
+<div class="section" id="eventos-autoregistrados">
+<h2>Eventos autoregistrados<a class="headerlink" href="#eventos-autoregistrados" title="Enlazar permanentemente con este título">¶</a></h2>
+<p>Hemos comentado que FormPanel se encarga de enlazar los eventos de los componentes con nuestro script, pero no todos los eventos posibles de cada elemento del interfaz están implementados dentro de FormPanel (pero si necesitas alguno de ellos se podrían añadir o implementar en tu propia clase). Aquí mostramos algunos de estos eventos haciendo referencia a <em>spinners</em>, <em>combobox</em>, etc:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">btnCalcular_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">txtField</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Clicked!&quot;</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s2">&quot;Clicked!&quot;</span>
+
+<span class="k">def</span> <span class="nf">chb1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s2">&quot;Check box!&quot;</span>
+
+<span class="k">def</span> <span class="nf">rb1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s2">&quot;Radio button!&quot;</span>
+
+<span class="k">def</span> <span class="nf">cmb1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s2">&quot;Combobox!&quot;</span>
+
+<span class="k">def</span> <span class="nf">sld1_focusGained</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s2">&quot;Slider!&quot;</span><span class="p">,</span> <span class="n">sld1</span><span class="o">.</span><span class="n">getValue</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">spn1_change</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="nb">print</span> <span class="s2">&quot;Spinner!&quot;</span>
+
+<span class="k">def</span> <span class="nf">btnClose_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -156,7 +301,9 @@
   <ul>
 <li><a class="reference internal" href="#">Interfaces visuales</a><ul>
 <li><a class="reference internal" href="#abeille">Abeille</a></li>
+<li><a class="reference internal" href="#ejemplo-de-uso">Ejemplo de uso</a></li>
 <li><a class="reference internal" href="#uso-de-formpanel">Uso de FormPanel</a></li>
+<li><a class="reference internal" href="#eventos-autoregistrados">Eventos autoregistrados</a></li>
 </ul>
 </li>
 </ul>

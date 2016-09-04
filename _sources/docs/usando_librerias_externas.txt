@@ -122,3 +122,128 @@ Código::
 
 	def main():
 		app = First()
+		
+		
+jOpenDocument
+-------------
+
+Editando ODT
+++++++++++++
+
+Abrir nuevo documento de LibreOffice
+
+jOpenDocument - Insert Field - fieldName
+
+Insertar una imagen
+Click derecho sobre la Imagen: Imagen - Opciones - Nombre: Imagen1
+
+
+Editando ODS
+++++++++++++
+
+.. note::
+
+    Después de modificarlo hay que abrirlo y presionas control+mayusculas+f9 para recalcular las celdas
+
+Ejemplos
+++++++++
+
+Editar Spreadsheet ODS::
+
+    from gvsig import *
+
+    from java.io import File
+    from java.util import Date
+
+    from org.jopendocument.model import OpenDocument
+    from org.jopendocument.dom.spreadsheet import SpreadSheet
+    from org.jopendocument.dom import OOUtils
+
+    def main(*args):
+        #Ejemplo de Edicion de ficheros ODS con jOpenDocument
+        
+        #basado en http://www.jopendocument.org/start_spreadsheet_2.html
+        #ficheros plantilla http://www.jopendocument.org/downloads.html
+
+        pathTemplate = r"C:/joo/invoice.ods"
+        pathOutput = r"C:/joo/fillingTest1.ods"
+
+        #Acceso al spreadsheet y numero de hoja
+        file = File(pathTemplate)
+        sheet = SpreadSheet.createFromFile(file).getSheet(0)
+
+        #Establecer fecha actual a la castilla I10
+        sheet.getCellAt("I10").setValue(Date())
+
+        #Modifica el valor a la celda 1,1. Seria B2
+        sheet.setValueAt("Template - 1", 1, 1)
+
+        #Varias modificaciones
+        sheet.getCellAt("B27").setValue("On site support")
+        sheet.getCellAt("F24").setValue(301)
+        sheet.getCellAt("H27").setValue(350)
+        sheet.getSpreadSheet().getTableModel("Products").setValueAt(10, 5, 4) #F27
+
+        #Guardamos fichero
+        outputFile = File(pathOutput)
+        OOUtils.open(sheet.getSpreadSheet().saveAs(outputFile))
+
+
+Editar Spreadsheet ODT::
+
+    from gvsig import *
+    import sys
+    from geom import *
+
+    from java.io import File
+    #from org.jdom import Namespace
+    from java.util.Map import *
+    import java.util.ArrayList as ArrayList
+
+    from org.jopendocument.dom.template import JavaScriptFileTemplate
+    from org.jopendocument.util.CollectionUtils import createMap
+
+    def main(*args):
+        #Ejemplo de Edicion de ficheros ODT con jOpenDocument
+        
+        #basado en http://www.jopendocument.org/start_text_2.html
+        #ficheros plantilla http://www.jopendocument.org/downloads.html
+
+        pathTemplate = r"C:\joo\test.odt"
+        pathOutput = r"C:\joo\test4"
+        
+        #Creamos template
+        templateFile = File(pathTemplate)
+        outFile = File(pathOutput)
+        template = JavaScriptFileTemplate(templateFile)
+
+        # Principal: Establacer valores de un campo
+        template.setField("toto", "value set using setField()")
+        template.setField("a", "14")
+        #Haciendo doble click sobre la linea verde aparece el nombre 
+        #al que hay que hacer referencia
+        template.hideParagraph("p1") #showParagraph
+        template.showSection("section1") #hideSection
+
+
+        #Values de la tabla
+        months = ArrayList()
+        months.add(createMap("name","January",   "min", "-12", "max", "3"))
+        months.add(createMap("name", "February", "min", "-8",  "max", "5"))
+        months.add(createMap("name", "March", "min", "-5", "max", "12"))
+        months.add(createMap("name", "April", "min", "-1", "max", "15"))
+        months.add(createMap("name", "May", "min", "3", "max", "21"))
+        template.setField("months", months)
+        
+        ddoc = template.createDocument()
+        ddoc.saveAs(outFile)
+
+
+Reemplazar imagen::
+
+    pathImg = r"C:/joo/img02.png"
+    ddoc = template.createDocument()
+    #ddoc.getDescendantByName("draw:frame","Imagen1").setAttribute("href", "file:///" + pathImg,Namespace.getNamespace("xlink", "http://www.w3.org/1999/xlink"))  
+    ddoc.saveAs(outFile)
+	
+	
