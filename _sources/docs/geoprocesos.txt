@@ -11,7 +11,7 @@ La librería Toolbox se encuentra dentro de ``gvsig.libs.toolbox`` y la podemos 
 
     from gvsig.libs.toolbox import *
 
-La clase principal que utilizaremos será ``ToolboxProcess``que nos ayudará a extender de ella nuestro proceso, con todo lo necesario para gestionarlo y que funcione correctamente dentro de la Caja de Herramientas.
+La clase principal que utilizaremos será ``ToolboxProcess`` que nos ayudará a extender de ella nuestro proceso, con todo lo necesario para gestionarlo y que funcione correctamente dentro de la Caja de Herramientas.
 
 Las constantes de las que consta esta librería::
 
