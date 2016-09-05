@@ -318,6 +318,22 @@ Ejemplo 2 - GridPol, malla uniforme de puntos dentro de polígonos en una capa::
             
 .. figure::  images/geo_gridpol1.png
    :align:   center
+  
+Una vez añadido aparecerá en nuestra Caja de Herramientas:
+
+.. figure::  images/post_geo_caja.png
+   :align:   center
+   
+Este geoproceso tendrá una interfaz similar a la siguiente:
+
+.. figure::  images/post_geo_interfaz.png
+   :align:   center
+   
+Y tendrá una barra de estado mostrando el progreso durante su ejecución, la cual hemos programado nosotros:
+
+.. figure::  images/post_geo_status.png
+   :align:   center
+   
 		
 Lanzador de geoprocesos usando gvpy
 -----------------------------------
@@ -353,3 +369,23 @@ Lanzando el ejemplo 2 anteriormente explicado sobre malla de puntos sobre políg
             x = gvpy.runalg("GridPol", "pols_example", "2",ADDLAYER=True, NAME="Grid dentro poligono")
 
 Puedes encontrar más información en la :ref:`documentación de gvpy <label-gvpy>`
+
+Scripts en el Modelizador
+-------------------------
+
+Al seguir el ejemplo anterior, estos scripts o geoprocesos pueden ser insetados en la toolbox, y por tanto, hacer uso de ellos en el Modelizador (Model Builder).
+
+Una vez insertado podemos crear un modelo similar al siguiente:
+
+.. figure::  images/post_geo_modelizador.png
+   :align:   center
+   
+El cual nos aparecerá en la Caja de Herramientas:
+
+.. figure::  images/post_geo_modelo.png
+   :align:   center
+
+Dando como resultado:
+
+.. figure::  images/post_geo_model_resultado.png
+   :align:   center
