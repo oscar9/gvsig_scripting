@@ -91,7 +91,19 @@ Documento Vista
 
 El documento Vista ( :javadoc:`DefaultViewDocument <DefaultViewDocument>` ) contendrá las capas de nuestro proyecto, en el podremos visualizarlas y editarlas.
 
-Para acceder a las Vistas creadas en un Proyecto, podremos usar dos funciones: :py:func:`currentView()` o :py:func:`currentDocument()` para acceder a la Vista activa, o  currentProject().getView("Nombre") para acceder a una determinada Vista.
+Para acceder a las Vistas creadas en un Proyecto, podremos usar dos funciones: :py:func:`currentView()` o :py:func:`currentDocument()` para acceder a la Vista activa, o  `currentProject().getView("Nombre")` para acceder a una determinada Vista::
+
+    # encoding: utf-8
+
+    from gvsig import *
+
+    def main(*args):
+
+        project = currentProject()
+        
+        # Acceso a vista con nombre "Vista1"
+        view1 = currentProject().getView("Vista1")
+        
 
 Una Vista pueden contener diferentes capas o servicios cargados. Un Proyecto puede contener varias vistas. Por ejemplo, con el siguiente script listaremos todas las Vistas que se encuentren en nuestro proyecto::
 

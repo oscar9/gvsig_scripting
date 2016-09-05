@@ -141,7 +141,19 @@
 <div class="section" id="documento-vista">
 <h2>Documento Vista<a class="headerlink" href="#documento-vista" title="Enlazar permanentemente con este título">¶</a></h2>
 <p>El documento Vista ( <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/app/project/documents/view/DefaultViewDocument.html">DefaultViewDocument</a> ) contendrá las capas de nuestro proyecto, en el podremos visualizarlas y editarlas.</p>
-<p>Para acceder a las Vistas creadas en un Proyecto, podremos usar dos funciones: <a class="reference internal" href="#currentView" title="currentView"><code class="xref py py-func docutils literal"><span class="pre">currentView()</span></code></a> o <a class="reference internal" href="#currentDocument" title="currentDocument"><code class="xref py py-func docutils literal"><span class="pre">currentDocument()</span></code></a> para acceder a la Vista activa, o  currentProject().getView(&#8220;Nombre&#8221;) para acceder a una determinada Vista.</p>
+<p>Para acceder a las Vistas creadas en un Proyecto, podremos usar dos funciones: <a class="reference internal" href="#currentView" title="currentView"><code class="xref py py-func docutils literal"><span class="pre">currentView()</span></code></a> o <a class="reference internal" href="#currentDocument" title="currentDocument"><code class="xref py py-func docutils literal"><span class="pre">currentDocument()</span></code></a> para acceder a la Vista activa, o  <cite>currentProject().getView(&#8220;Nombre&#8221;)</cite> para acceder a una determinada Vista:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># encoding: utf-8</span>
+
+<span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+
+    <span class="n">project</span> <span class="o">=</span> <span class="n">currentProject</span><span class="p">()</span>
+
+    <span class="c1"># Acceso a vista con nombre &quot;Vista1&quot;</span>
+    <span class="n">view1</span> <span class="o">=</span> <span class="n">currentProject</span><span class="p">()</span><span class="o">.</span><span class="n">getView</span><span class="p">(</span><span class="s2">&quot;Vista1&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>Una Vista pueden contener diferentes capas o servicios cargados. Un Proyecto puede contener varias vistas. Por ejemplo, con el siguiente script listaremos todas las Vistas que se encuentren en nuestro proyecto:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
 
