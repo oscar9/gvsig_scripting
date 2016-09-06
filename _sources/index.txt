@@ -26,6 +26,18 @@ Documentación de Scripting en gvSIG 2.3
    docs/usando_librerias_externas.rst
    docs/rscript.rst
 
+Enlaces
+=======
+.. _javadocs de gvSIG: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/
+.. _Blog de gvSIG: https://blog.gvsig.org/
+.. _gvSIG.com: http://www.gvsig.com/es/
+.. _Jython book: http://www.jython.org/jythonbook/en/1.0/
+
+* Enlace a los `javadocs de gvSIG`_
+* `Blog de gvSIG`_
+* `gvSIG.com`_
+* `Jython book`_
+
 Índices
 ==================
 
