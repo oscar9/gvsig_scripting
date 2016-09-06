@@ -11,6 +11,7 @@ Documentación de Scripting en gvSIG 2.3
 
    docs/introduccion.rst
    docs/modelo_de_objetos_simplificado.rst
+   docs/modelo_de_clases_simpleficado.rst
    docs/modulo_commonsdialog.rst
    docs/cargando_capas.rst
    docs/acceso_a_objetos.rst

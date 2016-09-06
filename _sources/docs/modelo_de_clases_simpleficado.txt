@@ -1,0 +1,47 @@
+Modelo de clases simplificado
+=============================
+
+Plugins y acciones
+------------------
+
+Plugins
++++++++
+
+.. figure::  images/modelo_1plugins.png
+   :align:   center
+   
+Acciones
+++++++++
+
+.. figure::  images/modelo_2acciones.png
+   :align:   center
+   
+Proyecto y documentos
+---------------------
+
+.. figure::  images/modelo_3proyectodocumento.png
+   :align:   center
+   
+Mapcontrol
+----------
+
+.. figure::  images/modelo_4mapcontrol.png
+   :align:   center
+   
+MapContext
+----------
+
+.. figure::  images/modelo_5mapcontext.png
+   :align:   center
+   
+Geometrías
+----------
+
+.. figure::  images/modelo_6geometrias.png
+   :align:   center
+   
+Acceso a datos (DAL)
+--------------------
+
+.. figure::  images/modelo_7dal.png
+   :align:   center
