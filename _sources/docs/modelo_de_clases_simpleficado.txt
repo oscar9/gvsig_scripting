@@ -87,19 +87,61 @@ Mapcontrol
 
 MapContext
 ----------
+   
+.. raw:: html
 
-
-.. figure::  images/modelo_5mapcontext.png
-   :align:   center
+    <img src="images/modelo_5mapcontext.png" alt="" usemap="#modelo_5mapcontext" />
+    <map name="modelo_5mapcontext" id="modelo_5mapcontext">
+        <area alt="" title="MapContextLocator" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/MapContextLocator.html" shape="poly" coords="19,19,150,19,149,38,14,43" />
+        <area alt="" title="MapContextManager" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/MapContextManager.html" shape="poly" coords="19,82,298,81,296,129,20,129" />
+        <area alt="" title="MapContext" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/MapContext.html" shape="poly" coords="364,79,466,82,465,162,362,160" />
+        <area alt="" title="ViewPort" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/ViewPort.html" shape="poly" coords="523,99,625,96,626,124,524,122" />
+        <area alt="" title="Envelope" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/primitive/Envelope.html" shape="poly" coords="515,170,579,171,579,192,513,191" />
+        <area alt="" title="FLayers" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/layers/FLayers.html" shape="poly" coords="346,244,503,241,503,303,346,304" />
+        <area alt="" title="FLayer" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/layers/FLayer.html" shape="poly" coords="58,251,122,251,123,273,52,270" />
+        <area alt="" title="DataStore" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataStore.html" shape="poly" coords="57,313,131,315,131,338,54,337" />
+    </map>
    
 Geometrías
 ----------
 
-.. figure::  images/modelo_6geometrias.png
-   :align:   center
+.. raw:: html
    
+    <img src="images/modelo_6geometrias.png" alt="" usemap="#modelo_6geometrias" />
+    <map name="modelo_6geometrias" id="modelo_6geometrias">
+        <area alt="" title="GeometryLocator" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/GeometryLocator.html" shape="poly" coords="33,6,148,8,146,33,32,34" />
+        <area alt="" title="GeometryManager" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/GeometryManager.html" shape="poly" coords="11,56,185,59,184,103,11,105" />
+        <area alt="" title="Geometry" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/Geometry.html" shape="poly" coords="242,49,483,49,484,112,242,110" />
+        <area alt="" title="Envelope" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/primitive/Envelope.html" shape="poly" coords="58,152,123,155,123,178,59,179" />
+        <area alt="" title="Point" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/primitive/Point.html" shape="poly" coords="242,154,307,151,307,179,244,177" />
+        <area alt="" title="OrientablePrimitive" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/primitive/OrientablePrimitive.html" shape="poly" coords="333,155,457,152,454,177,332,172" />
+        <area alt="" title="OrientableSurface" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/primitive/OrientableSurface.html" shape="poly" coords="170,215,288,216,289,239,171,239" />
+        <area alt="" title="OrientableCurve" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/primitive/OrientableCurve.html" shape="poly" coords="347,214,452,218,452,239,345,236" />
+        <area alt="" title="Aggregate" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/aggregate/Aggregate.html" shape="poly" coords="499,218,563,217,560,240,498,241" />
+        <area alt="" title="Surface" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/primitive/Surface.html" shape="poly" coords="186,275,249,274,253,293,185,294" />
+        <area alt="" title="Curve" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/primitive/Curve.html" shape="poly" coords="361,276,425,275,424,294,362,296" />
+        <area alt="" title="Multiprimitive" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/aggregate/MultiPrimitive.html" shape="poly" coords="491,274,583,274,584,296,492,297" />
+        <area alt="" title="MultiPoint" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/aggregate/MultiPoint.html" shape="poly" coords="421,332,487,326,488,349,418,355" />
+        <area alt="" title="MultiCurve" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/aggregate/MultiCurve.html" shape="poly" coords="499,330,573,330,576,351,500,354" />
+        <area alt="" title="MultiSurface" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/geom/aggregate/MultiSurface.html" shape="poly" coords="588,332,667,330,667,350,591,349" />
+    </map>
+    
 Acceso a datos (DAL)
 --------------------
+   
+.. raw:: html
 
-.. figure::  images/modelo_7dal.png
-   :align:   center
+    <img src="images/modelo_7dal.png" alt="" usemap="#modelo_7dal" />
+    <map name="modelo_7dal" id="modelo_7dal">
+        <area alt="" title="DALLocator" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DALLocator.html" shape="poly" coords="48,14,128,18,131,41,50,38" />
+        <area alt="" title="Evaluator" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/evaluator/Evaluator.html" shape="poly" coords="458,19,659,18,659,64,457,67" />
+        <area alt="" title="EvaluatorData" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/evaluator/EvaluatorData.html" shape="poly" coords="761,27,943,24,944,72,760,71" />
+        <area alt="" title="DataManager" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataManager.html" shape="poly" coords="42,89,409,92,407,153,39,155" />
+        <area alt="" title="DataStoreParameters" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataStoreParameters.html" shape="poly" coords="465,89,679,87,681,136,465,141" />
+        <area alt="" title="FeatureSet" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureSet.html" shape="poly" coords="698,147,889,146,891,225,695,223" />
+        <area alt="" title="DataQuery" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataQuery.html" shape="poly" coords="48,200,125,200,124,224,49,222" />
+        <area alt="" title="DataStore" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataStore.html" shape="poly" coords="483,178,575,179,574,198,484,199" />
+        <area alt="" title="FeatureQuery" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureQuery.html" shape="poly" coords="113,259,314,258,315,303,116,302" />
+        <area alt="" title="FeatureStore" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html" shape="poly" coords="385,257,709,257,707,320,385,319" />
+        <area alt="" title="Feature" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/Feature.html" shape="poly" coords="745,266,930,266,927,353,742,353" />
+    </map>
