@@ -43,8 +43,18 @@ Por ejemplo, lo mínimo necesario para crear una capa es::
 		schema.append("GEOMETRY", "GEOMETRY")
 		schema.get("GEOMETRY").setGeometryType(POINT, D2)
 		shape = createShape(schema)
-		
+                        
 De esta forma, si la ruta o el nombre del fichero no es importante para nosotros, algo muy común a la hora de generar capas para resultados de geoprocesos o similares, la función se encargará de asignarle una ruta en una carpeta temporal y un nombre aleatorio (basado en códigos de tiempo).
+
+Otra forma sería usar directamente la funcion `createLayer()`::
+
+        layer = createLayer(schema=schema,
+                            servertype="FilesystemExplorer",
+                            layertype="Shape",
+                            shpFile="/home/osc/temp/test1.shp",
+                            CRS="EPSG:25830",
+                            geometryType=geom.POINT
+                            )
 
 Así en el script anterior podemos añadir las líneas::
 

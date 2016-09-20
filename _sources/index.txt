@@ -25,7 +25,7 @@ Documentación de Scripting en gvSIG 2.3
    docs/capturando_eventos.rst
    docs/usando_librerias_externas.rst
    docs/rscript.rst
-
+   
 Enlaces
 =======
 .. _javadocs de gvSIG: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/
@@ -37,6 +37,14 @@ Enlaces
 * `Blog de gvSIG`_
 * `gvSIG.com`_
 * `Jython book`_
+
+Manuales de usuario
+===================
+
+.. toctree::
+   docs/manuales.rst
+   docs/manualen.rst
+   docs/manualpt.rst
 
 Índices
 ==================

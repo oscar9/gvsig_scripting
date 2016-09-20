@@ -107,6 +107,16 @@
 </pre></div>
 </div>
 <p>De esta forma, si la ruta o el nombre del fichero no es importante para nosotros, algo muy común a la hora de generar capas para resultados de geoprocesos o similares, la función se encargará de asignarle una ruta en una carpeta temporal y un nombre aleatorio (basado en códigos de tiempo).</p>
+<p>Otra forma sería usar directamente la funcion <cite>createLayer()</cite>:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">layer</span> <span class="o">=</span> <span class="n">createLayer</span><span class="p">(</span><span class="n">schema</span><span class="o">=</span><span class="n">schema</span><span class="p">,</span>
+                    <span class="n">servertype</span><span class="o">=</span><span class="s2">&quot;FilesystemExplorer&quot;</span><span class="p">,</span>
+                    <span class="n">layertype</span><span class="o">=</span><span class="s2">&quot;Shape&quot;</span><span class="p">,</span>
+                    <span class="n">shpFile</span><span class="o">=</span><span class="s2">&quot;/home/osc/temp/test1.shp&quot;</span><span class="p">,</span>
+                    <span class="n">CRS</span><span class="o">=</span><span class="s2">&quot;EPSG:25830&quot;</span><span class="p">,</span>
+                    <span class="n">geometryType</span><span class="o">=</span><span class="n">geom</span><span class="o">.</span><span class="n">POINT</span>
+                    <span class="p">)</span>
+</pre></div>
+</div>
 <p>Así en el script anterior podemos añadir las líneas:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="s2">&quot;Nombre: &quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">.</span><span class="n">getName</span><span class="p">()</span>
 <span class="nb">print</span> <span class="s2">&quot;Ruta: &quot;</span><span class="p">,</span> <span class="n">shape</span><span class="o">.</span><span class="n">getDataStore</span><span class="p">()</span><span class="o">.</span><span class="n">getFullName</span><span class="p">()</span>
