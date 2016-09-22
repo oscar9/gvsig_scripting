@@ -1,0 +1,143 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>gvSIG 2.2.0. Developers Quick Start Guide &#8212; gvsig 0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../../../_static/gvSIG.ico"/>
+    <link rel="top" title="gvsig 0 documentation" href="../../../index.html" />
+    <link rel="up" title="gvSIG Documentation (EN)" href="../../index.html" />
+    <link rel="next" title="1. Introduction" href="introduction.html" />
+    <link rel="prev" title="3. gvSIG basic architecture" href="gvsig_basic_architecture.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="1. Introduction"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="gvsig_basic_architecture.html" title="3. gvSIG basic architecture"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">gvSIG Documentation (EN)</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/gvsig_asoc.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="gvsig_basic_architecture.html"
+                        title="previous chapter">3. gvSIG basic architecture</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="introduction.html"
+                        title="next chapter">1. Introduction</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/en/developers_quick_start/2.2/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div> 
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="gvsig-2-2-0-developers-quick-start-guide">
+<h1>gvSIG 2.2.0. Developers Quick Start Guide<a class="headerlink" href="#gvsig-2-2-0-developers-quick-start-guide" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">1. Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="use_gvsig_to_develop_gvsig.html">2. Use gvSIG to develop gvSIG</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gvsig_basic_architecture.html">3. gvSIG basic architecture</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="gvsig_basic_architecture.html#org-gvsig-tools">3.1. org.gvsig.tools</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvsig_basic_architecture.html#andami-the-plugins-framework">3.2. Andami, the plugins framework</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvsig_basic_architecture.html#windows">3.3. Windows</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvsig_basic_architecture.html#some-gvsig-plugins">3.4. Some gvSIG plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="gvsig_basic_architecture.html#some-important-libraries">3.5. Some important libraries</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="build_tools.html">4. Build tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="building_our_first_plugin.html">5. Building our first plugin</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#first-approach">5.1. First approach</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#our-first-project">5.2. Our first project</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#working-with-the-ide">5.3. Working with the IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#working-with-netbeans">5.4. Working with Netbeans</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#working-in-linux-with-commandline-and-the-eclipse-ide">5.5. Working in linux with commandline and the Eclipse IDE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#project-structure">5.6. Project structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#the-project-dependencies">5.7. The project dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#the-library-containing-the-logic">5.8. The library containing the logic</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#the-library-containing-the-user-interface">5.9. The library containing the user interface</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#integration-with-gvsig">5.10. Integration with gvSIG</a></li>
+<li class="toctree-l2"><a class="reference internal" href="building_our_first_plugin.html#distribution-of-the-project">5.11. Distribution of the project</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="conclusions.html">6. Conclusions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="related_documentation.html">7. Related documentation</a></li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="introduction.html" title="1. Introduction"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="gvsig_basic_architecture.html" title="3. gvSIG basic architecture"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >gvSIG Documentation (EN)</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, gvSIG Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

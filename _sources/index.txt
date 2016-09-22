@@ -3,29 +3,22 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Documentación de Scripting en gvSIG 2.3
+Documentación de gvSIG (ES)
 ===================================================
 
 .. toctree::
-   :maxdepth: 2
-
-   docs/introduccion.rst
-   docs/modelo_de_objetos_simplificado.rst
-   docs/modelo_de_clases_simpleficado.rst
-   docs/modulo_commonsdialog.rst
-   docs/cargando_capas.rst
-   docs/acceso_a_objetos.rst
-   docs/trabajando_con_esquemas.rst
-   docs/trabajando_con_capas.rst
-   docs/modulo_geom.rst
-   docs/interfaces_visuales.rst
-   docs/leyendas.rst
-   docs/geoprocesos.rst
-   docs/docs_gvpy.rst
-   docs/capturando_eventos.rst
-   docs/usando_librerias_externas.rst
-   docs/rscript.rst
+   :maxdepth: 1
+   :glob:
    
+   es/*
+   en/*
+   pt/*
+   
+
+* `Documentación 2.3`_
+   
+.. _Documentación 2.3: es/index.html
+
 Enlaces
 =======
 .. _javadocs de gvSIG: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/
@@ -37,14 +30,6 @@ Enlaces
 * `Blog de gvSIG`_
 * `gvSIG.com`_
 * `Jython book`_
-
-Manuales de usuario
-===================
-
-.. toctree::
-   docs/manuales.rst
-   docs/manualen.rst
-   docs/manualpt.rst
 
 Índices
 ==================

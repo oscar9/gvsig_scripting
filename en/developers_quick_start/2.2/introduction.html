@@ -1,0 +1,161 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>1. Introduction &#8212; gvsig 0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../../../_static/gvSIG.ico"/>
+    <link rel="top" title="gvsig 0 documentation" href="../../../index.html" />
+    <link rel="up" title="gvSIG 2.2.0. Developers Quick Start Guide" href="index.html" />
+    <link rel="next" title="2. Use gvSIG to develop gvSIG" href="use_gvsig_to_develop_gvsig.html" />
+    <link rel="prev" title="gvSIG 2.2.0. Developers Quick Start Guide" href="index.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="use_gvsig_to_develop_gvsig.html" title="2. Use gvSIG to develop gvSIG"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="gvSIG 2.2.0. Developers Quick Start Guide"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >gvSIG Documentation (EN)</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" accesskey="U">gvSIG 2.2.0. Developers Quick Start Guide</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/gvsig_asoc.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">gvSIG 2.2.0. Developers Quick Start Guide</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="use_gvsig_to_develop_gvsig.html"
+                        title="next chapter">2. Use gvSIG to develop gvSIG</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/en/developers_quick_start/2.2/introduction.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div> 
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<h1>1. Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are developing on another version of gvSIG check if there is specific documentation for that version.</p>
+</div>
+<div class="figure align-center">
+<img alt="../../../_images/developers_quick_start.png" src="../../../_images/developers_quick_start.png" />
+</div>
+<p>This document is intended as an introduction to the development of gvSIG 2.2.
+It is meant to be an overview of the main pieces and how they can be used to do our first development with gvSIG.</p>
+<p>The development language used in gvSIG is Java. If the developer is not familiar with it is advisable to do so before.
+As integrated project development environments <a class="reference external" href="http://www.netbeans.org">NetBeans</a> and <a class="reference external" href="http://www.eclipse.org">Eclipse</a>  can be used
+and so it would be good to be familiar with one of these. Besides that also <a class="reference external" href="http://maven.apache.org">Maven</a> is used,
+for which it is advisable to be familiar with, but not essential for a first approach to gvSIG based development.</p>
+<p>In addition to this knowledge it is <strong>highly recommended</strong> that the developer is familiar with the application from the user perspective.
+User documentation can be found on the website of <a class="reference external" href="http://www.gvsig.com">gvsig.com</a>, and
+even if it doesn&#8217;t exactly match the version of gvSIG with which one is going to work, it will help to better understand the different parts of the code.</p>
+<p>In summary, before proceeding you need to know:</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Java:</th><td class="field-body">medium or advanced level necessary:</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Eclipse / NetBeans:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">necessary:</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Maven:</th><td class="field-body">recommended:</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">The gvSIG application:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body">recommended:</td>
+</tr>
+</tbody>
+</table>
+<p>Besides this knowledge you should have:</p>
+<ul class="simple">
+<li>A ubuntu (or derivate) 14.04, or Windows 7.</li>
+<li><a class="reference external" href="http://www.eclipse.org">Eclipse</a> (Helios or higher recommended) or <a class="reference external" href="http://www.netbeans.org">NetBeans</a> (8 or higher).</li>
+<li><a class="reference external" href="http://maven.apache.org">Maven</a> version 3.0.5 (with higher versions some compatibility issues were reported)</li>
+<li>Internet connection to access public maven repository.</li>
+<li>An installed and configured JDK 1.7, with JDK 1.8 gvSIG does not compile correctly .</li>
+<li>A gvSIG 2.2 final installed.</li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">Information can be found in the developers list and in general on all <a class="reference external" href="http://www.gvsig.org/plone/community/mailing-lists/directory">lists of the project</a>.</p>
+</div>
+<p>If you have trouble following this document you can ask for help in the developers&#8217; mailinglist.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="use_gvsig_to_develop_gvsig.html" title="2. Use gvSIG to develop gvSIG"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="gvSIG 2.2.0. Developers Quick Start Guide"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >gvSIG Documentation (EN)</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="index.html" >gvSIG 2.2.0. Developers Quick Start Guide</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, gvSIG Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

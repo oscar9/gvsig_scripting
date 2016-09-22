@@ -1,0 +1,654 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>5. Building our first plugin &#8212; gvsig 0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../../../_static/gvSIG.ico"/>
+    <link rel="top" title="gvsig 0 documentation" href="../../../index.html" />
+    <link rel="up" title="gvSIG Documentation (EN)" href="../../index.html" />
+    <link rel="next" title="6. Conclusions" href="conclusions.html" />
+    <link rel="prev" title="4. Build tools" href="build_tools.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="conclusions.html" title="6. Conclusions"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="build_tools.html" title="4. Build tools"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">gvSIG Documentation (EN)</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/gvsig_asoc.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">5. Building our first plugin</a><ul>
+<li><a class="reference internal" href="#first-approach">5.1. First approach</a></li>
+<li><a class="reference internal" href="#our-first-project">5.2. Our first project</a></li>
+<li><a class="reference internal" href="#working-with-the-ide">5.3. Working with the IDE</a></li>
+<li><a class="reference internal" href="#working-with-netbeans">5.4. Working with Netbeans</a></li>
+<li><a class="reference internal" href="#working-in-linux-with-commandline-and-the-eclipse-ide">5.5. Working in linux with commandline and the Eclipse IDE</a></li>
+<li><a class="reference internal" href="#project-structure">5.6. Project structure</a></li>
+<li><a class="reference internal" href="#the-project-dependencies">5.7. The project dependencies</a></li>
+<li><a class="reference internal" href="#the-library-containing-the-logic">5.8. The library containing the logic</a></li>
+<li><a class="reference internal" href="#the-library-containing-the-user-interface">5.9. The library containing the user interface</a></li>
+<li><a class="reference internal" href="#integration-with-gvsig">5.10. Integration with gvSIG</a></li>
+<li><a class="reference internal" href="#distribution-of-the-project">5.11. Distribution of the project</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="build_tools.html"
+                        title="previous chapter">4. Build tools</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="conclusions.html"
+                        title="next chapter">6. Conclusions</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/en/developers_quick_start/2.2/building_our_first_plugin.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div> 
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="building-our-first-plugin">
+<h1><a class="toc-backref" href="#id3">5. Building our first plugin</a><a class="headerlink" href="#building-our-first-plugin" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="first-approach">
+<h2><a class="toc-backref" href="#id4">5.1. First approach</a><a class="headerlink" href="#first-approach" title="Permalink to this headline">¶</a></h2>
+<p>We will now see a sample project that allows us to describe a number of basic features of gvSIG. Possible requirements could be:</p>
+<ul class="simple">
+<li>enable us to see the mapping of houseblocks</li>
+<li>it should contain a query tool that by clicking on a houseblock shows us information about the cadastral parcels associated with it</li>
+<li>customize the <em>splash screen</em> of gvSIG and the bottom of the main window of gvSIG with a corporate logo</li>
+<li>when starting gvSIG it should display directly a window with the map, without the user having to interact with the application. Also, the tool to get cadastral information should be enabled.</li>
+<li>customize the &#8220;About&#8221; dialog of gvSIG to display corporate information.</li>
+<li>editing tools for the map of houseblocks will be disabled.</li>
+<li>an installation package will be prepared with the plugin so that users can install it using the Add-ons Manager of the application.</li>
+</ul>
+<p>To start with our project we will use the wizard to generate projects included in the distribution of gvSIG.</p>
+</div>
+<div class="section" id="our-first-project">
+<h2><a class="toc-backref" href="#id5">5.2. Our first project</a><a class="headerlink" href="#our-first-project" title="Permalink to this headline">¶</a></h2>
+<p>GvSIG 2.2 has a <em>base</em> project to use for the creation of new projects, which can be used as an example to the main ways of interacting with gvSIG, and normally we will use that one as template for any new project.</p>
+<p>This project can be found in the gvSIG SVN at the url:</p>
+<p><a class="reference external" href="http://devel.gvsig.org/svn/gvsig-plugintemplates/org.gvsig.landregistryviewer/trunk/org.gvsig.landregistryviewer/">http://devel.gvsig.org/svn/gvsig-plugintemplates/org.gvsig.landregistryviewer/trunk/org.gvsig.landregistryviewer/</a></p>
+<p>Before we start, a few configuration tasks are mandatory:</p>
+<ul class="simple">
+<li>have a JDK 1.7 installed and available in the PATH.</li>
+<li>have an svn client accessible in the PATH.</li>
+<li>have maven accessible in the PATH.</li>
+<li>configure where the gvSIG installation on which we will work, is placed.</li>
+</ul>
+<p>Assuming that are already installed and configured the JDK, svn client and maven, we will have a look at how to configure installation folder of gvSIG that is going to be used.</p>
+<p>In the HOME folder of our user we need to have the file <strong>.gvsig-devel.properties</strong>. It is a standard Java properties file. In it we need a key named <strong>gvsig.product.folder.path</strong> holding the the path of the installation of gvSIG.</p>
+<p>It is necessary to have write permissions to the used installation folder of gvSIG, otherwise errors will occur in the deployment of the new plugin.</p>
+<p>Assuming we are woring in a linux environment, let&#8217;s start by executing:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>~ $ cd $HOME/devel
+~ $ svn checkout http://devel.gvsig.org/svn/gvsig-plugintemplates/org.gvsig.landregistryviewer/trunk/org.gvsig.landregistryviewer/
+... svn command output ...
+~ $ cd org.gvsig.landregistryviewer
+~ $ mvn install
+... install command finishes ...
+</pre></div>
+</div>
+<p>If you are using MS Windows some details need special care:</p>
+<ul class="simple">
+<li>We may have problems with the size of the folder paths since in gvSIG very long paths are used. It is therefore recommended that you create a folder on the root of the drive, for example <strong>C:/devel</strong>, to keep the base path short</li>
+<li>In a default installation gvSIG is held in administrator mode, and our users will not have permission to overwrite files and folders, apart of the fact that the paths could contain <em>spaces</em> that could cause problems during the deployment of the plugins. To avoid problems we suggest to create the folder <em>C:/devel/gvSIG-desktop</em> and copy the gvSIG installation into it.</li>
+</ul>
+<p>While creating the file <em>.gvsig-devel.properties</em> there might be some problems. We have to create it in the HOME of our user, usually <em>C:/Users/my-user</em>. Special attention goes to:</p>
+<ul class="simple">
+<li>The file must be named exactly &#8221;.gvsig-devel.properties&#8221; without extension &#8221;.txt&#8221;. Make sure that when you create it, it doesn&#8217;t have extension &#8221;.txt&#8221;.</li>
+<li>You may have troubles creating a file that start with a period (&#8221;.&#8221;). One possible way is to open the notepad application and save the file in the indicated path and name.</li>
+</ul>
+</div>
+<div class="section" id="working-with-the-ide">
+<h2><a class="toc-backref" href="#id6">5.3. Working with the IDE</a><a class="headerlink" href="#working-with-the-ide" title="Permalink to this headline">¶</a></h2>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#building-our-first-plugin" id="id3">Building our first plugin</a><ul>
+<li><a class="reference internal" href="#first-approach" id="id4">First approach</a></li>
+<li><a class="reference internal" href="#our-first-project" id="id5">Our first project</a></li>
+<li><a class="reference internal" href="#working-with-the-ide" id="id6">Working with the IDE</a></li>
+<li><a class="reference internal" href="#working-with-netbeans" id="id7">Working with Netbeans</a></li>
+<li><a class="reference internal" href="#working-in-linux-with-commandline-and-the-eclipse-ide" id="id8">Working in linux with commandline and the Eclipse IDE</a></li>
+<li><a class="reference internal" href="#project-structure" id="id9">Project structure</a></li>
+<li><a class="reference internal" href="#the-project-dependencies" id="id10">The project dependencies</a></li>
+<li><a class="reference internal" href="#the-library-containing-the-logic" id="id11">The library containing the logic</a></li>
+<li><a class="reference internal" href="#the-library-containing-the-user-interface" id="id12">The library containing the user interface</a></li>
+<li><a class="reference internal" href="#integration-with-gvsig" id="id13">Integration with gvSIG</a></li>
+<li><a class="reference internal" href="#distribution-of-the-project" id="id14">Distribution of the project</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="working-with-netbeans">
+<h2><a class="toc-backref" href="#id7">5.4. Working with Netbeans</a><a class="headerlink" href="#working-with-netbeans" title="Permalink to this headline">¶</a></h2>
+<p>If for example we are working with Netbeans, we can download the projects&#8217; sources as follows:</p>
+<div class="figure align-center">
+<img alt="../../../_images/netbeans-checkout-1.png" src="../../../_images/netbeans-checkout-1.png" />
+</div>
+<p>the dialog to download projects from SVN:</p>
+<div class="figure align-center">
+<img alt="../../../_images/netbeans-checkout-2.png" src="../../../_images/netbeans-checkout-2.png" />
+</div>
+<p>Paste in the &#8220;Repository URL&#8221; value:</p>
+<blockquote>
+<div><a class="reference external" href="http://devel.gvsig.org/svn/gvsig-plugintemplates/org.gvsig.landregistryviewer/trunk/org.gvsig.landregistryviewer/">http://devel.gvsig.org/svn/gvsig-plugintemplates/org.gvsig.landregistryviewer/trunk/org.gvsig.landregistryviewer/</a></div></blockquote>
+<p>Then the folder in which to download the project is asked. The default is usually ok.</p>
+<div class="figure align-center">
+<img alt="../../../_images/netbeans-checkout-3.png" src="../../../_images/netbeans-checkout-3.png" />
+</div>
+<p>Once downloaded, we find among the downloaded files several maven projects, that we can load in the IDE. Select &#8220;Open projects ...&#8221;</p>
+<div class="figure align-center">
+<img alt="../../../_images/netbeans-checkout-4.png" src="../../../_images/netbeans-checkout-4.png" />
+</div>
+<p>Here we see the maven projects that have been found. Select the first and select &#8220;Open&#8221;</p>
+<div class="figure align-center">
+<img alt="../../../_images/netbeans-checkout-5.png" src="../../../_images/netbeans-checkout-5.png" />
+</div>
+<p>At this point we should see the project tree of the sample project. Visualizing &#8220;Modules&#8221; we can see the structure of its subprojects or modules.</p>
+<div class="figure align-center">
+<img alt="../../../_images/netbeans-checkout-6.png" src="../../../_images/netbeans-checkout-6.png" />
+</div>
+</div>
+<div class="section" id="working-in-linux-with-commandline-and-the-eclipse-ide">
+<h2><a class="toc-backref" href="#id8">5.5. Working in linux with commandline and the Eclipse IDE</a><a class="headerlink" href="#working-in-linux-with-commandline-and-the-eclipse-ide" title="Permalink to this headline">¶</a></h2>
+<p>Assuming you are experienced with linux and a commandline, and that you have svn installed, we can proceed be checking out the source code of the template module by issuing the following command (from within the folder you want to work in):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">svn</span> <span class="n">co</span> <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">devel</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">svn</span><span class="o">/</span><span class="n">gvsig</span><span class="o">-</span><span class="n">plugintemplates</span><span class="o">/</span><span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">/</span><span class="n">trunk</span><span class="o">/</span><span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">/</span>
+</pre></div>
+</div>
+<p>This will checkout all the code of the plugin we want to get started with.</p>
+<p>Next we are going to create the Eclipse IDE project of the plugin. Here Maven helps us. Just run:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mvn</span> <span class="n">eclipse</span><span class="p">:</span><span class="n">eclipse</span> <span class="o">-</span><span class="n">DdownloadSources</span><span class="o">=</span><span class="n">true</span> <span class="o">-</span><span class="n">DdownloadJavadocs</span><span class="o">=</span><span class="n">true</span>
+</pre></div>
+</div>
+<p>This will not only <strong>gather any necessary dependencies of gvSIG</strong> to develop on the plugin and <strong>create the Eclipse project</strong>, it will also
+download the source code and javadoc of the dependencies plugin, which is always a good thing to have.</p>
+<p>If it is the first time, this is the moment to go and get a beer with a colleague and chat about open
+source GIS development, depending on your internet connection this might take a while.</p>
+<p>The maven process will produce a quite large output in console. It is mandatory that the process completes successfully,
+which means it should finish with more or less the following output:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">...</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="o">------------------------------------------------------------------------</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Reactor</span> <span class="n">Summary</span><span class="p">:</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span> <span class="o">......................</span> <span class="n">SUCCESS</span> <span class="p">[</span><span class="mf">0.335</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">.</span><span class="n">lib</span> <span class="o">..................</span> <span class="n">SUCCESS</span> <span class="p">[</span><span class="mf">0.025</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">api</span> <span class="o">..............</span> <span class="n">SUCCESS</span> <span class="p">[</span><span class="mf">0.275</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">impl</span> <span class="o">.............</span> <span class="n">SUCCESS</span> <span class="p">[</span><span class="mf">0.236</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">.</span><span class="n">swing</span> <span class="o">................</span> <span class="n">SUCCESS</span> <span class="p">[</span><span class="mf">0.015</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">.</span><span class="n">swing</span><span class="o">.</span><span class="n">api</span> <span class="o">............</span> <span class="n">SUCCESS</span> <span class="p">[</span><span class="mf">0.100</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">.</span><span class="n">swing</span><span class="o">.</span><span class="n">impl</span> <span class="o">...........</span> <span class="n">SUCCESS</span> <span class="p">[</span><span class="mf">0.166</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">.</span><span class="n">main</span> <span class="o">.................</span> <span class="n">SUCCESS</span> <span class="p">[</span><span class="mf">0.986</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">.</span><span class="n">app</span> <span class="o">..................</span> <span class="n">SUCCESS</span> <span class="p">[</span><span class="mf">0.006</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">org</span><span class="o">.</span><span class="n">gvsig</span><span class="o">.</span><span class="n">landregistryviewer</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">mainplugin</span> <span class="o">.......</span> <span class="n">SUCCESS</span> <span class="p">[</span><span class="mf">2.492</span><span class="n">s</span><span class="p">]</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="o">------------------------------------------------------------------------</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">BUILD</span> <span class="n">SUCCESS</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="o">------------------------------------------------------------------------</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Total</span> <span class="n">time</span><span class="p">:</span> <span class="mf">5.835</span><span class="n">s</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Finished</span> <span class="n">at</span><span class="p">:</span> <span class="n">Sat</span> <span class="n">Oct</span> <span class="mi">17</span> <span class="mi">07</span><span class="p">:</span><span class="mi">52</span><span class="p">:</span><span class="mi">40</span> <span class="n">CEST</span> <span class="mi">2015</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="n">Final</span> <span class="n">Memory</span><span class="p">:</span> <span class="mi">43</span><span class="n">M</span><span class="o">/</span><span class="mi">652</span><span class="n">M</span>
+<span class="p">[</span><span class="n">INFO</span><span class="p">]</span> <span class="o">------------------------------------------------------------------------</span>
+</pre></div>
+</div>
+<p>Once this process has finished, we can open Eclipse and load the project.</p>
+<p>From the project view, select the <strong>Import</strong> command:</p>
+<div class="figure align-center">
+<img alt="../../../_images/eclipse_import01_en.jpg" src="../../../_images/eclipse_import01_en.jpg" />
+</div>
+<p>From there you are taken to the dialog in which you can select that you are importing existing projects:</p>
+<div class="figure align-center">
+<img alt="../../../_images/eclipse_import02_en.jpg" src="../../../_images/eclipse_import02_en.jpg" />
+</div>
+<p>In the following dialog just supply the folder inside which you are working (and you ran the svn command):</p>
+<div class="figure align-center">
+<img alt="../../../_images/eclipse_import03_en.jpg" src="../../../_images/eclipse_import03_en.jpg" />
+</div>
+<p>Once that is done, you will find all the modules of the example project in your development environment:</p>
+<div class="figure align-center">
+<img alt="../../../_images/eclipse_import04_en.jpg" src="../../../_images/eclipse_import04_en.jpg" />
+</div>
+</div>
+<div class="section" id="project-structure">
+<h2><a class="toc-backref" href="#id9">5.6. Project structure</a><a class="headerlink" href="#project-structure" title="Permalink to this headline">¶</a></h2>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">You may find it useful to consult the existing documentation in the <em>Developer&#8217;s Guide</em> related to this. In particular sections <a class="reference external" href="https://docs.gvsig.org/web/reference_catalog/lookupObject?uuid=1dad723b0c168999e622de9c6bf03017">Structure of a project in gvSIG</a> and <a class="reference external" href="https://gvsig.org/web/reference_catalog/lookupObject?uuid=eb91eb79e1e1f2ec730bfe13bb649f6c">Things to consider before developing a plugin</a>.</p>
+</div>
+<p>Let&#8217;s finally take a look at the code of the plugin.</p>
+<p>Inside the folder we find several projects:</p>
+<ul class="simple">
+<li><em>org.gvsig.landregistryviewer</em>: this is a Maven project with several subprojects. Inside them we find the parts of the logic, with both its API and implementation, as well as the part associated user interface components logic, also with its API and implementation. We also find a project which will allow us to test the logic and user interface without the need to start gvSIG. In general the different components that we find here will be independent from the Andami framework and gvSIG plugins, while it depends only on other libraries. The projects that we will find are:<ul>
+<li><em>org.gvsig.landregistryviewer.lib</em> containing the logic of our project<ul>
+<li><em>org.gvsig.landregistryviewer.lib.api</em></li>
+<li><em>org.gvsig.landregistryviewer.lib.impl</em></li>
+</ul>
+</li>
+<li><em>org.gvsig.landregistryviewer.swing</em> containing the user interface components.<ul>
+<li><em>org.gvsig.landregistryviewer.swing.api</em></li>
+<li><em>org.gvsig.landregistryviewer.swing.impl</em></li>
+</ul>
+</li>
+<li><em>org.gvsig.landregistryviewer.main</em>, the <em>main</em> to try it out.</li>
+<li><em>org.gvsig.landregistryviewer.app</em>. This project will contain the implementation of the various plugins that will be added to gvSIG. It will use the components of the <em>org.gvsig.landregistryviewer.swing</em> and <em>org.gvsig.landregistryviewer.lib</em> projects and  will be responsible of their integration into gvSIG. This example contains only one subproject <em>org.gvsig.landregistryviewer.app.mainplugin</em>, since we are going to provide a single plugin. If we need to provide more than one plugin, then one subproject for each plugin should be present.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="the-project-dependencies">
+<h2><a class="toc-backref" href="#id10">5.7. The project dependencies</a><a class="headerlink" href="#the-project-dependencies" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Document under construction. Pending upgrade to 2.2.</p>
+</div>
+</div>
+<div class="section" id="the-library-containing-the-logic">
+<h2><a class="toc-backref" href="#id11">5.8. The library containing the logic</a><a class="headerlink" href="#the-library-containing-the-logic" title="Permalink to this headline">¶</a></h2>
+<p>The development logic of is divided into two projects:</p>
+<ul class="simple">
+<li>org.gvsig.landregistryviewer.lib.api</li>
+<li>org.gvsig.landregistryviewer.lib.impl</li>
+</ul>
+<p>In the API project we mainly find interfaces. These interfaces make up the API of the logic components that we want to develop.</p>
+<p>The model of the classes of the example is shown in the following diagram:</p>
+<div class="figure align-center" id="id1">
+<img alt="../../../_images/org.gvsig.visor.api.png" src="../../../_images/org.gvsig.visor.api.png" />
+<p class="caption"><span class="caption-text">API class model</span></p>
+</div>
+<p>There are the following entities:</p>
+<ul>
+<li><p class="first"><strong>LandregistryviewerLibrary</strong>, which represents the object <em>Library</em>. Let&#8217;s see the following methods:</p>
+<ul>
+<li><p class="first"><em>doRegistration</em>, is run to load the library and informs about the library type; in our case the definition of an API as well as what other libraries are required before initialization. In this casethe data access and geometry libraries. The code that does this is:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doRegistration</span><span class="o">()</span> <span class="o">{</span>
+   <span class="k">this</span><span class="o">.</span><span class="na">registerAsAPI</span><span class="o">(</span><span class="n">LandRegistryViewerLibrary</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+   <span class="k">this</span><span class="o">.</span><span class="na">require</span><span class="o">(</span><span class="n">DALLibrary</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+   <span class="k">this</span><span class="o">.</span><span class="na">require</span><span class="o">(</span><span class="n">GeometryLibrary</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><em>doPostInitialize</em>, which is executed when all libraries have been initialized. In our case it checks that at least one implementation of the API has been registered. The code that does this is:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doPostInitialize</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">LibraryException</span> <span class="o">{</span>
+   <span class="c1">// Validate there is any implementation registered.</span>
+   <span class="n">LandRegistryViewerManager</span> <span class="n">manager</span> <span class="o">=</span> <span class="n">LandRegistryViewerLocator</span><span class="o">.</span><span class="na">getManager</span><span class="o">();</span>
+   <span class="k">if</span> <span class="o">(</span><span class="n">manager</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+       <span class="k">throw</span> <span class="k">new</span> <span class="n">ReferenceNotRegisteredException</span><span class="o">(</span>
+           <span class="n">LandRegistryViewerLocator</span><span class="o">.</span><span class="na">MANAGER_NAME</span><span class="o">,</span> <span class="n">LandRegistryViewerLocator</span>
+               <span class="o">.</span><span class="na">getInstance</span><span class="o">());</span>
+   <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>LandregistryviewerLocator</strong> is the <em>locator</em> of our library, responsible for providing us our manager instance. It is a class with static methods to register implementations of this API or obtain an implementation of it.</p>
+</li>
+<li><p class="first"><strong>LandregistryviewerManager</strong>. An interface. It is the manager of the library. It defines methods to get the houseblocks and parcels as well as locate a houseblock in a particular position. It is the entry point to the various entities of our model.</p>
+</li>
+<li><p class="first"><strong>LandregistryviewerBlock</strong>. An interface representing a houseblock. It provides methods to get the geometry of the houseblock or the parcel that contains it.</p>
+</li>
+<li><p class="first"><strong>LandregistryviewerProperty</strong>. An interface representing a cadastral parcel. It has methods to get the geometry that defines it, and its code or city.</p>
+</li>
+</ul>
+<p>Let&#8217;s see what we find in the implementation part. We observe that while in the API we find  interfaces, in the implementation we find the classes that implement the API interfaces. By convention, the implementation of the various interfaces of the API are called the same why as in the API and prepending the prefix <em>Default</em>.</p>
+<p>The model of the implementation classes for our example is:</p>
+<div class="figure align-center" id="id2">
+<img alt="../../../_images/org.gvsig.visor.impl.png" src="../../../_images/org.gvsig.visor.impl.png" />
+<p class="caption"><span class="caption-text">Implementation classes model</span></p>
+</div>
+<p>Let&#8217;s see the most important parts of the implementation.</p>
+<ul>
+<li><p class="first"><strong>LandregistryviewerDefaultImplLibrary</strong>. As in the API, this class loads the implementation library. This class has the methods:</p>
+<ul>
+<li><p class="first"><em>doRegistration *, which is responsible for registering the library as an implementation of the *landregistryviewerLibrary</em> API. If I had other dependencies than those marked in the API, they should be added here to make sure that these libraries are initialized before this (but it is not the case of the example). By recording this library as an implementation of <em>LandregistryviewerLibrary</em>, two things are assured. On the one hand the API library will always be initialized before its implementation, and on the other hand when any other library sets a dependency with the API, the initialization mechanism of the libraries will be responsible for initializing the implementation together with the API and ensure that the required implementation of the API is available. The code you need in the example is:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">doRegistration</span><span class="o">()</span> <span class="o">{</span>
+  <span class="k">this</span><span class="o">.</span><span class="na">registerAsImplementationOf</span><span class="o">(</span><span class="n">landregistryviewerLibrary</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first"><em>doInitialize</em>, which is responsible for registering the implementation of the manager we have in this library with the locator API. The code that does this is:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">protected</span> <span class="kt">void</span> <span class="nf">doInitialize</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">LibraryException</span> <span class="o">{</span>
+    <span class="n">VisorLocator</span><span class="o">.</span><span class="na">registerManager</span><span class="o">(</span><span class="n">DefaultlandregistryviewerManager</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>DefaultlandregistryviewerManager</strong>. Of this class particular attention should be put on:</p>
+<ul>
+<li><p class="first">The <em>getBlock</em> method. In it we can see how to search a record by means of spatial filtering:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="o">{</span>
+  <span class="n">String</span> <span class="n">attrGeomName</span> <span class="o">=</span> <span class="n">blocks</span><span class="o">.</span><span class="na">getDefaultFeatureType</span><span class="o">().</span><span class="na">getDefaultGeometryAttributeName</span><span class="o">();</span>
+  <span class="n">FeatureQuery</span> <span class="n">query</span> <span class="o">=</span> <span class="n">blocks</span><span class="o">.</span><span class="na">createFeatureQuery</span><span class="o">();</span>
+  <span class="n">query</span><span class="o">.</span><span class="na">setFilter</span><span class="o">(</span> <span class="k">new</span> <span class="n">IntersectsEvaluator</span><span class="o">(</span><span class="n">attrGeomName</span><span class="o">,</span><span class="n">point</span><span class="o">)</span> <span class="o">);</span>
+  <span class="n">set</span> <span class="o">=</span> <span class="n">blocks</span><span class="o">.</span><span class="na">getFeatureSet</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+  <span class="k">if</span><span class="o">(</span> <span class="n">set</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="n">it</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">fastiterator</span><span class="o">();</span>
+  <span class="n">Feature</span> <span class="n">f</span> <span class="o">=</span> <span class="o">(</span><span class="n">Feature</span><span class="o">)</span> <span class="n">it</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+  <span class="n">LandregistryviewerBlock</span> <span class="n">block</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultLandregistryviewerBlock</span><span class="o">(</span><span class="k">this</span><span class="o">,</span><span class="n">f</span><span class="o">.</span><span class="na">getGeometry</span><span class="o">(</span><span class="n">attrGeomName</span><span class="o">));</span>
+  <span class="k">return</span> <span class="n">block</span><span class="o">;</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">DataException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+  <span class="o">...</span>
+<span class="o">}</span> <span class="k">finally</span> <span class="o">{</span>
+  <span class="k">if</span><span class="o">(</span> <span class="n">it</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="n">it</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+  <span class="o">}</span>
+  <span class="k">if</span><span class="o">(</span> <span class="n">set</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="n">set</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">You can find more information on the available data access  mechanisms at the <a class="reference external" href="https://docs.gvsig.org/web/reference_catalog/lookupObject?uuid=b676641c65b75fd97c3f1cedb8482073">Guide for the developer of the Data Access Library (DAL)</a></p>
+</div>
+<p>Some parts to note:</p>
+<ul class="simple">
+<li>We can find out what attribute of the <em>feature</em> contains the geometry through the <em>getDefaultGeometryAttributeName</em> of the <em>feature type</em> of the <em>store</em>.</li>
+<li>To search for a <em>feature</em> in a store we invoke the method <em>getFeatureSet</em> passing as parameter an instance of <em>FeatureQuery</em> in which the filter condition needs to be specified. It is also possible to specify an order or attributes that we want to extract with our query.</li>
+<li>The filter condition is specified by providing an Evaluator to the <em>setFilter</em>  method of our query.</li>
+<li>We must take care of freeing the objects that we create, such as <em>iterators</em> or <em>feature sets</em>. Keep in mind that depending on the type of <em>store</em> with which we are working these resources could be also connections to databases, recordsets or connections to remote servers.</li>
+</ul>
+</li>
+<li><p class="first">The <em>openShape</em> method. Here we can see how to open a <em>store</em> based on existing shapefiles:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">parameters</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="na">createStoreParameters</span><span class="o">(</span><span class="s">&quot;Shape&quot;</span><span class="o">);</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;shpfile&quot;</span><span class="o">,</span> <span class="n">shape</span><span class="o">);</span>
+<span class="n">parameters</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;crs&quot;</span><span class="o">,</span> <span class="s">&quot;EPSG:23030&quot;</span><span class="o">);</span>
+<span class="k">return</span> <span class="o">(</span><span class="n">FeatureStore</span><span class="o">)</span> <span class="n">manager</span><span class="o">.</span><span class="na">openStore</span><span class="o">(</span><span class="s">&quot;Shape&quot;</span><span class="o">,</span> <span class="n">parameters</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>We see that opening of a <em>store</em> is done in two phases. First we create
+a structure to house the necessary parameters to open our <em>store</em> and then
+we initialize it with the proper values ​​and invoke the method <em>openStore</em> of the
+Data Access Manager.</p>
+<p>Each type of <em>store</em> has a specific parameters set. To open a shapefile,
+we at least need to set the name of the file and its reference system.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>IntersectsEvaluator</strong>. This is the class that evaluates the condition used in the filter. This class checks whether the specified geometry field intersects a given feature with a specific geometry. In its constructor the field containing the geometry and geometry feature to check intersection against, are passed. Of this class we should note:</p>
+<ul>
+<li><p class="first">the <em>evaluate</em> method, responsible for the testing of the condition:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Geometry</span> <span class="n">op1geom</span> <span class="o">=</span> <span class="o">(</span><span class="n">Geometry</span><span class="o">)</span> <span class="n">data</span><span class="o">.</span><span class="na">getDataValue</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">op2attrname</span><span class="o">);</span>
+<span class="k">return</span> <span class="k">new</span> <span class="n">Boolean</span><span class="o">(</span><span class="k">this</span><span class="o">.</span><span class="na">op1geom</span><span class="o">.</span><span class="na">intersects</span><span class="o">(</span><span class="n">op1geom</span><span class="o">));</span>
+</pre></div>
+</div>
+<p>Knowing the name of the attribute that contains the geometry we can do so through the <em>getDataValue</em> method. Once we have the two geometries we can invoke the <em>intersects</em> method to check geometry intersection.</p>
+</li>
+<li><p class="first">The method <em>getCQL</em>. This method returns a string in the format of an SQL <em>where</em> clause to use as filter in <em>stores</em> attached to SQL databases. The return filter could also not be exactly the same as that implemented by the code of the <em>evaluate</em> method acting as a filter prior to this, provided that the store supports it.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><strong>DefaultLandregistryviewerBlock</strong>. It represents one houseblock from our domain. It stores geometry that gives the shape to the houseblock. The most important part of this class is <em>getProperties</em> method that returns all parcels that are on that houseblock:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">List</span> <span class="n">properties</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+
+<span class="n">FeatureStore</span> <span class="n">store</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">manager</span><span class="o">.</span><span class="na">getProperties</span><span class="o">();</span>
+<span class="n">String</span> <span class="n">attrGeomName</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">getDefaultFeatureType</span><span class="o">().</span><span class="na">getDefaultGeometryAttributeName</span><span class="o">();</span>
+<span class="n">FeatureQuery</span> <span class="n">query</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">createFeatureQuery</span><span class="o">();</span>
+<span class="n">query</span><span class="o">.</span><span class="na">setFilter</span><span class="o">(</span> <span class="k">new</span> <span class="n">IntersectsEvaluator</span><span class="o">(</span><span class="n">attrGeomName</span><span class="o">,</span> <span class="k">this</span><span class="o">.</span><span class="na">shape</span><span class="o">)</span> <span class="o">);</span>
+<span class="n">set</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">manager</span><span class="o">.</span><span class="na">getProperties</span><span class="o">().</span><span class="na">getFeatureSet</span><span class="o">(</span><span class="n">query</span><span class="o">);</span>
+<span class="k">if</span><span class="o">(</span> <span class="n">set</span><span class="o">.</span><span class="na">isEmpty</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
+  <span class="k">return</span> <span class="kc">null</span><span class="o">;</span>
+<span class="o">}</span>
+<span class="n">it</span> <span class="o">=</span> <span class="n">set</span><span class="o">.</span><span class="na">fastiterator</span><span class="o">();</span>
+<span class="k">while</span><span class="o">(</span> <span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
+  <span class="n">Feature</span> <span class="n">f</span> <span class="o">=</span> <span class="o">(</span><span class="n">Feature</span><span class="o">)</span> <span class="n">it</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+  <span class="n">LandregistryviewerProperty</span> <span class="n">property</span> <span class="o">=</span> <span class="k">new</span> <span class="n">DefaultLandregistryviewerProperty</span><span class="o">(</span>
+    <span class="k">this</span><span class="o">.</span><span class="na">manager</span><span class="o">,</span>
+    <span class="n">f</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="n">PROPERTIES_CODE</span><span class="o">),</span>
+    <span class="n">f</span><span class="o">.</span><span class="na">getGeometry</span><span class="o">(</span><span class="n">attrGeomName</span><span class="o">),</span>
+    <span class="n">f</span><span class="o">.</span><span class="na">getInt</span><span class="o">(</span><span class="n">PROPERTIES_CREATIONDATE</span><span class="o">),</span>
+    <span class="n">f</span><span class="o">.</span><span class="na">getInt</span><span class="o">(</span><span class="n">PROPERTIES_MUNICODE</span><span class="o">)</span>
+  <span class="o">);</span>
+  <span class="n">properties</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">property</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">return</span> <span class="n">properties</span><span class="o">;</span>
+</pre></div>
+</div>
+<p>We can see that it uses the same mechanism to filter plots that the manager uses to retrieve a houseblock. In this case, once I created the <em>set</em> with the parcels, it runs, extracting the data to create parcel objects.</p>
+</li>
+<li><p class="first"><strong>DefaultLandregistryviewerProperty</strong>. This is the class that represents a parcel. In our example it doesn&#8217;t contain any logic, it merely stores the data and expose them through <em>getters</em>.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="the-library-containing-the-user-interface">
+<h2><a class="toc-backref" href="#id12">5.9. The library containing the user interface</a><a class="headerlink" href="#the-library-containing-the-user-interface" title="Permalink to this headline">¶</a></h2>
+<p>Same as with the logic, also the presentation is divided into two projects: on one hand the API and on the other hand the implementation.</p>
+<ul class="simple">
+<li>org.gvsig.Landregistryviewer.swing.api</li>
+<li>org.gvsig.Landregistryviewer.swing.impl</li>
+</ul>
+<p>In a similar way as it happened with the logic in the presentation, in the API project we only keep interfaces and abstract classes that define our API. The API of the display portion is made of the interface of the <em>manager</em> together with a set of abstract classes that define the public API of our components, usually components that extend the swing JPanel component. These are abstract classes and not interfaces because the swing model doesn&#8217;t expose interfaces for its components. In our example, the only component we will have is the visual component associated with a houseblocks, the <em>JLandregistryviewerBlockPanel</em>, which extends <em>JPanel</em> adding to the API only one method that allows us to obtain the <em>LandregistryviewerBlock</em> logical component that is associated with it at a given time.</p>
+<p>In the implementation part we find the class <em>DefaultJLandregistryviewerBlockPanel</em> which takes in its constructor a <em>LandregistryviewerBlock</em> of which it will show the data. The only important thing to note is that the presentation part should not use anything that is not exposed in the API our logic library.</p>
+</div>
+<div class="section" id="integration-with-gvsig">
+<h2><a class="toc-backref" href="#id13">5.10. Integration with gvSIG</a><a class="headerlink" href="#integration-with-gvsig" title="Permalink to this headline">¶</a></h2>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Document under construction. Pending upgrade to 2.2.</p>
+</div>
+<p>So far we have seen how to create our components, logic and user interface, using the gvSIG libraries to access or visualize geographic data, as well as a simple way to create a small application that uses them. Let&#8217;s now see how to integrate these features in the gvSIG application.</p>
+<p>Looking at the projects we have in our workspace we can see that there is one that has not yet been cited <strong>org.gvsig.landregistryviewer.app.mainplugin</strong>. This is where our plugin is implemented. Before looking at the code of the plugin let&#8217;s first fulfill one requirement we had, i.e. a customized splashscreen. This is done as follows:</p>
+<p>In the folder <em>&#8220;src/main/resources&#8221;</em> we find a folder <em>theme</em> and within that one a file named <em>andami-theme.xml</em>. This file is responsible for specifying to the andami framework which <em>splashscreen</em> to use as well as whether to use a background image in the MDI application or the window icons of gvSIG. Andami, on startup, looks in the plugins folder for one containing the <em>theme</em> folder and will use that one if available. The xml file of our example contains the following:</p>
+<div class="highlight-xml"><div class="highlight"><pre><span></span>
+</pre></div>
+</div>
+<p>By default the paths that appear in the file are interpreted relative to the file position, basing on the <em>GVSIG_INSTALL</em> that points to gvSIG&#8217;s installation folder. In the example we can
+see the tag <em>Splash</em> has no additional basepath, but only <em>&#8220;splash.png&#8221;</em>, in order to use the image inside the folder, while for the <em>Icon</em> tag the <em>GVSIG_INSTALL</em> variable is used to reference the file contained in the default Andami theme.</p>
+<p>We can now start gvSIG  and make sure that the right splashscreen is pulled. Once verified that we can change the splashscreen, we can take a look at extending our plugin.</p>
+<p>Now let&#8217;s see the code of our <em>plugin</em>. We will see that only 3 classes are contained in the plugin, the 2 extensions <em>LandRegistryViewerExtension</em> and <em>DisableEditingExtension</em>, and the <em>PropertiesOfBlockListener</em>. The class that integrates our main functionality is the <em>LandRegistryViewerExtension</em>. This class extends Andami&#8217;s <em>Extension</em> to properly integrate with the menus and toolbars, and implements the <em>IExtension</em> interface, to control the visibility othe extention.</p>
+<p>To control the visibility of other extensions of gvSIG the interface provides the methods:</p>
+<ul>
+<li><p class="first"><strong>isEnabled</strong> which checks if the current tools are enabled:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isEnabled</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">//</span>
+    <span class="c1">// By default the tool is always enabled</span>
+    <span class="c1">//</span>
+    <span class="k">return</span> <span class="kc">true</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>In our case we want the tool to be always enabled and simply return <em>true</em>.</p>
+</li>
+<li><p class="first"><strong>isVisible</strong> which checks if the tools of the extension are visible or not:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">boolean</span> <span class="nf">isVisible</span><span class="o">()</span> <span class="o">{</span>
+    <span class="c1">//</span>
+    <span class="c1">// The tool is visible only when our view is active</span>
+    <span class="c1">//</span>
+
+    <span class="n">ApplicationManager</span> <span class="n">application</span> <span class="o">=</span> <span class="n">ApplicationLocator</span><span class="o">.</span><span class="na">getManager</span><span class="o">();</span>
+
+    <span class="k">return</span> <span class="n">application</span><span class="o">.</span><span class="na">getActiveWindow</span><span class="o">()</span> <span class="o">==</span> <span class="n">viewWindow</span><span class="o">;</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>The check is done by checking if the window created in the <em>postInitialize</em> method is indeed the current active window.</p>
+</li>
+<li><p class="first"><strong>initialize</strong>. It is invoked when the extension is loaded. Here we will just register the services that our extension offers. In our example we just set the icon for the action offered by the plugin.</p>
+</li>
+<li><p class="first"><strong>postInitialize</strong>. It is invoked during initialization of the plugins, once the <em>initialize</em> method of all extensions has been invoked. This guarantees that when running, virtually all services of gvSIG will be available. We use this method to:</p>
+<ul>
+<li><p class="first">Create the manager of the logic part of our library.</p>
+</li>
+<li><p class="first">Initialize the <em>stores</em> through the <em>initializeStores</em> function. Since the manager of our logic library has the methods to initialize <em>stores</em> we will just them:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">manager</span><span class="o">.</span><span class="na">initialize</span><span class="o">(</span>
+  <span class="n">getResource</span><span class="o">(</span><span class="s">&quot;data/properties.shp&quot;</span><span class="o">),</span>
+  <span class="n">getResource</span><span class="o">(</span><span class="s">&quot;data/blocks.shp&quot;</span><span class="o">)</span>
+<span class="o">);</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">And finally create and display the window with our view, through the <em>createViewWindow</em> method. Let&#8217;s investigate a little more in detail how this is done. The first thing we do is getting an object reference to the <em>application</em> and <em>project</em> managers:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">ApplicationManager</span> <span class="n">application</span> <span class="o">=</span> <span class="n">ApplicationLocator</span><span class="o">.</span><span class="na">getManager</span><span class="o">();</span>
+<span class="n">ProjectManager</span> <span class="n">projectManager</span> <span class="o">=</span> <span class="n">application</span><span class="o">.</span><span class="na">getProjectManager</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>Once we have these references, we can create our view:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 1. Create a new view and set the name.</span>
+  <span class="n">ViewManager</span> <span class="n">viewManager</span> <span class="o">=</span> <span class="o">(</span><span class="n">ViewManager</span><span class="o">)</span> <span class="n">projectManager</span><span class="o">.</span><span class="na">getDocumentManager</span><span class="o">(</span><span class="n">ViewManager</span><span class="o">.</span><span class="na">TYPENAME</span><span class="o">);</span>
+  <span class="n">ViewDocument</span> <span class="n">view</span> <span class="o">=</span> <span class="o">(</span><span class="n">ViewDocument</span><span class="o">)</span> <span class="n">viewManager</span><span class="o">.</span><span class="na">createDocument</span><span class="o">();</span>
+
+  <span class="n">view</span><span class="o">.</span><span class="na">setName</span><span class="o">(</span><span class="n">i18nManager</span><span class="o">.</span><span class="na">getTranslation</span><span class="o">(</span><span class="n">MY_VIEW_NAME</span><span class="o">));</span>
+</pre></div>
+</div>
+<p>To create the view, we ask the <em>ProjectManager</em> to give us the ViewManager and ask that one  for a new instance of the document view. We need to bare in mind that a major functionality of the <em>manager</em> is to act as a factory to get instances of the objects managed by that manager. Once we have have the document, we assign it a proper name.</p>
+<p>With the just created view we will see how to add the necessary layers to it. To do so we will create a layer with houseblocks, which is done through the <em>createLayer</em> method, indicating the name of the layer and the <em>store</em> on which it will be based:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 2. Create a new layer with the blocks</span>
+<span class="n">FLyrVect</span> <span class="n">layer</span> <span class="o">=</span> <span class="o">(</span><span class="n">FLyrVect</span><span class="o">)</span> <span class="n">application</span><span class="o">.</span><span class="na">getMapContextManager</span><span class="o">().</span><span class="na">createLayer</span><span class="o">(</span>
+          <span class="n">i18nManager</span><span class="o">.</span><span class="na">getTranslation</span><span class="o">(</span><span class="s">&quot;_Blocks&quot;</span><span class="o">),</span> <span class="k">this</span><span class="o">.</span><span class="na">manager</span><span class="o">.</span><span class="na">getBlocks</span><span class="o">());</span>
+</pre></div>
+</div>
+<p>With the layer created, we add to the <em>map</em> view the new layer:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 3. Add this layer to the mapcontext of the new view.</span>
+<span class="n">view</span><span class="o">.</span><span class="na">getMapContext</span><span class="o">().</span><span class="na">getLayers</span><span class="o">().</span><span class="na">addLayer</span><span class="o">(</span><span class="n">layer</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>Then we add the view to the current project:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 4. Add the view to the current project.</span>
+<span class="n">projectManager</span><span class="o">.</span><span class="na">getCurrentProject</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">view</span><span class="o">);</span>
+</pre></div>
+</div>
+<p>And finally we&#8217;ll visualize the window associated to the just created view:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 5. Force to show the view&#39;s window.</span>
+<span class="n">IView</span> <span class="n">viewWindow</span> <span class="o">=</span> <span class="o">(</span><span class="n">IView</span><span class="o">)</span> <span class="n">viewManager</span><span class="o">.</span><span class="na">getMainWindow</span><span class="o">(</span><span class="n">view</span><span class="o">);</span>
+
+<span class="n">application</span><span class="o">.</span><span class="na">getUIManager</span><span class="o">().</span><span class="na">addWindow</span><span class="o">(</span><span class="n">viewWindow</span><span class="o">,</span> <span class="n">GridBagConstraints</span><span class="o">.</span><span class="na">CENTER</span><span class="o">);</span>
+<span class="k">try</span> <span class="o">{</span>
+    <span class="n">application</span><span class="o">.</span><span class="na">getUIManager</span><span class="o">().</span><span class="na">setMaximum</span><span class="o">((</span><span class="n">IWindow</span><span class="o">)</span> <span class="n">viewWindow</span><span class="o">,</span> <span class="kc">true</span><span class="o">);</span>
+<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">PropertyVetoException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+    <span class="n">logger</span><span class="o">.</span><span class="na">info</span><span class="o">(</span><span class="s">&quot;Can&#39;t maximize view.&quot;</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>Once we have shown the new view window, we need to register to the graphical map component the new tool, similar to as we did when adding it to our map in the test project:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="c1">// 6. Register my tool in the mapcontrol of the view.</span>
+<span class="n">PropertiesOfBlockListener</span> <span class="n">listener</span> <span class="o">=</span> <span class="k">new</span> <span class="n">PropertiesOfBlockListener</span><span class="o">();</span>
+<span class="n">viewWindow</span><span class="o">.</span><span class="na">getMapControl</span><span class="o">().</span><span class="na">addBehavior</span><span class="o">(</span><span class="n">TOOL_NAME</span><span class="o">,</span> <span class="k">new</span> <span class="n">PointBehavior</span><span class="o">(</span><span class="n">listener</span><span class="o">));</span>
+</pre></div>
+</div>
+<p>After all this our plugin is initialized.</p>
+</li>
+</ul>
+</li>
+<li><p class="first"><em>execute</em>. This method will be invoked whenever the user interacts with the menu items or buttons that are configured in the <em>config.xml</em> file of our plugin. In our case, the event is configured to be triggered when the user wants to enable the information tool to query a houseblock in a cadastral parcel. So the code would look like:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="k">if</span><span class="o">(</span> <span class="n">ACTION_SETINFOTOOL</span><span class="o">.</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="n">actionCommand</span><span class="o">)</span> <span class="o">)</span> <span class="o">{</span>
+  <span class="c1">// Set the tool in the mapcontrol of the active view.</span>
+  <span class="n">ApplicationManager</span> <span class="n">application</span> <span class="o">=</span> <span class="n">ApplicationLocator</span><span class="o">.</span><span class="na">getManager</span><span class="o">();</span>
+  <span class="k">if</span><span class="o">(</span> <span class="n">application</span><span class="o">.</span><span class="na">getActiveWindow</span><span class="o">()</span> <span class="o">!=</span> <span class="n">viewWindow</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="k">return</span><span class="o">;</span>
+  <span class="o">}</span>
+  <span class="n">viewWindow</span><span class="o">.</span><span class="na">getMapControl</span><span class="o">().</span><span class="na">setTool</span><span class="o">(</span><span class="n">TOOL_NAME</span><span class="o">);</span>
+  <span class="o">}</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+<p>We observe that the first thing we do is to check if the command received is the corresponding to the activation of our tool, and that was set in the <em>config.xml</em>. This is because in the same extension we can have various tools, indicating different command names in the <em>config.xml</em> for each of them.</p>
+<p>Once we know that it is trying to activate our information tool, we check whether the view of our window is active, as if it is on other views or other document types, we must do nothing. And finally, we will activate our tool in the map view.</p>
+</li>
+</ul>
+<p>Basically, we have reviewed how the integration of functionality in gvSIG would look like.
+What is left to do is to look at the <em>PropertiesOfBlockListener</em> class, which we use to create our tool. The <em>listener</em> code is basically similar to that used by our test application.</p>
+</div>
+<div class="section" id="distribution-of-the-project">
+<h2><a class="toc-backref" href="#id14">5.11. Distribution of the project</a><a class="headerlink" href="#distribution-of-the-project" title="Permalink to this headline">¶</a></h2>
+<p>Once we have deployed the developed plugin against an installed gvSIG, we can run that gvSIG and see if it works correctly. But usually our work doesn&#8217;t end here. Most of the times we have to get these plugins to our users and before maybe to testers to verify that everything works properly.</p>
+<p>From version 2.0 of gvSIG on we have a packaging system that allow us to distribute developed plugins so that users can easily install them from the <em>Plugin Manager of gvSIG</em>.</p>
+<p>Each time a project is compiled using <em>&#8220;mvn install&#8221;</em>, some additional functionalities are performed. Those that interest us now are:</p>
+<ul class="simple">
+<li>the plugins of gvSIG are packaged and installed in the gvSIG installation against which we are developing so that in a just started gvSIG we can check that these are already functional.</li>
+<li>in addition to deployment and installation of our plugins, the packages are left in the &#8220;install&#8221; folder of the installation of gvSIG.</li>
+</ul>
+<p>We can distribute the generated installation package directly to our users, or one can
+get in touch with the gvSIG project to have it exposed in the official repository of gvSIG addons and they will be available to users directly from the <em>Add-On Manager</em> through the URL displayed by default.</p>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">You can view the article <a class="reference external" href="http://blog.gvsig.org/2015/09/04/crea-tu-propio-gvsig-nuevo-plugin/">Create Your Own gvSIG</a> on the gvSIG blog to read more about it.</p>
+</div>
+<p>Likewise, we could generate a custom distribution of gvSIG desktop that includes a selection of <em>standard</em> plugins containing also our plugins. That way we would have a custom installer with our plugins to deliver to our customers.
+View source document</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="conclusions.html" title="6. Conclusions"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="build_tools.html" title="4. Build tools"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >gvSIG Documentation (EN)</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, gvSIG Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

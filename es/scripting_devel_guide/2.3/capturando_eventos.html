@@ -1,0 +1,262 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>15. Capturando eventos: Listeners &#8212; gvsig 0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../../../_static/gvSIG.ico"/>
+    <link rel="top" title="gvsig 0 documentation" href="../../../index.html" />
+    <link rel="up" title="Documentación de gvSIG (ES)" href="../../index.html" />
+    <link rel="next" title="5. Cargando capas" href="cargando_capas.html" />
+    <link rel="prev" title="7. Acceso a objectos en gvSIG" href="acceso_a_objetos.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="cargando_capas.html" title="5. Cargando capas"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="acceso_a_objetos.html" title="7. Acceso a objectos en gvSIG"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Documentación de gvSIG (ES)</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/gvsig_asoc.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">15. Capturando eventos: Listeners</a><ul>
+<li><a class="reference internal" href="#viewportlistener">15.1. ViewPortListener</a></li>
+<li><a class="reference internal" href="#pointlistener">15.2. PointListener</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="acceso_a_objetos.html"
+                        title="previous chapter">7. Acceso a objectos en gvSIG</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="cargando_capas.html"
+                        title="next chapter">5. Cargando capas</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/es/scripting_devel_guide/2.3/capturando_eventos.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div> 
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="capturando-eventos-listeners">
+<h1>15. Capturando eventos: Listeners<a class="headerlink" href="#capturando-eventos-listeners" title="Permalink to this headline">¶</a></h1>
+<p>Los <em>listeners</em> nos permiten responder a eventos que ocurren en el programa. Por ejemplo, tenemos el listener <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/events/listeners/ViewPortListener.html">ViewPortListener</a> que lanza un evento cada vez que modificamos la pantalla de nuestra Vista, por ejemplo, lanzará un evento cada vez que hagamos <code class="docutils literal"><span class="pre">Zoom</span> <span class="pre">In</span></code> o <code class="docutils literal"><span class="pre">Zoom</span> <span class="pre">out</span></code>.</p>
+<p>Una forma de usar estos listeners es utilizando la herencia, creando una clase derivada de una o de varias anteriores.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Dejo el código de los ficheros .xml para la generación de la interfaz visual. En cada ejemplo indico los únicos componentes que necesitáis tener para que podáis crear el vuestro propio.</p>
+</div>
+<div class="section" id="viewportlistener">
+<h2>15.1. ViewPortListener<a class="headerlink" href="#viewportlistener" title="Permalink to this headline">¶</a></h2>
+<p>En el siguiente ejemplo vemos como creamos una clase nueva <code class="docutils literal"><span class="pre">MonitorSuma</span></code> que herada de <code class="docutils literal"><span class="pre">FormPanel</span></code> y <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontext/events/listeners/ViewPortListener.html">ViewPortListener</a>. Lanzamos la aplicación en las líneas:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">mapContext</span> <span class="o">=</span> <span class="n">currentView</span><span class="p">()</span><span class="o">.</span><span class="n">getMapContext</span><span class="p">()</span>
+<span class="n">monitor</span> <span class="o">=</span> <span class="n">MonitorSuma</span><span class="p">(</span><span class="n">mapContext</span><span class="p">)</span>
+<span class="n">monitor</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Monitor de Escala&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Vemos que al iniciar la clase añadimos nuestro objeto <code class="docutils literal"><span class="pre">MonitorSuma</span></code> al gestor de listener del ViewPort <code class="docutils literal"><span class="pre">self.mapContext.getViewPort().addViewPortListener(self)</span></code> y lo eliminamos al cerrar la aplicación <code class="docutils literal"><span class="pre">self.mapContext.getViewPort().removeViewPortListener(self)</span></code>. De esta forma, cada vez que se modifica la extensión del <code class="docutils literal"><span class="pre">mapContext</span></code>, se lanza el método <code class="docutils literal"><span class="pre">extentChange()</span></code> en el cual tenemos puesto que actualice una caja de texto (txtScale) donde aparecerá la escala actual de la Vista.</p>
+<div class="figure align-center">
+<img alt="../../../_images/monitor_de_escala.png" src="../../../_images/monitor_de_escala.png" />
+</div>
+<p>Ejemplo:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1"># encoding: utf-8</span>
+<span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">gvsig.commonsdialog</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">org.gvsig.fmap.mapcontext.events.listeners</span> <span class="k">import</span> <span class="n">ViewPortListener</span>
+<span class="kn">from</span> <span class="nn">gvsig.libs.formpanel</span> <span class="k">import</span> <span class="n">FormPanel</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+
+<span class="k">class</span> <span class="nc">MonitorEscala</span><span class="p">(</span><span class="n">ViewPortListener</span><span class="p">,</span> <span class="n">FormPanel</span><span class="p">):</span>
+        <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">mapContext</span><span class="p">):</span>
+                <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span><span class="s2">&quot;monitor_escala.xml&quot;</span><span class="p">))</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapContext</span> <span class="o">=</span> <span class="n">mapContext</span>
+
+                <span class="c1">#Iniciamos valores de etiquetas</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">lblName</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="s2">&quot;Scale&quot;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">txtScale</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getScale</span><span class="p">())</span>
+
+                <span class="c1"># Agregamos listener al ViewPort</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapContext</span><span class="o">.</span><span class="n">getViewPort</span><span class="p">()</span><span class="o">.</span><span class="n">addViewPortListener</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">btnCerrar_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="c1"># Eliminamos el listener</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">mapContext</span><span class="o">.</span><span class="n">getViewPort</span><span class="p">()</span><span class="o">.</span><span class="n">removeViewPortListener</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">getScale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="n">scale</span> <span class="o">=</span> <span class="s2">&quot;1:&quot;</span><span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">mapContext</span><span class="o">.</span><span class="n">getScaleView</span><span class="p">())</span>
+                <span class="k">return</span> <span class="n">scale</span>
+
+        <span class="k">def</span> <span class="nf">changeScale</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">txtScale</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">getScale</span><span class="p">())</span>
+
+        <span class="c1"># Metodo obligatorio de ViewPortListener</span>
+        <span class="k">def</span> <span class="nf">backColorChanged</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="k">pass</span>
+
+        <span class="c1"># Metodo obligatorio de ViewPortListener</span>
+        <span class="k">def</span> <span class="nf">extentChanged</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">changeScale</span><span class="p">()</span>
+
+        <span class="c1"># Metodo obligatorio de ViewPortListener</span>
+        <span class="k">def</span> <span class="nf">projectionChanged</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+                <span class="k">pass</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">currentView</span><span class="p">()</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="n">msgbox</span><span class="p">(</span><span class="s2">&quot;Debera tener una vista abierta y activa&quot;</span><span class="p">)</span>
+                <span class="k">return</span>
+
+        <span class="n">mapContext</span> <span class="o">=</span> <span class="n">currentView</span><span class="p">()</span><span class="o">.</span><span class="n">getMapContext</span><span class="p">()</span>
+        <span class="n">monitor</span> <span class="o">=</span> <span class="n">MonitorEscala</span><span class="p">(</span><span class="n">mapContext</span><span class="p">)</span>
+        <span class="n">monitor</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Monitor de Escala&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Contenido del fichero .xml. Contiene una caja de texto <code class="docutils literal"><span class="pre">txtScale</span></code>, una etiqueta <code class="docutils literal"><span class="pre">lblName</span></code> y un botón Cerrar <code class="docutils literal"><span class="pre">btnCerrar</span></code>.</p>
+<p>Descarga del script: <a class="reference download internal" href="../../../_downloads/gvSIG-desktop-2.3.0-monitor_escala-1.0.0-0-testing-all-all-j1_7.gvspkg" download=""><code class="xref download docutils literal"><span class="pre">MonitorEscala</span></code></a></p>
+<p>Ejemplo Monitor: Consiste en un script que hace un sumatorio de cierto campo de las entidades que solo aparezcan visualmente en la Vista.
+Descarga del script: <a class="reference download internal" href="../../../_downloads/gvSIG-desktop-2.3.0-monitor-1.0.0-0-testing-all-all-j1_7.gvspkg" download=""><code class="xref download docutils literal"><span class="pre">Monitor</span></code></a></p>
+</div>
+<div class="section" id="pointlistener">
+<h2>15.2. PointListener<a class="headerlink" href="#pointlistener" title="Permalink to this headline">¶</a></h2>
+<p>Otro ejemplo similar al anterior es este en el que capturamos los eventos lanzados desde el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontrol/tools/Listeners/PointListener.html">PointListener</a>, que hace referencia  a clicks que hacemos sobre la Vista activa. También tendremos que apoyarnos en <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/mapcontrol/tools/Behavior/PointBehavior.html">PointBehavior</a> para poder añadir este comportamiento al <em>mapControl</em>.</p>
+<p>En el siguiente ejemplo, capturaremos las coordenadas del mapa en el punto que hacemos click o doble click con el ratón:</p>
+<div class="figure align-center">
+<img alt="../../../_images/coordenadas.png" src="../../../_images/coordenadas.png" />
+</div>
+<p>Código:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">org.gvsig.fmap</span> <span class="k">import</span> <span class="n">IconThemeHelper</span>
+<span class="kn">from</span> <span class="nn">org.gvsig.fmap.mapcontrol.tools.Listeners</span> <span class="k">import</span> <span class="n">PointListener</span>
+<span class="kn">from</span> <span class="nn">org.gvsig.fmap.mapcontrol.tools.Behavior</span> <span class="k">import</span> <span class="n">PointBehavior</span>
+<span class="kn">from</span> <span class="nn">org.gvsig.app.project.documents.view</span> <span class="k">import</span> <span class="n">ViewManager</span>
+
+<span class="kn">from</span> <span class="nn">gvsig.libs.formpanel</span> <span class="k">import</span> <span class="n">FormPanel</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">class</span> <span class="nc">Coordenadas</span><span class="p">(</span><span class="n">FormPanel</span><span class="p">,</span> <span class="n">PointListener</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">viewdoc</span><span class="p">):</span>
+        <span class="n">FormPanel</span><span class="o">.</span><span class="n">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+                            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span>
+                                        <span class="s2">&quot;coordenadas.xml&quot;</span><span class="p">)</span>
+                            <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">viewdoc</span> <span class="o">=</span> <span class="n">viewdoc</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapControl</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">viewdoc</span><span class="o">.</span><span class="n">getWindowOfView</span><span class="p">()</span><span class="o">.</span><span class="n">getMapControl</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapControl</span><span class="o">.</span><span class="n">addBehavior</span><span class="p">(</span><span class="s2">&quot;TestGetXYPointTool&quot;</span><span class="p">,</span> <span class="n">PointBehavior</span><span class="p">(</span><span class="bp">self</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mapControl</span><span class="o">.</span><span class="n">setTool</span><span class="p">(</span><span class="s2">&quot;TestGetXYPointTool&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">btnCerrar_click</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hide</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">point</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Evento de PointListener&quot;&quot;&quot;</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">getMapPoint</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">txtX</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">getX</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">txtY</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">getY</span><span class="p">()))</span>
+
+    <span class="k">def</span> <span class="nf">pointDoubleClick</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">event</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Evento de PointListener&quot;&quot;&quot;</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">getMapPoint</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">txtX</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">getX</span><span class="p">()))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">txtY</span><span class="o">.</span><span class="n">setText</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">p</span><span class="o">.</span><span class="n">getY</span><span class="p">()))</span>
+
+    <span class="k">def</span> <span class="nf">getImageCursor</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Evento de PointListener&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">IconThemeHelper</span><span class="o">.</span><span class="n">getImage</span><span class="p">(</span><span class="s2">&quot;cursor-select-by-point&quot;</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">cancelDrawing</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Evento de PointListener&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">):</span>
+    <span class="n">coordenadas</span> <span class="o">=</span> <span class="n">Coordenadas</span><span class="p">(</span><span class="n">currentView</span><span class="p">())</span>
+    <span class="n">coordenadas</span><span class="o">.</span><span class="n">showTool</span><span class="p">(</span><span class="s2">&quot;Coordenadas&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>La interfaz contiene los componentes importantes de: <code class="docutils literal"><span class="pre">txtX</span></code> y <code class="docutils literal"><span class="pre">txtY</span></code> para que funcione correctamente.</p>
+<p>Descarga del script: <a class="reference download internal" href="../../../_downloads/gvSIG-desktop-2.3.0-coordenadas-1.0.0-0-testing-all-all-j1_7.gvspkg" download=""><code class="xref download docutils literal"><span class="pre">Coordenadas</span></code></a></p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="cargando_capas.html" title="5. Cargando capas"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="acceso_a_objetos.html" title="7. Acceso a objectos en gvSIG"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, gvSIG Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>
