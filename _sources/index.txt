@@ -15,9 +15,6 @@ Documentación de gvSIG por idiomas
    pt/*
    
 
-* `Documentación 2.3`_
-   
-.. _Documentación 2.3: es/index.html
 
 Enlaces
 =======
