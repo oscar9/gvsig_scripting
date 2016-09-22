@@ -1,0 +1,208 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>2. Bloqueo de fenómenos &#8212; gvsig 0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/gvSIG.ico"/>
+    <link rel="top" title="gvsig 0 documentation" href="../../../../index.html" />
+    <link rel="up" title="Acceso a datos tabulares" href="../acceso_a_datos_tabulares.html" />
+    <link rel="next" title="3. Consultando la estructura de un almacen" href="api_consultando_la_estructura_de_un_almacen.html" />
+    <link rel="prev" title="1. Acceso a operaciones específicas del almacén" href="api_acceso_operaciones.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_consultando_la_estructura_de_un_almacen.html" title="3. Consultando la estructura de un almacen"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_acceso_operaciones.html" title="1. Acceso a operaciones específicas del almacén"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../acceso_a_datos_tabulares.html" accesskey="U">Acceso a datos tabulares</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/gvsig_asoc.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="api_acceso_operaciones.html"
+                        title="previous chapter">1. Acceso a operaciones específicas del almacén</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="api_consultando_la_estructura_de_un_almacen.html"
+                        title="next chapter">3. Consultando la estructura de un almacen</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/es/org.gvsig.fmap.dal/2.2/acceso_a_datos_tabulares/api_bloqueo_de_fenomenos.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <gcse:search></gcse:search>
+    <p class="searchtip" style="font-size: 90%">
+    </p>
+</div>
+<script>
+  (function() {
+    var cx = '000928295531310476676:vy4vt1ahxhe';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="bloqueo-de-fenomenos">
+<h1>2. Bloqueo de fenómenos<a class="headerlink" href="#bloqueo-de-fenomenos" title="Permalink to this headline">¶</a></h1>
+<blockquote>
+<div><p>Nota:</p>
+<blockquote>
+<div>En relación a la gestión de bloqueos están definidos los interfaces
+que forman parte del API pero no se ha realizado aun ninguna implementación
+de estos.Es posible que sufra algunas variaciones
+tras su implementación.</div></blockquote>
+</div></blockquote>
+<p>En ocasiones puede ser interesante disponer de funciones de bloqueo de
+fenómenos sobre un almacén para evitar que desde otros puestos modifiquen
+los datos sobre los que vamos a trabajar en un momento dado. Para dar
+servicio a esta necesidad, el <a href="#id1"><span class="problematic" id="id2">FeatureStore_</span></a> dispone de dos métodos:</p>
+<ul class="simple">
+<li><em>isLocksSupported</em>, que nos informa de si ese almacén soporta
+gestión de bloqueos.</li>
+<li><em>getLocks</em>, que actúa a modo de conjunto de fenómenos que tengo
+bloqueados en un momento dado en el almacén. En caso de que el
+almacén no soporte bloqueos, este método devolverá <em>null</em>.</li>
+</ul>
+<p>Cuando un almacén soporta la gestión de bloqueos, el método <em>getLocks</em> nos
+devolverá un <a href="#id3"><span class="problematic" id="id4">FeatureLocks_</span></a>. Esta clase se encargara de llevar la cuenta de
+los bloqueos que se establecen así como de su tiempo de vigencia. Los bloqueos
+se establecen en grupos de fenómenos, y a cada grupo de fenómenos que se
+bloquea se le asigna un tiempo de vigencia para ese bloqueo. Para bloquear
+fenómenos tendremos los métodos:</p>
+<ul class="simple">
+<li><em>lock</em> y <em>lockAll</em>, que añade un fenómeno o conjunto de estos al
+grupo de fenómenos a bloquear.</li>
+<li><em>unlock</em> y <em>unlockAll</em>, que elimina un fenómeno o conjunto de estos del
+grupo de fenómenos a bloquear.</li>
+<li><em>setDefaultTimeout</em> y <em>getDefaultTimeout</em>, que permiten fijar el tiempo
+de vigencia de los bloqueos.</li>
+<li><em>apply</em>, que crea un grupo de bloqueos con los bloqueos indicados mediante
+las operaciones <em>lock</em> con el tiempo de vigencia por defecto y aplica los
+bloqueos en el almacén.</li>
+</ul>
+<p>Además dispondremos de operaciones para consultar si un fenómeno esta
+bloqueado, así como para consultar los grupos de bloqueos que se han
+establecido.</p>
+<ul class="simple">
+<li><em>getGroups</em>, que nos devuelve un iterador sobre los grupos
+de bloqueos establecidos. Cada grupo de bloqueos esta
+representado por la clase <a href="#id5"><span class="problematic" id="id6">FeatureLocksGroup_</span></a> .</li>
+<li><em>getGroupsCount</em>, que nos dice cuantos grupos de bloqueos
+hay.</li>
+<li><em>isLocked</em>, que nos informa sobre si un fenómeno esta bloqueado
+independientemente de en que grupo de bloqueo se bloqueo.</li>
+<li><em>getLocksCount</em>, que nos informa de cuantos fenómenos tenemos
+bloqueados.</li>
+<li><em>getLocks</em>, que nos devuelve un iterador sobre todos los
+fenómenos bloqueados.</li>
+</ul>
+<p>También es interesante tener en cuenta que <a href="#id7"><span class="problematic" id="id8">FeatureLocks_</span></a> implementa
+<a href="#id9"><span class="problematic" id="id10">Observable_</span></a> , de forma que podemos registrarnos a cambios en el. Los
+cambios que podemos observar son:</p>
+<ul class="simple">
+<li>Se ha aplicado un nuevo grupo de bloqueos.</li>
+<li>Un grupo de bloqueos a caducado.</li>
+<li>Un grupo de bloqueos se ha liberado.</li>
+</ul>
+<p>Los principales métodos u operaciones que podemos encontrar en un
+grupo de bloqueos, <a href="#id11"><span class="problematic" id="id12">FeatureLocksGroup_</span></a>, son:</p>
+<ul class="simple">
+<li><em>getTimeout</em>, tiempo de caducidad asignado al bloqueo.</li>
+<li><em>XXX</em>, que nos devuelve el tiempo en milisegundos que resta
+asta que el bloqueo caduque.</li>
+<li><em>unlock</em>, libera todos los bloqueos del grupo, haciendo
+desaparecer a este.</li>
+<li><em>iterator</em>, que nos devuelve los fenómenos, <a href="#id13"><span class="problematic" id="id14">Feature_</span></a>, que se
+encuentran bloqueados en ese grupo.</li>
+<li><em>getLocksCount</em>, que nos informa sobre cuantos fenómenos hay
+bloqueados en ese grupo de bloqueos.</li>
+<li><em>isLocked</em>, que nos informa si un fenómeno esta bloqueado
+en este grupo de bloqueos.</li>
+</ul>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_consultando_la_estructura_de_un_almacen.html" title="3. Consultando la estructura de un almacen"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_acceso_operaciones.html" title="1. Acceso a operaciones específicas del almacén"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../acceso_a_datos_tabulares.html" >Acceso a datos tabulares</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, gvSIG Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

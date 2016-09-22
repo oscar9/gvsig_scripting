@@ -1,0 +1,173 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>19. API de los servicios asociados al consumidor de datos &#8212; gvsig 0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/gvSIG.ico"/>
+    <link rel="top" title="gvsig 0 documentation" href="../../../../index.html" />
+    <link rel="up" title="Acceso a datos tabulares" href="../acceso_a_datos_tabulares.html" />
+    <link rel="next" title="Binarios" href="../binarios.html" />
+    <link rel="prev" title="18. Descripción" href="descripcion.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="../binarios.html" title="Binarios"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="descripcion.html" title="18. Descripción"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../acceso_a_datos_tabulares.html" accesskey="U">Acceso a datos tabulares</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/gvsig_asoc.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="descripcion.html"
+                        title="previous chapter">18. Descripción</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../binarios.html"
+                        title="next chapter">Binarios</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/es/org.gvsig.fmap.dal/2.2/acceso_a_datos_tabulares/index.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <gcse:search></gcse:search>
+    <p class="searchtip" style="font-size: 90%">
+    </p>
+</div>
+<script>
+  (function() {
+    var cx = '000928295531310476676:vy4vt1ahxhe';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="api-de-los-servicios-asociados-al-consumidor-de-datos">
+<h1>19. API de los servicios asociados al consumidor de datos<a class="headerlink" href="#api-de-los-servicios-asociados-al-consumidor-de-datos" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="api_fenomenos.html">5. Acceso a los fenomenos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_fenomenos.html#acceso-basico">5.1. Acceso básico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_fenomenos.html#filtrado">5.2. Filtrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_fenomenos.html#ordenacion">5.3. Ordenación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_fenomenos.html#contexto">5.4. Contexto</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_modificacion_de_la_estructura_de_un_almacen.html">6. Modificación de la estructura de un almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_consultando_la_estructura_de_un_almacen.html">3. Consultando la estructura de un almacen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_creacion_de_un_nuevo_almacen.html">4. Creación de un nuevo almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_modificacion_de_la_estructura_de_un_almacen.html">6. Modificación de la estructura de un almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_seleccion.html">9. La selección dentro de los datos de un almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_bloqueo_de_fenomenos.html">2. Bloqueo de fenómenos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_acceso_operaciones.html">1. Acceso a operaciones específicas del almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_soporte_para_atributos_calculados.html">11. Soporte para atributos calculados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_pila_comandos_edicion.html">8. La pila de comandos de edición</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_soporte_indices.html">10. Soporte de índices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_soporte_indices.html#alcance-del-soporte-de-indices">10.1. Alcance del soporte de índices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_soporte_indices.html#crear-un-indice-sobre-un-almacen">10.2. Crear un índice sobre un almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_soporte_indices.html#obtener-los-indices-de-un-almacen">10.3. Obtener los índices de un almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_soporte_indices.html#obtener-un-indice-por-nombre">10.4. Obtener un índice por nombre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_soporte_indices.html#consultar-un-indice">10.5. Consultar un índice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_soporte_indices.html#el-indice">10.6. El índice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_soporte_indices.html#algunas-recomendaciones-sobre-el-uso-de-indices">10.7. Algunas recomendaciones sobre el uso de índices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="api_transformacion_sobre_almacenes.html">12. Transformaciones sobre almacenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_transformacion_sobre_almacenes.html#introduccion">13. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_transformacion_sobre_almacenes.html#la-interfaz-featurestoretransform">14. La interfaz FeatureStoreTransform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_transformacion_sobre_almacenes.html#obtener-las-transformaciones-de-un-almacen">15. Obtener las transformaciones de un almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_transformacion_sobre_almacenes.html#anadir-una-transformacion-a-un-almacen">16. Añadir una transformación a un almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="api_transformacion_sobre_almacenes.html#ejemplo-de-implementacion-de-una-transformacion">17. Ejemplo de implementación de una transformación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="api_transformacion_sobre_almacenes.html#anadir-un-atributo-calculado">17.1. Añadir un atributo calculado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api_transformacion_sobre_almacenes.html#join-de-dos-almacenes">17.2. JOIN de dos almacenes</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="../binarios.html" title="Binarios"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="descripcion.html" title="18. Descripción"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../acceso_a_datos_tabulares.html" >Acceso a datos tabulares</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, gvSIG Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

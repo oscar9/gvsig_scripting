@@ -13,6 +13,7 @@ Documentación de gvSIG (ES)
    scripting_devel_guide/2.3/*
    user_manual/2.2/*
    developers_quick_start/2.2/*
+   org.gvsig.fmap.dal/2.2/*
    
 gvSIG 2.3
 ---------
@@ -27,6 +28,8 @@ gvSIG 2.2
 
 * `Manual de usuario`_
 * `Guia de inicio rápido para desarrolladores`_
+* `org.gvsig.fmap.dal`_
 
 .. _Manual de usuario: user_manual/2.2/index.html
 .. _Guia de inicio rápido para desarrolladores: developers_quick_start/2.2/index.html
+.. _org.gvsig.fmap.dal: org.gvsig.fmap.dal/2.2/index.html

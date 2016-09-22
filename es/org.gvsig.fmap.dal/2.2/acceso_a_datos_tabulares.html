@@ -1,0 +1,308 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Acceso a datos tabulares &#8212; gvsig 0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../../../_static/gvSIG.ico"/>
+    <link rel="top" title="gvsig 0 documentation" href="../../../index.html" />
+    <link rel="up" title="Documentación de gvSIG (ES)" href="../../index.html" />
+    <link rel="next" title="1. Acceso a operaciones específicas del almacén" href="acceso_a_datos_tabulares/api_acceso_operaciones.html" />
+    <link rel="prev" title="7. Documentacion relacionada" href="../../developers_quick_start/2.2/related_documentation.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="acceso_a_datos_tabulares/api_acceso_operaciones.html" title="1. Acceso a operaciones específicas del almacén"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../../developers_quick_start/2.2/related_documentation.html" title="7. Documentacion relacionada"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" accesskey="U">Documentación de gvSIG (ES)</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../index.html">
+              <img class="logo" src="../../../_static/gvsig_asoc.jpg" alt="Logo"/>
+            </a></p>
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Acceso a datos tabulares</a><ul>
+<li><a class="reference internal" href="#descripcion">Descripción</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../../developers_quick_start/2.2/related_documentation.html"
+                        title="previous chapter">7. Documentacion relacionada</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="acceso_a_datos_tabulares/api_acceso_operaciones.html"
+                        title="next chapter">1. Acceso a operaciones específicas del almacén</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../_sources/es/org.gvsig.fmap.dal/2.2/acceso_a_datos_tabulares.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <gcse:search></gcse:search>
+    <p class="searchtip" style="font-size: 90%">
+    </p>
+</div>
+<script>
+  (function() {
+    var cx = '000928295531310476676:vy4vt1ahxhe';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="acceso-a-datos-tabulares">
+<h1>Acceso a datos tabulares<a class="headerlink" href="#acceso-a-datos-tabulares" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_acceso_operaciones.html">1. Acceso a operaciones específicas del almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_bloqueo_de_fenomenos.html">2. Bloqueo de fenómenos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_consultando_la_estructura_de_un_almacen.html">3. Consultando la estructura de un almacen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_creacion_de_un_nuevo_almacen.html">4. Creación de un nuevo almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_fenomenos.html">5. Acceso a los fenomenos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_fenomenos.html#acceso-basico">5.1. Acceso básico</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_fenomenos.html#filtrado">5.2. Filtrado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_fenomenos.html#ordenacion">5.3. Ordenación</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_fenomenos.html#contexto">5.4. Contexto</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_modificacion_de_la_estructura_de_un_almacen.html">6. Modificación de la estructura de un almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_modificacion_y_escritura_de_datos.html">7. Modificación y escritura de datos</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_pila_comandos_edicion.html">8. La pila de comandos de edición</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_seleccion.html">9. La selección dentro de los datos de un almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_indices.html">10. Soporte de índices</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_indices.html#alcance-del-soporte-de-indices">10.1. Alcance del soporte de índices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_indices.html#crear-un-indice-sobre-un-almacen">10.2. Crear un índice sobre un almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_indices.html#obtener-los-indices-de-un-almacen">10.3. Obtener los índices de un almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_indices.html#obtener-un-indice-por-nombre">10.4. Obtener un índice por nombre</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_indices.html#consultar-un-indice">10.5. Consultar un índice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_indices.html#el-indice">10.6. El índice</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_indices.html#algunas-recomendaciones-sobre-el-uso-de-indices">10.7. Algunas recomendaciones sobre el uso de índices</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_para_atributos_calculados.html">11. Soporte para atributos calculados</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html">12. Transformaciones sobre almacenes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#introduccion">13. Introducción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#la-interfaz-featurestoretransform">14. La interfaz FeatureStoreTransform</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#obtener-las-transformaciones-de-un-almacen">15. Obtener las transformaciones de un almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#anadir-una-transformacion-a-un-almacen">16. Añadir una transformación a un almacén</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#ejemplo-de-implementacion-de-una-transformacion">17. Ejemplo de implementación de una transformación</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#anadir-un-atributo-calculado">17.1. Añadir un atributo calculado</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#join-de-dos-almacenes">17.2. JOIN de dos almacenes</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/descripcion.html">18. Descripción</a></li>
+<li class="toctree-l1"><a class="reference internal" href="acceso_a_datos_tabulares/index.html">19. API de los servicios asociados al consumidor de datos</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_fenomenos.html">5. Acceso a los fenomenos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_modificacion_de_la_estructura_de_un_almacen.html">6. Modificación de la estructura de un almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_consultando_la_estructura_de_un_almacen.html">3. Consultando la estructura de un almacen</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_creacion_de_un_nuevo_almacen.html">4. Creación de un nuevo almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_modificacion_de_la_estructura_de_un_almacen.html">6. Modificación de la estructura de un almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_seleccion.html">9. La selección dentro de los datos de un almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_bloqueo_de_fenomenos.html">2. Bloqueo de fenómenos</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_acceso_operaciones.html">1. Acceso a operaciones específicas del almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_para_atributos_calculados.html">11. Soporte para atributos calculados</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_pila_comandos_edicion.html">8. La pila de comandos de edición</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_soporte_indices.html">10. Soporte de índices</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html">12. Transformaciones sobre almacenes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#introduccion">13. Introducción</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#la-interfaz-featurestoretransform">14. La interfaz FeatureStoreTransform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#obtener-las-transformaciones-de-un-almacen">15. Obtener las transformaciones de un almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#anadir-una-transformacion-a-un-almacen">16. Añadir una transformación a un almacén</a></li>
+<li class="toctree-l2"><a class="reference internal" href="acceso_a_datos_tabulares/api_transformacion_sobre_almacenes.html#ejemplo-de-implementacion-de-una-transformacion">17. Ejemplo de implementación de una transformación</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="descripcion">
+<h2>Descripción<a class="headerlink" href="#descripcion" title="Permalink to this headline">¶</a></h2>
+<p>Partiendo de la arquitectura general del API de acceso a datos, podemos
+ver como encaja la especialización del acceso a datos tabulares dentro de ella.</p>
+<p>Dentro del acceso a datos tabulares se incluye tanto el acceso a datos de
+carácter alfanumérico como vectorial, soportando que uno o varios atributos
+de un ítem o fenómeno sean de tipo vectorial.</p>
+<p>Nos encontraremos las siguientes clases e interfaces mostradas en el siguiente
+gráfico.</p>
+<div class="figure align-center" id="id1">
+<img alt="../../../_images/Diagrama3.png" src="../../../_images/Diagrama3.png" />
+<p class="caption"><span class="caption-text">Acceso a datos tabulares</span></p>
+</div>
+<ul class="simple">
+<li><em>FeatureStore</em>, como especialización de <em>DataStore</em>.
+Añade funcionalidades propias del acceso a datos alfanuméricos
+y vectoriales. Conoce de <em>fenómenos</em>, cómo consultar sus valores
+o su estructura, así como de acciones específicas para acceder
+a ellos.</li>
+<li><em>FeatureSet</em>, como especialización de <em>DataSet</em>.
+Conoce los fenómenos y es capaz de iterar sobre ellos.</li>
+<li><em>FeatureQuery</em>, como especialización de <em>DataQuery</em>. Contiene
+información relevante sobre la definición de filtros y su ordenación
+que hace uso del conocimiento de estar trabajando sobre datos alfanuméricos
+y vectoriales.</li>
+<li><em>Feature</em>. Aparece como contenedor de un fenómeno, permitiendo acceder
+a la información de éste.</li>
+<li><em>FeatureType</em>. Aparece como el contenedor de la estructura de un fenómeno.
+Qué atributos tiene o de qué tipo son.</li>
+</ul>
+<p>Así por ejemplo, si quisiésemos acceder a los fenómenos de un fichero shape, podríamos hacerlo con:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">DataManager</span> <span class="n">manager</span><span class="o">;</span>
+<span class="n">DataStoreParameters</span> <span class="n">params</span><span class="o">;</span>
+<span class="n">FeatureStore</span> <span class="n">store</span><span class="o">;</span>
+<span class="n">FeatureSet</span> <span class="n">features</span><span class="o">;</span>
+<span class="n">Feature</span> <span class="n">feature</span><span class="o">;</span>
+
+<span class="n">manager</span> <span class="o">=</span> <span class="n">DALLocator</span><span class="o">.</span><span class="na">getDataManager</span><span class="o">();</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="na">createStoreParameters</span><span class="o">(</span><span class="s">&quot;Shape&quot;</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;shpfilename&quot;</span><span class="o">,</span><span class="s">&quot;data/prueba.shp&quot;</span><span class="o">);</span>
+<span class="n">store</span> <span class="o">=</span> <span class="o">(</span><span class="n">FeatureStore</span><span class="o">)</span><span class="n">manager</span><span class="o">.</span><span class="na">createStore</span><span class="o">(</span><span class="n">params</span><span class="o">);</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">getFeatureSet</span><span class="o">();</span>
+
+<span class="n">DisposableIterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+<span class="k">while</span><span class="o">(</span> <span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
+  <span class="n">feature</span> <span class="o">=</span> <span class="o">(</span><span class="n">Feature</span><span class="o">)</span><span class="n">it</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">feature</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;NOMBRE&quot;</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="n">it</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+<span class="n">features</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+<span class="n">store</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>Y por ejemplo, si en lugar de un fichero en disco fuese una tabla de
+una BBDD postgres sería algo como:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">DataManager</span> <span class="n">manager</span><span class="o">;</span>
+<span class="n">DataStoreParameters</span> <span class="n">params</span><span class="o">;</span>
+<span class="n">FeatureStore</span> <span class="n">store</span><span class="o">;</span>
+<span class="n">FeatureSet</span> <span class="n">features</span><span class="o">;</span>
+<span class="n">Feature</span> <span class="n">feature</span><span class="o">;</span>
+
+<span class="n">manager</span> <span class="o">=</span> <span class="n">DALLocator</span><span class="o">.</span><span class="na">getDataManager</span><span class="o">();</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="na">createStoreParameters</span><span class="o">(</span><span class="s">&quot;PostgreSQL&quot;</span><span class="o">);</span>
+
+<span class="n">params</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;host&quot;</span><span class="o">,</span> <span class="n">SERVER_IP</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;port&quot;</span><span class="o">,</span> <span class="n">SERVER_PORT</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;dbuser&quot;</span><span class="o">,</span><span class="n">SERVER_USER</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;password&quot;</span><span class="o">,</span><span class="n">SERVER_PASWD</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;schema&quot;</span><span class="o">,</span><span class="n">SERVER_SCHEMA</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;dbname&quot;</span><span class="o">,</span><span class="n">SERVER_DBNAME</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;table&quot;</span><span class="o">,</span><span class="s">&quot;prueba&quot;</span><span class="o">);</span>
+
+<span class="n">store</span> <span class="o">=</span> <span class="o">(</span><span class="n">FeatureStore</span><span class="o">)</span><span class="n">manager</span><span class="o">.</span><span class="na">createStore</span><span class="o">(</span><span class="n">params</span><span class="o">);</span>
+<span class="n">features</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">getFeatureSet</span><span class="o">();</span>
+
+<span class="n">DisposableIterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+<span class="k">while</span><span class="o">(</span> <span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
+  <span class="n">feature</span> <span class="o">=</span> <span class="o">(</span><span class="n">Feature</span><span class="o">)</span><span class="n">it</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">feature</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;nombre&quot;</span><span class="o">));</span>
+<span class="o">}</span>
+<span class="n">it</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+<span class="n">features</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+<span class="n">store</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+</pre></div>
+</div>
+<p>Otra alternativa mas recomendable para no tener que preocuparnos
+por liberar los recursos del <a href="#id2"><span class="problematic" id="id3">FeatureSet_</span></a> y el iterador seria
+usando un visitor sobre el <a href="#id4"><span class="problematic" id="id5">FeatureStore_</span></a>:</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">DataManager</span> <span class="n">manager</span><span class="o">;</span>
+<span class="n">DataStoreParameters</span> <span class="n">params</span><span class="o">;</span>
+<span class="n">FeatureStore</span> <span class="n">store</span><span class="o">;</span>
+
+<span class="n">manager</span> <span class="o">=</span> <span class="n">DALLocator</span><span class="o">.</span><span class="na">getDataManager</span><span class="o">();</span>
+<span class="n">params</span> <span class="o">=</span> <span class="n">manager</span><span class="o">.</span><span class="na">createStoreParameters</span><span class="o">(</span><span class="s">&quot;Shape&quot;</span><span class="o">);</span>
+<span class="n">params</span><span class="o">.</span><span class="na">setDynValue</span><span class="o">(</span><span class="s">&quot;shpfilename&quot;</span><span class="o">,</span><span class="s">&quot;data/prueba.shp&quot;</span><span class="o">);</span>
+<span class="n">store</span> <span class="o">=</span> <span class="o">(</span><span class="n">FeatureStore</span><span class="o">)</span><span class="n">manager</span><span class="o">.</span><span class="na">createStore</span><span class="o">(</span><span class="n">params</span><span class="o">);</span>
+
+<span class="n">store</span><span class="o">.</span><span class="na">accept</span><span class="o">(</span> <span class="k">new</span> <span class="n">Visitor</span><span class="o">()</span> <span class="o">{</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">visit</span><span class="o">(</span><span class="n">Object</span> <span class="n">obj</span><span class="o">)</span> <span class="o">{</span>
+      <span class="n">Feature</span> <span class="n">feature</span> <span class="o">=</span> <span class="o">(</span><span class="n">Feature</span><span class="o">)</span><span class="n">obj</span><span class="o">;</span>
+      <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="n">feature</span><span class="o">.</span><span class="na">getString</span><span class="o">(</span><span class="s">&quot;NOMBRE&quot;</span><span class="o">));</span>
+    <span class="o">}</span>
+  <span class="o">}</span>
+<span class="o">);</span>
+<span class="n">store</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="acceso_a_datos_tabulares/api_acceso_operaciones.html" title="1. Acceso a operaciones específicas del almacén"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../../developers_quick_start/2.2/related_documentation.html" title="7. Documentacion relacionada"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, gvSIG Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>

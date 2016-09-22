@@ -1,0 +1,231 @@
+
+
+<!doctype html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>3. Consultando la estructura de un almacen &#8212; gvsig 0 documentation</title>
+    
+    <link rel="stylesheet" href="../../../../_static/bizstyle.css" type="text/css" />
+    <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../../../',
+        VERSION:     '0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../../../_static/bizstyle.js"></script>
+    <link rel="shortcut icon" href="../../../../_static/gvSIG.ico"/>
+    <link rel="top" title="gvsig 0 documentation" href="../../../../index.html" />
+    <link rel="up" title="Acceso a datos tabulares" href="../acceso_a_datos_tabulares.html" />
+    <link rel="next" title="4. Creación de un nuevo almacén" href="api_creacion_de_un_nuevo_almacen.html" />
+    <link rel="prev" title="2. Bloqueo de fenómenos" href="api_bloqueo_de_fenomenos.html" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <!--[if lt IE 9]>
+    <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
+    <![endif]-->
+  </head>
+  <body role="document">
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="api_creacion_de_un_nuevo_almacen.html" title="4. Creación de un nuevo almacén"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="api_bloqueo_de_fenomenos.html" title="2. Bloqueo de fenómenos"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../acceso_a_datos_tabulares.html" accesskey="U">Acceso a datos tabulares</a> &#187;</li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+            <p class="logo"><a href="../../../../index.html">
+              <img class="logo" src="../../../../_static/gvsig_asoc.jpg" alt="Logo"/>
+            </a></p>
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="api_bloqueo_de_fenomenos.html"
+                        title="previous chapter">2. Bloqueo de fenómenos</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="api_creacion_de_un_nuevo_almacen.html"
+                        title="next chapter">4. Creación de un nuevo almacén</a></p>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../../../_sources/es/org.gvsig.fmap.dal/2.2/acceso_a_datos_tabulares/api_consultando_la_estructura_de_un_almacen.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <gcse:search></gcse:search>
+    <p class="searchtip" style="font-size: 90%">
+    </p>
+</div>
+<script>
+  (function() {
+    var cx = '000928295531310476676:vy4vt1ahxhe';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+</script>
+
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="consultando-la-estructura-de-un-almacen">
+<h1>3. Consultando la estructura de un almacen<a class="headerlink" href="#consultando-la-estructura-de-un-almacen" title="Permalink to this headline">¶</a></h1>
+<p>Para consultar la estructura de los fenómenos de un almacén, <a href="#id1"><span class="problematic" id="id2">FeatureStore_</span></a>,
+dispone de dos acciones:</p>
+<ul class="simple">
+<li><a href="#id3"><span class="problematic" id="id4">getDefaultFeatureType_</span></a>, que devuelve el tipo de fenómeno
+por defecto del almacén</li>
+<li><a href="#id5"><span class="problematic" id="id6">getFeatureTypes_</span></a> que devuelve una lista con todos los tipos
+de fenómeno que hay en el almacén.</li>
+</ul>
+<p>Las primeras preguntas que tendemos ha hacernos cuando vemos estos métodos
+son:</p>
+<ul class="simple">
+<li>¿ qué es eso del tipo de fenómeno por defecto ?</li>
+<li>¿ Por qué una lista de tipos de fenómenos ?</li>
+</ul>
+<p>Las dos preguntas van estrechamente ligadas.</p>
+<p>Normalmente estamos acostumbrados a encontrarnos <em>almacenes</em> como
+ficheros <em>shapes</em>, <em>dxf</em>, <em>dgn</em> o bases de datos como <em>postgreSQL</em> en los que
+los fenómenos tienen una estructura común a todo el almacén. Sin embargo
+hay escenarios en los que eso puede no ser así. Por ejemplo, podemos encontrarnos
+un fichero GML en el que los fenómenos tienen dos, tres o mas estructuras distintas
+a lo largo el fichero. La forma de consultar cual es la estructura de los
+fenómenos seria a través del método <a href="#id7"><span class="problematic" id="id8">getFeatureTypes_</span></a> , que nos dará una lista
+con un <a href="#id9"><span class="problematic" id="id10">FeatureType_</span></a> por cada tipo de fenómeno del almacén.
+Como durante mucho tiempo hemos manejado almacenes que solo soportan un tipo
+de fenómeno, se ha introducido el método <a href="#id11"><span class="problematic" id="id12">getDefaultFeatureType_</span></a> en el almacén para
+facilitar el acceso al <a href="#id13"><span class="problematic" id="id14">FeatureType_</span></a> cuando solo existe un tipo de fenómeno.</p>
+<p>¿ Y qué pasa si invocamos al <em>getDefaultFeatureType</em> sobre un almacén con varios
+tipos de fenómenos ?</p>
+<p>Este nos devolverá un <a href="#id15"><span class="problematic" id="id16">FeatureType_</span></a> de forma arbitraria dependiendo del tipo de
+almacén con el que estemos trabajando.</p>
+<p>En general, a no ser que estemos seguros de que solo hay un tipo de fenómenos en el
+almacén deberemos usar <a href="#id17"><span class="problematic" id="id18">getFeatureTypes_</span></a> para acceder a la estructura de estos.
+Siempre podemos consultar el <em>size</em> de la lista para determinar cuantos tipos de
+fenómeno tenemos.</p>
+<p>Una vez hemos conseguido un <a href="#id19"><span class="problematic" id="id20">FeatureType_</span></a>, podemos pensar en el como en una lista de
+descriptores de los atributos del fenómeno, disponiendo de un método <em>size</em> que nos
+dice cuantos atributos tiene el fenómeno que describe, un método <em>get</em> que nos
+devolverá un <a href="#id21"><span class="problematic" id="id22">FeatureAttributeDescriptor_</span></a>, por nombre o índice, o un iterador sobre
+estos.</p>
+<p>Veamos cuales son las principales acciones que podemos encontrarnos en un <a href="#id23"><span class="problematic" id="id24">FeatureType_</span></a>
+que nos permitan interrogarle para saber de la estructura
+del fenómeno:</p>
+<ul class="simple">
+<li><em>size</em>, nos devuelve el numero de atributos que tiene el fenómeno.</li>
+<li><em>get</em>, que dándole un nombre o un índice de atributo nos devolverá
+un descripción de las propiedades del atributo, <a href="#id25"><span class="problematic" id="id26">FeatureAttributeDescriptor_</span></a> .</li>
+<li><em>getIndex</em>, que dándole un nombre de atributo nos devuelve el índice
+de este.</li>
+<li><em>getDefaultGeometryAttributeName</em>, nos da el nombre del atributo que es
+la geometría por defecto de este almacén. Normalmente gvSIG pintará esta
+geometría cuando tenga que obtener una representación gráfica del almacén.</li>
+<li><em>getDefaultGeometryAttributeIndex</em>, nos da el índice del atributo que es
+la geometría por defecto de este almacén.</li>
+<li><em>getDefaultSRS</em>. Nos devuelve la cadena que representa al SRS de la geometría
+por defecto.</li>
+<li><em>getSRSs</em>. Un fenómeno puede contener mas de un atributo de tipo geometría,
+y cada atributo de tipo geometría puede tener un SRS diferente. Este método
+nos devolverá una lista con los SRSs de todos los atributos de tipo geometría.</li>
+<li><em>iterator</em>. Nos devuelve un iterador sobre los descriptores de atributos del
+fenómeno.</li>
+</ul>
+<p>Conviene también dar un vistazo, aunque sea superficial, a los principales métodos
+u operaciones que podemos encontrar en el <a href="#id27"><span class="problematic" id="id28">FeatureAttributeDescriptor_</span></a>.</p>
+<ul class="simple">
+<li><em>getName</em>, que nos informara sobre el nombre del atributo.</li>
+<li><em>getDataType</em> y <em>getDataTypeName</em>, que nos dirá de que tipo son los
+datos asociados al atributo. La lista de tipos soportados están definidos
+en el interface <a href="#id29"><span class="problematic" id="id30">DataTypes_</span></a> .</li>
+<li><em>getDefaultValue</em>, nos dirá cual es el valor por defecto del atributo.</li>
+<li><em>getIndex</em>, nos dirá el índice numérico asociado al atributo.</li>
+<li><em>getSize</em>, para los tipos de datos que lo precisen , por ejemplo las
+cadenas, nos informa de cual es su tamaño.</li>
+<li><em>getEvaluator</em>, que nos devolverá una instancia del <a href="#id31"><span class="problematic" id="id32">Evaluator_</span></a> asociado
+al atributo, en caso de que este sea un atributo calculado.</li>
+<li><em>allowNull</em>, nos informa de si ese atributo permite o no valores nulos.</li>
+<li><em>isPrimaryKey</em>, nos dirá si ese atributo forma parte de la clave
+primaria que usa el proveedor de datos para identificar al fenómeno.</li>
+<li><em>isReadOnly</em>, que nos dirá si ese atributo puede ser actualizado o no.</li>
+</ul>
+<p>Veamos ahora un pequeño ejemplo en el que se nos muestra como podemos obtener
+el nombre de los atributos y su tipo de datos asociados a un <a href="#id33"><span class="problematic" id="id34">FeatureType_</span></a>.</p>
+<div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">FeatureType</span> <span class="n">featureType</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">getDefaultFeatureType</span><span class="o">();</span>
+<span class="n">Iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">featureType</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
+<span class="k">while</span><span class="o">(</span> <span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
+  <span class="n">attribute</span> <span class="o">=</span> <span class="o">(</span><span class="n">FeatureAttributeDescriptor</span><span class="o">)</span><span class="n">it</span><span class="o">.</span><span class="na">next</span><span class="o">();</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">attribute</span><span class="o">.</span><span class="na">getDataTypeName</span><span class="o">();</span>
+  <span class="k">if</span><span class="o">(</span> <span class="n">attribute</span><span class="o">.</span><span class="na">getSize</span><span class="o">()</span> <span class="o">&gt;</span> <span class="mi">1</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot;[&quot;</span><span class="o">+</span><span class="n">attribute</span><span class="o">.</span><span class="na">getSize</span><span class="o">()+</span><span class="s">&quot;]&quot;</span><span class="o">);</span>
+  <span class="o">}</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">attribute</span><span class="o">.</span><span class="na">getName</span><span class="o">()</span> <span class="o">);</span>
+  <span class="n">Evaluator</span> <span class="n">eval</span> <span class="o">=</span> <span class="n">attribute</span><span class="o">.</span><span class="na">getEvaluator</span><span class="o">();</span>
+  <span class="k">if</span><span class="o">(</span> <span class="n">eval</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">)</span> <span class="o">{</span>
+    <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">print</span><span class="o">(</span><span class="n">attribute</span><span class="o">.</span><span class="na">getName</span><span class="o">()+</span><span class="s">&quot;, &quot;</span><span class="o">+</span><span class="n">attribute</span><span class="o">.</span><span class="na">getDataTypeName</span><span class="o">()+</span><span class="s">&quot; -- Calculado &quot;</span><span class="o">+</span> <span class="n">eval</span><span class="o">.</span><span class="na">getCQL</span><span class="o">());</span>
+  <span class="o">}</span>
+  <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">();</span>
+<span class="o">}</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="api_creacion_de_un_nuevo_almacen.html" title="4. Creación de un nuevo almacén"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="api_bloqueo_de_fenomenos.html" title="2. Bloqueo de fenómenos"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>
+          <li class="nav-item nav-item-2"><a href="../acceso_a_datos_tabulares.html" >Acceso a datos tabulares</a> &#187;</li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2016, gvSIG Association.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.4.6.
+    </div>
+  </body>
+</html>
