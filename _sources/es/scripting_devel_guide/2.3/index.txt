@@ -6,8 +6,8 @@
 Documentación de Scripting en gvSIG 2.3
 ===================================================
 
-Índice
-------
+Tabla de contenidos
+-------------------
 
 .. toctree::
    :maxdepth: 2
