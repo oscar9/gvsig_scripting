@@ -111,34 +111,32 @@
 <h1>6. Creando y abriendo diferentes tipos de capas<a class="headerlink" href="#creando-y-abriendo-diferentes-tipos-de-capas" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="openstore">
 <h2>6.1. openStore<a class="headerlink" href="#openstore" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Capa de PostgreSQL::</dt>
-<dd><p class="first">from gvsig.utils import openStore</p>
-<dl class="last docutils">
-<dt>os = openStore(&#8216;PostgreSQL&#8217;,_entity_=&#8217;Persistence%3APostgreSQLStoreParameters&#8217;,</dt>
-<dd>port=&#8216;5432&#8217;,
-JDBCDriverClass=&#8217;org.postgresql.Driver&#8217;,
-UseSSL=&#8217;false&#8217;,
-Schema=&#8217;public&#8217;,
-Catalog=&#8217;&#8216;,
-URL=&#8217;jdbc%3Apostgresql%3A%2F%2Flocalhost%3A5432%2Fej1&#8217;,
-BaseOrder=&#8217;&#8216;,
-Workingarea=None,
-CRS=&#8217;EPSG:23030&#8217;,
-PKFields=&#8217;gid&#8217;,
-BaseFilter=&#8217;&#8216;,
-DefaultGeometryField=&#8217;geom&#8217;,
-Fields=&#8217;gid%2Cnombre%2Cpoblacion%2Cgeom&#8217;,
-Table=&#8217;ciudades&#8217;,
-SQL=&#8217;&#8216;,
-password=&#8217;pg&#8217;,
-dbname=&#8217;ej1&#8217;,
-host=&#8217;localhost&#8217;,
-dbuser=&#8217;postgres&#8217;,
-ProviderName=&#8217;PostgreSQL&#8217;)</dd>
-</dl>
-</dd>
-</dl>
+<p>Capa de PostgreSQL:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">gvsig.utils</span> <span class="k">import</span> <span class="n">openStore</span>
+
+<span class="n">os</span> <span class="o">=</span> <span class="n">openStore</span><span class="p">(</span><span class="s1">&#39;PostgreSQL&#39;</span><span class="p">,</span><span class="n">_entity_</span><span class="o">=</span><span class="s1">&#39;Persistence%3APostgreSQLStoreParameters&#39;</span><span class="p">,</span>
+                            <span class="n">port</span><span class="o">=</span><span class="s1">&#39;5432&#39;</span><span class="p">,</span>
+                            <span class="n">JDBCDriverClass</span><span class="o">=</span><span class="s1">&#39;org.postgresql.Driver&#39;</span><span class="p">,</span>
+                            <span class="n">UseSSL</span><span class="o">=</span><span class="s1">&#39;false&#39;</span><span class="p">,</span>
+                            <span class="n">Schema</span><span class="o">=</span><span class="s1">&#39;public&#39;</span><span class="p">,</span>
+                            <span class="n">Catalog</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                            <span class="n">URL</span><span class="o">=</span><span class="s1">&#39;jdbc%3Apostgresql%3A</span><span class="si">%2F%2F</span><span class="s1">localhost%3A5432</span><span class="si">%2F</span><span class="s1">ej1&#39;</span><span class="p">,</span>
+                            <span class="n">BaseOrder</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                            <span class="n">Workingarea</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+                            <span class="n">CRS</span><span class="o">=</span><span class="s1">&#39;EPSG:23030&#39;</span><span class="p">,</span>
+                            <span class="n">PKFields</span><span class="o">=</span><span class="s1">&#39;gid&#39;</span><span class="p">,</span>
+                            <span class="n">BaseFilter</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                            <span class="n">DefaultGeometryField</span><span class="o">=</span><span class="s1">&#39;geom&#39;</span><span class="p">,</span>
+                            <span class="n">Fields</span><span class="o">=</span><span class="s1">&#39;gid%2Cnombre%2Cpoblacion%2Cgeom&#39;</span><span class="p">,</span>
+                            <span class="n">Table</span><span class="o">=</span><span class="s1">&#39;ciudades&#39;</span><span class="p">,</span>
+                            <span class="n">SQL</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span>
+                            <span class="n">password</span><span class="o">=</span><span class="s1">&#39;pg&#39;</span><span class="p">,</span>
+                            <span class="n">dbname</span><span class="o">=</span><span class="s1">&#39;ej1&#39;</span><span class="p">,</span>
+                            <span class="n">host</span><span class="o">=</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span>
+                            <span class="n">dbuser</span><span class="o">=</span><span class="s1">&#39;postgres&#39;</span><span class="p">,</span>
+                            <span class="n">ProviderName</span><span class="o">=</span><span class="s1">&#39;PostgreSQL&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="createlayer">
 <h2>6.2. createLayer<a class="headerlink" href="#createlayer" title="Permalink to this headline">¶</a></h2>

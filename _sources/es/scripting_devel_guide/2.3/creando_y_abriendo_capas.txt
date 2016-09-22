@@ -5,6 +5,7 @@ openStore
 ---------
 
 Capa de PostgreSQL::
+
     from gvsig.utils import openStore
     
     os = openStore('PostgreSQL',_entity_='Persistence%3APostgreSQLStoreParameters',
