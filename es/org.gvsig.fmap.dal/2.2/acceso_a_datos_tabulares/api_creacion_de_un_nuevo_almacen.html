@@ -134,9 +134,9 @@ que el <em>path</em> inicial sobre el que ha de trabajar es <em>/data</em>.</li>
 para crear un fichero <em>dbf</em>.</li>
 <li>Indicaremos en esos parámetros el nombre del fichero a crear, sin ruta,
 ya que utilizara la ruta corriente del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html">DataServerExplorer</a>  para ello.</li>
-<li>Le pediremos los parámetros la instancia del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> que se va a
+<li>Le pediremos los parámetros la instancia del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> que se va a
 utilizar para la creación del <em>dbf</em>. Este sera de tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureType.html">EditableFeatureType</a>.</li>
-<li>Añadiremos al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> los atributos que queremos que tenga nuestro
+<li>Añadiremos al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> los atributos que queremos que tenga nuestro
 <em>dbf</em></li>
 <li>Y por ultimo le indicaremos al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html">DataServerExplorer</a> que añada la nueva
 fuente de datos de la que hemos configurado sus parámetros.</li>
@@ -159,7 +159,7 @@ fuente de datos de la que hemos configurado sus parámetros.</li>
 </pre></div>
 </div>
 <p>En otros apartados hemos estado viendo las operaciones o servicios que ofrece el
-<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> de cara a consultar su estructura. Vamos a repasar los servicios que
+<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> de cara a consultar su estructura. Vamos a repasar los servicios que
 añade el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureType.html">EditableFeatureType</a> a este de cara a modificar esta:</p>
 <ul class="simple">
 <li><em>add</em>. Nos permite añadir nuevos atributos a la descripción del fenómeno.
@@ -168,8 +168,8 @@ instancia de <a class="reference external" href="http://downloads.gvsig.org/down
 <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureAttributeDescriptor.html">FeatureAttributeDescriptor</a>, pero añadiendo operaciones que permiten
 modificar las propiedades del atributo.</li>
 <li><em>getNotEditableCopy</em>, que nos devuelve una copia de el mismo no editable,
-es decir un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>.</li>
-<li><em>getSource</em>, nos devuelve una referencia al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> del que creamos
+es decir un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a>.</li>
+<li><em>getSource</em>, nos devuelve una referencia al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> del que creamos
 esta versión editable. Si el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureType.html">EditableFeatureType</a> no se creo a partir de
 un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeature.html">EditableFeature</a> devolverá <em>null</em>.</li>
 <li><em>remove</em>, que nos permite eliminar una descripción de atributo.</li>

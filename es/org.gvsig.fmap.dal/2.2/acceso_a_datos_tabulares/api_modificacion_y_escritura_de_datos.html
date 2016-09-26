@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>7. Modificación y escritura de datos &#8212; gvsig 0 documentation</title>
+    <title>1. Modificación y escritura de datos &#8212; gvsig 0 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <link rel="shortcut icon" href="../../../../_static/gvSIG.ico"/>
     <link rel="top" title="gvsig 0 documentation" href="../../../../index.html" />
     <link rel="up" title="Acceso a datos tabulares" href="../acceso_a_datos_tabulares.html" />
-    <link rel="next" title="8. La pila de comandos de edición" href="api_pila_comandos_edicion.html" />
-    <link rel="prev" title="6. Modificación de la estructura de un almacén" href="api_modificacion_de_la_estructura_de_un_almacen.html" />
+    <link rel="next" title="9. La pila de comandos de edición" href="api_pila_comandos_edicion.html" />
+    <link rel="prev" title="2. Modificación de la estructura de un almacén" href="api_modificacion_de_la_estructura_de_un_almacen.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -43,10 +43,10 @@
           <a href="../../../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="api_pila_comandos_edicion.html" title="8. La pila de comandos de edición"
+          <a href="api_pila_comandos_edicion.html" title="9. La pila de comandos de edición"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="api_modificacion_de_la_estructura_de_un_almacen.html" title="6. Modificación de la estructura de un almacén"
+          <a href="api_modificacion_de_la_estructura_de_un_almacen.html" title="2. Modificación de la estructura de un almacén"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>
@@ -60,10 +60,10 @@
             </a></p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="api_modificacion_de_la_estructura_de_un_almacen.html"
-                        title="previous chapter">6. Modificación de la estructura de un almacén</a></p>
+                        title="previous chapter">2. Modificación de la estructura de un almacén</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="api_pila_comandos_edicion.html"
-                        title="next chapter">8. La pila de comandos de edición</a></p>
+                        title="next chapter">9. La pila de comandos de edición</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -99,7 +99,7 @@
           <div class="body" role="main">
             
   <div class="section" id="modificacion-y-escritura-de-datos">
-<h1>7. Modificación y escritura de datos<a class="headerlink" href="#modificacion-y-escritura-de-datos" title="Permalink to this headline">¶</a></h1>
+<h1>1. Modificación y escritura de datos<a class="headerlink" href="#modificacion-y-escritura-de-datos" title="Permalink to this headline">¶</a></h1>
 <p>En este apartado veremos conceptos como:</p>
 <ul class="simple">
 <li>inserción de nuevos fenómenos en un almacén</li>
@@ -183,9 +183,9 @@ método <em>redo</em></li>
 <li><em>insert</em>. Inserta un fenómeno en el almacén.</li>
 <li><em>update</em>. Actualizar un fenómeno del almacén.</li>
 <li><em>delete</em>. Elimina un fenómeno del almacén.</li>
-<li><em>createNewFeature</em>. Al invocar a este método con un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> ,
+<li><em>createNewFeature</em>. Al invocar a este método con un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> ,
 el <em>almacén</em> creara un nuevo fenómeno con la estructura
-indicada en el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> pasado. Además podemos indicar
+indicada en el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> pasado. Además podemos indicar
 si queremos o no que se el nuevo fenómeno se rellene con los
 valores por defecto para ese tipo.</li>
 <li><em>isAppendModeSupported</em>, nos informa si el <em>almacén</em>
@@ -200,13 +200,13 @@ de una sola se tratase a efectos de las acciones hacer/rehacer.</li>
 <p>Además de las acciones del <em>almacén</em> que nos permiten realizar
 modificaciones en los datos, conviene repasar cuales son las
 acciones de los fenómenos que nos van a permitir modificar sus
-datos. En principio, un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> es de solo <em>lectura</em>, es decir,
+datos. En principio, un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/Feature.html">Feature</a> es de solo <em>lectura</em>, es decir,
 solo podemos realizar operaciones de consulta sobre el. Si queremos
-modificar un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> tendremos que obtener un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/">EditableFeature</a> a
+modificar un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/Feature.html">Feature</a> tendremos que obtener un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/">EditableFeature</a> a
 partir de el, el cual ya tendrá acciones asociadas a modificar sus
 datos. Para obtener un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeature.html">EditableFeature</a> usaremos el método <em>getEditable</em>
-del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> . El método <em>createNewFeature</em> ya devuelve un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeature.html">EditableFeature</a> .
-El <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeature.html">EditableFeature</a> se comporta como un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> añadiéndole
+del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/Feature.html">Feature</a> . El método <em>createNewFeature</em> ya devuelve un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeature.html">EditableFeature</a> .
+El <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeature.html">EditableFeature</a> se comporta como un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/Feature.html">Feature</a> añadiéndole
 una serie de acciones mas. Las mas importantes serian:</p>
 <ul class="simple">
 <li><em>set</em> para permitirnos modificar los valores de los
@@ -325,10 +325,10 @@ invocando al método <em>delete</em> en lugar de <em>update</em>:</p>
 <p>Relacionado con la modificación e inserción de fenómenos en un
 <em>almacén de datos</em>, esta la posibilidad de asignar reglas de validación
 a los fenómenos de un <em>almacén</em>. Las reglas de validación se asignan
-a cada tipo de fenómeno del almacén, es decir es el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>
+a cada tipo de fenómeno del almacén, es decir es el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a>
 el que controla que reglas hay que aplicar a los fenómenos de su tipo.</p>
 <p>Podemos invocar manualmente a las reglas de validación sobre un fenómeno
-mediante la acción <em>validate</em> de <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> o sobre todos fenómenos del
+mediante la acción <em>validate</em> de <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/Feature.html">Feature</a> o sobre todos fenómenos del
 <em>almacén</em> mediante la acción <em>validateFeatures</em> del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html">FeatureStore</a> .</p>
 <p>A la hora de crear una regla de validación tendremos que tener en cuenta que
 una regla de validación puede ejecutarse...</p>
@@ -419,7 +419,7 @@ de la feature, procesarla y si es preciso actualizar el feature con
 los nuevos valores.</p>
 <p>Durante la validación de una regla podremos actualizar el fenómeno que
 estamos tratando, pero no deberemos cambiar la estructura del almacén, es
-decir, no deberemos realizar ninguna operación que modifique los <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>
+decir, no deberemos realizar ninguna operación que modifique los <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a>
 de este.</p>
 <p>Si durante el proceso de validación de fenómenos que se realiza al
 finalizar la edición alguien modifica algún fenómeno, se abortara el
@@ -445,10 +445,10 @@ volver a lanzar la operación.</p>
           <a href="../../../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="api_pila_comandos_edicion.html" title="8. La pila de comandos de edición"
+          <a href="api_pila_comandos_edicion.html" title="9. La pila de comandos de edición"
              >next</a> |</li>
         <li class="right" >
-          <a href="api_modificacion_de_la_estructura_de_un_almacen.html" title="6. Modificación de la estructura de un almacén"
+          <a href="api_modificacion_de_la_estructura_de_un_almacen.html" title="2. Modificación de la estructura de un almacén"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>

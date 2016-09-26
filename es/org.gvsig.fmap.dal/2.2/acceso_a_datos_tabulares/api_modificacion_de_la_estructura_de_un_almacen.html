@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>6. Modificación de la estructura de un almacén &#8212; gvsig 0 documentation</title>
+    <title>2. Modificación de la estructura de un almacén &#8212; gvsig 0 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <link rel="shortcut icon" href="../../../../_static/gvSIG.ico"/>
     <link rel="top" title="gvsig 0 documentation" href="../../../../index.html" />
     <link rel="up" title="Acceso a datos tabulares" href="../acceso_a_datos_tabulares.html" />
-    <link rel="next" title="7. Modificación y escritura de datos" href="api_modificacion_y_escritura_de_datos.html" />
-    <link rel="prev" title="5. Acceso a los fenomenos" href="api_fenomenos.html" />
+    <link rel="next" title="1. Modificación y escritura de datos" href="api_modificacion_y_escritura_de_datos.html" />
+    <link rel="prev" title="1. Acceso a los fenomenos" href="api_fenomenos.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -43,10 +43,10 @@
           <a href="../../../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="api_modificacion_y_escritura_de_datos.html" title="7. Modificación y escritura de datos"
+          <a href="api_modificacion_y_escritura_de_datos.html" title="1. Modificación y escritura de datos"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="api_fenomenos.html" title="5. Acceso a los fenomenos"
+          <a href="api_fenomenos.html" title="1. Acceso a los fenomenos"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>
@@ -60,10 +60,10 @@
             </a></p>
   <h4>Previous topic</h4>
   <p class="topless"><a href="api_fenomenos.html"
-                        title="previous chapter">5. Acceso a los fenomenos</a></p>
+                        title="previous chapter">1. Acceso a los fenomenos</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="api_modificacion_y_escritura_de_datos.html"
-                        title="next chapter">7. Modificación y escritura de datos</a></p>
+                        title="next chapter">1. Modificación y escritura de datos</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -99,18 +99,18 @@
           <div class="body" role="main">
             
   <div class="section" id="modificacion-de-la-estructura-de-un-almacen">
-<h1>6. Modificación de la estructura de un almacén<a class="headerlink" href="#modificacion-de-la-estructura-de-un-almacen" title="Permalink to this headline">¶</a></h1>
+<h1>2. Modificación de la estructura de un almacén<a class="headerlink" href="#modificacion-de-la-estructura-de-un-almacen" title="Permalink to this headline">¶</a></h1>
 <p>En el apartado <a class="reference external" href="api_consultando_la_estructura_de_un_almacen.html">consultando la estructura de un almacén</a> vimos como podemos consultar
-la estructura de un almacén de datos. Esta venia descrita por el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> y el
+la estructura de un almacén de datos. Esta venia descrita por el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> y el
 <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureAttributeDescriptor.html">FeatureAttributeDescriptor</a>. En el apartado <a class="reference external" href="api_creacion_de_un_nuevo_almacen.html">creación de un nuevo almacén</a> vimos como
-podemos crear un nuevo almacén de datos y los equivalentes al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> y
+podemos crear un nuevo almacén de datos y los equivalentes al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> y
 <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureAttributeDescriptor.html">FeatureAttributeDescriptor</a> que nos permiten modificarlos, el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureType.html">EditableFeatureType</a> y
 el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureAttributeDescriptor.html">EditableFeatureAttributeDescriptor</a> . En general estas dos últimos interfaces
 contienen todo lo que podemos necesitar no solo para crear nuevos almacenes de datos
 sino para modificar los ya existentes.</p>
 <p>Igual que para modificar un fenómeno de un almacén, para modificar la estructura de
 estos tenemos que estar en modo edición. Luego solo tenemos que limitarnos a obtener el
-<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> que queremos modificar; cambiar, añadir o borrar atributos sobre el y actualizar
+<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> que queremos modificar; cambiar, añadir o borrar atributos sobre el y actualizar
 el almacén con los cambios mediante el método <em>update</em>.</p>
 <p>Veamos esto con un simple ejemplo.
 En <a class="reference external" href="api_creacion_de_un_nuevo_almacen.html">creación de un nuevo almacén</a> creamos un almacén de datos con dos campos, <em>MUNICIPIO</em>
@@ -128,8 +128,8 @@ estos atributos a 50 caracteres.</p>
 <p>Los pasos realizados son:</p>
 <ol class="arabic simple">
 <li>Iniciar edición.</li>
-<li>Obtener el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> asociado al almacén.</li>
-<li>Obtener una versión editable del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>.</li>
+<li>Obtener el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> asociado al almacén.</li>
+<li>Obtener una versión editable del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a>.</li>
 <li>Acceder a los descriptores de los atributos y cambiarles
 el <em>size</em> a 50.</li>
 <li>Actualizar el almacén con la nueva definición. A partir de este
@@ -153,10 +153,10 @@ disco los cambios de estructura del almacén.</li>
           <a href="../../../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="api_modificacion_y_escritura_de_datos.html" title="7. Modificación y escritura de datos"
+          <a href="api_modificacion_y_escritura_de_datos.html" title="1. Modificación y escritura de datos"
              >next</a> |</li>
         <li class="right" >
-          <a href="api_fenomenos.html" title="5. Acceso a los fenomenos"
+          <a href="api_fenomenos.html" title="1. Acceso a los fenomenos"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>

@@ -122,24 +122,24 @@ hay escenarios en los que eso puede no ser así. Por ejemplo, podemos encontrarn
 un fichero GML en el que los fenómenos tienen dos, tres o mas estructuras distintas
 a lo largo el fichero. La forma de consultar cual es la estructura de los
 fenómenos seria a través del método <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getFeatureTypes()">getFeatureTypes</a> , que nos dará una lista
-con un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> por cada tipo de fenómeno del almacén.
+con un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> por cada tipo de fenómeno del almacén.
 Como durante mucho tiempo hemos manejado almacenes que solo soportan un tipo
 de fenómeno, se ha introducido el método <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getDefaultFeatureType()">getDefaultFeatureType</a> en el almacén para
-facilitar el acceso al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> cuando solo existe un tipo de fenómeno.</p>
+facilitar el acceso al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> cuando solo existe un tipo de fenómeno.</p>
 <p>¿ Y qué pasa si invocamos al <em>getDefaultFeatureType</em> sobre un almacén con varios
 tipos de fenómenos ?</p>
-<p>Este nos devolverá un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> de forma arbitraria dependiendo del tipo de
+<p>Este nos devolverá un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> de forma arbitraria dependiendo del tipo de
 almacén con el que estemos trabajando.</p>
 <p>En general, a no ser que estemos seguros de que solo hay un tipo de fenómenos en el
 almacén deberemos usar <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getFeatureTypes()">getFeatureTypes</a> para acceder a la estructura de estos.
 Siempre podemos consultar el <em>size</em> de la lista para determinar cuantos tipos de
 fenómeno tenemos.</p>
-<p>Una vez hemos conseguido un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>, podemos pensar en el como en una lista de
+<p>Una vez hemos conseguido un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a>, podemos pensar en el como en una lista de
 descriptores de los atributos del fenómeno, disponiendo de un método <em>size</em> que nos
 dice cuantos atributos tiene el fenómeno que describe, un método <em>get</em> que nos
 devolverá un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureAttributeDescriptor.html">FeatureAttributeDescriptor</a>, por nombre o índice, o un iterador sobre
 estos.</p>
-<p>Veamos cuales son las principales acciones que podemos encontrarnos en un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>
+<p>Veamos cuales son las principales acciones que podemos encontrarnos en un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a>
 que nos permitan interrogarle para saber de la estructura
 del fenómeno:</p>
 <ul class="simple">
@@ -167,7 +167,7 @@ u operaciones que podemos encontrar en el <a class="reference external" href="ht
 <li><em>getName</em>, que nos informara sobre el nombre del atributo.</li>
 <li><em>getDataType</em> y <em>getDataTypeName</em>, que nos dirá de que tipo son los
 datos asociados al atributo. La lista de tipos soportados están definidos
-en el interface <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/cresques/DataTypes.html">DataTypes</a> .</li>
+en el interface <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataTypes.html">DataTypes</a> .</li>
 <li><em>getDefaultValue</em>, nos dirá cual es el valor por defecto del atributo.</li>
 <li><em>getIndex</em>, nos dirá el índice numérico asociado al atributo.</li>
 <li><em>getSize</em>, para los tipos de datos que lo precisen , por ejemplo las
@@ -180,7 +180,7 @@ primaria que usa el proveedor de datos para identificar al fenómeno.</li>
 <li><em>isReadOnly</em>, que nos dirá si ese atributo puede ser actualizado o no.</li>
 </ul>
 <p>Veamos ahora un pequeño ejemplo en el que se nos muestra como podemos obtener
-el nombre de los atributos y su tipo de datos asociados a un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>.</p>
+el nombre de los atributos y su tipo de datos asociados a un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a>.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">FeatureType</span> <span class="n">featureType</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">getDefaultFeatureType</span><span class="o">();</span>
 <span class="n">Iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">featureType</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
 <span class="k">while</span><span class="o">(</span> <span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
