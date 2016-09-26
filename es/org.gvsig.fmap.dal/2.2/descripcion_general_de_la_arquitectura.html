@@ -101,16 +101,16 @@
 <h1>Descripción general de la arquitectura<a class="headerlink" href="#descripcion-general-de-la-arquitectura" title="Permalink to this headline">¶</a></h1>
 <p>El acceso a datos de gvSIG contiene dos grandes conjuntos de interfaces:</p>
 <ul class="simple">
-<li>El primero para los consumidores de datos o <a href="#id2"><span class="problematic" id="id3">API_</span></a>.</li>
-<li>Y el segundo, para los proveedores de datos de la librería  o <a href="#id4"><span class="problematic" id="id5">SPI_</span></a>.</li>
+<li>El primero para los consumidores de datos o <a class="reference external" href="http://es.wikipedia.org/wiki/Interfaz_de_programaci%C3%B3n_de_aplicaciones">API</a>.</li>
+<li>Y el segundo, para los proveedores de datos de la librería  o <a class="reference external" href="http://en.wikipedia.org/wiki/Service_Provider_Interface">SPI</a>.</li>
 </ul>
 <p>La descripción de cada uno de esos grupos de interfaces se realizará por separado, distinguiendo en todo momento entre los servicios que se ofrecen al consumidor de datos y al proveedor de éstos.</p>
 <p>En la arquitectura de la librería de acceso a datos, DAL, existen tres piezas fundamentales que se encuentran interrelacionadas entre sí:</p>
 <ul class="simple">
-<li>Control de recursos, <a href="#id6"><span class="problematic" id="id7">Resource_</span></a>. Identifica qué recursos están siendo
+<li>Control de recursos, <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/resource/Resource.html">Resource</a>. Identifica qué recursos están siendo
 usados en todo momento por los distintos proveedores de datos de la
 librería, pudiendo solicitar que se liberen en un momento dado.</li>
-<li>Acceso a los servicios de un servidor de datos, <a href="#id8"><span class="problematic" id="id9">DataServerExplorer_</span></a>.
+<li>Acceso a los servicios de un servidor de datos, <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html">DataServerExplorer</a>.
 Permite determinar qué almacenes de datos hay en un servidor, así como
 crear nuevos almacenes. Los principales tipos de servidores soportados
 son:<ul>
@@ -120,7 +120,7 @@ son:<ul>
 <li>Sistemas remotos basados en WFS/WFS-T, <em>WFSServerExplorer</em>.</li>
 </ul>
 </li>
-<li>Acceso a los datos de un almacen, <a href="#id10"><span class="problematic" id="id11">DataStore_</span></a>. Nos permite el acceso a
+<li>Acceso a los datos de un almacen, <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataStore.html">DataStore</a>. Nos permite el acceso a
 datos de tipos como:<ul>
 <li>dbf/shp</li>
 <li>dxf</li>

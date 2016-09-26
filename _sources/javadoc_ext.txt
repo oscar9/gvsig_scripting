@@ -1,0 +1,15 @@
+# Info sobre plugin javadoc
+
+## Uso
+
+:javadoc:`Feature <Feature>`
+
+#Mejoras
+
+Indicar funciones. Se tendría que establecer la clase base y añadirle un #getFunction()
+
+Quedando el enalce:
+
+http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getFeatureTypes()
+
+

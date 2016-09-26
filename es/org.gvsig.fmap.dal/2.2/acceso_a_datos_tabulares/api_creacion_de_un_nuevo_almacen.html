@@ -102,19 +102,19 @@
 <h1>4. Creación de un nuevo almacén<a class="headerlink" href="#creacion-de-un-nuevo-almacen" title="Permalink to this headline">¶</a></h1>
 <p>En otros apartados hemos estado viendo que servicios nos proporciona
 DAL para el acceso a los datos tabulares. Normalmente estos servicios
-se ofrecen por el <a href="#id1"><span class="problematic" id="id2">FeatureStore_</span></a>. Sin embargo los servicios relacionados
-con la creación física del almacén, no nos los da el <a href="#id3"><span class="problematic" id="id4">FeatureStore_</span></a>. Estos
-servicios forman parte de los servicios que ofrece el <a href="#id5"><span class="problematic" id="id6">DataServerExplorer_</span></a>.</p>
-<p>El <a href="#id7"><span class="problematic" id="id8">DataServerExplorer_</span></a> reúne los servicios relacionados con la exploración
+se ofrecen por el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html">FeatureStore</a>. Sin embargo los servicios relacionados
+con la creación física del almacén, no nos los da el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html">FeatureStore</a>. Estos
+servicios forman parte de los servicios que ofrece el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html">DataServerExplorer</a>.</p>
+<p>El <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html">DataServerExplorer</a> reúne los servicios relacionados con la exploración
 de un servidor de datos junto de los de creación de nuevos almacenes en
 el servidor. Vamos a ver aquí la parte de añadir un nuevo almacén a un
 servidor de datos, en este caso un sistema de ficheros, el <em>FilesystemExplorer</em>.</p>
-<p>Un <a href="#id9"><span class="problematic" id="id10">DataServerExplorer_</span></a> dispone para estas tareas de los métodos:</p>
+<p>Un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html">DataServerExplorer</a> dispone para estas tareas de los métodos:</p>
 <ul class="simple">
 <li><em>getAddParameters</em>. Este, dado un nombre de almacén registrado,
-nos devolverá un <a href="#id11"><span class="problematic" id="id12">DataParameters_</span></a> especializado con los parámetros
+nos devolverá un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataParameters.html">DataParameters</a> especializado con los parámetros
 que precisa ese el almacén indicado para ser creado.</li>
-<li><em>add</em>, que a partir del <a href="#id13"><span class="problematic" id="id14">DataParameters_</span></a> indicado se encargara de
+<li><em>add</em>, que a partir del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataParameters.html">DataParameters</a> indicado se encargara de
 crear el nuevo almacén en el servidor.</li>
 </ul>
 <p>Veamos un ejemplo de creación de un almacén de tipo <em>dbf</em>. Crearemos
@@ -128,17 +128,17 @@ contendrá los campos:</p>
 </ul>
 <p>Para esto tendremos que hacer:</p>
 <ol class="arabic simple">
-<li>Crearemos un <a href="#id15"><span class="problematic" id="id16">DataServerExplorer_</span></a> de tipo <em>FilesystemExplorer</em>, indicando
+<li>Crearemos un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html">DataServerExplorer</a> de tipo <em>FilesystemExplorer</em>, indicando
 que el <em>path</em> inicial sobre el que ha de trabajar es <em>/data</em>.</li>
-<li>Le pediremos al <a href="#id17"><span class="problematic" id="id18">DataServerExplorer_</span></a> una instancia de parámetros adecuada
+<li>Le pediremos al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html">DataServerExplorer</a> una instancia de parámetros adecuada
 para crear un fichero <em>dbf</em>.</li>
 <li>Indicaremos en esos parámetros el nombre del fichero a crear, sin ruta,
-ya que utilizara la ruta corriente del <a href="#id19"><span class="problematic" id="id20">DataServerExplorer_</span></a> para ello.</li>
-<li>Le pediremos los parámetros la instancia del <a href="#id21"><span class="problematic" id="id22">FeatureType_</span></a> que se va a
-utilizar para la creación del <em>dbf</em>. Este sera de tipo <a href="#id23"><span class="problematic" id="id24">EditableFeatureType_</span></a>.</li>
-<li>Añadiremos al <a href="#id25"><span class="problematic" id="id26">FeatureType_</span></a> los atributos que queremos que tenga nuestro
+ya que utilizara la ruta corriente del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html">DataServerExplorer</a>  para ello.</li>
+<li>Le pediremos los parámetros la instancia del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> que se va a
+utilizar para la creación del <em>dbf</em>. Este sera de tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureType.html">EditableFeatureType</a>.</li>
+<li>Añadiremos al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> los atributos que queremos que tenga nuestro
 <em>dbf</em></li>
-<li>Y por ultimo le indicaremos al <a href="#id27"><span class="problematic" id="id28">DataServerExplorer_</span></a> que añada la nueva
+<li>Y por ultimo le indicaremos al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html">DataServerExplorer</a> que añada la nueva
 fuente de datos de la que hemos configurado sus parámetros.</li>
 </ol>
 <p>Veamos como queda todo esto junto:</p>
@@ -159,19 +159,19 @@ fuente de datos de la que hemos configurado sus parámetros.</li>
 </pre></div>
 </div>
 <p>En otros apartados hemos estado viendo las operaciones o servicios que ofrece el
-<a href="#id29"><span class="problematic" id="id30">FeatureType_</span></a> de cara a consultar su estructura. Vamos a repasar los servicios que
-añade el <a href="#id31"><span class="problematic" id="id32">EditableFeatureType_</span></a> a este de cara a modificar esta:</p>
+<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> de cara a consultar su estructura. Vamos a repasar los servicios que
+añade el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureType.html">EditableFeatureType</a> a este de cara a modificar esta:</p>
 <ul class="simple">
 <li><em>add</em>. Nos permite añadir nuevos atributos a la descripción del fenómeno.
 Le indicaremos el nombre del nuevo atributo y el tipo y nos devolverá una
-instancia de <a href="#id33"><span class="problematic" id="id34">EditableFeatureAttributeDescriptor_</span></a>, que es similar a
-<a href="#id35"><span class="problematic" id="id36">FeatureAttributeDescriptor_</span></a>, pero añadiendo operaciones que permiten
+instancia de <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureAttributeDescriptor.html">EditableFeatureAttributeDescriptor</a> , que es similar a
+<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureAttributeDescriptor.html">FeatureAttributeDescriptor</a>, pero añadiendo operaciones que permiten
 modificar las propiedades del atributo.</li>
 <li><em>getNotEditableCopy</em>, que nos devuelve una copia de el mismo no editable,
-es decir un <a href="#id37"><span class="problematic" id="id38">FeatureType_</span></a>.</li>
-<li><em>getSource</em>, nos devuelve una referencia al <a href="#id39"><span class="problematic" id="id40">FeatureType_</span></a> del que creamos
-esta versión editable. Si el <a href="#id41"><span class="problematic" id="id42">EditableFeatureType_</span></a> no se creo a partir de
-un <a href="#id43"><span class="problematic" id="id44">EditableFeature_</span></a> devolverá <em>null</em>.</li>
+es decir un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>.</li>
+<li><em>getSource</em>, nos devuelve una referencia al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> del que creamos
+esta versión editable. Si el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureType.html">EditableFeatureType</a> no se creo a partir de
+un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeature.html">EditableFeature</a> devolverá <em>null</em>.</li>
 <li><em>remove</em>, que nos permite eliminar una descripción de atributo.</li>
 <li><em>setDefaultGeometryAttributeName</em>, que nos permite indicar cual es el
 nombre del atributo que contiene la geometría a usar como geometría
@@ -187,7 +187,7 @@ pero permite fijar el tamaño. Es útil con el tipo <em>STRING</em> para especif
 de forma cómoda el tamaño de este.</li>
 <li><em>add(String name, int type, Evaluator eval)</em>. Con este podemos añadir
 nuevos atributos cuyos valores se calculen usando el evaluador indicado.
-En otro apartado se vera esto con mas detalle (<a class="reference external" href="soporte-para-atributos-calculados">Soporte para atributos calculados</a>).</li>
+En otro apartado se vera esto con mas detalle (<a class="reference external" href="api_soporte_para_atributos_calculados.html">Soporte para atributos calculados</a>).</li>
 </ul>
 </div>
 

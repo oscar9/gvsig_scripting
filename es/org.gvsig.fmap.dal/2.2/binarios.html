@@ -59,7 +59,7 @@
             </a></p>
   <h3><a href="../../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Binarios</a></li>
+<li><a class="reference internal" href="#">Binarios</a><ul>
 <li><a class="reference internal" href="#libreria">Librería</a><ul>
 <li><a class="reference internal" href="#dependencias-de-la-libreria">Dependencias de la librería</a></li>
 </ul>
@@ -67,6 +67,8 @@
 <li><a class="reference internal" href="#implementaciones">Implementaciones</a><ul>
 <li><a class="reference internal" href="#almacenes-de-tipo-fichero">Almacenes de tipo fichero</a></li>
 <li><a class="reference internal" href="#almacenes-de-tipo-base-de-datos">Almacenes de tipo base de datos</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#indices-espaciales">Índices espaciales</a></li>
 </ul>
 </li>
@@ -116,9 +118,8 @@
 <h1>Binarios<a class="headerlink" href="#binarios" title="Permalink to this headline">¶</a></h1>
 <p>A continuación se enumeran los jar que genera DAL. A la hora de indicar las dependencias de un proyecto que use DAL, hay que tener en cuenta que sólo habrá que incluir las dependencias marcados como necesarios para compilar. A la hora de hacer un build ejecutable, habrá que incluir también aquellas dependencias necesarios en tiempo de ejecución (normalmente correspondientes a las implementaciones) que son necesarios para que funcione gvSIG.</p>
 <p>Los jar que se necesitan cargar en tiempo de ejecución disponen de una clase Library que permite cargarlos e inicializarlos durante el arranque de la aplicación (o en cualquier momento posterior), para más información sobre este mecanismo se puede consultar el patrón <a class="reference external" href="../org.gvsig.tools/org-gvsig-tools-locator">Locator</a>.</p>
-</div>
 <div class="section" id="libreria">
-<h1>Librería<a class="headerlink" href="#libreria" title="Permalink to this headline">¶</a></h1>
+<h2>Librería<a class="headerlink" href="#libreria" title="Permalink to this headline">¶</a></h2>
 <table border="1" class="docutils">
 <colgroup>
 <col width="26%" />
@@ -174,7 +175,7 @@ impl
 </tbody>
 </table>
 <div class="section" id="dependencias-de-la-libreria">
-<h2>Dependencias de la librería<a class="headerlink" href="#dependencias-de-la-libreria" title="Permalink to this headline">¶</a></h2>
+<h3>Dependencias de la librería<a class="headerlink" href="#dependencias-de-la-libreria" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="26%" />
@@ -230,10 +231,10 @@ org.gvsig.tools
 </div>
 </div>
 <div class="section" id="implementaciones">
-<h1>Implementaciones<a class="headerlink" href="#implementaciones" title="Permalink to this headline">¶</a></h1>
+<h2>Implementaciones<a class="headerlink" href="#implementaciones" title="Permalink to this headline">¶</a></h2>
 <p>Los siguientes jares son implementaciones que vienen de serie para gvSIG-Desktop.</p>
 <div class="section" id="almacenes-de-tipo-fichero">
-<h2>Almacenes de tipo fichero<a class="headerlink" href="#almacenes-de-tipo-fichero" title="Permalink to this headline">¶</a></h2>
+<h3>Almacenes de tipo fichero<a class="headerlink" href="#almacenes-de-tipo-fichero" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="26%" />
@@ -356,7 +357,7 @@ store.dgn.legend
 </table>
 </div>
 <div class="section" id="almacenes-de-tipo-base-de-datos">
-<h2>Almacenes de tipo base de datos<a class="headerlink" href="#almacenes-de-tipo-base-de-datos" title="Permalink to this headline">¶</a></h2>
+<h3>Almacenes de tipo base de datos<a class="headerlink" href="#almacenes-de-tipo-base-de-datos" title="Permalink to this headline">¶</a></h3>
 <table border="1" class="docutils">
 <colgroup>
 <col width="26%" />
@@ -435,6 +436,7 @@ store.postgresql
 </tr>
 </tbody>
 </table>
+</div>
 </div>
 <div class="section" id="indices-espaciales">
 <h2>Índices espaciales<a class="headerlink" href="#indices-espaciales" title="Permalink to this headline">¶</a></h2>

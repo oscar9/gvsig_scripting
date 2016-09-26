@@ -101,7 +101,7 @@
   <div class="section" id="acceso-a-operaciones-especificas-del-almacen">
 <h1>1. Acceso a operaciones específicas del almacén<a class="headerlink" href="#acceso-a-operaciones-especificas-del-almacen" title="Permalink to this headline">¶</a></h1>
 <p>Hasta ahora hemos estado viendo una serie de servicios que un almacén de datos,
-a través del <a href="#id1"><span class="problematic" id="id2">FeatureStore_</span></a> ofrece sin importarnos qué tipo de almacén de datos
+a través del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html">FeatureStore</a> ofrece sin importarnos qué tipo de almacén de datos
 sea. Son servicios que ofrecen de forma <em>estándar</em> todos los almacenes de datos
 tabulares. Sin embargo, podemos encontrarnos que para algún tipo especial de
 almacén de datos este ofrezca algún servicio extra, bien porque el propio
@@ -109,16 +109,16 @@ proveedor de datos lo suministra, bien porque alguna librería externa suministr
 ese servicio y lo ofrece a través del propio almacén.</p>
 <p>Cuando nos referimos a <em>operaciones</em>, nos referimos a estos servicios extra que
 pueden estar asociados a un almacén especifico.</p>
-<p>Para acceder a estas operaciones lo hacemos a través de la utilidad <a href="#id3"><span class="problematic" id="id4">DynObject_</span></a> que
-presenta la librería <a href="#id5"><span class="problematic" id="id6">`libTools (org.gvsig.tools)`_</span></a> . La clase <a href="#id7"><span class="problematic" id="id8">FeatureStore_</span></a> implementa el interface <a href="#id9"><span class="problematic" id="id10">DynObject_</span></a>
+<p>Para acceder a estas operaciones lo hacemos a través de la utilidad <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/dynobject/DynObject.html">DynObject</a> que
+presenta la librería <a class="reference external" href="http://docs.gvsig.org/plone/projects/gvsig-desktop/docs/devel/org.gvsig.fmap.dal/2.0.0/featurestore/consumer-services/org.gvsig.tools">libTools org.gvsig.tools</a> . La clase <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html">prefixFeatureStore</a> implementa el interface <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/dynobject/DynObject.html">DynObject</a>
 usando el nombre de clase dinámica <em>FeatureStore</em>. Llegados a este punto es recomendable
-que repase la documentación de esta utilidad antes de seguir (<a href="#id11"><span class="problematic" id="id12">`libtools - DynObject`_</span></a>),
+que repase la documentación de esta utilidad antes de seguir (<a class="reference external" href="http://docs.gvsig.org/plone/projects/gvsig-desktop/docs/devel/org.gvsig.fmap.dal/2.0.0/featurestore/consumer-services/org.gvsig.tools/org.gvsig.tools.dynobject">libtools - DynObject</a>),
 aunque si no lo hace
 intentaremos dar las descripciones necesarias para que pueda entender el uso
-que se hace de ella desde el <a href="#id13"><span class="problematic" id="id14">FeatureStore_</span></a>.</p>
-<p>El <a href="#id15"><span class="problematic" id="id16">FeatureStore_</span></a> por implementar el interface <a href="#id17"><span class="problematic" id="id18">DynObject_</span></a> dispone de un método, <em>getDynClass</em>,
-que nos devolverá un objeto <a href="#id19"><span class="problematic" id="id20">DynClass_</span></a>. Este contiene una definición de métodos y atributos
-añadidos dinámicamente a la instancia de nuestro almacén. Podemos usar ese <a href="#id21"><span class="problematic" id="id22">DynClass_</span></a> para
+que se hace de ella desde el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html">FeatureStore</a>.</p>
+<p>El <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html">FeatureStore</a> por implementar el interface <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/dynobject/DynObject.html">DynObject</a> dispone de un método, <em>getDynClass</em>,
+que nos devolverá un objeto <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/dynobject/DynClass.html">DynClass</a>. Este contiene una definición de métodos y atributos
+añadidos dinámicamente a la instancia de nuestro almacén. Podemos usar ese <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/dynobject/DynClass.html">DynClass</a> para
 interrogar por los métodos añadidos de la siguiente forma:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">DynMethod</span><span class="o">[]</span> <span class="n">methods</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">getDynClass</span><span class="o">().</span><span class="na">getDynMethods</span><span class="o">();</span>
 <span class="k">for</span><span class="o">(</span> <span class="kt">int</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="o">;</span> <span class="n">i</span><span class="o">&lt;</span><span class="n">methods</span><span class="o">.</span><span class="na">length</span><span class="o">;</span> <span class="n">i</span><span class="o">++</span> <span class="o">)</span> <span class="o">{</span>

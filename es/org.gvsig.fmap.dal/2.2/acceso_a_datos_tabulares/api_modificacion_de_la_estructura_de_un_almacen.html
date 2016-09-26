@@ -100,20 +100,20 @@
             
   <div class="section" id="modificacion-de-la-estructura-de-un-almacen">
 <h1>6. Modificación de la estructura de un almacén<a class="headerlink" href="#modificacion-de-la-estructura-de-un-almacen" title="Permalink to this headline">¶</a></h1>
-<p>En el apartado <a class="reference external" href="consultando-la-estructura-de-un-almacen">consultando la estructura de un almacén</a> vimos como podemos consultar
-la estructura de un almacén de datos. Esta venia descrita por el <a href="#id1"><span class="problematic" id="id2">FeatureType_</span></a> y el
-<a href="#id3"><span class="problematic" id="id4">FeatureAttributeDescriptor_</span></a>. En el apartado <a class="reference external" href="creacion-de-un-nuevo-almacen">creación de un nuevo almacén</a> vimos como
-podemos crear un nuevo almacén de datos y los equivalentes al <a href="#id5"><span class="problematic" id="id6">FeatureType_</span></a> y
-<a href="#id7"><span class="problematic" id="id8">FeatureAttributeDescriptor_</span></a> que nos permiten modificarlos, el <a href="#id9"><span class="problematic" id="id10">EditableFeatureType_</span></a> y
-el <a href="#id11"><span class="problematic" id="id12">EditableFeatureAttributeDescriptor_</span></a> . En general estas dos últimos interfaces
+<p>En el apartado <a class="reference external" href="api_consultando_la_estructura_de_un_almacen.html">consultando la estructura de un almacén</a> vimos como podemos consultar
+la estructura de un almacén de datos. Esta venia descrita por el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> y el
+<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureAttributeDescriptor.html">FeatureAttributeDescriptor</a>. En el apartado <a class="reference external" href="api_creacion_de_un_nuevo_almacen.html">creación de un nuevo almacén</a> vimos como
+podemos crear un nuevo almacén de datos y los equivalentes al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> y
+<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureAttributeDescriptor.html">FeatureAttributeDescriptor</a> que nos permiten modificarlos, el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureType.html">EditableFeatureType</a> y
+el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/EditableFeatureAttributeDescriptor.html">EditableFeatureAttributeDescriptor</a> . En general estas dos últimos interfaces
 contienen todo lo que podemos necesitar no solo para crear nuevos almacenes de datos
 sino para modificar los ya existentes.</p>
 <p>Igual que para modificar un fenómeno de un almacén, para modificar la estructura de
 estos tenemos que estar en modo edición. Luego solo tenemos que limitarnos a obtener el
-<a href="#id13"><span class="problematic" id="id14">FeatureType_</span></a> que queremos modificar; cambiar, añadir o borrar atributos sobre el y actualizar
+<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> que queremos modificar; cambiar, añadir o borrar atributos sobre el y actualizar
 el almacén con los cambios mediante el método <em>update</em>.</p>
 <p>Veamos esto con un simple ejemplo.
-En <a class="reference external" href="creacion-de-un-nuevo-almacen">creación de un nuevo almacén</a> creamos un almacén de datos con dos campos, <em>MUNICIPIO</em>
+En <a class="reference external" href="api_creacion_de_un_nuevo_almacen.html">creación de un nuevo almacén</a> creamos un almacén de datos con dos campos, <em>MUNICIPIO</em>
 y <em>NOMBRE</em> de tipo cadena y un tamaño de 100 caracteres. Vamos a cambiar el tamaño de
 estos atributos a 50 caracteres.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">store</span><span class="o">.</span><span class="na">edit</span><span class="o">();</span>
@@ -128,8 +128,8 @@ estos atributos a 50 caracteres.</p>
 <p>Los pasos realizados son:</p>
 <ol class="arabic simple">
 <li>Iniciar edición.</li>
-<li>Obtener el <a href="#id15"><span class="problematic" id="id16">FeatureType_</span></a> asociado al almacén.</li>
-<li>Obtener una versión editable del <a href="#id17"><span class="problematic" id="id18">FeatureType_</span></a>.</li>
+<li>Obtener el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> asociado al almacén.</li>
+<li>Obtener una versión editable del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>.</li>
 <li>Acceder a los descriptores de los atributos y cambiarles
 el <em>size</em> a 50.</li>
 <li>Actualizar el almacén con la nueva definición. A partir de este

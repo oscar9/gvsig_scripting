@@ -9,11 +9,11 @@ Transformaciones sobre almacenes
 Introducción
 ============
 
-Una transformación es un algoritmo que a partir de un fenómeno de un tipo produce otro fenómeno de otro tipo distinto, sin modificar el original. En otras palabras, copia una Feature_ cuyo FeatureType_ es A en otra Feature_ cuyo FeatureType_ es B, siendo la transformación *T* una función de correspondencia entre los FeatureType_ *A* y *B*: *T(A)=B*.
+Una transformación es un algoritmo que a partir de un fenómeno de un tipo produce otro fenómeno de otro tipo distinto, sin modificar el original. En otras palabras, copia una :javadoc:`Feature <Feature>` cuyo :javadoc:`FeatureType <FeatureType>` es A en otra :javadoc:`Feature <Feature>` cuyo :javadoc:`FeatureType <FeatureType>` es B, siendo la transformación *T* una función de correspondencia entre los :javadoc:`FeatureType <FeatureType>` *A* y *B*: *T(A)=B*.
 
 Este mecanismo se ha ideado para dar la posibilidad de crear vistas sobre almacenes de datos sin que sea necesario modificar los mismos, para que los datos se presenten al usuario de forma diferente a como están realmente estructurados.
 
-DAL ofrece una interfaz para poder añadir transformaciones a un almacén. Esta interfaz se llama FeatureStoreTransform_.
+DAL ofrece una interfaz para poder añadir transformaciones a un almacén. Esta interfaz se llama :javadoc:`FeatureStoreTransform <FeatureStoreTransform>`.
 
 
 La interfaz FeatureStoreTransform
@@ -50,7 +50,7 @@ Esta interfaz representa a una transformación y permite:
 Obtener las transformaciones de un almacén
 ==========================================
 
-Las transformaciones de un almacén se guardan en un contenedor de transformaciones de tipo FeatureStoreTransforms_. Se obtiene así:
+Las transformaciones de un almacén se guardan en un contenedor de transformaciones de tipo :javadoc:`FeatureStoreTransforms <FeatureStoreTransforms>`. Se obtiene así:
 
 .. code-block:: java
 
@@ -62,7 +62,7 @@ Las transformaciones de un almacén se guardan en un contenedor de transformacio
 Añadir una transformación a un almacén
 ======================================
 
-Las transformaciones se añaden a través del FeatureStoreTransforms_ asociado al almacén:
+Las transformaciones se añaden a través del :javadoc:`FeatureStoreTransforms <FeatureStoreTransforms>` asociado al almacén:
 
 .. code-block:: java
 
@@ -79,7 +79,7 @@ Ejemplo de implementación de una transformación
 ===============================================
 
 Para facilitar la implementación de transformaciones, existe una clase abstracta que aporta una implementación de
-FeatureStoreTransform_ y se recomienda extender. Esta clase se llama AbstractFeatureStoreTransform_.  
+:javadoc:`FeatureStoreTransform <FeatureStoreTransform>` y se recomienda extender. Esta clase se llama :javadoc:`AbstractFeatureStoreTransform <AbstractFeatureStoreTransform>`.  
 
 
 Al implementar una transformación, hay que tener en cuenta tres aspectos  que no son evidentes porque no forman parte de la interfaz:
@@ -91,7 +91,7 @@ Al implementar una transformación, hay que tener en cuenta tres aspectos  que n
 Añadir un atributo calculado
 ----------------------------
 
-El siguiente ejemplo muestra cómo se implementa una sencilla transformación. Esta transformación añade un attributo geométrico al FeatureType_ a partir de dos atributos de tipo numérico que contienen las *X* y las *Y*:  
+El siguiente ejemplo muestra cómo se implementa una sencilla transformación. Esta transformación añade un attributo geométrico al :javadoc:`FeatureType <FeatureType>` a partir de dos atributos de tipo numérico que contienen las *X* y las *Y*:  
 
 .. code-block:: java
 

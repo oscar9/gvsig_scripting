@@ -7,7 +7,7 @@ A continuación se enumeran los jar que genera DAL. A la hora de indicar las dep
 Los jar que se necesitan cargar en tiempo de ejecución disponen de una clase Library que permite cargarlos e inicializarlos durante el arranque de la aplicación (o en cualquier momento posterior), para más información sobre este mecanismo se puede consultar el patrón Locator_.
 
 Librería
-========
+--------
 
 .. list-table::
    :header-rows: 1
@@ -59,7 +59,7 @@ Librería
          
 
 Dependencias de la librería
----------------------------
++++++++++++++++++++++++++++
 
 .. list-table::
    :header-rows: 1
@@ -110,12 +110,12 @@ Dependencias de la librería
 
 
 Implementaciones
-================
+----------------
 
 Los siguientes jares son implementaciones que vienen de serie para gvSIG-Desktop.
 
 Almacenes de tipo fichero
--------------------------
++++++++++++++++++++++++++
 
 .. list-table::
    :header-rows: 1
@@ -239,7 +239,7 @@ Almacenes de tipo fichero
 
 
 Almacenes de tipo base de datos
--------------------------------
++++++++++++++++++++++++++++++++
 
 
 .. list-table::

@@ -121,10 +121,10 @@
 </div>
 <p>Una vez obtenida la selección, a través de ella podemos realizar las siguientes operaciones:</p>
 <ul class="simple">
-<li>Seleccionar o de seleccionar un fenómeno, un <a href="#id1"><span class="problematic" id="id2">FeatureSet_</span></a> o todos los fenómenos del almacén.</li>
+<li>Seleccionar o de seleccionar un fenómeno, un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureSet.html">FeatureSet</a> o todos los fenómenos del almacén.</li>
 <li>Averiguar si un fenómeno está seleccionado.</li>
 <li>Invertir la selección.</li>
-<li>Obtener los fenómenos seleccionados o de seleccionados, ya que el <a href="#id3"><span class="problematic" id="id4">FeatureSelection_</span></a> es, a su vez, un <a href="#id5"><span class="problematic" id="id6">FeatureSet_</span></a>.</li>
+<li>Obtener los fenómenos seleccionados o de seleccionados, ya que el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureSelection.html">FeatureSelection</a> es, a su vez, un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureSet.html">FeatureSet</a>.</li>
 </ul>
 <p>Ej:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">Feature</span> <span class="n">feature</span> <span class="o">=</span> <span class="o">...</span>
@@ -154,8 +154,8 @@
 <span class="n">selection</span><span class="o">.</span><span class="na">isSelected</span><span class="o">(</span><span class="n">feature</span><span class="o">);</span>
 </pre></div>
 </div>
-<p>Si lo que queremos es recibir eventos sobre cambios en la selección, podemos suscribirnos como <a href="#id7"><span class="problematic" id="id8">Observer_</span></a> al almacén directamente, de forma que recibiremos, entre otros eventos, el evento <a href="#id9"><span class="problematic" id="id10">DataStoreNotification_</span></a>.SELECTION_CHANGE.</p>
-<p>Por ejemplo, la tabla que muestra una lista de fenómenos, debe repintarse para actualizar las filas seleccionadas cuando cambia la selección en el almacén correspondiente. Para ello implementa <a href="#id11"><span class="problematic" id="id12">Observer_</span></a> y se registra como tal en el almacén. Su método <em>update</em> es como sigue:</p>
+<p>Si lo que queremos es recibir eventos sobre cambios en la selección, podemos suscribirnos como <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/observer/Observer.html">Observer</a> al almacén directamente, de forma que recibiremos, entre otros eventos, el evento <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataStoreNotification.html">DataStoreNotification.SELECTION_CHANGE</a> .SELECTION_CHANGE.</p>
+<p>Por ejemplo, la tabla que muestra una lista de fenómenos, debe repintarse para actualizar las filas seleccionadas cuando cambia la selección en el almacén correspondiente. Para ello implementa <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/observer/Observer.html">Observer</a> y se registra como tal en el almacén. Su método <em>update</em> es como sigue:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="kd">public</span> <span class="kt">void</span> <span class="nf">update</span><span class="o">(</span><span class="n">Observable</span> <span class="n">observable</span><span class="o">,</span> <span class="n">Object</span> <span class="n">notification</span><span class="o">)</span> <span class="o">{</span>
     <span class="k">if</span> <span class="o">(</span><span class="n">notification</span> <span class="k">instanceof</span> <span class="n">FeatureStoreNotification</span><span class="o">)</span> <span class="o">{</span>
         <span class="n">FeatureStoreNotification</span> <span class="n">fsNotification</span> <span class="o">=</span> <span class="o">(</span><span class="n">FeatureStoreNotification</span><span class="o">)</span> <span class="n">notification</span><span class="o">;</span>

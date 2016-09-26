@@ -100,18 +100,18 @@
             
   <div class="section" id="consultando-la-estructura-de-un-almacen">
 <h1>3. Consultando la estructura de un almacen<a class="headerlink" href="#consultando-la-estructura-de-un-almacen" title="Permalink to this headline">¶</a></h1>
-<p>Para consultar la estructura de los fenómenos de un almacén, <a href="#id1"><span class="problematic" id="id2">FeatureStore_</span></a>,
+<p>Para consultar la estructura de los fenómenos de un almacén, <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html">FeatureStore</a>,
 dispone de dos acciones:</p>
 <ul class="simple">
-<li><a href="#id3"><span class="problematic" id="id4">getDefaultFeatureType_</span></a>, que devuelve el tipo de fenómeno
+<li><a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getDefaultFeatureType()">getDefaultFeatureType</a>, que devuelve el tipo de fenómeno
 por defecto del almacén</li>
-<li><a href="#id5"><span class="problematic" id="id6">getFeatureTypes_</span></a> que devuelve una lista con todos los tipos
+<li><a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getFeatureTypes()">getFeatureTypes</a> que devuelve una lista con todos los tipos
 de fenómeno que hay en el almacén.</li>
 </ul>
 <p>Las primeras preguntas que tendemos ha hacernos cuando vemos estos métodos
 son:</p>
 <ul class="simple">
-<li>¿ qué es eso del tipo de fenómeno por defecto ?</li>
+<li>¿ Qué es eso del tipo de fenómeno por defecto ?</li>
 <li>¿ Por qué una lista de tipos de fenómenos ?</li>
 </ul>
 <p>Las dos preguntas van estrechamente ligadas.</p>
@@ -121,31 +121,31 @@ los fenómenos tienen una estructura común a todo el almacén. Sin embargo
 hay escenarios en los que eso puede no ser así. Por ejemplo, podemos encontrarnos
 un fichero GML en el que los fenómenos tienen dos, tres o mas estructuras distintas
 a lo largo el fichero. La forma de consultar cual es la estructura de los
-fenómenos seria a través del método <a href="#id7"><span class="problematic" id="id8">getFeatureTypes_</span></a> , que nos dará una lista
-con un <a href="#id9"><span class="problematic" id="id10">FeatureType_</span></a> por cada tipo de fenómeno del almacén.
+fenómenos seria a través del método <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getFeatureTypes()">getFeatureTypes</a> , que nos dará una lista
+con un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> por cada tipo de fenómeno del almacén.
 Como durante mucho tiempo hemos manejado almacenes que solo soportan un tipo
-de fenómeno, se ha introducido el método <a href="#id11"><span class="problematic" id="id12">getDefaultFeatureType_</span></a> en el almacén para
-facilitar el acceso al <a href="#id13"><span class="problematic" id="id14">FeatureType_</span></a> cuando solo existe un tipo de fenómeno.</p>
+de fenómeno, se ha introducido el método <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getDefaultFeatureType()">getDefaultFeatureType</a> en el almacén para
+facilitar el acceso al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> cuando solo existe un tipo de fenómeno.</p>
 <p>¿ Y qué pasa si invocamos al <em>getDefaultFeatureType</em> sobre un almacén con varios
 tipos de fenómenos ?</p>
-<p>Este nos devolverá un <a href="#id15"><span class="problematic" id="id16">FeatureType_</span></a> de forma arbitraria dependiendo del tipo de
+<p>Este nos devolverá un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> de forma arbitraria dependiendo del tipo de
 almacén con el que estemos trabajando.</p>
 <p>En general, a no ser que estemos seguros de que solo hay un tipo de fenómenos en el
-almacén deberemos usar <a href="#id17"><span class="problematic" id="id18">getFeatureTypes_</span></a> para acceder a la estructura de estos.
+almacén deberemos usar <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getFeatureTypes()">getFeatureTypes</a> para acceder a la estructura de estos.
 Siempre podemos consultar el <em>size</em> de la lista para determinar cuantos tipos de
 fenómeno tenemos.</p>
-<p>Una vez hemos conseguido un <a href="#id19"><span class="problematic" id="id20">FeatureType_</span></a>, podemos pensar en el como en una lista de
+<p>Una vez hemos conseguido un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>, podemos pensar en el como en una lista de
 descriptores de los atributos del fenómeno, disponiendo de un método <em>size</em> que nos
 dice cuantos atributos tiene el fenómeno que describe, un método <em>get</em> que nos
-devolverá un <a href="#id21"><span class="problematic" id="id22">FeatureAttributeDescriptor_</span></a>, por nombre o índice, o un iterador sobre
+devolverá un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureAttributeDescriptor.html">FeatureAttributeDescriptor</a>, por nombre o índice, o un iterador sobre
 estos.</p>
-<p>Veamos cuales son las principales acciones que podemos encontrarnos en un <a href="#id23"><span class="problematic" id="id24">FeatureType_</span></a>
+<p>Veamos cuales son las principales acciones que podemos encontrarnos en un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>
 que nos permitan interrogarle para saber de la estructura
 del fenómeno:</p>
 <ul class="simple">
 <li><em>size</em>, nos devuelve el numero de atributos que tiene el fenómeno.</li>
 <li><em>get</em>, que dándole un nombre o un índice de atributo nos devolverá
-un descripción de las propiedades del atributo, <a href="#id25"><span class="problematic" id="id26">FeatureAttributeDescriptor_</span></a> .</li>
+un descripción de las propiedades del atributo, <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/">FeatureAttributeDescriptor</a> .</li>
 <li><em>getIndex</em>, que dándole un nombre de atributo nos devuelve el índice
 de este.</li>
 <li><em>getDefaultGeometryAttributeName</em>, nos da el nombre del atributo que es
@@ -162,17 +162,17 @@ nos devolverá una lista con los SRSs de todos los atributos de tipo geometría.
 fenómeno.</li>
 </ul>
 <p>Conviene también dar un vistazo, aunque sea superficial, a los principales métodos
-u operaciones que podemos encontrar en el <a href="#id27"><span class="problematic" id="id28">FeatureAttributeDescriptor_</span></a>.</p>
+u operaciones que podemos encontrar en el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/">FeatureAttributeDescriptor</a>.</p>
 <ul class="simple">
 <li><em>getName</em>, que nos informara sobre el nombre del atributo.</li>
 <li><em>getDataType</em> y <em>getDataTypeName</em>, que nos dirá de que tipo son los
 datos asociados al atributo. La lista de tipos soportados están definidos
-en el interface <a href="#id29"><span class="problematic" id="id30">DataTypes_</span></a> .</li>
+en el interface <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/cresques/DataTypes.html">DataTypes</a> .</li>
 <li><em>getDefaultValue</em>, nos dirá cual es el valor por defecto del atributo.</li>
 <li><em>getIndex</em>, nos dirá el índice numérico asociado al atributo.</li>
 <li><em>getSize</em>, para los tipos de datos que lo precisen , por ejemplo las
 cadenas, nos informa de cual es su tamaño.</li>
-<li><em>getEvaluator</em>, que nos devolverá una instancia del <a href="#id31"><span class="problematic" id="id32">Evaluator_</span></a> asociado
+<li><em>getEvaluator</em>, que nos devolverá una instancia del <a href="#id1"><span class="problematic" id="id2">Evaluator_</span></a> asociado
 al atributo, en caso de que este sea un atributo calculado.</li>
 <li><em>allowNull</em>, nos informa de si ese atributo permite o no valores nulos.</li>
 <li><em>isPrimaryKey</em>, nos dirá si ese atributo forma parte de la clave
@@ -180,7 +180,7 @@ primaria que usa el proveedor de datos para identificar al fenómeno.</li>
 <li><em>isReadOnly</em>, que nos dirá si ese atributo puede ser actualizado o no.</li>
 </ul>
 <p>Veamos ahora un pequeño ejemplo en el que se nos muestra como podemos obtener
-el nombre de los atributos y su tipo de datos asociados a un <a href="#id33"><span class="problematic" id="id34">FeatureType_</span></a>.</p>
+el nombre de los atributos y su tipo de datos asociados a un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a>.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">FeatureType</span> <span class="n">featureType</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">getDefaultFeatureType</span><span class="o">();</span>
 <span class="n">Iterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">featureType</span><span class="o">.</span><span class="na">iterator</span><span class="o">();</span>
 <span class="k">while</span><span class="o">(</span> <span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>

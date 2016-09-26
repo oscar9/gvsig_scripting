@@ -117,17 +117,17 @@
 <ul class="simple">
 <li>Como recorrer los fenómenos de un shape.</li>
 <li>Como manejarse con un conjunto de fenómenos.</li>
-<li>Acciones asociadas a un <a href="#id1"><span class="problematic" id="id2">Feature_</span></a> para consultar
+<li>Acciones asociadas a un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> para consultar
 los valores de sus atributos.</li>
 </ul>
 <p>Veamos ahora a seguir este documento con un ejemplo simple. Accederemos a un fichero shape y recorreremos todos sus fenómenos.</p>
-<p>Lo primero que tendremos que hacer será conseguir una instancia del <a href="#id3"><span class="problematic" id="id4">DataManager_</span></a>
+<p>Lo primero que tendremos que hacer será conseguir una instancia del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataManager.html">DataManager</a>
 del API de acceso a datos. Esto se consigue mediante la llamada al método
-estático, <em>getDataManager</em> de la clase <a href="#id5"><span class="problematic" id="id6">DALLocator_</span></a>.</p>
+estático, <em>getDataManager</em> de la clase <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DALLocator.html">DALLocator</a>.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">manager</span> <span class="o">=</span> <span class="n">DALLocator</span><span class="o">.</span><span class="na">getDataManager</span><span class="o">();</span>
 </pre></div>
 </div>
-<p>Una vez conseguido la instancia del <a href="#id7"><span class="problematic" id="id8">DataManager_</span></a> , utilizaremos este para conseguir
+<p>Una vez conseguido la instancia del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataManager.html">DataManager</a> , utilizaremos este para conseguir
 una instancia de los <em>parámetros</em>  que necesitamos para acceder al <em>almacén</em> de
 nuestro fichero <em>shape</em>. Para eso invocaremos al método <em>createStoreParameters</em>
 indicándole el tipo de almacén al que queremos acceder.</p>
@@ -142,10 +142,10 @@ que queremos acceder.</p>
 </pre></div>
 </div>
 <p>Una vez tenemos los <em>parámetros</em> del <em>almacén</em> al que queremos acceder preparados,
-le indicaremos al <em>manager</em> que nos cree un <a href="#id9"><span class="problematic" id="id10">DataStore_</span></a> acorde a esos parámetros que
+le indicaremos al <em>manager</em> que nos cree un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataStore.html">DataStore</a> acorde a esos parámetros que
 nos permita acceder a nuestro fichero. Esto se hará llamando al método <em>createStore</em>
 pasándole como argumento los <em>parámetros</em> que ya hemos preparado. Esta llamada nos
-devolverá un <a href="#id11"><span class="problematic" id="id12">FeatureStore_</span></a> , y ya con el podremos acceder a sus fenómenos.</p>
+devolverá un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html">FeatureStore</a> , y ya con el podremos acceder a sus fenómenos.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">store</span> <span class="o">=</span> <span class="o">(</span><span class="n">FeatureStore</span><span class="o">)</span><span class="n">manager</span><span class="o">.</span><span class="na">createStore</span><span class="o">(</span><span class="n">params</span><span class="o">);</span>
 </pre></div>
 </div>
@@ -161,7 +161,7 @@ La forma mas simple de hacer esto seria visitar el almacen.</p>
 </pre></div>
 </div>
 <p>Como alternativa a este metodo podemos usar el método <em>getFeatureSet</em>,
-que nos devolverá un conjunto de fenómenos, <a href="#id13"><span class="problematic" id="id14">FeatureSet_</span></a> , con el que podremos
+que nos devolverá un conjunto de fenómenos, <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureSet.html">FeatureSet</a> , con el que podremos
 operar.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">getFeatureSet</span><span class="o">();</span>
 </pre></div>
@@ -170,10 +170,10 @@ operar.</p>
 fenómenos de un <em>almacén</em>. Además estas nos
 permiten dado un <em>almacén de datos</em> acceder de forma simultanea a sus fenómenos invocando desde
 varias partes de la aplicación al método <em>accept</em> o <em>getFeatureSet</em> para obtener distintos conjuntos de datos.
-Como norma general no deberemos usar un conjunto de fenómenos, <a href="#id15"><span class="problematic" id="id16">FeatureSet_</span></a> .
+Como norma general no deberemos usar un conjunto de fenómenos, <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureSet.html">FeatureSet</a> .
 desde varias partes de la aplicación simultáneamente. Si necesitamos acceder a los
 datos del <em>almacén</em>, allá donde se necesite, se creará un nuevo conjunto de datos.</p>
-<p>Los principales métodos de un <a href="#id17"><span class="problematic" id="id18">FeatureSet_</span></a> son:</p>
+<p>Los principales métodos de un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureSet.html">FeatureSet</a> son:</p>
 <ul class="simple">
 <li><em>getDefaultFeatureType</em></li>
 <li><em>getFeatureTypes</em></li>
@@ -184,15 +184,15 @@ datos del <em>almacén</em>, allá donde se necesite, se creará un nuevo conjun
 <li><em>fastiterator</em></li>
 </ul>
 <p>Hacer una mención especial sobre los dos últimos métodos, <em>iterator</em> y
-<em>fastiterator</em>. El primero, <em>iterator</em>, devuelve una nueva instancia de <a href="#id19"><span class="problematic" id="id20">Feature_</span></a>
+<em>fastiterator</em>. El primero, <em>iterator</em>, devuelve una nueva instancia de <a href="#id3"><span class="problematic" id="id4">Feature_</span></a>
 cada vez que se invoca al método <em>next</em>. El segundo, <em>fastiterator</em> devuelve
-siempre la misma instancia de <a href="#id21"><span class="problematic" id="id22">Feature_</span></a> al invocar al método <em>next</em>, alterando
+siempre la misma instancia de :javadoc:<a href="#id1"><span class="problematic" id="id2">`</span></a>Feature &lt; al invocar al método <em>next</em>, alterando
 el valor de esta de forma que está cargada con los valores del nuevo fenómeno.
-Este comportamiento nos ahorra crear tantos objetos <a href="#id23"><span class="problematic" id="id24">Feature_</span></a> como elementos
+Este comportamiento nos ahorra crear tantos objetos <a href="#id5"><span class="problematic" id="id6">Feature_</span></a> como elementos
 tenga el conjunto, pero deberemos tener especial cuidado en no guardarnos
-una referencia a los objetos <a href="#id25"><span class="problematic" id="id26">Feature_</span></a> así obtenidos ya que irán alterando su valor
+una referencia a los objetos <a href="#id7"><span class="problematic" id="id8">Feature_</span></a> así obtenidos ya que irán alterando su valor
 conforme se itere sobre el conjunto.</p>
-<p>El <a href="#id27"><span class="problematic" id="id28">FeatureSet_</span></a>, ademas de los metodos para iterar sobre el tambien nos permite
+<p>El <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureSet.html">FeatureSet</a>, ademas de los metodos para iterar sobre el tambien nos permite
 visitarlo, siendo siempre recomendable utilizar este mecanismo frente al recorrido
 mediante un iterador.</p>
 <p>Volviendo al ejemplo sobre el que estábamos trabajando,
@@ -207,9 +207,9 @@ del fenómeno y lo sacaremos por la salida estándar.</p>
 <span class="n">it</span><span class="o">.</span><span class="na">dispose</span><span class="o">();</span>
 </pre></div>
 </div>
-<p>Tenemos también la opción de saltar directamente a una posición, pidiendo el <a href="#id29"><span class="problematic" id="id30">DisposableIterator_</span></a>
-con un índice. Podemos usar el <a href="#id31"><span class="problematic" id="id32">DisposableIterator_</span></a> devuelto de la misma forma que con
-el <a href="#id33"><span class="problematic" id="id34">DisposableIterator_</span></a> normal, aunque el primer elemento devuelto será el que ocupa la posición
+<p>Tenemos también la opción de saltar directamente a una posición, pidiendo el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/dispose/DisposableIterator.html">DisposableIterator</a>
+con un índice. Podemos usar el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/dispose/DisposableIterator.html">DisposableIterator</a> devuelto de la misma forma que con
+el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/dispose/DisposableIterator.html">DisposableIterator</a> normal, aunque el primer elemento devuelto será el que ocupa la posición
 correspondiente al índice indicado:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">DisposableIterator</span> <span class="n">it</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="na">iterator</span><span class="o">(</span><span class="mi">100</span><span class="o">);</span>
 <span class="k">while</span><span class="o">(</span> <span class="n">it</span><span class="o">.</span><span class="na">hasNext</span><span class="o">()</span> <span class="o">)</span> <span class="o">{</span>
@@ -226,7 +226,7 @@ debemos informarles de ello, para que este libere todos los recursos que esté u
 </pre></div>
 </div>
 <p>Es importante tener en cuenta algunas consideraciones.</p>
-<p>Los elementos de un <a href="#id35"><span class="problematic" id="id36">FeatureSet_</span></a> son siempre del tipo <a href="#id37"><span class="problematic" id="id38">Feature_</span></a> , pero si no
+<p>Los elementos de un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureSet.html">FeatureSet</a> son siempre del tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> , pero si no
 hemos indicado nada al respecto cuando creamos el conjunto, no deberemos asumir
 que todos tienen la misma estructura, ya que dependiendo del tipo de <em>almacén</em> podemos
 encontrarnos con que la estructura de estos puede cambiar de un elemento a otro. Más adelante
@@ -242,7 +242,7 @@ la implementación de los distintos <em>almacenes</em> que lleva de base esta li
 ser lo mas óptima posible, balanceando la carga en memoria y la velocidad de acceso, e
 implementándose de una u otra forma en función de las características del <em>almacén</em>.</p>
 <p>Por último es importante invocar a la acción <em>dispose</em> del conjunto de fenómenos cuando
-dejemos de trabajar con él, así como de los <a href="#id39"><span class="problematic" id="id40">DisposableIterator_</span></a> cuando dejemos de usarlos.
+dejemos de trabajar con él, así como de los <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/dispose/DisposableIterator.html">DisposableIterator</a> cuando dejemos de usarlos.
 Dependiendo del tipo de <em>almacén</em>, esto puedo liberar recursos como ficheros abiertos en disco
 o conexiones a BBDD. Así mismo cuando hayamos creado nosotros el <em>almacén</em>, debemos de
 encargarnos de invocar a la acción <em>dispose</em> sobre este. Hay que
@@ -297,18 +297,18 @@ El codigo usando <em>visitors</em> quedaria algo como:</p>
 </pre></div>
 </div>
 <p>Hasta aquí hemos visto como conseguir usar el API para llegar a obtener un objeto
-<a href="#id41"><span class="problematic" id="id42">Feature_</span></a> . Pero, ¿ qué es un <a href="#id43"><span class="problematic" id="id44">Feature_</span></a> y qué servicios nos ofrece ?</p>
-<p>La clase <a href="#id45"><span class="problematic" id="id46">Feature_</span></a> representa a un fenómeno dentro del almacén. En él se aglutina
-toda la información, ya sea alfanumérica o vectorial. Un <a href="#id47"><span class="problematic" id="id48">Feature_</span></a> se comporta
+<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> . Pero, ¿ qué es un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> y qué servicios nos ofrece ?</p>
+<p>La clase <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> representa a un fenómeno dentro del almacén. En él se aglutina
+toda la información, ya sea alfanumérica o vectorial. Un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> se comporta
 como un <em>Map</em> muy especializado en el que las <em>key</em> hacen referencia a los nombres
 de los atributos del fenómeno y los <em>value</em> de estas al valor de estos atributos. Cada
 atributo tiene su tipo, por lo que no hay limitación en cuanto a cuantos atributos
-de tipo vectorial puede tener la definición de una <a href="#id49"><span class="problematic" id="id50">Feature_</span></a> .</p>
-<p>En <a href="#id51"><span class="problematic" id="id52">Feature_</span></a> nos encontraremos un método <em>get</em> para acceder a los valores de los atributos
+de tipo vectorial puede tener la definición de una <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> .</p>
+<p>En <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> nos encontraremos un método <em>get</em> para acceder a los valores de los atributos
 del fenómeno. Para facilitar el acceso se han añadido métodos de utilidad que nos
 devuelven ya tipos concretos en lugar de <em>Object</em>. Así, en el ejemplo anterior,
 se usa el <em>getString</em> para obtener el valor del atributo <em>NOMBRE</em> como un <em>String</em>.</p>
-<p>Los métodos de acceso a los valores de los atributos de un <a href="#id53"><span class="problematic" id="id54">Feature_</span></a> son:</p>
+<p>Los métodos de acceso a los valores de los atributos de un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> son:</p>
 <ul class="simple">
 <li><em>get</em>, retorna el valor del atributo indicado como
 un <em>Object</em>.</li>
@@ -329,9 +329,9 @@ un valor de tipo <em>String</em>.</li>
 <li><em>getByte</em>, retorna el valor del atributo como
 un valor de tipo <em>byte</em>.</li>
 <li><em>getGeometry</em>, retorna el valor del atributo como
-un valor de tipo <a href="#id55"><span class="problematic" id="id56">Geometry_</span></a>.</li>
+un valor de tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/expressionfield/project/documents/table/operators/Geometry.html">Geometry</a>.</li>
 <li><em>getFeature</em>, retorna el valor del atributo como
-un valor de tipo <a href="#id57"><span class="problematic" id="id58">Feature_</span></a> .</li>
+un valor de tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> .</li>
 <li><em>getArray</em>, retorna el valor del atributo como
 un valor de tipo <em>Object[]</em>.</li>
 </ul>
@@ -342,7 +342,7 @@ se lanzará una excepción.</p>
 <p>Conviene comentar sobre los últimos tres métodos.</p>
 <p>En lo que se refiere al acceso a datos, los valores
 de datos de tipo vectorial los trata como objetos de tipo
-<a href="#id59"><span class="problematic" id="id60">Geometry_</span></a> . Este tipo de datos esta definido en la librería
+<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/expressionfield/project/documents/table/operators/Geometry.html">Geometry</a> . Este tipo de datos esta definido en la librería
 de geometrías de gvSIG, <em>org.gvsig.fmap.geom</em> para más información
 sobre las funcionalidades alrededor de este tipo consulte la
 documentación de esta librería (ver en documentos relacionados).</p>
@@ -359,7 +359,7 @@ que nos la presentará como un array.</p>
 <p>Ahora unas consideraciones sobre rendimientos.
 En general es recomendable usar el nombre del atributo para acceder
 a el valor de estos, ya que, para cada consulta podemos variar tanto en
-orden como en cantidad los atributos de la <a href="#id61"><span class="problematic" id="id62">Feature_</span></a> que deseamos. Sin embargo
+orden como en cantidad los atributos de la <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> que deseamos. Sin embargo
 en ocasiones puede resultar mas óptimo usar su <em>índice</em> para acceder
 a él. Todos los métodos de acceso que acabamos de comentar están sobrecargados
 de forma que podemos usar bien el nombre o bien su <em>índice</em>.</p>
@@ -377,7 +377,7 @@ ejemplo anterior.</p>
 </div>
 <p>Evidentemente, el cambio, así introducido no ha supuesto ninguna mejora
 en el rendimiento. Ahora bien si asumimos que estamos trabajando con
-un almacén de datos que sólo soporta un tipo de <a href="#id63"><span class="problematic" id="id64">Feature_</span></a> , como es
+un almacén de datos que sólo soporta un tipo de <a href="#id9"><span class="problematic" id="id10">Feature_</span></a> , como es
 nuestro caso, podemos optimizar algo mas el acceso.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">featureType</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">getDefaultFeatureType</span><span class="o">();</span>
 <span class="n">index</span> <span class="o">=</span> <span class="n">featureType</span><span class="o">.</span><span class="na">getIndex</span><span class="o">(</span><span class="s">&quot;NOMBRE&quot;</span><span class="o">);</span>
@@ -394,20 +394,20 @@ nuestro caso, podemos optimizar algo mas el acceso.</p>
 cuando estemos accediendo a un <em>almacén</em> con un numero muy grande de
 fenómenos.</p>
 <p>Cabe resaltar que hemos utilizado en el ejemplo un par de métodos nuevos.
-Por un lado podemos ver como dada un <a href="#id65"><span class="problematic" id="id66">Feature_</span></a> accedemos a su <em>tipo</em> mediante
-el método <em>getType</em>, que nos devuelve un objeto del tipo <a href="#id67"><span class="problematic" id="id68">FeatureType_</span></a> .
+Por un lado podemos ver como dada un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> accedemos a su <em>tipo</em> mediante
+el método <em>getType</em>, que nos devuelve un objeto del tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> .
 Y por otro lado, podemos obtener el <em>tipo</em> de los fenómenos de un <em>almacén</em>
-mediante el método <a href="#id69"><span class="problematic" id="id70">getDefaultFeatureType_</span></a> . Hay que tener cuidado con el
+mediante el método <a href="#id11"><span class="problematic" id="id12">getDefaultFeatureType_</span></a> . Hay que tener cuidado con el
 uso de este método ya que cuando estemos trabajando con <em>almacenes</em> que
-contengan <a href="#id71"><span class="problematic" id="id72">Feature_</span></a> de varios tipos, nos dará de forma arbitraria sólo
+contengan <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> de varios tipos, nos dará de forma arbitraria sólo
 un tipo. Si queremos saber los tipos de fenómenos que contiene un
-<em>almacén</em> deberemos invocar a <a href="#id73"><span class="problematic" id="id74">getFeatureTypes_</span></a> que nos devolverá una
-lista de los <a href="#id75"><span class="problematic" id="id76">FeatureType_</span></a> que tiene el <em>almacén</em>.</p>
+<em>almacén</em> deberemos invocar a <a href="#id13"><span class="problematic" id="id14">getFeatureTypes_</span></a> que nos devolverá una
+lista de los <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> que tiene el <em>almacén</em>.</p>
 <p>Puede ser conveniente repasar la referencia sobre:</p>
 <ul class="simple">
-<li><a href="#id77"><span class="problematic" id="id78">FeatureSet_</span></a></li>
-<li><a href="#id79"><span class="problematic" id="id80">Feature_</span></a></li>
-<li><a href="#id81"><span class="problematic" id="id82">FeatureType_</span></a></li>
+<li><a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureSet.html">FeatureSet</a></li>
+<li><a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a></li>
+<li><a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a></li>
 </ul>
 </div>
 <div class="section" id="filtrado">
@@ -425,7 +425,7 @@ apartado anterior.  ¿ Como podemos obtener un subconjunto de fenómenos de
 nuestro almacén ?</p>
 <p>Para aplicar un filtro, este se aplicara en el momento de invocar al
 método <em>getFeatureSet</em> de nuestro <em>almacén</em>. Para esto deberemos
-construir un objeto <a href="#id83"><span class="problematic" id="id84">FeatureQuery_</span></a> , rellenarlo con los valores con los
+construir un objeto <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureQuery.html">FeatureQuery</a> , rellenarlo con los valores con los
 que queremos filtrar e invocar al <em>getFeatureSet</em> pasándole
 ese <em>query</em>.</p>
 <p>A la hora de filtrar los fenómenos de un almacén de datos, podemos hacerlo
@@ -459,7 +459,7 @@ siempre nos da fenómenos del mismo tipo, para ello podríamos hacer:</p>
 </div>
 <p>Primero averiguamos los tipos de fenómenos que contiene nuestro almacén,
 y luego obtenemos los fenómenos filtrando por tipo. Para filtrar creamos
-un <a href="#id85"><span class="problematic" id="id86">FeatureQuery_</span></a> a partir del <em>store</em>.</p>
+un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureQuery.html">FeatureQuery</a> a partir del <em>store</em>.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">FeatureQuery</span> <span class="n">query</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">createFeatureQuery</span><span class="o">();</span>
 </pre></div>
 </div>
@@ -488,7 +488,7 @@ almacen dispone de un metodo <em>acept</em> que recibe un query.</p>
 </div>
 <p>De forma similar a como filtramos por el tipo de fenómeno podemos
 filtrar por una expresión en función de los atributos de los
-fenómenos. Para ello deberemos crear un objeto <a href="#id87"><span class="problematic" id="id88">Evaluator_</span></a> con la
+fenómenos. Para ello deberemos crear un objeto <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/evaluator/Evaluator.html">Evaluator</a> con la
 condición que deseemos. Así el código de filtrado podría ser:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">FeatureQuery</span> <span class="n">query</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">createFeatureQuery</span><span class="o">();</span>
 <span class="n">query</span><span class="o">.</span><span class="na">setFilter</span><span class="o">(</span> <span class="n">manager</span><span class="o">.</span><span class="na">createExpresion</span><span class="o">(</span><span class="s">&quot;NOMBRE like &#39;a%&#39;&quot;</span><span class="o">)</span> <span class="o">);</span>
@@ -512,22 +512,22 @@ filtrando a su vez por los tipo de fenómeno y por una expresión.</p>
 </pre></div>
 </div>
 <p>A la hora de aplicar un filtro a un <em>query</em>, debemos entregarle un objeto
-de tipo <a href="#id89"><span class="problematic" id="id90">Evaluator_</span></a> . El <a href="#id91"><span class="problematic" id="id92">DataManager_</span></a>  dispone de un evaluador por defecto
+de tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/evaluator/Evaluator.html">Evaluator</a> . El <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataManager.html">DataManager</a>  dispone de un evaluador por defecto
 para la evaluación de expresiones, pero se pueden utilizar evaluadores
 especializados para obtener mejores rendimientos.</p>
 <p>Puede ser conveniente repasar la referencia sobre:</p>
 <ul class="simple">
-<li><a href="#id93"><span class="problematic" id="id94">FeatureQuery_</span></a></li>
-<li><a href="#id95"><span class="problematic" id="id96">Evaluator_</span></a></li>
-<li><a href="#id97"><span class="problematic" id="id98">DataManager_</span></a></li>
+<li><a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureQuery.html">FeatureQuery</a></li>
+<li><a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/evaluator/Evaluator.html">Evaluator</a></li>
+<li><a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataManager.html">DataManager</a></li>
 </ul>
 </div>
 <div class="section" id="ordenacion">
 <h2>5.3. Ordenación<a class="headerlink" href="#ordenacion" title="Permalink to this headline">¶</a></h2>
 <p>La ordenación de los fenómenos devueltos por <em>getFeatureSet</em> se realiza
 de forma similar a como se aplican los filtros. El orden que queremos aplicar
-a nuestra colección de fenómenos se indica al <a href="#id99"><span class="problematic" id="id100">FeatureQuery_</span></a> a través del
-método <em>getOrder</em>, que nos devuelve una objeto <a href="#id101"><span class="problematic" id="id102">FeatureQueryOrder_</span></a> .</p>
+a nuestra colección de fenómenos se indica al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureQuery.html">FeatureQuery</a> a través del
+método <em>getOrder</em>, que nos devuelve una objeto <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureQueryOrder.html">FeatureQueryOrder</a> .</p>
 <p>Así para ordenar los registros de forma ascendente por el atributo &#8220;NOMBRE&#8221;
 haríamos:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">FeatureQuery</span> <span class="n">query</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">createFeatureQuery</span><span class="o">();</span>
@@ -550,7 +550,7 @@ expresión, por tipo de fenómeno y a su vez con o sin una ordenación.</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">order</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="s">&quot;NOMBRE&quot;</span><span class="o">,</span><span class="kc">false</span><span class="o">);</span>
 </pre></div>
 </div>
-<p>También es posible usar un <a href="#id103"><span class="problematic" id="id104">Evaluator_</span></a> para la ordenación. Por ejemplo,
+<p>También es posible usar un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/evaluator/Evaluator.html">Evaluator</a> para la ordenación. Por ejemplo,
 podemos hacer que la ordenación no distinga mayúsculas de las minúsculas así:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">query</span><span class="o">.</span><span class="na">getOrder</span><span class="o">().</span><span class="na">add</span><span class="o">(</span><span class="n">manager</span><span class="o">.</span><span class="na">createExpresion</span><span class="o">(</span><span class="s">&quot;lower(NOMBRE)&quot;</span><span class="o">),</span><span class="kc">true</span><span class="o">);</span>
 </pre></div>

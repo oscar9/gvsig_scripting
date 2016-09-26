@@ -6,9 +6,12 @@ Consultando la estructura de un almacen
 
 .. include-document:: org.gvsig.tools/reference-links
    :rest:
+   
+.. _getDefaultFeatureType: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getDefaultFeatureType()
+.. _getFeatureTypes: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getFeatureTypes()
 
 
-Para consultar la estructura de los fenómenos de un almacén, FeatureStore_, 
+Para consultar la estructura de los fenómenos de un almacén, :javadoc:`FeatureStore <FeatureStore>`, 
 dispone de dos acciones:
 
 * getDefaultFeatureType_, que devuelve el tipo de fenómeno
@@ -20,7 +23,7 @@ dispone de dos acciones:
 Las primeras preguntas que tendemos ha hacernos cuando vemos estos métodos
 son:
 
-* ¿ qué es eso del tipo de fenómeno por defecto ?
+* ¿ Qué es eso del tipo de fenómeno por defecto ?
 
 * ¿ Por qué una lista de tipos de fenómenos ?
 
@@ -32,37 +35,37 @@ los fenómenos tienen una estructura común a todo el almacén. Sin embargo
 hay escenarios en los que eso puede no ser así. Por ejemplo, podemos encontrarnos
 un fichero GML en el que los fenómenos tienen dos, tres o mas estructuras distintas
 a lo largo el fichero. La forma de consultar cual es la estructura de los
-fenómenos seria a través del método getFeatureTypes_ , que nos dará una lista
-con un FeatureType_ por cada tipo de fenómeno del almacén. 
+fenómenos seria a través del método `getFeatureTypes`_ , que nos dará una lista
+con un :javadoc:`FeatureType <FeatureType>` por cada tipo de fenómeno del almacén. 
 Como durante mucho tiempo hemos manejado almacenes que solo soportan un tipo
-de fenómeno, se ha introducido el método getDefaultFeatureType_ en el almacén para
-facilitar el acceso al FeatureType_ cuando solo existe un tipo de fenómeno. 
+de fenómeno, se ha introducido el método `getDefaultFeatureType`_ en el almacén para
+facilitar el acceso al :javadoc:`FeatureType <FeatureType>` cuando solo existe un tipo de fenómeno. 
 
 ¿ Y qué pasa si invocamos al *getDefaultFeatureType* sobre un almacén con varios
 tipos de fenómenos ?
 
-Este nos devolverá un FeatureType_ de forma arbitraria dependiendo del tipo de 
+Este nos devolverá un :javadoc:`FeatureType <FeatureType>` de forma arbitraria dependiendo del tipo de 
 almacén con el que estemos trabajando.
 
 En general, a no ser que estemos seguros de que solo hay un tipo de fenómenos en el 
-almacén deberemos usar getFeatureTypes_ para acceder a la estructura de estos.
+almacén deberemos usar `getFeatureTypes`_ para acceder a la estructura de estos.
 Siempre podemos consultar el *size* de la lista para determinar cuantos tipos de 
 fenómeno tenemos.
 
-Una vez hemos conseguido un FeatureType_, podemos pensar en el como en una lista de
+Una vez hemos conseguido un :javadoc:`FeatureType <FeatureType>`, podemos pensar en el como en una lista de
 descriptores de los atributos del fenómeno, disponiendo de un método *size* que nos
 dice cuantos atributos tiene el fenómeno que describe, un método *get* que nos 
-devolverá un FeatureAttributeDescriptor_, por nombre o índice, o un iterador sobre
+devolverá un :javadoc:`FeatureAttributeDescriptor <FeatureAttributeDescriptor>`, por nombre o índice, o un iterador sobre
 estos.
 
-Veamos cuales son las principales acciones que podemos encontrarnos en un FeatureType_ 
+Veamos cuales son las principales acciones que podemos encontrarnos en un :javadoc:`FeatureType <FeatureType>`
 que nos permitan interrogarle para saber de la estructura
 del fenómeno:
 
 * *size*, nos devuelve el numero de atributos que tiene el fenómeno.
 
 * *get*, que dándole un nombre o un índice de atributo nos devolverá
-  un descripción de las propiedades del atributo, FeatureAttributeDescriptor_ . 
+  un descripción de las propiedades del atributo, :javadoc:`FeatureAttributeDescriptor <FeatureAttributeDescriptor_>` . 
 
 * *getIndex*, que dándole un nombre de atributo nos devuelve el índice
   de este.
@@ -85,13 +88,13 @@ del fenómeno:
   fenómeno.
 
 Conviene también dar un vistazo, aunque sea superficial, a los principales métodos
-u operaciones que podemos encontrar en el FeatureAttributeDescriptor_.
+u operaciones que podemos encontrar en el :javadoc:`FeatureAttributeDescriptor <FeatureAttributeDescriptor_>`.
 
 * *getName*, que nos informara sobre el nombre del atributo.
 
 * *getDataType* y *getDataTypeName*, que nos dirá de que tipo son los 
   datos asociados al atributo. La lista de tipos soportados están definidos
-  en el interface DataTypes_ .
+  en el interface :javadoc:`DataTypes <DataTypes>` .
 
 * *getDefaultValue*, nos dirá cual es el valor por defecto del atributo.
 
@@ -112,7 +115,7 @@ u operaciones que podemos encontrar en el FeatureAttributeDescriptor_.
 
 
 Veamos ahora un pequeño ejemplo en el que se nos muestra como podemos obtener
-el nombre de los atributos y su tipo de datos asociados a un FeatureType_.
+el nombre de los atributos y su tipo de datos asociados a un :javadoc:`FeatureType <FeatureType>`.
 
 .. code-block:: java
 

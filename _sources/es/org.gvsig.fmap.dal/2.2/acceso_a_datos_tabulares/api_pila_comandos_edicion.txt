@@ -11,7 +11,7 @@ La pila de comandos de edición
 
 Cuando un almacén se pone en edición, internamente genera una pila de comandos con las operaciones que se van realizando. De esta forma, dichas operaciones se podrán deshacer o rehacer.
 
-Para ello el almacén implementa el interfaz UndoRedoStack_ . Dicho interfaz aporta operaciones para:
+Para ello el almacén implementa el interfaz :javadoc:`UndoRedoStack <UndoRedoStack>` . Dicho interfaz aporta operaciones para:
 
 - *undo:* deshacer la última o últimas operaciones realizadas.
 
@@ -44,7 +44,7 @@ Para ello el almacén implementa el interfaz UndoRedoStack_ . Dicho interfaz apo
 
 - Obtener información acerca de la pila de operaciones que se pueden deshacer o rehacer.
 
-De cada operación de la pila podemos obtener la siguiente información a través de la clase UndoRedoInfo_:
+De cada operación de la pila podemos obtener la siguiente información a través de la clase :javadoc:`UndoRedoInfo <UndoRedoInfo>`:
 
 - Una descripción de la operación.
 
@@ -68,4 +68,4 @@ En un almacén, algunas de las operaciones que se incorporarán a la pila en el 
 
 - Cambios en la selección del almacén.
 
-Hay que tener en cuenta que, una vez el almacén deja de estar en edición, la pila de comandos se descarta y los métodos del interfaz UndoRedoStack_ dejan de ser funcionales. Si volvemos a poner el almacén en edición, se creará una pila de comandos nueva.
+Hay que tener en cuenta que, una vez el almacén deja de estar en edición, la pila de comandos se descarta y los métodos del interfaz :javadoc:`UndoRedoStack <UndoRedoStack>` dejan de ser funcionales. Si volvemos a poner el almacén en edición, se creará una pila de comandos nueva.

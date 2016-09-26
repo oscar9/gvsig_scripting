@@ -2,24 +2,28 @@
 Descripción general de la arquitectura
 ======================================
 
-.. include-document:: org.gvsig.fmap.dal/reference-links
-   :rest:
+.. _API: http://es.wikipedia.org/wiki/Interfaz_de_programaci%C3%B3n_de_aplicaciones
+.. _SPI: http://en.wikipedia.org/wiki/Service_Provider_Interface
+.. _Resource: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/resource/Resource.html
+.. _DataServerExplorer: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataServerExplorer.html
+.. _DataStore: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataStore.html
+
 
 
 El acceso a datos de gvSIG contiene dos grandes conjuntos de interfaces:
 
-- El primero para los consumidores de datos o API_.
+- El primero para los consumidores de datos o `API`_.
 
-- Y el segundo, para los proveedores de datos de la librería  o SPI_.
+- Y el segundo, para los proveedores de datos de la librería  o `SPI`_.
 
 La descripción de cada uno de esos grupos de interfaces se realizará por separado, distinguiendo en todo momento entre los servicios que se ofrecen al consumidor de datos y al proveedor de éstos.
 
 En la arquitectura de la librería de acceso a datos, DAL, existen tres piezas fundamentales que se encuentran interrelacionadas entre sí:
 
-* Control de recursos, Resource_. Identifica qué recursos están siendo
+* Control de recursos, `Resource`_. Identifica qué recursos están siendo
   usados en todo momento por los distintos proveedores de datos de la 
   librería, pudiendo solicitar que se liberen en un momento dado.
-* Acceso a los servicios de un servidor de datos, DataServerExplorer_. 
+* Acceso a los servicios de un servidor de datos, `DataServerExplorer`_. 
   Permite determinar qué almacenes de datos hay en un servidor, así como 
   crear nuevos almacenes. Los principales tipos de servidores soportados 
   son:
@@ -29,7 +33,7 @@ En la arquitectura de la librería de acceso a datos, DAL, existen tres piezas f
   - Sistemas remotos basados en WMS/WCS.
   - Sistemas remotos basados en WFS/WFS-T, *WFSServerExplorer*.
 
-* Acceso a los datos de un almacen, DataStore_. Nos permite el acceso a 
+* Acceso a los datos de un almacen, `DataStore`_. Nos permite el acceso a 
   datos de tipos como:
 
   - dbf/shp

@@ -19,21 +19,21 @@ Dentro de este apartado veremos:
 
 * Como manejarse con un conjunto de fenómenos.
 
-* Acciones asociadas a un Feature_ para consultar
+* Acciones asociadas a un :javadoc:`Feature <Feature>` para consultar
   los valores de sus atributos.
 
 
 Veamos ahora a seguir este documento con un ejemplo simple. Accederemos a un fichero shape y recorreremos todos sus fenómenos.
 
-Lo primero que tendremos que hacer será conseguir una instancia del DataManager_
+Lo primero que tendremos que hacer será conseguir una instancia del :javadoc:`DataManager <DataManager>`
 del API de acceso a datos. Esto se consigue mediante la llamada al método 
-estático, *getDataManager* de la clase DALLocator_.
+estático, *getDataManager* de la clase :javadoc:`DALLocator <DALLocator>`.
 
 .. code-block:: java
 
   manager = DALLocator.getDataManager();
 
-Una vez conseguido la instancia del DataManager_ , utilizaremos este para conseguir
+Una vez conseguido la instancia del :javadoc:`DataManager <DataManager>` , utilizaremos este para conseguir
 una instancia de los *parámetros*  que necesitamos para acceder al *almacén* de
 nuestro fichero *shape*. Para eso invocaremos al método *createStoreParameters*
 indicándole el tipo de almacén al que queremos acceder. 
@@ -52,10 +52,10 @@ que queremos acceder.
   params.setDynValue("shpfilename","data/prueba.shp");
 
 Una vez tenemos los *parámetros* del *almacén* al que queremos acceder preparados, 
-le indicaremos al *manager* que nos cree un DataStore_ acorde a esos parámetros que
+le indicaremos al *manager* que nos cree un :javadoc:`DataStore <DataStore>` acorde a esos parámetros que
 nos permita acceder a nuestro fichero. Esto se hará llamando al método *createStore*
 pasándole como argumento los *parámetros* que ya hemos preparado. Esta llamada nos 
-devolverá un FeatureStore_ , y ya con el podremos acceder a sus fenómenos.
+devolverá un :javadoc:`FeatureStore <FeatureStore>` , y ya con el podremos acceder a sus fenómenos.
 
 .. code-block:: java
 
@@ -75,7 +75,7 @@ La forma mas simple de hacer esto seria visitar el almacen.
   );
 
 Como alternativa a este metodo podemos usar el método *getFeatureSet*,
-que nos devolverá un conjunto de fenómenos, FeatureSet_ , con el que podremos
+que nos devolverá un conjunto de fenómenos, :javadoc:`FeatureSet <FeatureSet>` , con el que podremos
 operar. 
 
 .. code-block:: java
@@ -86,11 +86,11 @@ Es importante entender que estas son las unicas formas de acceder a los
 fenómenos de un *almacén*. Además estas nos
 permiten dado un *almacén de datos* acceder de forma simultanea a sus fenómenos invocando desde
 varias partes de la aplicación al método *accept* o *getFeatureSet* para obtener distintos conjuntos de datos.
-Como norma general no deberemos usar un conjunto de fenómenos, FeatureSet_ . 
+Como norma general no deberemos usar un conjunto de fenómenos, :javadoc:`FeatureSet <FeatureSet>` . 
 desde varias partes de la aplicación simultáneamente. Si necesitamos acceder a los
 datos del *almacén*, allá donde se necesite, se creará un nuevo conjunto de datos.
 
-Los principales métodos de un FeatureSet_ son:
+Los principales métodos de un :javadoc:`FeatureSet <FeatureSet>` son:
 
 * *getDefaultFeatureType*
 
@@ -109,14 +109,14 @@ Los principales métodos de un FeatureSet_ son:
 Hacer una mención especial sobre los dos últimos métodos, *iterator* y 
 *fastiterator*. El primero, *iterator*, devuelve una nueva instancia de Feature_
 cada vez que se invoca al método *next*. El segundo, *fastiterator* devuelve
-siempre la misma instancia de Feature_ al invocar al método *next*, alterando
+siempre la misma instancia de :javadoc:`Feature < al invocar al método *next*, alterando
 el valor de esta de forma que está cargada con los valores del nuevo fenómeno.
 Este comportamiento nos ahorra crear tantos objetos Feature_ como elementos
 tenga el conjunto, pero deberemos tener especial cuidado en no guardarnos
 una referencia a los objetos Feature_ así obtenidos ya que irán alterando su valor
 conforme se itere sobre el conjunto.
 
-El FeatureSet_, ademas de los metodos para iterar sobre el tambien nos permite
+El :javadoc:`FeatureSet <FeatureSet>`, ademas de los metodos para iterar sobre el tambien nos permite
 visitarlo, siendo siempre recomendable utilizar este mecanismo frente al recorrido
 mediante un iterador.
 
@@ -134,9 +134,9 @@ del fenómeno y lo sacaremos por la salida estándar.
   }
   it.dispose();
 
-Tenemos también la opción de saltar directamente a una posición, pidiendo el DisposableIterator_
-con un índice. Podemos usar el DisposableIterator_ devuelto de la misma forma que con
-el DisposableIterator_ normal, aunque el primer elemento devuelto será el que ocupa la posición
+Tenemos también la opción de saltar directamente a una posición, pidiendo el :javadoc:`DisposableIterator <DisposableIterator>`
+con un índice. Podemos usar el :javadoc:`DisposableIterator <DisposableIterator>` devuelto de la misma forma que con
+el :javadoc:`DisposableIterator <DisposableIterator>` normal, aunque el primer elemento devuelto será el que ocupa la posición
 correspondiente al índice indicado:
 
 .. code-block:: java
@@ -159,7 +159,7 @@ debemos informarles de ello, para que este libere todos los recursos que esté u
 
 Es importante tener en cuenta algunas consideraciones. 
 
-Los elementos de un FeatureSet_ son siempre del tipo Feature_ , pero si no 
+Los elementos de un :javadoc:`FeatureSet <FeatureSet>` son siempre del tipo :javadoc:`Feature <Feature>` , pero si no 
 hemos indicado nada al respecto cuando creamos el conjunto, no deberemos asumir
 que todos tienen la misma estructura, ya que dependiendo del tipo de *almacén* podemos
 encontrarnos con que la estructura de estos puede cambiar de un elemento a otro. Más adelante 
@@ -177,7 +177,7 @@ ser lo mas óptima posible, balanceando la carga en memoria y la velocidad de ac
 implementándose de una u otra forma en función de las características del *almacén*.
 
 Por último es importante invocar a la acción *dispose* del conjunto de fenómenos cuando
-dejemos de trabajar con él, así como de los DisposableIterator_ cuando dejemos de usarlos.
+dejemos de trabajar con él, así como de los :javadoc:`DisposableIterator <DisposableIterator>` cuando dejemos de usarlos.
 Dependiendo del tipo de *almacén*, esto puedo liberar recursos como ficheros abiertos en disco
 o conexiones a BBDD. Así mismo cuando hayamos creado nosotros el *almacén*, debemos de 
 encargarnos de invocar a la acción *dispose* sobre este. Hay que
@@ -239,22 +239,22 @@ El codigo usando *visitors* quedaria algo como:
 
 
 Hasta aquí hemos visto como conseguir usar el API para llegar a obtener un objeto
-Feature_ . Pero, ¿ qué es un Feature_ y qué servicios nos ofrece ?
+:javadoc:`Feature <Feature>` . Pero, ¿ qué es un :javadoc:`Feature <Feature>` y qué servicios nos ofrece ?
 
-La clase Feature_ representa a un fenómeno dentro del almacén. En él se aglutina 
-toda la información, ya sea alfanumérica o vectorial. Un Feature_ se comporta
+La clase :javadoc:`Feature <Feature>` representa a un fenómeno dentro del almacén. En él se aglutina 
+toda la información, ya sea alfanumérica o vectorial. Un :javadoc:`Feature <Feature>` se comporta
 como un *Map* muy especializado en el que las *key* hacen referencia a los nombres 
 de los atributos del fenómeno y los *value* de estas al valor de estos atributos. Cada
 atributo tiene su tipo, por lo que no hay limitación en cuanto a cuantos atributos
-de tipo vectorial puede tener la definición de una Feature_ .
+de tipo vectorial puede tener la definición de una :javadoc:`Feature <Feature>` .
 
-En Feature_ nos encontraremos un método *get* para acceder a los valores de los atributos 
+En :javadoc:`Feature <Feature>` nos encontraremos un método *get* para acceder a los valores de los atributos 
 del fenómeno. Para facilitar el acceso se han añadido métodos de utilidad que nos
 devuelven ya tipos concretos en lugar de *Object*. Así, en el ejemplo anterior, 
 se usa el *getString* para obtener el valor del atributo *NOMBRE* como un *String*.
 
 
-Los métodos de acceso a los valores de los atributos de un Feature_ son:
+Los métodos de acceso a los valores de los atributos de un :javadoc:`Feature <Feature>` son:
 
 * *get*, retorna el valor del atributo indicado como
   un *Object*.
@@ -284,10 +284,10 @@ Los métodos de acceso a los valores de los atributos de un Feature_ son:
   un valor de tipo *byte*.
 
 * *getGeometry*, retorna el valor del atributo como
-  un valor de tipo Geometry_.
+  un valor de tipo :javadoc:`Geometry <Geometry>`.
 
 * *getFeature*, retorna el valor del atributo como
-  un valor de tipo Feature_ .
+  un valor de tipo :javadoc:`Feature <Feature>` .
 
 * *getArray*, retorna el valor del atributo como
   un valor de tipo *Object[]*.
@@ -301,7 +301,7 @@ Conviene comentar sobre los últimos tres métodos.
 
 En lo que se refiere al acceso a datos, los valores
 de datos de tipo vectorial los trata como objetos de tipo
-Geometry_ . Este tipo de datos esta definido en la librería
+:javadoc:`Geometry <Geometry>` . Este tipo de datos esta definido en la librería
 de geometrías de gvSIG, *org.gvsig.fmap.geom* para más información
 sobre las funcionalidades alrededor de este tipo consulte la
 documentación de esta librería (ver en documentos relacionados).
@@ -321,7 +321,7 @@ que nos la presentará como un array.
 Ahora unas consideraciones sobre rendimientos.
 En general es recomendable usar el nombre del atributo para acceder
 a el valor de estos, ya que, para cada consulta podemos variar tanto en
-orden como en cantidad los atributos de la Feature_ que deseamos. Sin embargo
+orden como en cantidad los atributos de la :javadoc:`Feature <Feature>` que deseamos. Sin embargo
 en ocasiones puede resultar mas óptimo usar su *índice* para acceder 
 a él. Todos los métodos de acceso que acabamos de comentar están sobrecargados
 de forma que podemos usar bien el nombre o bien su *índice*.
@@ -362,23 +362,23 @@ cuando estemos accediendo a un *almacén* con un numero muy grande de
 fenómenos.
 
 Cabe resaltar que hemos utilizado en el ejemplo un par de métodos nuevos.
-Por un lado podemos ver como dada un Feature_ accedemos a su *tipo* mediante
-el método *getType*, que nos devuelve un objeto del tipo FeatureType_ .
+Por un lado podemos ver como dada un :javadoc:`Feature <Feature>` accedemos a su *tipo* mediante
+el método *getType*, que nos devuelve un objeto del tipo :javadoc:`FeatureType <FeatureType>` .
 Y por otro lado, podemos obtener el *tipo* de los fenómenos de un *almacén*
 mediante el método getDefaultFeatureType_ . Hay que tener cuidado con el
 uso de este método ya que cuando estemos trabajando con *almacenes* que
-contengan Feature_ de varios tipos, nos dará de forma arbitraria sólo
+contengan :javadoc:`Feature <Feature>` de varios tipos, nos dará de forma arbitraria sólo
 un tipo. Si queremos saber los tipos de fenómenos que contiene un
 *almacén* deberemos invocar a getFeatureTypes_ que nos devolverá una
-lista de los FeatureType_ que tiene el *almacén*.
+lista de los :javadoc:`FeatureType <FeatureType>` que tiene el *almacén*.
 
 Puede ser conveniente repasar la referencia sobre:
 
-* FeatureSet_
+* :javadoc:`FeatureSet <FeatureSet>`
 
-* Feature_
+* :javadoc:`Feature <Feature>`
 
-* FeatureType_
+* :javadoc:`FeatureType <FeatureType>`
 
 
 
@@ -408,7 +408,7 @@ nuestro almacén ?
 
 Para aplicar un filtro, este se aplicara en el momento de invocar al
 método *getFeatureSet* de nuestro *almacén*. Para esto deberemos
-construir un objeto FeatureQuery_ , rellenarlo con los valores con los
+construir un objeto :javadoc:`FeatureQuery <FeatureQuery>` , rellenarlo con los valores con los
 que queremos filtrar e invocar al *getFeatureSet* pasándole
 ese *query*.
 
@@ -447,7 +447,7 @@ siempre nos da fenómenos del mismo tipo, para ello podríamos hacer:
 
 Primero averiguamos los tipos de fenómenos que contiene nuestro almacén,
 y luego obtenemos los fenómenos filtrando por tipo. Para filtrar creamos
-un FeatureQuery_ a partir del *store*.
+un :javadoc:`FeatureQuery <FeatureQuery>` a partir del *store*.
 
 .. code-block:: java
 
@@ -484,7 +484,7 @@ almacen dispone de un metodo *acept* que recibe un query.
 
 De forma similar a como filtramos por el tipo de fenómeno podemos
 filtrar por una expresión en función de los atributos de los
-fenómenos. Para ello deberemos crear un objeto Evaluator_ con la
+fenómenos. Para ello deberemos crear un objeto :javadoc:`Evaluator <Evaluator>` con la
 condición que deseemos. Así el código de filtrado podría ser:
 
 .. code-block:: java
@@ -512,17 +512,17 @@ filtrando a su vez por los tipo de fenómeno y por una expresión.
     features.dispose();
 
 A la hora de aplicar un filtro a un *query*, debemos entregarle un objeto
-de tipo Evaluator_ . El DataManager_  dispone de un evaluador por defecto
+de tipo :javadoc:`Evaluator <Evaluator>` . El :javadoc:`DataManager <DataManager>`  dispone de un evaluador por defecto
 para la evaluación de expresiones, pero se pueden utilizar evaluadores
 especializados para obtener mejores rendimientos.
 
 Puede ser conveniente repasar la referencia sobre:
 
-* FeatureQuery_
+* :javadoc:`FeatureQuery <FeatureQuery>`
 
-* Evaluator_
+* :javadoc:`Evaluator <Evaluator>`
 
-* DataManager_
+* :javadoc:`DataManager <DataManager>`
 
 
 
@@ -538,8 +538,8 @@ Ordenación
 
 La ordenación de los fenómenos devueltos por *getFeatureSet* se realiza
 de forma similar a como se aplican los filtros. El orden que queremos aplicar
-a nuestra colección de fenómenos se indica al FeatureQuery_ a través del
-método *getOrder*, que nos devuelve una objeto FeatureQueryOrder_ .
+a nuestra colección de fenómenos se indica al :javadoc:`FeatureQuery <FeatureQuery>` a través del
+método *getOrder*, que nos devuelve una objeto :javadoc:`FeatureQueryOrder <FeatureQueryOrder>` .
 
 Así para ordenar los registros de forma ascendente por el atributo "NOMBRE"
 haríamos:
@@ -571,7 +571,7 @@ Usaríamos
     order.add("NOMBRE",false);
 
 
-También es posible usar un Evaluator_ para la ordenación. Por ejemplo,
+También es posible usar un :javadoc:`Evaluator <Evaluator>` para la ordenación. Por ejemplo,
 podemos hacer que la ordenación no distinga mayúsculas de las minúsculas así:
 
 .. code-block:: java

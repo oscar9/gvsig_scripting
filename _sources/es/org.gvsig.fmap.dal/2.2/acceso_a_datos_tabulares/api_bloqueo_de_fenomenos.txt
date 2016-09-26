@@ -18,7 +18,7 @@ Bloqueo de fenómenos
 En ocasiones puede ser interesante disponer de funciones de bloqueo de 
 fenómenos sobre un almacén para evitar que desde otros puestos modifiquen
 los datos sobre los que vamos a trabajar en un momento dado. Para dar 
-servicio a esta necesidad, el FeatureStore_ dispone de dos métodos:
+servicio a esta necesidad, el :javadoc:`FeatureStore <FeatureStore>` dispone de dos métodos:
 
 * *isLocksSupported*, que nos informa de si ese almacén soporta
   gestión de bloqueos.
@@ -28,7 +28,7 @@ servicio a esta necesidad, el FeatureStore_ dispone de dos métodos:
   almacén no soporte bloqueos, este método devolverá *null*.
 
 Cuando un almacén soporta la gestión de bloqueos, el método *getLocks* nos
-devolverá un FeatureLocks_. Esta clase se encargara de llevar la cuenta de
+devolverá un :javadoc:`FeatureLocks <FeatureLocks>`. Esta clase se encargara de llevar la cuenta de
 los bloqueos que se establecen así como de su tiempo de vigencia. Los bloqueos 
 se establecen en grupos de fenómenos, y a cada grupo de fenómenos que se
 bloquea se le asigna un tiempo de vigencia para ese bloqueo. Para bloquear 
@@ -53,7 +53,7 @@ establecido.
 
 * *getGroups*, que nos devuelve un iterador sobre los grupos
   de bloqueos establecidos. Cada grupo de bloqueos esta 
-  representado por la clase FeatureLocksGroup_ .
+  representado por la clase :javadoc:`FeatureLocksGroup <FeatureLocksGroup>` .
 
 * *getGroupsCount*, que nos dice cuantos grupos de bloqueos 
   hay.
@@ -67,8 +67,8 @@ establecido.
 * *getLocks*, que nos devuelve un iterador sobre todos los
   fenómenos bloqueados.
 
-También es interesante tener en cuenta que FeatureLocks_ implementa
-Observable_ , de forma que podemos registrarnos a cambios en el. Los
+También es interesante tener en cuenta que :javadoc:`FeatureLocks <FeatureLocks>` implementa
+:javadoc:`Observable <Observable>` , de forma que podemos registrarnos a cambios en el. Los
 cambios que podemos observar son:
 
 * Se ha aplicado un nuevo grupo de bloqueos.
@@ -78,7 +78,7 @@ cambios que podemos observar son:
 * Un grupo de bloqueos se ha liberado.
 
 Los principales métodos u operaciones que podemos encontrar en un
-grupo de bloqueos, FeatureLocksGroup_, son:
+grupo de bloqueos, :javadoc:`FeatureLocksGroup <FeatureLocksGroup>`, son:
 
 * *getTimeout*, tiempo de caducidad asignado al bloqueo.
 
@@ -88,7 +88,7 @@ grupo de bloqueos, FeatureLocksGroup_, son:
 * *unlock*, libera todos los bloqueos del grupo, haciendo
   desaparecer a este.
 
-* *iterator*, que nos devuelve los fenómenos, Feature_, que se
+* *iterator*, que nos devuelve los fenómenos, :javadoc:`Feature <Feature>`, que se
   encuentran bloqueados en ese grupo.
 
 * *getLocksCount*, que nos informa sobre cuantos fenómenos hay

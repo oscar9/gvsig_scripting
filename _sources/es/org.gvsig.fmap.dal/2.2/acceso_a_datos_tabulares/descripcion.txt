@@ -27,24 +27,24 @@ gráfico.
    Acceso a datos tabulares
 
 
-* *FeatureStore*, como especialización de *DataStore*.
+* * :javadoc:`FeatureStore <FeatureStore>` *, como especialización de * :javadoc:`DataStore <DataStore>` *.
   Añade funcionalidades propias del acceso a datos alfanuméricos
   y vectoriales. Conoce de *fenómenos*, cómo consultar sus valores
   o su estructura, así como de acciones específicas para acceder
   a ellos.
 
-* *FeatureSet*, como especialización de *DataSet*.
+* * :javadoc:`FeatureSet <FeatureSet>` *, como especialización de * :javadoc:`DataSet <DataSet>` *.
   Conoce los fenómenos y es capaz de iterar sobre ellos.
 
-* *FeatureQuery*, como especialización de *DataQuery*. Contiene
+* * :javadoc:`FeatureQuery <FeatureQuery>` *, como especialización de * :javadoc:`DataQuery <DataQuery>` *. Contiene
   información relevante sobre la definición de filtros y su ordenación
   que hace uso del conocimiento de estar trabajando sobre datos alfanuméricos
   y vectoriales.
 
-* *Feature*. Aparece como contenedor de un fenómeno, permitiendo acceder
+* * :javadoc:`Feature <Feature>` *. Aparece como contenedor de un fenómeno, permitiendo acceder
   a la información de éste.
 
-* *FeatureType*. Aparece como el contenedor de la estructura de un fenómeno.
+* * :javadoc:`FeatureType <FeatureType>` *. Aparece como el contenedor de la estructura de un fenómeno.
   Qué atributos tiene o de qué tipo son.
 
 
@@ -108,8 +108,8 @@ una BBDD postgres sería algo como:
   store.dispose();
 
 Otra alternativa mas recomendable para no tener que preocuparnos 
-por liberar los recursos del FeatureSet_ y el iterador seria 
-usando un visitor sobre el FeatureStore_:
+por liberar los recursos del :javadoc:`FeatureSet <FeatureSet>` y el iterador seria 
+usando un visitor sobre el :javadoc:`FeatureStore <FeatureStore>` :
 
 .. code-block:: java
 

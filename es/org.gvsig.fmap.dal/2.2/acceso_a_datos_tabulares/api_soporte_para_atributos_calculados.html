@@ -109,7 +109,7 @@ atributos calculados.</li>
 <li>Como crear un campo calculado complejo que requiera
 un evaluador especializado.</li>
 </ul>
-<p>En el apartado <a class="reference external" href="creacion-de-un-nuevo-almacen">creación de un nuevo almacén</a> vimos como crear un
+<p>En el apartado <a class="reference external" href="api_creacion_de_un_nuevo_almacen.html">creación de un nuevo almacén</a> vimos como crear un
 alamcén en formato <em>dbf</em> en el que teníamos un atributo <em>POBLACION</em> y
 otro <em>AREA</em>.</p>
 <p>Puede ser interesante disponer del valor de densidad de población en
@@ -135,23 +135,23 @@ de los pasos que hemos seguido para realizar esta operación:</p>
 <li>Puesto que vamos a realizar una modificación sobre
 el almacén, deberemos asegurarnos que este se encuentra
 en modo edición.</li>
-<li>Invocaremos a <a href="#id1"><span class="problematic" id="id2">getDefaultFeatureType_</span></a> para obtener la descripción
+<li>Invocaremos a <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getDefaultFeatureType()">getDefaultFeatureType</a> para obtener la descripción
 de los fenómenos del almacén. Una vez dispongamos
 de el, obtendremos una versión <em>editable</em> de este, ya que el que nos
-devuelve <a href="#id3"><span class="problematic" id="id4">getDefaultFeatureType_</span></a> es de solo consulta.</li>
+devuelve <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getDefaultFeatureType()">getDefaultFeatureType</a> es de solo consulta.</li>
 <li>Invocaremos a su método <em>add</em> para añadirle el nuevo atributo.
 a este le indicaremos:<ul>
 <li>El nombre del atributo a añadir, <em>DENSIDAD_POBLACION</em>.</li>
 <li>El tipo de datos asociado al atributo, <em>TYPE_DOUBLE</em>.</li>
 <li>Un evaluador que resuelva la expresión que deseamos.
-El <a href="#id5"><span class="problematic" id="id6">DataManager_</span></a> nos suministrara un constructor por
+El <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataManager.html">DataManager</a> nos suministrara un constructor por
 defecto para evaluadores de expresiones mediante su método
 <em>createExpresion</em>, asi que le diremos que la expresión que
 deseamos que tenga sera &#8220;POBLACION / AREA&#8221;.</li>
 </ul>
 </li>
-<li>invocaremos al método <em>update</em> del almacén, <a href="#id7"><span class="problematic" id="id8">FeatureStore_</span></a>,
-con el <a href="#id9"><span class="problematic" id="id10">FeatureType_</span></a> modificado para que se apliquen los cambios.</li>
+<li>invocaremos al método <em>update</em> del almacén, <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html">FeatureStore</a>,
+con el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> modificado para que se apliquen los cambios.</li>
 <li>Por ultimo, si hemos iniciado la edición para realizar esta
 operación la terminaremos.</li>
 </ol>
@@ -170,7 +170,7 @@ tipo de operaciones de edición sobre almacenes aunque la invocación a
 <em>allowWrite</em> sobre el almacén indique que no esta soportada la escritura.</p>
 <p>Veamos ahora un ejemplo algo mas complejo de atributo calculado.
 En el ejemplo anterior utilizábamos el evaluador de expresiones que
-suministra por defecto el <a href="#id11"><span class="problematic" id="id12">DataManager_</span></a>. Ahora bien, puede suceder que
+suministra por defecto el <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataManager.html">DataManager</a>. Ahora bien, puede suceder que
 este evaluador de expresiones no nos de la capacidad de calculo que
 necesitemos para nuestro atributo. En estos casos podemos crear
 nuestro propio evaluador a medida de las operaciones que deseemos.
@@ -212,11 +212,11 @@ un lado necesitaremos crear nuestro evaluador:</p>
 <span class="o">}</span>
 </pre></div>
 </div>
-<p>La clase abstracta <a href="#id13"><span class="problematic" id="id14">AbstractEvaluator_</span></a>, nos deja dos métodos por implementar:</p>
+<p>La clase abstracta <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/evaluator/AbstractEvaluator.html">AbstractEvaluator</a>, nos deja dos métodos por implementar:</p>
 <ul class="simple">
 <li><em>getName</em>, que deberá devolver un nombre descriptivo de la operación
 que vallamos a hacer.</li>
-<li><em>evaluate</em>, que recibe un <a href="#id15"><span class="problematic" id="id16">EvaluatorData_</span></a>, en el que recibiremos los
+<li><em>evaluate</em>, que recibe un <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/evaluator/Evaluator.html">EvaluatorData</a>, en el que recibiremos los
 valores del resto de atributos del fenómeno. Este método deberá ser
 el encargado de realizar los cálculos y devolver el resultado de estos.
 En nuestro caso, obtendrá los valores de los campos x e y, y con ellos
@@ -246,7 +246,7 @@ de población, en la invocación al método <em>add</em>, le indicaremos:</p>
 <li>El nombre del nuevo atributo que añadimos, <em>GEOM</em>.</li>
 <li>Que su tipo de datos, en lugar de ser <em>DOUBLE</em>, ahora es
 un <em>GEOMETRY</em>.</li>
-<li>Y que en lugar de invocar al <a href="#id17"><span class="problematic" id="id18">DataManager_</span></a> para obtener un
+<li>Y que en lugar de invocar al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/DataManager.html">DataManager</a> para obtener un
 evaluador de expresiones de cadena, construimos una instancia
 de nuestro evaluador, <em>XY2Geoemtry</em>, la inicializamos con los
 valores de los nombres de los campos que contienen la x e y, y

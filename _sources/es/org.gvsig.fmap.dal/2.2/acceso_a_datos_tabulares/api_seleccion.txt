@@ -35,13 +35,13 @@ Si queremos sustituir la selección del almacén por otra bastará con establece
 
 Una vez obtenida la selección, a través de ella podemos realizar las siguientes operaciones:
 
-- Seleccionar o de seleccionar un fenómeno, un FeatureSet_ o todos los fenómenos del almacén.
+- Seleccionar o de seleccionar un fenómeno, un :javadoc:`FeatureSet <FeatureSet>` o todos los fenómenos del almacén.
 
 - Averiguar si un fenómeno está seleccionado.
 
 - Invertir la selección.
 
-- Obtener los fenómenos seleccionados o de seleccionados, ya que el FeatureSelection_ es, a su vez, un FeatureSet_.
+- Obtener los fenómenos seleccionados o de seleccionados, ya que el :javadoc:`FeatureSelection <FeatureSelection>` es, a su vez, un :javadoc:`FeatureSet <FeatureSet>`.
 
 Ej:
 
@@ -74,9 +74,9 @@ Ej:
     selection.isSelected(feature);
 
 
-Si lo que queremos es recibir eventos sobre cambios en la selección, podemos suscribirnos como Observer_ al almacén directamente, de forma que recibiremos, entre otros eventos, el evento DataStoreNotification_.SELECTION_CHANGE. 
+Si lo que queremos es recibir eventos sobre cambios en la selección, podemos suscribirnos como :javadoc:`Observer <Observer>` al almacén directamente, de forma que recibiremos, entre otros eventos, el evento :javadoc:`DataStoreNotification.SELECTION_CHANGE <DataStoreNotification>` .SELECTION_CHANGE. 
 
-Por ejemplo, la tabla que muestra una lista de fenómenos, debe repintarse para actualizar las filas seleccionadas cuando cambia la selección en el almacén correspondiente. Para ello implementa Observer_ y se registra como tal en el almacén. Su método *update* es como sigue:
+Por ejemplo, la tabla que muestra una lista de fenómenos, debe repintarse para actualizar las filas seleccionadas cuando cambia la selección en el almacén correspondiente. Para ello implementa :javadoc:`Observer <Observer>` y se registra como tal en el almacén. Su método *update* es como sigue:
 
 .. code-block:: java
 

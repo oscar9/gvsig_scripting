@@ -117,9 +117,9 @@
 </div>
 <div class="section" id="introduccion">
 <h1>13. Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h1>
-<p>Una transformación es un algoritmo que a partir de un fenómeno de un tipo produce otro fenómeno de otro tipo distinto, sin modificar el original. En otras palabras, copia una <a href="#id1"><span class="problematic" id="id2">Feature_</span></a> cuyo <a href="#id3"><span class="problematic" id="id4">FeatureType_</span></a> es A en otra <a href="#id5"><span class="problematic" id="id6">Feature_</span></a> cuyo <a href="#id7"><span class="problematic" id="id8">FeatureType_</span></a> es B, siendo la transformación <em>T</em> una función de correspondencia entre los <a href="#id9"><span class="problematic" id="id10">FeatureType_</span></a> <em>A</em> y <em>B</em>: <em>T(A)=B</em>.</p>
+<p>Una transformación es un algoritmo que a partir de un fenómeno de un tipo produce otro fenómeno de otro tipo distinto, sin modificar el original. En otras palabras, copia una <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> cuyo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> es A en otra <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/Feature.html">Feature</a> cuyo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> es B, siendo la transformación <em>T</em> una función de correspondencia entre los <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> <em>A</em> y <em>B</em>: <em>T(A)=B</em>.</p>
 <p>Este mecanismo se ha ideado para dar la posibilidad de crear vistas sobre almacenes de datos sin que sea necesario modificar los mismos, para que los datos se presenten al usuario de forma diferente a como están realmente estructurados.</p>
-<p>DAL ofrece una interfaz para poder añadir transformaciones a un almacén. Esta interfaz se llama <a href="#id11"><span class="problematic" id="id12">FeatureStoreTransform_</span></a>.</p>
+<p>DAL ofrece una interfaz para poder añadir transformaciones a un almacén. Esta interfaz se llama <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStoreTransform.html">FeatureStoreTransform</a>.</p>
 </div>
 <div class="section" id="la-interfaz-featurestoretransform">
 <h1>14. La interfaz FeatureStoreTransform<a class="headerlink" href="#la-interfaz-featurestoretransform" title="Permalink to this headline">¶</a></h1>
@@ -151,7 +151,7 @@
 </div>
 <div class="section" id="obtener-las-transformaciones-de-un-almacen">
 <h1>15. Obtener las transformaciones de un almacén<a class="headerlink" href="#obtener-las-transformaciones-de-un-almacen" title="Permalink to this headline">¶</a></h1>
-<p>Las transformaciones de un almacén se guardan en un contenedor de transformaciones de tipo <a href="#id13"><span class="problematic" id="id14">FeatureStoreTransforms_</span></a>. Se obtiene así:</p>
+<p>Las transformaciones de un almacén se guardan en un contenedor de transformaciones de tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStoreTransforms.html">FeatureStoreTransforms</a>. Se obtiene así:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">FeatureStore</span> <span class="n">store</span> <span class="o">=</span> <span class="o">(...);</span>
 
 <span class="n">FeatureStoreTransforms</span> <span class="n">transforms</span> <span class="o">=</span> <span class="n">store</span><span class="o">.</span><span class="na">getTransforms</span><span class="o">();</span>
@@ -160,7 +160,7 @@
 </div>
 <div class="section" id="anadir-una-transformacion-a-un-almacen">
 <h1>16. Añadir una transformación a un almacén<a class="headerlink" href="#anadir-una-transformacion-a-un-almacen" title="Permalink to this headline">¶</a></h1>
-<p>Las transformaciones se añaden a través del <a href="#id15"><span class="problematic" id="id16">FeatureStoreTransforms_</span></a> asociado al almacén:</p>
+<p>Las transformaciones se añaden a través del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStoreTransforms.html">FeatureStoreTransforms</a> asociado al almacén:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">FeatureStore</span> <span class="n">store</span> <span class="o">=</span> <span class="o">(...);</span>
 <span class="n">FeatureStoreTransform</span> <span class="n">transform</span> <span class="o">=</span> <span class="o">(...);</span>
 
@@ -173,7 +173,7 @@
 <div class="section" id="ejemplo-de-implementacion-de-una-transformacion">
 <h1>17. Ejemplo de implementación de una transformación<a class="headerlink" href="#ejemplo-de-implementacion-de-una-transformacion" title="Permalink to this headline">¶</a></h1>
 <p>Para facilitar la implementación de transformaciones, existe una clase abstracta que aporta una implementación de
-<a href="#id17"><span class="problematic" id="id18">FeatureStoreTransform_</span></a> y se recomienda extender. Esta clase se llama <a href="#id19"><span class="problematic" id="id20">AbstractFeatureStoreTransform_</span></a>.</p>
+<a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStoreTransform.html">FeatureStoreTransform</a> y se recomienda extender. Esta clase se llama <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/AbstractFeatureStoreTransform.html">AbstractFeatureStoreTransform</a>.</p>
 <p>Al implementar una transformación, hay que tener en cuenta tres aspectos  que no son evidentes porque no forman parte de la interfaz:</p>
 <ol class="arabic simple">
 <li><em>Constructor vacío</em>: Al tratarse de una entidad persistente requiere un constructor sin parámetros para poder instanciarse cuando aún no se dispone de los datos persistidos.</li>
@@ -182,7 +182,7 @@
 </ol>
 <div class="section" id="anadir-un-atributo-calculado">
 <h2>17.1. Añadir un atributo calculado<a class="headerlink" href="#anadir-un-atributo-calculado" title="Permalink to this headline">¶</a></h2>
-<p>El siguiente ejemplo muestra cómo se implementa una sencilla transformación. Esta transformación añade un attributo geométrico al <a href="#id21"><span class="problematic" id="id22">FeatureType_</span></a> a partir de dos atributos de tipo numérico que contienen las <em>X</em> y las <em>Y</em>:</p>
+<p>El siguiente ejemplo muestra cómo se implementa una sencilla transformación. Esta transformación añade un attributo geométrico al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/gazetteer/querys/FeatureType.html">FeatureType</a> a partir de dos atributos de tipo numérico que contienen las <em>X</em> y las <em>Y</em>:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">  *</span>
 <span class="cm">  * This transform adds a new attribute of type Geometry to the</span>

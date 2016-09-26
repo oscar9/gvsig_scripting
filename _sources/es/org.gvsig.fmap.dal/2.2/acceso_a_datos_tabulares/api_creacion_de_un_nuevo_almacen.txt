@@ -7,22 +7,22 @@ Creación de un nuevo almacén
 
 En otros apartados hemos estado viendo que servicios nos proporciona
 DAL para el acceso a los datos tabulares. Normalmente estos servicios
-se ofrecen por el FeatureStore_. Sin embargo los servicios relacionados
-con la creación física del almacén, no nos los da el FeatureStore_. Estos
-servicios forman parte de los servicios que ofrece el DataServerExplorer_.
+se ofrecen por el :javadoc:`FeatureStore <FeatureStore>`. Sin embargo los servicios relacionados
+con la creación física del almacén, no nos los da el :javadoc:`FeatureStore <FeatureStore>`. Estos
+servicios forman parte de los servicios que ofrece el :javadoc:`DataServerExplorer <DataServerExplorer>`.
 
-El DataServerExplorer_ reúne los servicios relacionados con la exploración
+El :javadoc:`DataServerExplorer <DataServerExplorer>` reúne los servicios relacionados con la exploración
 de un servidor de datos junto de los de creación de nuevos almacenes en
 el servidor. Vamos a ver aquí la parte de añadir un nuevo almacén a un 
 servidor de datos, en este caso un sistema de ficheros, el *FilesystemExplorer*.
 
-Un DataServerExplorer_ dispone para estas tareas de los métodos:
+Un :javadoc:`DataServerExplorer <DataServerExplorer>` dispone para estas tareas de los métodos:
 
 * *getAddParameters*. Este, dado un nombre de almacén registrado, 
-  nos devolverá un DataParameters_ especializado con los parámetros
+  nos devolverá un :javadoc:`DataParameters <DataParameters>` especializado con los parámetros
   que precisa ese el almacén indicado para ser creado.
 
-* *add*, que a partir del DataParameters_ indicado se encargara de
+* *add*, que a partir del :javadoc:`DataParameters <DataParameters>` indicado se encargara de
   crear el nuevo almacén en el servidor.
 
 Veamos un ejemplo de creación de un almacén de tipo *dbf*. Crearemos
@@ -39,22 +39,22 @@ contendrá los campos:
 
 Para esto tendremos que hacer:
 
-#. Crearemos un DataServerExplorer_ de tipo *FilesystemExplorer*, indicando
+#. Crearemos un :javadoc:`DataServerExplorer <DataServerExplorer>` de tipo *FilesystemExplorer*, indicando
    que el *path* inicial sobre el que ha de trabajar es */data*.
 
-#. Le pediremos al DataServerExplorer_ una instancia de parámetros adecuada
+#. Le pediremos al :javadoc:`DataServerExplorer <DataServerExplorer>` una instancia de parámetros adecuada
    para crear un fichero *dbf*.
 
 #. Indicaremos en esos parámetros el nombre del fichero a crear, sin ruta,
-   ya que utilizara la ruta corriente del DataServerExplorer_ para ello.
+   ya que utilizara la ruta corriente del :javadoc:`DataServerExplorer <DataServerExplorer>`  para ello.
 
-#. Le pediremos los parámetros la instancia del FeatureType_ que se va a 
-   utilizar para la creación del *dbf*. Este sera de tipo EditableFeatureType_.
+#. Le pediremos los parámetros la instancia del :javadoc:`FeatureType <FeatureType>` que se va a 
+   utilizar para la creación del *dbf*. Este sera de tipo :javadoc:`EditableFeatureType <EditableFeatureType>`.
 
-#. Añadiremos al FeatureType_ los atributos que queremos que tenga nuestro
+#. Añadiremos al :javadoc:`FeatureType <FeatureType>` los atributos que queremos que tenga nuestro
    *dbf*
 
-#. Y por ultimo le indicaremos al DataServerExplorer_ que añada la nueva
+#. Y por ultimo le indicaremos al :javadoc:`DataServerExplorer <DataServerExplorer>` que añada la nueva
    fuente de datos de la que hemos configurado sus parámetros.
 
 Veamos como queda todo esto junto:
@@ -77,21 +77,21 @@ Veamos como queda todo esto junto:
   serverExplorer.add(sparams);
 
 En otros apartados hemos estado viendo las operaciones o servicios que ofrece el 
-FeatureType_ de cara a consultar su estructura. Vamos a repasar los servicios que
-añade el EditableFeatureType_ a este de cara a modificar esta:
+:javadoc:`FeatureType <FeatureType>` de cara a consultar su estructura. Vamos a repasar los servicios que
+añade el :javadoc:`EditableFeatureType <EditableFeatureType>` a este de cara a modificar esta:
 
 * *add*. Nos permite añadir nuevos atributos a la descripción del fenómeno.
   Le indicaremos el nombre del nuevo atributo y el tipo y nos devolverá una
-  instancia de EditableFeatureAttributeDescriptor_, que es similar a 
-  FeatureAttributeDescriptor_, pero añadiendo operaciones que permiten
+  instancia de :javadoc:`EditableFeatureAttributeDescriptor <EditableFeatureAttributeDescriptor>` , que es similar a 
+  :javadoc:`FeatureAttributeDescriptor <FeatureAttributeDescriptor>`, pero añadiendo operaciones que permiten
   modificar las propiedades del atributo.
 
 * *getNotEditableCopy*, que nos devuelve una copia de el mismo no editable, 
-  es decir un FeatureType_.
+  es decir un :javadoc:`FeatureType <FeatureType>`.
 
-* *getSource*, nos devuelve una referencia al FeatureType_ del que creamos
-  esta versión editable. Si el EditableFeatureType_ no se creo a partir de 
-  un EditableFeature_ devolverá *null*.
+* *getSource*, nos devuelve una referencia al :javadoc:`FeatureType <FeatureType>` del que creamos
+  esta versión editable. Si el :javadoc:`EditableFeatureType <EditableFeatureType>` no se creo a partir de 
+  un :javadoc:`EditableFeature <EditableFeature>` devolverá *null*.
 
 * *remove*, que nos permite eliminar una descripción de atributo.
 
@@ -114,4 +114,4 @@ y presenta tres variantes:
   En otro apartado se vera esto con mas detalle (`Soporte para atributos calculados`_).
 
 
-.. _Soporte para atributos calculados : soporte-para-atributos-calculados
+.. _Soporte para atributos calculados : api_soporte_para_atributos_calculados.html

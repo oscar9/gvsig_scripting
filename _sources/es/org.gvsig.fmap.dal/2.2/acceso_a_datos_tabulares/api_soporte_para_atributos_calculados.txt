@@ -7,7 +7,10 @@ Soporte para atributos calculados
 
 .. include-document:: org.gvsig.tools/reference-links
    :rest:
-
+   
+.. _creación de un nuevo almacén: api_creacion_de_un_nuevo_almacen.html
+.. _getDefaultFeatureType: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getDefaultFeatureType()
+.. _getFeatureTypes: http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStore.html#getFeatureTypes()
 
 En este apartado veremos:
 
@@ -63,13 +66,13 @@ de los pasos que hemos seguido para realizar esta operación:
    * El nombre del atributo a añadir, *DENSIDAD_POBLACION*.
    * El tipo de datos asociado al atributo, *TYPE_DOUBLE*.
    * Un evaluador que resuelva la expresión que deseamos.
-     El DataManager_ nos suministrara un constructor por
+     El :javadoc:`DataManager <DataManager>` nos suministrara un constructor por
      defecto para evaluadores de expresiones mediante su método
      *createExpresion*, asi que le diremos que la expresión que
      deseamos que tenga sera "POBLACION / AREA".
 
-#. invocaremos al método *update* del almacén, FeatureStore_, 
-   con el FeatureType_ modificado para que se apliquen los cambios.
+#. invocaremos al método *update* del almacén, :javadoc:`FeatureStore <FeatureStore>`, 
+   con el :javadoc:`FeatureType <FeatureType>` modificado para que se apliquen los cambios.
 
 #. Por ultimo, si hemos iniciado la edición para realizar esta
    operación la terminaremos.
@@ -91,7 +94,7 @@ tipo de operaciones de edición sobre almacenes aunque la invocación a
 
 Veamos ahora un ejemplo algo mas complejo de atributo calculado.
 En el ejemplo anterior utilizábamos el evaluador de expresiones que
-suministra por defecto el DataManager_. Ahora bien, puede suceder que
+suministra por defecto el :javadoc:`DataManager <DataManager>`. Ahora bien, puede suceder que
 este evaluador de expresiones no nos de la capacidad de calculo que
 necesitemos para nuestro atributo. En estos casos podemos crear
 nuestro propio evaluador a medida de las operaciones que deseemos.
@@ -137,12 +140,12 @@ un lado necesitaremos crear nuestro evaluador:
   }
 
 
-La clase abstracta AbstractEvaluator_, nos deja dos métodos por implementar:
+La clase abstracta :javadoc:`AbstractEvaluator <AbstractEvaluator>`, nos deja dos métodos por implementar:
 
 * *getName*, que deberá devolver un nombre descriptivo de la operación
   que vallamos a hacer.
 
-* *evaluate*, que recibe un EvaluatorData_, en el que recibiremos los 
+* *evaluate*, que recibe un :javadoc:`EvaluatorData <Evaluator>`, en el que recibiremos los 
   valores del resto de atributos del fenómeno. Este método deberá ser
   el encargado de realizar los cálculos y devolver el resultado de estos.
   En nuestro caso, obtendrá los valores de los campos x e y, y con ellos
@@ -175,11 +178,9 @@ de población, en la invocación al método *add*, le indicaremos:
 * El nombre del nuevo atributo que añadimos, *GEOM*.
 * Que su tipo de datos, en lugar de ser *DOUBLE*, ahora es 
   un *GEOMETRY*.
-* Y que en lugar de invocar al DataManager_ para obtener un
+* Y que en lugar de invocar al :javadoc:`DataManager <DataManager>` para obtener un
   evaluador de expresiones de cadena, construimos una instancia
   de nuestro evaluador, *XY2Geoemtry*, la inicializamos con los
   valores de los nombres de los campos que contienen la x e y, y
   se la pasamos como el evaluador a usar en ese campo.
 
-
-.. _`creación de un nuevo almacén` : creacion-de-un-nuevo-almacen

@@ -101,7 +101,7 @@
   <div class="section" id="la-pila-de-comandos-de-edicion">
 <h1>8. La pila de comandos de edición<a class="headerlink" href="#la-pila-de-comandos-de-edicion" title="Permalink to this headline">¶</a></h1>
 <p>Cuando un almacén se pone en edición, internamente genera una pila de comandos con las operaciones que se van realizando. De esta forma, dichas operaciones se podrán deshacer o rehacer.</p>
-<p>Para ello el almacén implementa el interfaz <a href="#id1"><span class="problematic" id="id2">UndoRedoStack_</span></a> . Dicho interfaz aporta operaciones para:</p>
+<p>Para ello el almacén implementa el interfaz <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/undo/UndoRedoStack.html">UndoRedoStack</a> . Dicho interfaz aporta operaciones para:</p>
 <ul class="simple">
 <li><em>undo:</em> deshacer la última o últimas operaciones realizadas.</li>
 </ul>
@@ -133,7 +133,7 @@
 <ul class="simple">
 <li>Obtener información acerca de la pila de operaciones que se pueden deshacer o rehacer.</li>
 </ul>
-<p>De cada operación de la pila podemos obtener la siguiente información a través de la clase <a href="#id3"><span class="problematic" id="id4">UndoRedoInfo_</span></a>:</p>
+<p>De cada operación de la pila podemos obtener la siguiente información a través de la clase <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/undo/UndoRedoInfo.html">UndoRedoInfo</a>:</p>
 <ul class="simple">
 <li>Una descripción de la operación.</li>
 <li>Fecha en la que se realizó la operación.</li>
@@ -152,7 +152,7 @@
 <li>Cambios en la estructura de los fenómenos.</li>
 <li>Cambios en la selección del almacén.</li>
 </ul>
-<p>Hay que tener en cuenta que, una vez el almacén deja de estar en edición, la pila de comandos se descarta y los métodos del interfaz <a href="#id5"><span class="problematic" id="id6">UndoRedoStack_</span></a> dejan de ser funcionales. Si volvemos a poner el almacén en edición, se creará una pila de comandos nueva.</p>
+<p>Hay que tener en cuenta que, una vez el almacén deja de estar en edición, la pila de comandos se descarta y los métodos del interfaz <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/tools/undo/UndoRedoStack.html">UndoRedoStack</a> dejan de ser funcionales. Si volvemos a poner el almacén en edición, se creará una pila de comandos nueva.</p>
 </div>
 
 

@@ -42,7 +42,7 @@ Una vez se ha creado un índice sobre un almacén, éste lo utilizará para opti
 Crear un índice sobre un almacén
 --------------------------------
 
-Para crear un índice sobre un almacén de fenómenos, se utiliza el método createIndex(...) de la interfaz FeatureStore_ . Este método recibe como parámetros el tipo de fenómeno (FeatureType_) y el nombre del atributo (que debe pertenecer al tipo de fenómeno especificado) sobre el que se desea crear un índice. Así mismo es necesario indicar un nombre para el índice, que servirá para identificarlo.
+Para crear un índice sobre un almacén de fenómenos, se utiliza el método createIndex(...) de la interfaz :javadoc:`FeatureStore <FeatureStore>` . Este método recibe como parámetros el tipo de fenómeno :javadoc:`FeatureType <FeatureType>` y el nombre del atributo (que debe pertenecer al tipo de fenómeno especificado) sobre el que se desea crear un índice. Así mismo es necesario indicar un nombre para el índice, que servirá para identificarlo.
 
 .. code-block:: java
 		  
@@ -70,7 +70,7 @@ La creación de un índice puede ser una operación costosa, por lo que el méto
 Obtener los índices de un almacén
 ---------------------------------
 
-Los índices de un almacén están almacenados en un FeatureIndexes_ . Se obtiene a partir del almacén y se puede iterar sobre él para acceder a todos los índices disponibles:
+Los índices de un almacén están almacenados en un :javadoc:`FeatureIndexes <FeatureIndex>` . Se obtiene a partir del almacén y se puede iterar sobre él para acceder a todos los índices disponibles:
 
 .. code-block:: java
 
@@ -171,7 +171,7 @@ El índice dispone de un conjunto de servicios para obtener información sobre �
 Obtener su tipo de dato
 .......................
 
-El tipo de dato viene expresado por una de las constantes definidas en DataTypes_
+El tipo de dato viene expresado por una de las constantes definidas en :javadoc:`DataTypes <DataTypes>`
 
 .. code-block:: java
 
