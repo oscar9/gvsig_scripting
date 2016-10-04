@@ -115,6 +115,10 @@
 <h2>11.1. Abeille<a class="headerlink" href="#abeille" title="Permalink to this headline">¶</a></h2>
 <p>El programa Abeille lo usaremos para la creación de las interfaces visuales. En este programa podremos establecer el aspecto de las ventanas, nombres, etc. Haciendo uso de la librería FormPanel podremos cargarlo fácilmente en un script, y sacarle el máximo partido.</p>
 <p>Abriremos el Abeille desde el botón <img alt="abeille" src="../../../_images/icon-abeille.png" /> situado en la barra de Herramientas del Scripting Composer.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Recordar que para que aparezca la herramienta de Abeille, debemos de tener instaladas las herramientas denominadas <strong>ScriptingComposerTools</strong> que podrás descargar desde el Administrador de Complementos.</p>
+</div>
 <p>Aparece en la imagen el programa Abeille con el ejemplo de coordenadas.xml abierto:</p>
 <div class="figure align-center">
 <img alt="../../../_images/abeille.png" src="../../../_images/abeille.png" />
@@ -146,51 +150,97 @@
 <div class="figure align-center">
 <img alt="../../../_images/abeille_6.png" src="../../../_images/abeille_6.png" />
 </div>
-<p>Se puede ampliar el rango de ocupación de esta casilla en el formulario para ajustarlo mejor al interfaz que queramos.</p>
+<p>Se puede ampliar el rango de ocupación de esta casilla en el formulario para ajustarlo mejor al interfaz que vamos a crear. En este caso queremos que ocupe 3 columnas de nuestro grid, dejando una columna por cada lado para que los componentes que estamos creando no estén juntos al borde de la ventana.</p>
 <div class="figure align-center">
 <img alt="../../../_images/abeille_7.png" src="../../../_images/abeille_7.png" />
 </div>
-<p>Repetimos el proceso para crear dos etiquetas más <code class="docutils literal"><span class="pre">lblX</span></code> y <code class="docutils literal"><span class="pre">lblY</span></code>.</p>
+<p>Vemos que el espacio que ocupa la etiqueta de Coordenas se ha ampliado. Para la interfaz de este script haremos uso de 5 columnas, 3 para situar los componentes y las otras dos de separación con los bordes. Ya podemos eliminar las columnas que no tenemos planeado utilizar. Para ello hacemos uso del control &#8220;Delete Columns&#8221;:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_71.png" src="../../../_images/abeille_71.png" />
+</div>
+<p>Vamos a ampliar la anchura de algunas columnas del formulario para una mejor visualización, aunque al final explicaremos otras opciones para que el panel se encargue automáticamente de este ancho y nos aseguremos de una correcta visualización. Para ello, solo tenemos que presionar sobre la columna a modificar y desplazar la señal que aparecerá arriba hacia la derecha:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_72.png" src="../../../_images/abeille_72.png" />
+</div>
+<p>Repetimos el proceso para crear dos etiquetas más denominadas <code class="docutils literal"><span class="pre">lblX</span></code> y <code class="docutils literal"><span class="pre">lblY</span></code>, con textos de &#8220;X: &#8221; e &#8220;Y: &#8221; respectivamente. Dejaremos una fila entre cada uno de ellos para una correcta visualización:</p>
 <div class="figure align-center">
 <img alt="../../../_images/abeille_8.png" src="../../../_images/abeille_8.png" />
 </div>
-<p>Ahora crearemos un <code class="docutils literal"><span class="pre">text</span> <span class="pre">field</span></code> o campo de texto. Este campo permitirá tanto mostrar valores, como permitir al usuario introducir unos valores.</p>
+<p>Ahora crearemos un <code class="docutils literal"><span class="pre">text</span> <span class="pre">field</span></code> o campo de texto. Este campo permitirá tanto mostrar valores, como permitir al usuario introducirlos:</p>
 <div class="figure align-center">
 <img alt="../../../_images/abeille_9.png" src="../../../_images/abeille_9.png" />
 </div>
-<p>Repetimos el mismo proceso anterior para la creación de dos <em>text fields</em> denominados <code class="docutils literal"><span class="pre">txtX</span></code> y <code class="docutils literal"><span class="pre">txtY</span></code>. Además también hemos utilizando la herramienta explicada anterior <em>Increase column span</em>, ampliamos el rango de ocupación de estas cajas de texto.</p>
+<p>Repetimos el mismo proceso anterior para la creación de dos <em>text fields</em> denominados <code class="docutils literal"><span class="pre">txtX</span></code> y <code class="docutils literal"><span class="pre">txtY</span></code>.</p>
 <div class="figure align-center">
 <img alt="../../../_images/abeille_10.png" src="../../../_images/abeille_10.png" />
 </div>
-<p>También añadiremos un botón que nos permitirá cerrar la aplicación.</p>
+<p>A esta columna en la que se situan las cajas de texto, vamos a dotarla de la posibilidad de agrandarse en caso necesario, por ejemplo, si el usuario agranda la ventana. Esta opción ayudará a mantener a la correcta visualización de la interfaz, y nos da la opción de detallar los componentes que permitimos que cambien de tamaño.</p>
+<p>Para ello, vamos a seleccionar alguna celda situada en la columna que contiene los componentes de Cajas de Texto, y vamos a ir al menu de arriba <span class="menuselection">Column ‣ Resize: Grow</span>.</p>
 <div class="figure align-center">
-<img alt="../../../_images/abeille_11.png" src="../../../_images/abeille_11.png" />
+<img alt="../../../_images/abeille_101.png" src="../../../_images/abeille_101.png" />
 </div>
-<p>Le otorgaremos de nombre de componente <code class="docutils literal"><span class="pre">btnClose</span></code> y de texto en el componente <code class="docutils literal"><span class="pre">Cerrar</span></code>.</p>
+<p>Vemos como ya la previsualización del formulario ha cambiado, apareciendo más grande haciendo uso de esta columna designada:</p>
 <div class="figure align-center">
-<img alt="../../../_images/abeille_12.png" src="../../../_images/abeille_12.png" />
+<img alt="../../../_images/abeille_102.png" src="../../../_images/abeille_102.png" />
 </div>
-<p>Una de las ventajas de dotarle a este componente el nombre de <code class="docutils literal"><span class="pre">btnClose</span></code>, es que la clase <code class="docutils literal"><span class="pre">FormPanel</span></code> que explicamos después, ya dotará automáticamente a este botón la capacidad de cerrar la aplicación.</p>
-<p>Una vez acabada la interfaz podemos eliminar las columnas restantes de la cuadrícula.</p>
+<p>El siguiente paso es crear espacio para los botones de la aplicación, que en este caso, serán dos. El primer botón destinado a realizar una acción que será la de Centrar: <code class="docutils literal"><span class="pre">btnCenter</span></code>, y otro botón destinado a cerrar la aplicación: <code class="docutils literal"><span class="pre">btnClose</span></code>.</p>
+<p>Para tener mayor libertad de configuración en la posición y tamaño de estos botones, así como de ayudar a una correcta visualización de la interfaz, vamos a hacerlo de la siguiente manera.</p>
+<p>Primero vamos a insertar un componente de tipo &#8220;Embedded Form&#8221;. Esta opción nos permite insertar un formulario dentro de otro.</p>
 <div class="figure align-center">
-<img alt="../../../_images/abeille_13.png" src="../../../_images/abeille_13.png" />
+<img alt="../../../_images/abeille_103.png" src="../../../_images/abeille_103.png" />
 </div>
-<p>Y filas restantes.</p>
+<p>Situaremos el nuevo componente debajo de la última etiqueta, dejando una fila de separación:</p>
 <div class="figure align-center">
-<img alt="../../../_images/abeille_14.png" src="../../../_images/abeille_14.png" />
+<img alt="../../../_images/abeille_104.png" src="../../../_images/abeille_104.png" />
 </div>
-<p>Una vez tenemos la interfaz preparada, la guardamos.</p>
+<p>Nos aparecerá una ventana para indicar qué tamaño de formulario queremos insertar, le indicaremos 4 columnas y 1 fila. De esta forma tendremos espacio para situar los dos botones y dejar separación entre ellos.</p>
 <div class="figure align-center">
-<img alt="../../../_images/abeille_15.png" src="../../../_images/abeille_15.png" />
+<img alt="../../../_images/abeille_105.png" src="../../../_images/abeille_105.png" />
 </div>
-<p>Guardamos el formulario en formato .xml donde esté o vayamos a crear nuestro script.</p>
+<p>Dando como resultado algo similar a:</p>
 <div class="figure align-center">
-<img alt="../../../_images/abeille_guardado.png" src="../../../_images/abeille_guardado.png" />
+<img alt="../../../_images/abeille_106.png" src="../../../_images/abeille_106.png" />
 </div>
-<p>Ya estaría listo la creación de nuestra interfaz para ser usada desde scripting.</p>
-<p>En cualquier momento podremos realizar cambios en este interfaz. Por ejemplo, hemos decidido ampliar la funcionalidad de nuestro script, y en este caso necesitamos añadir un botón nuevo de <em>Centrar</em>, de nombre <code class="docutils literal"><span class="pre">btnCenter</span></code>. Solo tendremos que abrir la interfaz con Abeille, modificarla, y guardarla.</p>
+<p>Una vez insertado, le indicaremos que ocupe también las siguientes dos columnas, de la misma forma que hicimos con la primera etiqueta Coordenadas, usando <code class="docutils literal"><span class="pre">Increse</span> <span class="pre">Column</span> <span class="pre">Span</span></code>.</p>
 <div class="figure align-center">
-<img alt="../../../_images/abeille_17.png" src="../../../_images/abeille_17.png" />
+<img alt="../../../_images/abeille_107.png" src="../../../_images/abeille_107.png" />
+</div>
+<p>Dejando una fila de separación para el borde de abajo, podemos eliminar también el resto de filas sobrantes. El resultado será similar al siguiente:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_108.png" src="../../../_images/abeille_108.png" />
+</div>
+<p>Vamos a indicarle que este subformulario se alinea a la derecha de la celda en la que está contenido. Presionamos sobre la celda que contiene el subformulario y a la derecha en <span class="menuselection">Form Properties ‣ Cell ‣ Alignment ‣ Horizontal ‣ RIGHT</span>, quedando como resultado:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_109.png" src="../../../_images/abeille_109.png" />
+</div>
+<p>Ahora ya podemos crear los botones en este subformulario, <code class="docutils literal"><span class="pre">btnCenter</span></code> y <code class="docutils literal"><span class="pre">btnClose</span></code>. Seleccionamos la opción jButton:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_110.png" src="../../../_images/abeille_110.png" />
+</div>
+<p>Y situamos los dos botones dentro del subformulario:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_111.png" src="../../../_images/abeille_111.png" />
+</div>
+<p>Está la opción de ampliar este subformulario por si nos enfrentamos a un caso más complicado:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_112.png" src="../../../_images/abeille_112.png" />
+</div>
+<p>Aparecerá el formulario en una pestaña diferente:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_113.png" src="../../../_images/abeille_113.png" />
+</div>
+<p>Con esto ya tendremos la interfaz preparada, solo tendremos que guardarla en el mismo directorio del script que estábamos creando con extensión <code class="docutils literal"><span class="pre">.xml</span></code>:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_114.png" src="../../../_images/abeille_114.png" />
+</div>
+<p>En cualquier momento podremos realizar cambios en este interfaz abriendo el fichero <code class="docutils literal"><span class="pre">.xml</span></code> de nuevo desde el Abeille.</p>
+<p>Aquí vemos como responde la aplicación a diferentes tamaños que le vamos dando:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_115.png" src="../../../_images/abeille_115.png" />
+</div>
+<p>También tenemos muchas más opciones que nos permiten configurar con más detalle la forma de reaccionar de nuestros componentes en la interfaz, como por ejemplo, en el menu de opciones de Columna:</p>
+<div class="figure align-center">
+<img alt="../../../_images/abeille_116.png" src="../../../_images/abeille_116.png" />
 </div>
 </div>
 <div class="section" id="uso-de-formpanel">

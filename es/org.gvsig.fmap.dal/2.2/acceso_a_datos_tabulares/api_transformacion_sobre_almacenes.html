@@ -7,7 +7,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>11. Transformaciones sobre almacenes &#8212; gvsig 0 documentation</title>
+    <title>12. Transformaciones sobre almacenes &#8212; gvsig 0 documentation</title>
     
     <link rel="stylesheet" href="../../../../_static/bizstyle.css" type="text/css" />
     <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
@@ -28,8 +28,8 @@
     <link rel="shortcut icon" href="../../../../_static/gvSIG.ico"/>
     <link rel="top" title="gvsig 0 documentation" href="../../../../index.html" />
     <link rel="up" title="Acceso a datos tabulares" href="../acceso_a_datos_tabulares.html" />
-    <link rel="next" title="2. Descripción" href="descripcion.html" />
-    <link rel="prev" title="8. Soporte para atributos calculados" href="api_soporte_para_atributos_calculados.html" />
+    <link rel="next" title="18. Descripción" href="descripcion.html" />
+    <link rel="prev" title="11. Soporte para atributos calculados" href="api_soporte_para_atributos_calculados.html" />
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <!--[if lt IE 9]>
     <script type="text/javascript" src="_static/css3-mediaqueries.js"></script>
@@ -43,10 +43,10 @@
           <a href="../../../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="descripcion.html" title="2. Descripción"
+          <a href="descripcion.html" title="18. Descripción"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="api_soporte_para_atributos_calculados.html" title="8. Soporte para atributos calculados"
+          <a href="api_soporte_para_atributos_calculados.html" title="11. Soporte para atributos calculados"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>
@@ -60,24 +60,24 @@
             </a></p>
   <h3><a href="../../../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">11. Transformaciones sobre almacenes</a></li>
-<li><a class="reference internal" href="#introduccion">12. Introducción</a></li>
-<li><a class="reference internal" href="#la-interfaz-featurestoretransform">13. La interfaz FeatureStoreTransform</a></li>
-<li><a class="reference internal" href="#obtener-las-transformaciones-de-un-almacen">14. Obtener las transformaciones de un almacén</a></li>
-<li><a class="reference internal" href="#anadir-una-transformacion-a-un-almacen">15. Añadir una transformación a un almacén</a></li>
-<li><a class="reference internal" href="#ejemplo-de-implementacion-de-una-transformacion">16. Ejemplo de implementación de una transformación</a><ul>
-<li><a class="reference internal" href="#anadir-un-atributo-calculado">16.1. Añadir un atributo calculado</a></li>
-<li><a class="reference internal" href="#join-de-dos-almacenes">16.2. JOIN de dos almacenes</a></li>
+<li><a class="reference internal" href="#">12. Transformaciones sobre almacenes</a></li>
+<li><a class="reference internal" href="#introduccion">13. Introducción</a></li>
+<li><a class="reference internal" href="#la-interfaz-featurestoretransform">14. La interfaz FeatureStoreTransform</a></li>
+<li><a class="reference internal" href="#obtener-las-transformaciones-de-un-almacen">15. Obtener las transformaciones de un almacén</a></li>
+<li><a class="reference internal" href="#anadir-una-transformacion-a-un-almacen">16. Añadir una transformación a un almacén</a></li>
+<li><a class="reference internal" href="#ejemplo-de-implementacion-de-una-transformacion">17. Ejemplo de implementación de una transformación</a><ul>
+<li><a class="reference internal" href="#anadir-un-atributo-calculado">17.1. Añadir un atributo calculado</a></li>
+<li><a class="reference internal" href="#join-de-dos-almacenes">17.2. JOIN de dos almacenes</a></li>
 </ul>
 </li>
 </ul>
 
   <h4>Previous topic</h4>
   <p class="topless"><a href="api_soporte_para_atributos_calculados.html"
-                        title="previous chapter">8. Soporte para atributos calculados</a></p>
+                        title="previous chapter">11. Soporte para atributos calculados</a></p>
   <h4>Next topic</h4>
   <p class="topless"><a href="descripcion.html"
-                        title="next chapter">2. Descripción</a></p>
+                        title="next chapter">18. Descripción</a></p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
@@ -113,16 +113,16 @@
           <div class="body" role="main">
             
   <div class="section" id="transformaciones-sobre-almacenes">
-<h1>11. Transformaciones sobre almacenes<a class="headerlink" href="#transformaciones-sobre-almacenes" title="Permalink to this headline">¶</a></h1>
+<h1>12. Transformaciones sobre almacenes<a class="headerlink" href="#transformaciones-sobre-almacenes" title="Permalink to this headline">¶</a></h1>
 </div>
 <div class="section" id="introduccion">
-<h1>12. Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h1>
+<h1>13. Introducción<a class="headerlink" href="#introduccion" title="Permalink to this headline">¶</a></h1>
 <p>Una transformación es un algoritmo que a partir de un fenómeno de un tipo produce otro fenómeno de otro tipo distinto, sin modificar el original. En otras palabras, copia una <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/Feature.html">Feature</a> cuyo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> es A en otra <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/Feature.html">Feature</a> cuyo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> es B, siendo la transformación <em>T</em> una función de correspondencia entre los <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> <em>A</em> y <em>B</em>: <em>T(A)=B</em>.</p>
 <p>Este mecanismo se ha ideado para dar la posibilidad de crear vistas sobre almacenes de datos sin que sea necesario modificar los mismos, para que los datos se presenten al usuario de forma diferente a como están realmente estructurados.</p>
 <p>DAL ofrece una interfaz para poder añadir transformaciones a un almacén. Esta interfaz se llama <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStoreTransform.html">FeatureStoreTransform</a>.</p>
 </div>
 <div class="section" id="la-interfaz-featurestoretransform">
-<h1>13. La interfaz FeatureStoreTransform<a class="headerlink" href="#la-interfaz-featurestoretransform" title="Permalink to this headline">¶</a></h1>
+<h1>14. La interfaz FeatureStoreTransform<a class="headerlink" href="#la-interfaz-featurestoretransform" title="Permalink to this headline">¶</a></h1>
 <p>Esta interfaz representa a una transformación y permite:</p>
 <ul class="simple">
 <li>Obtener el tipo de fenómeno por defecto de la transformación así como la lista completa de sus tipos de fenómeno si tiene más de uno.</li>
@@ -150,7 +150,7 @@
 </div>
 </div>
 <div class="section" id="obtener-las-transformaciones-de-un-almacen">
-<h1>14. Obtener las transformaciones de un almacén<a class="headerlink" href="#obtener-las-transformaciones-de-un-almacen" title="Permalink to this headline">¶</a></h1>
+<h1>15. Obtener las transformaciones de un almacén<a class="headerlink" href="#obtener-las-transformaciones-de-un-almacen" title="Permalink to this headline">¶</a></h1>
 <p>Las transformaciones de un almacén se guardan en un contenedor de transformaciones de tipo <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStoreTransforms.html">FeatureStoreTransforms</a>. Se obtiene así:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">FeatureStore</span> <span class="n">store</span> <span class="o">=</span> <span class="o">(...);</span>
 
@@ -159,7 +159,7 @@
 </div>
 </div>
 <div class="section" id="anadir-una-transformacion-a-un-almacen">
-<h1>15. Añadir una transformación a un almacén<a class="headerlink" href="#anadir-una-transformacion-a-un-almacen" title="Permalink to this headline">¶</a></h1>
+<h1>16. Añadir una transformación a un almacén<a class="headerlink" href="#anadir-una-transformacion-a-un-almacen" title="Permalink to this headline">¶</a></h1>
 <p>Las transformaciones se añaden a través del <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStoreTransforms.html">FeatureStoreTransforms</a> asociado al almacén:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="n">FeatureStore</span> <span class="n">store</span> <span class="o">=</span> <span class="o">(...);</span>
 <span class="n">FeatureStoreTransform</span> <span class="n">transform</span> <span class="o">=</span> <span class="o">(...);</span>
@@ -171,7 +171,7 @@
 </div>
 </div>
 <div class="section" id="ejemplo-de-implementacion-de-una-transformacion">
-<h1>16. Ejemplo de implementación de una transformación<a class="headerlink" href="#ejemplo-de-implementacion-de-una-transformacion" title="Permalink to this headline">¶</a></h1>
+<h1>17. Ejemplo de implementación de una transformación<a class="headerlink" href="#ejemplo-de-implementacion-de-una-transformacion" title="Permalink to this headline">¶</a></h1>
 <p>Para facilitar la implementación de transformaciones, existe una clase abstracta que aporta una implementación de
 <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureStoreTransform.html">FeatureStoreTransform</a> y se recomienda extender. Esta clase se llama <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/AbstractFeatureStoreTransform.html">AbstractFeatureStoreTransform</a>.</p>
 <p>Al implementar una transformación, hay que tener en cuenta tres aspectos  que no son evidentes porque no forman parte de la interfaz:</p>
@@ -181,7 +181,7 @@
 <li><em>Método de inicialización</em>: Por el mismo motivo, conviene realizar la inicialización en un método aparte del constructor (por ejemplo <em>initialize(...)</em>). De esta forma quien utilice la transformación llamará al método de inicialización pasándole la información necesaria, una vez se disponga de ella.</li>
 </ol>
 <div class="section" id="anadir-un-atributo-calculado">
-<h2>16.1. Añadir un atributo calculado<a class="headerlink" href="#anadir-un-atributo-calculado" title="Permalink to this headline">¶</a></h2>
+<h2>17.1. Añadir un atributo calculado<a class="headerlink" href="#anadir-un-atributo-calculado" title="Permalink to this headline">¶</a></h2>
 <p>El siguiente ejemplo muestra cómo se implementa una sencilla transformación. Esta transformación añade un attributo geométrico al <a class="reference external" href="http://downloads.gvsig.org/download/gvsig-desktop-testing/dists/2.3.0/javadocs/html/org/gvsig/fmap/dal/feature/FeatureType.html">FeatureType</a> a partir de dos atributos de tipo numérico que contienen las <em>X</em> y las <em>Y</em>:</p>
 <div class="highlight-java"><div class="highlight"><pre><span></span><span class="cm">/**</span>
 <span class="cm">  *</span>
@@ -309,7 +309,7 @@
 </div>
 </div>
 <div class="section" id="join-de-dos-almacenes">
-<h2>16.2. JOIN de dos almacenes<a class="headerlink" href="#join-de-dos-almacenes" title="Permalink to this headline">¶</a></h2>
+<h2>17.2. JOIN de dos almacenes<a class="headerlink" href="#join-de-dos-almacenes" title="Permalink to this headline">¶</a></h2>
 <p>El siguiente ejemplo realiza una operación <em>JOIN</em> parcial sobre dos tipos de fenómeno de dos almacenes. Siendo <em>A</em> el conjunto de atributos de un tipo de fenómeno y <em>B</em> el conjunto de atributos de otro tipo de fenómeno, definimos nuestra transformación como la unión de <em>A</em> con un subconjunto de <em>B</em>. El subconjunto de <em>B</em> se especifica como parámetro con un array con el nombre de los atributos que se desea incluir en la unión.</p>
 <p>Además de la transformación del tipo de fenómeno, al que se le añaden nuevos atributos, la unión de los datos de los dos almacenes se realiza utilizando el atributo especificado como clave ajena, de forma que para cada fenómeno del almacén principal se busca un fenómeno en el segundo almacén tal que  keyAttr1 == keyAttr2.</p>
 <p>Si existen atributos que se llaman igual en ambos tipos de fenómeno, en la unión resultante se renombrará los de <em>B</em>.</p>
@@ -672,10 +672,10 @@
           <a href="../../../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="descripcion.html" title="2. Descripción"
+          <a href="descripcion.html" title="18. Descripción"
              >next</a> |</li>
         <li class="right" >
-          <a href="api_soporte_para_atributos_calculados.html" title="8. Soporte para atributos calculados"
+          <a href="api_soporte_para_atributos_calculados.html" title="11. Soporte para atributos calculados"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../../../../index.html">gvSIG Documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../../../index.html" >Documentación de gvSIG (ES)</a> &#187;</li>

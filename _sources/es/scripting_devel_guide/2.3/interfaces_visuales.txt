@@ -10,6 +10,10 @@ El programa Abeille lo usaremos para la creación de las interfaces visuales. En
 
 Abriremos el Abeille desde el botón |abeille| situado en la barra de Herramientas del Scripting Composer.
 
+.. note::
+
+   Recordar que para que aparezca la herramienta de Abeille, debemos de tener instaladas las herramientas denominadas **ScriptingComposerTools** que podrás descargar desde el Administrador de Complementos.
+
 Aparece en la imagen el programa Abeille con el ejemplo de coordenadas.xml abierto:
 
 .. figure::  images/abeille.png
@@ -48,68 +52,125 @@ Cambiamos el texto que contendrá esta etiqueta a: *Coordenadas*
 
 .. figure::  images/abeille_6.png
    :align:   center
-   
-Se puede ampliar el rango de ocupación de esta casilla en el formulario para ajustarlo mejor al interfaz que queramos.
+
+
+Se puede ampliar el rango de ocupación de esta casilla en el formulario para ajustarlo mejor al interfaz que vamos a crear. En este caso queremos que ocupe 3 columnas de nuestro grid, dejando una columna por cada lado para que los componentes que estamos creando no estén juntos al borde de la ventana.
 
 .. figure::  images/abeille_7.png
    :align:   center
-   
-Repetimos el proceso para crear dos etiquetas más ``lblX`` y ``lblY``.
+
+Vemos que el espacio que ocupa la etiqueta de Coordenas se ha ampliado. Para la interfaz de este script haremos uso de 5 columnas, 3 para situar los componentes y las otras dos de separación con los bordes. Ya podemos eliminar las columnas que no tenemos planeado utilizar. Para ello hacemos uso del control "Delete Columns":
+
+.. figure::  images/abeille_71.png
+   :align:   center
+
+Vamos a ampliar la anchura de algunas columnas del formulario para una mejor visualización, aunque al final explicaremos otras opciones para que el panel se encargue automáticamente de este ancho y nos aseguremos de una correcta visualización. Para ello, solo tenemos que presionar sobre la columna a modificar y desplazar la señal que aparecerá arriba hacia la derecha:
+
+.. figure::  images/abeille_72.png
+   :align:   center
+
+Repetimos el proceso para crear dos etiquetas más denominadas ``lblX`` y ``lblY``, con textos de "X: " e "Y: " respectivamente. Dejaremos una fila entre cada uno de ellos para una correcta visualización:
 
 .. figure::  images/abeille_8.png
    :align:   center
    
-Ahora crearemos un ``text field`` o campo de texto. Este campo permitirá tanto mostrar valores, como permitir al usuario introducir unos valores.
+Ahora crearemos un ``text field`` o campo de texto. Este campo permitirá tanto mostrar valores, como permitir al usuario introducirlos:
 
 .. figure::  images/abeille_9.png
    :align:   center
    
-Repetimos el mismo proceso anterior para la creación de dos *text fields* denominados ``txtX`` y ``txtY``. Además también hemos utilizando la herramienta explicada anterior *Increase column span*, ampliamos el rango de ocupación de estas cajas de texto.
+Repetimos el mismo proceso anterior para la creación de dos *text fields* denominados ``txtX`` y ``txtY``.
 
 .. figure::  images/abeille_10.png
    :align:   center
 
-También añadiremos un botón que nos permitirá cerrar la aplicación.
+A esta columna en la que se situan las cajas de texto, vamos a dotarla de la posibilidad de agrandarse en caso necesario, por ejemplo, si el usuario agranda la ventana. Esta opción ayudará a mantener a la correcta visualización de la interfaz, y nos da la opción de detallar los componentes que permitimos que cambien de tamaño.
 
-.. figure::  images/abeille_11.png
+Para ello, vamos a seleccionar alguna celda situada en la columna que contiene los componentes de Cajas de Texto, y vamos a ir al menu de arriba :menuselection:`Column --> Resize: Grow`.
+
+.. figure::  images/abeille_101.png
    :align:   center
 
-Le otorgaremos de nombre de componente ``btnClose`` y de texto en el componente ``Cerrar``.
+Vemos como ya la previsualización del formulario ha cambiado, apareciendo más grande haciendo uso de esta columna designada:
 
-.. figure::  images/abeille_12.png
+.. figure::  images/abeille_102.png
    :align:   center
 
-Una de las ventajas de dotarle a este componente el nombre de ``btnClose``, es que la clase ``FormPanel`` que explicamos después, ya dotará automáticamente a este botón la capacidad de cerrar la aplicación.
+El siguiente paso es crear espacio para los botones de la aplicación, que en este caso, serán dos. El primer botón destinado a realizar una acción que será la de Centrar: ``btnCenter``, y otro botón destinado a cerrar la aplicación: ``btnClose``.
 
-Una vez acabada la interfaz podemos eliminar las columnas restantes de la cuadrícula.
+Para tener mayor libertad de configuración en la posición y tamaño de estos botones, así como de ayudar a una correcta visualización de la interfaz, vamos a hacerlo de la siguiente manera.
 
-.. figure::  images/abeille_13.png
-   :align:   center
-   
-Y filas restantes.
+Primero vamos a insertar un componente de tipo "Embedded Form". Esta opción nos permite insertar un formulario dentro de otro.
 
-.. figure::  images/abeille_14.png
+.. figure::  images/abeille_103.png
    :align:   center
 
-Una vez tenemos la interfaz preparada, la guardamos.
+Situaremos el nuevo componente debajo de la última etiqueta, dejando una fila de separación:
 
-.. figure::  images/abeille_15.png
-   :align:   center
-   
-Guardamos el formulario en formato .xml donde esté o vayamos a crear nuestro script.
-
-.. figure::  images/abeille_guardado.png
+.. figure::  images/abeille_104.png
    :align:   center
 
-Ya estaría listo la creación de nuestra interfaz para ser usada desde scripting.
-   
-En cualquier momento podremos realizar cambios en este interfaz. Por ejemplo, hemos decidido ampliar la funcionalidad de nuestro script, y en este caso necesitamos añadir un botón nuevo de *Centrar*, de nombre ``btnCenter``. Solo tendremos que abrir la interfaz con Abeille, modificarla, y guardarla.
+Nos aparecerá una ventana para indicar qué tamaño de formulario queremos insertar, le indicaremos 4 columnas y 1 fila. De esta forma tendremos espacio para situar los dos botones y dejar separación entre ellos.
 
-.. figure::  images/abeille_17.png
+.. figure::  images/abeille_105.png
    :align:   center
 
+Dando como resultado algo similar a:
 
+.. figure::  images/abeille_106.png
+   :align:   center
 
+Una vez insertado, le indicaremos que ocupe también las siguientes dos columnas, de la misma forma que hicimos con la primera etiqueta Coordenadas, usando ``Increse Column Span``.
+
+.. figure::  images/abeille_107.png
+   :align:   center
+
+Dejando una fila de separación para el borde de abajo, podemos eliminar también el resto de filas sobrantes. El resultado será similar al siguiente:
+
+.. figure::  images/abeille_108.png
+   :align:   center
+
+Vamos a indicarle que este subformulario se alinea a la derecha de la celda en la que está contenido. Presionamos sobre la celda que contiene el subformulario y a la derecha en :menuselection:`Form Properties --> Cell --> Alignment --> Horizontal --> RIGHT`, quedando como resultado:
+
+.. figure::  images/abeille_109.png
+   :align:   center
+
+Ahora ya podemos crear los botones en este subformulario, ``btnCenter`` y ``btnClose``. Seleccionamos la opción jButton:
+
+.. figure::  images/abeille_110.png
+   :align:   center
+
+Y situamos los dos botones dentro del subformulario:
+
+.. figure::  images/abeille_111.png
+   :align:   center
+
+Está la opción de ampliar este subformulario por si nos enfrentamos a un caso más complicado:
+
+.. figure::  images/abeille_112.png
+   :align:   center
+
+Aparecerá el formulario en una pestaña diferente:
+
+.. figure::  images/abeille_113.png
+   :align:   center
+
+Con esto ya tendremos la interfaz preparada, solo tendremos que guardarla en el mismo directorio del script que estábamos creando con extensión ``.xml``:
+
+.. figure::  images/abeille_114.png
+   :align:   center
+
+En cualquier momento podremos realizar cambios en este interfaz abriendo el fichero ``.xml`` de nuevo desde el Abeille.
+
+Aquí vemos como responde la aplicación a diferentes tamaños que le vamos dando:
+
+.. figure::  images/abeille_115.png
+   :align:   center
+
+También tenemos muchas más opciones que nos permiten configurar con más detalle la forma de reaccionar de nuestros componentes en la interfaz, como por ejemplo, en el menu de opciones de Columna:
+
+.. figure::  images/abeille_116.png
+   :align:   center
 
 Uso de FormPanel
 ----------------

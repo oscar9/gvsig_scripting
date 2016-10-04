@@ -114,8 +114,8 @@ Es recomendable importar tan solo las librerías necesarias para la ejecución d
 
 Si nuestro script contiene otras librerías propias que también hemos programado, al realizar su importación podemos forzar la recarga de estas librerías (sino los cambios no se verán reflejados) utilizando la función `reload()`. La forma correcta de hacerlo sería::
 
-	import lib
-	reload(lib)
+    import lib
+    reload(lib)
 
 Creación de un script
 ---------------------
@@ -153,22 +153,22 @@ Los scripts creados se almacenan en la carpeta de gvSIG ``C:\Users\*\gvSIG\plugi
 Ahora nos disponemos a escribir nuestro primer script. El ejemplo que nos viene por defecto es totalmente válido:
 
 .. code-block:: python
-	:linenos:
-	:emphasize-lines: 5
-	:caption: primer_script.py
-	:name: primer-script
-	
-	# encoding: utf-8
+    :linenos:
+    :emphasize-lines: 5
+    :caption: primer_script.py
+    :name: primer-script
 
-	import gvsig
+    # encoding: utf-8
 
-	def main(*args):
+    import gvsig
 
-		#Remove this lines and add here your code
+    def main(*args):
 
-		print "hola mundo"
-		pass
-	   
+        #Remove this lines and add here your code
+
+        print "hola mundo"
+        pass
+
 En primer lugar, realiza una importación de la librería que vamos a utilizar, la librería de scripting ``gvsig``, y luego define dentro de la función principal main(), el comando print que hará salir nuestro valor por consola.
 
 .. figure::  images/scripting_composer_2.png
@@ -178,7 +178,7 @@ En Scripting en gvSIG, la función que se va a ejecutar por defecto **será siem
 
 .. note::
 
-	Todos nuestros scripts deben de contener la función main() para su correcta ejecución. No será obligatorio si van a ser usados como librerías.
+   Todos nuestros scripts deben de contener la función main() para su correcta ejecución. No será obligatorio si van a ser usados como librerías.
 
 .. |saveandexecute| image:: images/icon-saveandexecute.png
 .. |save| image:: images/icon-save.png
@@ -202,9 +202,9 @@ Si queremos comprobar nuestros scripts en el disco duro estarán en la carpeta:
 En esta carpeta podemos copiar o pegar los scripts, fijándonos en copiar ambos archivos ``.py`` y ``.inf``.
 
 .. note::
-	
-	Lo recomendable es generar los scripts dentro de su propia carpeta. Esto nos permitirá usarlos como módulos dandonos varias opciones: usar ficheros autorun.py (autoejecutable al inicio de gvSIG), fichero __init__.py (nos permitirá trabajar como si fuera un módulo permitiendonos importar librerías que estén en la misma carpeta) y la creación de paquetes de Scripts
-	
+
+    Lo recomendable es generar los scripts dentro de su propia carpeta. Esto nos permitirá usarlos como módulos dandonos varias opciones: usar ficheros autorun.py (autoejecutable al inicio de gvSIG), fichero __init__.py (nos permitirá trabajar como si fuera un módulo permitiendonos importar librerías que estén en la misma carpeta) y la creación de paquetes de Scripts
+
 Generando paquetes de scripts
 -----------------------------
 
