@@ -22,7 +22,7 @@ Aparece en la imagen el programa Abeille con el ejemplo de coordenadas.xml abier
 Ejemplo de uso
 --------------
 
-Descargar el ejemplo explicado a continuación: :download:`CentrarCoordenadas <ejemplos/gvSIG-desktop-2.3.0-centrar_coordenadas-1.0.0-0-testing-all-all-j1_7.gvspkg>`
+Descargar el ejemplo explicado a continuación: :download:`CentrarCoordenadas <ejemplos/gvSIG-desktop-2.3.0-centrar_coordenadas-1.0.0-2-testing-all-all-j1_7.gvspkg>`
 
 
 .. figure::  images/abeille_1.png
